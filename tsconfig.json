@@ -3,7 +3,7 @@
         "noImplicitAny": true,
         "module": "ESNext",
         "target": "ES5",
-        "jsx": "react",
+        "jsx": "react-jsx",
         "allowJs": false,
         "moduleResolution": "node",
         // use "import" instead "import * as"
