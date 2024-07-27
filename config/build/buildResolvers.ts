@@ -5,7 +5,7 @@ import { BuildOptions } from "./types";
 function buildResolvers(options: BuildOptions): ResolveOptions {
 
     return {
-        extensions: ['.tsx', '.ts'],
+        extensions: ['.tsx', '.ts', '.jsx', '.js'],
     }
 }
 

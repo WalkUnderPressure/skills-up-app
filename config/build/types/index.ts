@@ -8,5 +8,12 @@ export type BuildPaths = {
 
 export type BuildOptions = {
     mode: BuildMode,
+    isDev: boolean,
     paths: BuildPaths,
+    port: number,
+}
+
+export type BuildEnv = {
+    port: number,
+    mode: BuildMode,
 }

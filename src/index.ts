@@ -1,3 +1,5 @@
 import { doWork } from './doWork'
 
-doWork('TS')
+const message = doWork('TS and WebPack!')
+
+document.body.innerHTML = `<h1>Hello, ${message}</h1>`
