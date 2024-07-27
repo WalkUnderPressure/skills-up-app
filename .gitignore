@@ -1,0 +1,5 @@
+# Exclude paclages from git
+node_modules
+
+# Exclude build directory
+build

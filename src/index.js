@@ -1,6 +1,3 @@
-function doCalc(params) {
-    console.log('Start do calc with: ', params);
-    return params
-}
+import { doCalc } from './doCalc'
 
-export { doCalc }
+doCalc('JS')
