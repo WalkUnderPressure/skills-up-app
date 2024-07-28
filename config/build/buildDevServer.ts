@@ -6,9 +6,10 @@ function buildDevServer(options: BuildOptions): WebpackDevServerConfiguration {
     const { port } = options
 
     return {
-        port,
         liveReload: true,
         open: true,
+        port,
+        historyApiFallback: true,
     }
 }
 
