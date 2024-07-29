@@ -8,7 +8,11 @@
         "moduleResolution": "node",
         // use "import" instead "import * as"
         "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": {
+            "*": ["./src/*"]
+        }
     },
     "ts-node": {
         "compilerOptions": {

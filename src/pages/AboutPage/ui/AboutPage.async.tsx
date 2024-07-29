@@ -5,7 +5,7 @@
 //     setTimeout(() => resolve(import('./AboutPage')), 2000)
 // )));
 
-import { asyncPageGenerator } from '../asyncPageGenerator'
+import { asyncPageGenerator } from '../../lib/asyncPageGenerator'
 
 const AboutPageAsync = asyncPageGenerator(import('./AboutPage'));
 

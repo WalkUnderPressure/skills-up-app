@@ -1,6 +1,6 @@
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
-import { ETheme, LS_THEME_KEY, ThemeContext } from './ThemeContext';
+import { ETheme, LS_THEME_KEY, ThemeContext } from '../lib/ThemeContext';
 
 const defaultTheme = localStorage.getItem(LS_THEME_KEY) as ETheme || ETheme.Light;
 
