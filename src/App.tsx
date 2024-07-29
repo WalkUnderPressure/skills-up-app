@@ -5,16 +5,21 @@ import { Suspense } from 'react';
 import AboutPageAsync from './pages/AboutPage/AboutPage.async';
 import HomePageAsync from './pages/HomePage/HomePage.async';
 import Counter from './components/Counter';
+import useTheme from './theme/useTheme';
 import './styles/index.scss'
 
 export default function App() {
+  const { theme, switchTheme } = useTheme();
+
   return (
-    <div className='app'>
+    <div className={`app ${theme}`}>
       <nav>
         <Link to='/'>Home</Link>
         <Link to='/about'>About</Link>
         <Link to='/count'>Count</Link>
       </nav>
+
+      <button onClick={switchTheme}>Now {theme} theme using!</button>
 
       <Suspense fallback={<div>LOADING . . .</div>}>
         <Routes>
