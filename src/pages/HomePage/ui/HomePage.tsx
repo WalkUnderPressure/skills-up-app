@@ -1,6 +1,12 @@
+import { useTranslation } from "react-i18next"
+
 function HomePage() {
+  const { t } = useTranslation('pages.home')
+
   return (
-    <div>HomePage</div>
+    <div>
+      <h3>{t('title', { defaultValue: 'Home page' })}</h3>
+    </div>
   )
 }
 

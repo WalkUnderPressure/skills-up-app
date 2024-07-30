@@ -3,3 +3,6 @@ node_modules
 
 # Exclude build directory
 /build/
+
+# Exclude editor folders
+.vscode

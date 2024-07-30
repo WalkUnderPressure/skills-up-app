@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LangSwitcher } from 'widgets/LangSwitcher';
 import { Button } from 'shared/ui/Button';
 import classNames from 'shared/lib/classNames';
 import ArrowRightLine from 'shared/assets/icons/arrow-right-line.svg'
@@ -27,6 +28,8 @@ function Sidebar(props: SidebarProps) {
 
             <div className={cls.switchers}>
                 <ThemeSwitcher />
+
+                <LangSwitcher />
             </div>
         </div>
     )
