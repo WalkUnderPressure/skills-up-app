@@ -6,6 +6,31 @@ import { BuildOptions } from "./types";
 function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
   const { isDev } = options
 
+  const babelPlugins = []
+  if (isDev) {
+    babelPlugins.push('react-refresh/babel')
+  }
+
+  const babelLoader = {
+    test: /\.[jt]sx?$/,
+    exclude: /node_modules/,
+    use: [
+      {
+        loader: 'babel-loader',
+        options: {
+          plugins: babelPlugins,
+        },
+      },
+    ],
+  }
+
+  // If not using TS, need include "babel-loader"
+  const tsLoader =  {
+    test: /\.tsx?$/,
+    use: 'ts-loader',
+    exclude: /node_modules/,
+  }
+
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -32,13 +57,6 @@ function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
     ],
   }
 
-  // If not using TS, need include "babel-loader"
-  const tsLoader =  {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  }
-
   const svgLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
@@ -55,6 +73,7 @@ function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
   }
 
   return [
+    babelLoader,
     tsLoader,
     cssLoader,
     svgLoader,

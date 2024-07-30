@@ -10,6 +10,7 @@ function buildDevServer(options: BuildOptions): WebpackDevServerConfiguration {
         open: true,
         port,
         historyApiFallback: true,
+        hot: true,
     }
 }
 

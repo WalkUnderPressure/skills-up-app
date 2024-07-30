@@ -1,13 +1,15 @@
-import { ProgressPlugin, WebpackPluginInstance, DefinePlugin } from "webpack"
-import HtmlWebpackPlugin from "html-webpack-plugin"
+import { ProgressPlugin, WebpackPluginInstance, DefinePlugin, HotModuleReplacementPlugin } from "webpack"
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import HtmlWebpackPlugin from "html-webpack-plugin"
+
 
 import { BuildOptions } from "./types"
 
 function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance> {
     const { paths: { html }, isDev } = options
 
-    return [
+    const plugins = [
         new ProgressPlugin(),
         new HtmlWebpackPlugin({
             template: html,
@@ -18,8 +20,17 @@ function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance> {
         }),
         new DefinePlugin({
             __IS_DEV__: isDev,
-        })
+        }),
     ]
+
+    if(isDev) {
+        plugins.push(...[
+            new HotModuleReplacementPlugin(),
+            new ReactRefreshWebpackPlugin(),
+        ])
+    }
+
+    return plugins
 }
 
 export default buildPlugins
