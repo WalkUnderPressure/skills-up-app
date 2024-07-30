@@ -39,9 +39,26 @@ function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
     exclude: /node_modules/,
   }
 
+  const svgLoader = {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    use: ['@svgr/webpack'],
+  }
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  }
+
   return [
     tsLoader,
     cssLoader,
+    svgLoader,
+    fileLoader,
   ]
 }
 
