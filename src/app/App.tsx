@@ -1,6 +1,7 @@
 import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/AppRouter';
 import classNames from 'shared/lib/classNames';
+import { Sidebar } from 'widgets/Sidebar';
 import { Navbar } from 'widgets/Navbar';
 import './styles/index.scss'
 
@@ -11,7 +12,10 @@ export default function App() {
     <div className={classNames('app', {}, [theme])}>
       <Navbar />
 
-      <AppRouter />
+      <div className='page-layout'>
+        <Sidebar />
+        <AppRouter />
+      </div>
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { AppLink } from 'shared/ui/AppLink';
 import classNames from 'shared/lib/classNames'
 import * as cls from './Navbar.module.scss'
@@ -12,8 +11,6 @@ function Navbar(props: NavbarProps) {
 
   return (
     <nav className={classNames(cls.Navbar, {}, [className])}>
-        <ThemeSwitcher />
-
         <AppLink to='/'>Home</AppLink>
         <AppLink to='/about'>About</AppLink>
     </nav>
