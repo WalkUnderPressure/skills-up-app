@@ -1,0 +1,10 @@
+.Navbar {
+    width: 100%;
+    height: var(--navbar-h);
+    background-color: var(--inverted-bg-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
