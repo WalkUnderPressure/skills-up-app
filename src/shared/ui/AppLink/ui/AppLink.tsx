@@ -19,7 +19,7 @@ const AppLink = (props: AppLinkProps) => {
   const { className, children, theme = AppLinkTheme.PRIMARY, ...restLinkProps } = props;
 
   return (
-    <Link {...restLinkProps} className={classNames(cls.AppLink, {}, [className, cls[theme]])}>
+    <Link {...restLinkProps} className={classNames(cls['app-link'], {}, [className, cls[theme]])}>
       {children}
     </Link>
   );

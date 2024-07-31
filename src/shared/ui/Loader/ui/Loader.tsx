@@ -13,7 +13,7 @@ const Loader = (props: LoaderProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls.Loader, {}, [className])}>
+    <div className={classNames(cls.loader, {}, [className])}>
       {`${String(t('loading', { defaultValue: 'Loading' })).toUpperCase()} . . .`}
     </div>
   );

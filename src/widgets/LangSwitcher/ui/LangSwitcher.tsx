@@ -35,7 +35,7 @@ const LangSwitcher = (props: LangSwitcherProps) => {
       name="lang"
       onChange={changeLang}
       value={i18n.language}
-      className={classNames(cls.LangSwitcher, {}, [className])}
+      className={classNames(cls['lang-switcher'], {}, [className])}
     >
       {LANGS.map((option) => {
         const { title, value } = option;

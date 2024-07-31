@@ -1,12 +1,10 @@
-.Sidebar {
+.sidebar {
     display: flex;
     flex-direction: column;
-
     height: calc(100vh - var(--navbar-h));
     width: var(--sidebar-w);
     background-color: var(--inverted-bg-color);
     position: relative;
-
     transition-property: width;
     transition-duration: 400ms;
     transition-timing-function: ease-in-out;

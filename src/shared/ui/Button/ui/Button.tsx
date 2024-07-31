@@ -14,7 +14,7 @@ const Button = (props: ButtonProps) => {
   const { className, theme = ButtonTheme.CLEAR, children, ...restProps } = props;
 
   return (
-    <button {...restProps} className={classNames(cls.Button, {}, [className, cls[theme]])}>
+    <button {...restProps} className={classNames(cls.button, {}, [className, cls[theme]])}>
       {children}
     </button>
   );

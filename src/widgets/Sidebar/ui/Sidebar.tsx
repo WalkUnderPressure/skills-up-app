@@ -21,7 +21,7 @@ const Sidebar = (props: SidebarProps) => {
   }, []);
 
   return (
-    <div className={classNames(cls.Sidebar, { [cls.collapsed]: isCollapsed }, [className])}>
+    <div className={classNames(cls.sidebar, { [cls.collapsed]: isCollapsed }, [className])}>
       <Button onClick={switchCollapsed}>
         <ArrowRightLine />
       </Button>

@@ -21,7 +21,7 @@ const ThemeSwitcher = (props: ThemeSwitcherProps) => {
   const { theme, switchTheme } = useTheme();
 
   return (
-    <Button className={classNames(cls.ThemeSwitcher, {}, [className])} onClick={switchTheme}>
+    <Button className={classNames(cls['theme-switcher'], {}, [className])} onClick={switchTheme}>
       {THEME_ICONS[theme]}
     </Button>
   );
