@@ -7,13 +7,13 @@ import { ThemeProvider } from 'app/providers/ThemeProvider';
 const container = document.getElementById('root');
 
 if (container) {
-    const root = createRoot(container);
+  const root = createRoot(container);
 
-    root.render(
-        <BrowserRouter>
-            <ThemeProvider>
-                <App />
-            </ThemeProvider>
-        </BrowserRouter>
-    );
+  root.render(
+    <BrowserRouter>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>,
+  );
 }

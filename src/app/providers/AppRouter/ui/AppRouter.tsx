@@ -4,22 +4,20 @@ import { Suspense } from 'react';
 import { routerConfig } from 'shared/config/routerConfig';
 import { Loader } from 'shared/ui/Loader';
 
-function AppRouter() {
+const AppRouter = () => {
   return (
-    <div className='page-wrapper'>
+    <div className="page-wrapper">
       <Suspense fallback={<Loader />}>
         <Routes>
           {Object.values(routerConfig).map((routeProps) => {
-            const { path, element } = routeProps
+            const { path, element } = routeProps;
 
-            return (
-              <Route key={path} path={path} element={element} />
-            )
+            return <Route key={path} path={path} element={element} />;
           })}
         </Routes>
       </Suspense>
     </div>
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;

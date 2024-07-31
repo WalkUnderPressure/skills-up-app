@@ -1,28 +1,23 @@
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 
 import classNames from 'shared/lib/classNames';
+import { ButtonTheme } from '../types';
 import * as cls from './Button.module.scss';
 
-export enum ButtonTheme {
-    CLEAR = 'clear',
-}
-
 type ButtonProps = {
-    className?: string,
-    theme?: ButtonTheme,
-} & PropsWithChildren & ButtonHTMLAttributes<HTMLButtonElement>
+  className?: string;
+  theme?: ButtonTheme;
+} & PropsWithChildren &
+  ButtonHTMLAttributes<HTMLButtonElement>;
 
-function Button(props: ButtonProps) {
-    const { className, theme = ButtonTheme.CLEAR, children, ...restProps } = props
+const Button = (props: ButtonProps) => {
+  const { className, theme = ButtonTheme.CLEAR, children, ...restProps } = props;
 
-    return (
-        <button
-            {...restProps}
-            className={classNames(cls.Button, {}, [className, cls[theme]])}
-        >
-            {children}
-        </button>
-    )
-}
+  return (
+    <button {...restProps} className={classNames(cls.Button, {}, [className, cls[theme]])}>
+      {children}
+    </button>
+  );
+};
 
-export default Button
+export default Button;

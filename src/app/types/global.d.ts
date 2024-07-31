@@ -1,16 +1,14 @@
-declare module "*.module.scss" {
-    const classes: { [key: string]: string };
-    export = classes;
+declare module '*.module.scss' {
+  const classes: { [key: string]: string };
+  export = classes;
 }
 
-declare module "*.svg" {
-    import { FunctionComponent, SVGProps } from "react";
-  
-    const ReactComponent: FunctionComponent<
-      SVGProps<SVGSVGElement> & { title?: string }
-    >;
+declare module '*.svg' {
+  import { FunctionComponent, SVGProps } from 'react';
 
-    export default ReactComponent;
+  const ReactComponent: FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>;
+
+  export default ReactComponent;
 }
 
 declare module '*.png';

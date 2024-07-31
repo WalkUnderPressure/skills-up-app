@@ -6,11 +6,11 @@ import classNames from 'shared/lib/classNames';
 import { Loader } from 'shared/ui/Loader';
 import { Sidebar } from 'widgets/Sidebar';
 import { Navbar } from 'widgets/Navbar';
-import './styles/index.scss'
+import './styles/index.scss';
 
-import 'shared/config/i18n'
+import 'shared/config/i18n';
 
-export default function App() {
+const App = () => {
   const { theme } = useTheme();
 
   return (
@@ -18,11 +18,13 @@ export default function App() {
       <Suspense fallback={<Loader />}>
         <Navbar />
 
-        <div className='page-layout'>
+        <div className="page-layout">
           <Sidebar />
           <AppRouter />
         </div>
       </Suspense>
     </div>
   );
-}
+};
+
+export default App;

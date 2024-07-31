@@ -1,5 +1,3 @@
-import AppLink from "./ui/AppLink";
+import AppLink from './ui/AppLink';
 
-export {
-    AppLink,
-}
+export { AppLink };

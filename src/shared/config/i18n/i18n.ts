@@ -4,23 +4,23 @@ import Backend from 'i18next-http-backend';
 import i18n, { InitOptions } from 'i18next';
 
 i18n
-    .use(Backend)
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({        
-        lng: 'en',
-        supportedLngs: ['en', 'uk'],
-        fallbackLng: 'en',
-        load: 'currentOnly',
+  .use(Backend)
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    lng: 'en',
+    supportedLngs: ['en', 'uk'],
+    fallbackLng: 'en',
+    load: 'currentOnly',
 
-        ns: 'common',
-        defaultNS: 'common',
+    ns: 'common',
+    defaultNS: 'common',
 
-        debug: __IS_DEV__,
+    debug: __IS_DEV__,
 
-        backend: {
-            loadPath: '/locales/{{lng}}/{{ns}}.json',
-        },
-    } as InitOptions);
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
+    },
+  } as InitOptions);
 
 export default i18n;

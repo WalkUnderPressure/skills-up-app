@@ -1,14 +1,14 @@
-import { RuleSetRule } from "webpack";
+import { RuleSetRule } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-import { BuildOptions } from "./types";
+import { BuildOptions } from './types';
 
 function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
-  const { isDev } = options
+  const { isDev } = options;
 
-  const babelPlugins = []
+  const babelPlugins = [];
   if (isDev) {
-    babelPlugins.push('react-refresh/babel')
+    babelPlugins.push('react-refresh/babel');
   }
 
   const babelLoader = {
@@ -22,46 +22,44 @@ function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
         },
       },
     ],
-  }
+  };
 
   // If not using TS, need include "babel-loader"
-  const tsLoader =  {
+  const tsLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
     exclude: /node_modules/,
-  }
+  };
 
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
       // !IMPORTANT: Order of loaders matters
       isDev
-        // Creates `style` nodes from JS strings
-        ? "style-loader"
-        // Extracts CSS into separate files
-        : MiniCssExtractPlugin.loader,
+        ? // Creates `style` nodes from JS strings
+          'style-loader'
+        : // Extracts CSS into separate files
+          MiniCssExtractPlugin.loader,
       // Translates CSS into CommonJS
       {
-        loader: "css-loader",
+        loader: 'css-loader',
         options: {
           modules: {
             auto: true,
-            localIdentName: isDev
-              ? "[path][name]__[local]--[hash:base64:8]"
-              : "[hash:base64:8]",
+            localIdentName: isDev ? '[path][name]__[local]--[hash:base64:8]' : '[hash:base64:8]',
           },
-        },        
+        },
       },
       // Compiles Sass to CSS
-      "sass-loader",
+      'sass-loader',
     ],
-  }
+  };
 
   const svgLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
     use: ['@svgr/webpack'],
-  }
+  };
 
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
@@ -70,15 +68,9 @@ function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
         loader: 'file-loader',
       },
     ],
-  }
+  };
 
-  return [
-    babelLoader,
-    tsLoader,
-    cssLoader,
-    svgLoader,
-    fileLoader,
-  ]
+  return [babelLoader, tsLoader, cssLoader, svgLoader, fileLoader];
 }
 
-export default buildLoaders
+export default buildLoaders;

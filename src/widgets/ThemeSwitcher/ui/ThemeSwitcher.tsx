@@ -3,31 +3,28 @@ import classNames from 'shared/lib/classNames';
 import { Button } from 'shared/ui/Button';
 import * as cls from './ThemeSwitcher.module.scss';
 
-import ThemeLight from 'shared/assets/icons/theme-light.svg'
-import ThemeDark from 'shared/assets/icons/theme-dark.svg'
+import ThemeLight from 'shared/assets/icons/theme-light.svg';
+import ThemeDark from 'shared/assets/icons/theme-dark.svg';
 
 type ThemeSwitcherProps = {
-    className?: string,
-}
+  className?: string;
+};
 
 const THEME_ICONS = {
-    [ETheme.Light]: <ThemeLight transform='scale(0.7)' />,
-    [ETheme.Dark]: <ThemeDark transform='scale(0.7)' />,
-}
+  [ETheme.Light]: <ThemeLight transform="scale(0.7)" />,
+  [ETheme.Dark]: <ThemeDark transform="scale(0.7)" />,
+};
 
-function ThemeSwitcher(props: ThemeSwitcherProps) {
-    const { className } = props
-    
-    const { theme, switchTheme } = useTheme();
+const ThemeSwitcher = (props: ThemeSwitcherProps) => {
+  const { className } = props;
 
-    return (
-        <Button
-            className={classNames(cls.ThemeSwitcher, {}, [className])}
-            onClick={switchTheme}
-        >
-            {THEME_ICONS[theme]}
-        </Button>
-    )
-}
+  const { theme, switchTheme } = useTheme();
 
-export default ThemeSwitcher
+  return (
+    <Button className={classNames(cls.ThemeSwitcher, {}, [className])} onClick={switchTheme}>
+      {THEME_ICONS[theme]}
+    </Button>
+  );
+};
+
+export default ThemeSwitcher;

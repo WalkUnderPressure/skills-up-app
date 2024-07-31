@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 
-import HtmlImage from 'shared/assets/images/html.png'
+import HtmlImage from 'shared/assets/images/html.png';
 
-function AboutPage() {
-  const { t } = useTranslation('pages.about')
+const AboutPage = () => {
+  const { t } = useTranslation('pages.about');
 
   return (
     <div>
@@ -11,7 +11,7 @@ function AboutPage() {
 
       <img src={HtmlImage} />
     </div>
-  )
-}
+  );
+};
 
-export default AboutPage
+export default AboutPage;
