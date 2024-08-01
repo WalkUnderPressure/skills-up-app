@@ -5,6 +5,7 @@
   "scripts": {
     "build": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
+    "build:analyze": "webpack --env mode=production analyze=true",
     "dev": "webpack serve",
     "lint:ts": "npx eslint",
     "lint:ts:fix": "npx eslint --fix",
@@ -28,6 +29,7 @@
     "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
     "@types/webpack": "^5.28.5",
+    "@types/webpack-bundle-analyzer": "^4.7.0",
     "@types/webpack-dev-server": "^4.7.2",
     "babel-jest": "^29.7.0",
     "babel-loader": "^9.1.3",
@@ -56,6 +58,7 @@
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.18.0",
     "webpack": "^5.93.0",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
   },
