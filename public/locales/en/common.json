@@ -3,5 +3,6 @@
         "home": "Home",
         "about": "About"
     },
-    "loading": "Loading"
+    "loading": "Loading",
+    "page_not_found": "Sorry! Page not found!"
 }

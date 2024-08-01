@@ -1,6 +1,6 @@
 import { ComponentType, lazy } from 'react';
 
-const PAGE_LOAD_DELAY = 1000;
+const PAGE_LOAD_DELAY = 1500;
 
 export const asyncPageGenerator = (factory: Promise<{ default: ComponentType }>) => {
   // Use for production

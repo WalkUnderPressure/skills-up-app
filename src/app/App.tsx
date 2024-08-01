@@ -3,7 +3,6 @@ import { Suspense } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/AppRouter';
 import classNames from 'shared/lib/classNames';
-import { Loader } from 'shared/ui/Loader';
 import { Sidebar } from 'widgets/Sidebar';
 import { Navbar } from 'widgets/Navbar';
 import './styles/index.scss';
@@ -15,7 +14,8 @@ const App = () => {
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback={<Loader />}>
+      {/* Empty fallback="" need for smooth render */}
+      <Suspense fallback="">
         <Navbar />
 
         <div className="page-layout">
