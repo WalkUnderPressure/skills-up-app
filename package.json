@@ -12,7 +12,6 @@
     "lint:scss:fix": "npx stylelint --fix '**/*.scss'",
     "test:unit": "jest --config ./config/jest/jest.config.ts"
   },
-  "type": "module",
   "keywords": [],
   "author": "Oleksandr Brynzei",
   "license": "ISC",
