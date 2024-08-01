@@ -1,0 +1,19 @@
+.page-error-banner {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+    background-color: rgb(128 128 128 / 50%);
+    font: var(--font-l);
+
+    &__btn {
+        padding: 16px;
+        background-color: rgb(51 51 51);
+        color: #FFF;
+        border-radius: 16px;
+        font: var(--font-m);
+    }
+}

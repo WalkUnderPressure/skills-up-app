@@ -31,7 +31,14 @@ function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance> {
   ];
 
   if (isDev) {
-    plugins.push(...[new HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()]);
+    plugins.push(
+      ...[
+        new HotModuleReplacementPlugin(),
+        new ReactRefreshWebpackPlugin({
+          overlay: false,
+        }),
+      ],
+    );
   }
 
   return plugins;

@@ -4,5 +4,10 @@
         "about": "About"
     },
     "loading": "Loading",
-    "page_not_found": "Sorry! Page not found!"
+    "page_not_found": "Sorry! Page not found!",
+    "error_boundary": {
+        "title": "Sorry, unexpected error occurred! Try to reload page.",
+        "action-btn": "Reload page",
+        "throw_error": "Throw error!"
+    }
 }

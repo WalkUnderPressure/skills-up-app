@@ -11,6 +11,9 @@ function buildDevServer(options: BuildOptions): WebpackDevServerConfiguration {
     port,
     historyApiFallback: true,
     hot: true,
+    client: {
+      overlay: false,
+    },
   };
 }
 
