@@ -24,6 +24,11 @@ const config: Config = {
   testPathIgnorePatterns: ['/node_modules/'],
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
   watchPathIgnorePatterns: ['/node_modules/'],
+  setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
+  moduleNameMapper: {
+    // '\\.(css|scss)$': 'identity-obj-proxy',
+    '\\.(css|scss)$': '<rootDir>config/jest/identity-obj-proxy-esm.js',
+  },
 
   // Whether to use watchman for file crawling
   // watchman: true,
