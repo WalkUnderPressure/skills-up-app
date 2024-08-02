@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback } from 'react';
+import { ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import classNames from 'shared/lib/classNames';
@@ -24,11 +24,11 @@ const LangSwitcher = (props: LangSwitcherProps) => {
 
   const { i18n } = useTranslation();
 
-  const changeLang = useCallback((event: ChangeEvent<HTMLSelectElement>) => {
+  const changeLang = async (event: ChangeEvent<HTMLSelectElement>) => {
     const nextLang = event.target.value;
 
-    i18n.changeLanguage(nextLang);
-  }, []);
+    await i18n.changeLanguage(nextLang);
+  };
 
   return (
     <select

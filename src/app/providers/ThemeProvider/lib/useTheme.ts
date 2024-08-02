@@ -1,4 +1,4 @@
-import { useCallback, useContext } from 'react';
+import { useContext } from 'react';
 
 import { ETheme, ThemeContext } from './ThemeContext';
 
@@ -11,7 +11,7 @@ function useTheme() {
 
   const { theme, setTheme } = themeContext;
 
-  const switchTheme = useCallback(() => {
+  const switchTheme = () => {
     let nextTheme = ETheme.Dark;
 
     if (theme === ETheme.Dark) {
@@ -19,7 +19,7 @@ function useTheme() {
     }
 
     setTheme(nextTheme);
-  }, [theme]);
+  };
 
   return { theme, switchTheme };
 }

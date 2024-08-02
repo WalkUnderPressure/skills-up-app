@@ -1,4 +1,4 @@
-import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
+import { PropsWithChildren, useMemo, useState } from 'react';
 
 import { ETheme, LS_THEME_KEY, ThemeContext } from '../lib/ThemeContext';
 
@@ -9,12 +9,12 @@ const ThemeProvider = (props: PropsWithChildren) => {
 
   const [theme, setTheme] = useState<ETheme>(defaultTheme);
 
-  const updateTheme = useCallback((nextTheme: ETheme) => {
+  const updateTheme = (nextTheme: ETheme) => {
     setTheme(() => {
       localStorage.setItem(LS_THEME_KEY, nextTheme);
       return nextTheme;
     });
-  }, []);
+  };
 
   const defaultProviderProps = useMemo(() => ({ theme, setTheme: updateTheme }), [theme]);
 

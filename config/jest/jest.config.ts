@@ -26,8 +26,8 @@ const config: Config = {
   watchPathIgnorePatterns: ['/node_modules/'],
   setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
   moduleNameMapper: {
-    // '\\.(css|scss)$': 'identity-obj-proxy',
-    '\\.(css|scss)$': '<rootDir>config/jest/identity-obj-proxy-esm.js',
+    '\\.(css|scss)$': '<rootDir>config/jest/mappers/identity-obj-proxy-esm.js',
+    '\\.(svg)$': '<rootDir>config/jest/mappers/jest-empty-component.tsx',
   },
 
   // Whether to use watchman for file crawling

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
@@ -9,20 +9,24 @@ import * as cls from './Sidebar.module.scss';
 
 type SidebarProps = {
   className?: string;
+  dataTestId?: string;
 };
 
 const Sidebar = (props: SidebarProps) => {
-  const { className } = props;
+  const { className, dataTestId } = props;
 
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const switchCollapsed = useCallback(() => {
+  const switchCollapsed = () => {
     setIsCollapsed((prevCollapsed) => !prevCollapsed);
-  }, []);
+  };
 
   return (
-    <div className={classNames(cls.sidebar, { [cls.collapsed]: isCollapsed }, [className])}>
-      <Button onClick={switchCollapsed}>
+    <div
+      data-testid={dataTestId || Sidebar.dataTestId}
+      className={classNames(cls.sidebar, { [cls.collapsed]: isCollapsed }, [className])}
+    >
+      <Button onClick={switchCollapsed} data-testid={Sidebar.switcherDataTestId}>
         <ArrowRightLine />
       </Button>
 
@@ -34,5 +38,8 @@ const Sidebar = (props: SidebarProps) => {
     </div>
   );
 };
+
+Sidebar.dataTestId = 'Sidebar';
+Sidebar.switcherDataTestId = 'SidebarSwitcherBtn';
 
 export default Sidebar;
