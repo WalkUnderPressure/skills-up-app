@@ -16,8 +16,8 @@ const Navbar = (props: NavbarProps) => {
 
   return (
     <nav className={classNames(cls.navbar, {}, [className])}>
-      <AppLink to="/">{t('navbar.home')}</AppLink>
-      <AppLink to="/about">{t('navbar.about')}</AppLink>
+      <AppLink to="/">{t('navbar.home', { defaultValue: 'Home' })}</AppLink>
+      <AppLink to="/about">{t('navbar.about', { defaultValue: 'About' })}</AppLink>
 
       {__IS_DEV__ && <BugButton />}
     </nav>

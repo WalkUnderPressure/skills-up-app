@@ -1,13 +1,19 @@
 .app-link {
     text-decoration: none;
     font-size: 1rem;
-    color: var(--bg-color);
 }
 
 .primary {
-    color: var(--inverted-primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 .secondary {
-    color: var(--inverted-secondary-color);
+    color: var(--secondary-color);
+    font-weight: 200;
+}
+
+.warning {
+    color: var(--warning-color);
+    font-weight: 900;
 }

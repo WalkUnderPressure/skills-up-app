@@ -13,7 +13,7 @@
         padding: 16px;
         background-color: rgb(51 51 51);
         color: #FFF;
-        border-radius: 16px;
+        border-radius: var(--radius-m);
         font: var(--font-m);
     }
 }

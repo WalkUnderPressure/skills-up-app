@@ -6,3 +6,5 @@ node_modules
 
 # Exclude editor folders
 .vscode
+
+*storybook.log

@@ -11,7 +11,7 @@ type ButtonProps = {
   ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = (props: ButtonProps) => {
-  const { className, theme = ButtonTheme.CLEAR, children, ...restProps } = props;
+  const { className, theme = '', children, ...restProps } = props;
 
   return (
     <button {...restProps} className={classNames(cls.button, {}, [className, cls[theme]])}>

@@ -2,12 +2,19 @@ import { PropsWithChildren, useMemo, useState } from 'react';
 
 import { ETheme, LS_THEME_KEY, ThemeContext } from '../lib/ThemeContext';
 
-const defaultTheme = (localStorage.getItem(LS_THEME_KEY) as ETheme) || ETheme.Light;
+export const DEFAULT_ALT_THEME = ETheme.Dark;
+export const DEFAULT_THEME = ETheme.Light;
 
-const ThemeProvider = (props: PropsWithChildren) => {
-  const { children } = props;
+const defaultTheme = (localStorage.getItem(LS_THEME_KEY) as ETheme) || DEFAULT_THEME;
 
-  const [theme, setTheme] = useState<ETheme>(defaultTheme);
+type ThemeProviderProps = {
+  initTheme?: ETheme;
+} & PropsWithChildren;
+
+const ThemeProvider = (props: ThemeProviderProps) => {
+  const { children, initTheme } = props;
+
+  const [theme, setTheme] = useState<ETheme>(initTheme || defaultTheme);
 
   const updateTheme = (nextTheme: ETheme) => {
     setTheme(() => {

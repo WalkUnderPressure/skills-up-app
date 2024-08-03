@@ -1,6 +1,6 @@
-import { ETheme, useTheme } from 'app/providers/ThemeProvider';
+import { DEFAULT_THEME, ETheme, useTheme } from 'app/providers/ThemeProvider';
+import { Button, ButtonTheme } from 'shared/ui/Button';
 import classNames from 'shared/lib/classNames';
-import { Button } from 'shared/ui/Button';
 import * as cls from './ThemeSwitcher.module.scss';
 
 import ThemeLight from 'shared/assets/icons/theme-light.svg';
@@ -18,10 +18,14 @@ const THEME_ICONS = {
 const ThemeSwitcher = (props: ThemeSwitcherProps) => {
   const { className } = props;
 
-  const { theme, switchTheme } = useTheme();
+  const { theme = DEFAULT_THEME, switchTheme } = useTheme();
 
   return (
-    <Button className={classNames(cls['theme-switcher'], {}, [className])} onClick={switchTheme}>
+    <Button
+      theme={ButtonTheme.CLEAR}
+      className={classNames(cls['theme-switcher'], {}, [className])}
+      onClick={switchTheme}
+    >
       {THEME_ICONS[theme]}
     </Button>
   );

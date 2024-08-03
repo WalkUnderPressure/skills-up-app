@@ -1,3 +1,12 @@
 .lang-switcher {
     display: flex;
+    background-color: var(--inverted-bg-color);
+    border: none;
+    outline: none;
+    border-radius: var(--radius-m);
+    padding: 8px;
+    user-select: none;
+    cursor: pointer;
+    font: var(--font-m);
+    color: var(--inverted-primary-color);
 }

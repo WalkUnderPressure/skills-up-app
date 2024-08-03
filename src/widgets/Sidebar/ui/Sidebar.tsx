@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { Button } from 'shared/ui/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button';
 import classNames from 'shared/lib/classNames';
 import ArrowRightLine from 'shared/assets/icons/arrow-right-line.svg';
 import * as cls from './Sidebar.module.scss';
@@ -26,7 +26,11 @@ const Sidebar = (props: SidebarProps) => {
       data-testid={dataTestId || Sidebar.dataTestId}
       className={classNames(cls.sidebar, { [cls.collapsed]: isCollapsed }, [className])}
     >
-      <Button onClick={switchCollapsed} data-testid={Sidebar.switcherDataTestId}>
+      <Button
+        theme={ButtonTheme.CLEAR}
+        onClick={switchCollapsed}
+        data-testid={Sidebar.switcherDataTestId}
+      >
         <ArrowRightLine />
       </Button>
 

@@ -7,6 +7,7 @@ import eslintReactRefresh from 'eslint-plugin-react-refresh';
 import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintI18nextPlugin from 'eslint-plugin-i18next';
+import eslintStorybookPlugin from 'eslint-plugin-storybook';
 
 /** @type {Array<import('eslint').Linter.Config>} */
 export default tseslint.config(
@@ -18,6 +19,7 @@ export default tseslint.config(
       'react-refresh': eslintReactRefresh,
       prettier: prettierPlugin,
       i18next: eslintI18nextPlugin,
+      storybook: eslintStorybookPlugin,
     },
     settings: {
       react: {

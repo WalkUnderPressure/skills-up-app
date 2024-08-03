@@ -13,7 +13,7 @@ const App = () => {
   const { theme } = useTheme();
 
   return (
-    <div className={classNames('app', {}, [theme])}>
+    <main className={classNames('app', {}, [theme])}>
       {/* Empty fallback="" need for smooth render */}
       <Suspense fallback="">
         <Navbar />
@@ -23,7 +23,7 @@ const App = () => {
           <AppRouter />
         </div>
       </Suspense>
-    </div>
+    </main>
   );
 };
 
