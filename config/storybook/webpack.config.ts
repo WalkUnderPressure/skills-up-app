@@ -1,6 +1,7 @@
 import { Configuration, DefinePlugin, RuleSetRule, WebpackPluginInstance } from 'webpack';
 import path from 'path';
 
+import buildMiniCssExtractPlugin from '../build/plugins/buildMiniCssExtractPlugin';
 import buildFileLoader from '../build/loaders/buildFileLoader';
 import buildCssLoader from '../build/loaders/buildCssLoader';
 import buildSvgLoader from '../build/loaders/buildSvgLoader';
@@ -21,6 +22,11 @@ export default ({ config }: StorybookWebpackConfig) => {
   // Setup for using css files
   const cssLoader = buildCssLoader({ isDev });
   config.module.rules.push(cssLoader);
+
+  // Add MiniCssExtractPlugin to plugins if it's production
+  if (!isDev) {
+    config.plugins.push(buildMiniCssExtractPlugin());
+  }
 
   // Setup for using svg
   config.module.rules = config.module.rules.filter((rule: RuleSetRule) => {

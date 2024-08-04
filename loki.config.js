@@ -1,5 +1,5 @@
 module.exports = {
-  diffingEngine: 'pixelmatch',
+  diffingEngine: 'looks-same',
   configurations: {
     'chrome.laptop': {
       target: 'chrome.docker',
