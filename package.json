@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "webpack serve",
-    "build": "webpack --env mode=production",
+    "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "build:analyze": "webpack --env mode=production analyze=true",
     "lint:ts": "npx eslint",
@@ -14,6 +14,7 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui:run": "npx loki test --port 9000",
     "test:ui:update": "npx loki approve --port 9000",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "storybook:dev": "storybook dev -p 9000 -c ./config/storybook --no-open",
     "storybook:build": "storybook build -c ./config/storybook"
   },

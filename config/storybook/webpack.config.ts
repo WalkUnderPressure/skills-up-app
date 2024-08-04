@@ -44,7 +44,8 @@ export default ({ config }: StorybookWebpackConfig) => {
     (plugin: WebpackPluginInstance) => plugin instanceof DefinePlugin,
   );
   if (definePlugin) {
-    definePlugin.definitions['__IS_DEV__'] = isDev;
+    // Run code like in production
+    definePlugin.definitions['__IS_DEV__'] = false;
   }
 
   return config;

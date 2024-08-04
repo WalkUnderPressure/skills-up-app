@@ -28,7 +28,7 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['build', 'node_modules', 'coverage', 'eslint.config.js'],
+    ignores: ['build', 'storybook-static', 'node_modules', 'coverage', 'eslint.config.js'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
