@@ -1,12 +1,15 @@
 .lang-switcher {
+    --switcher-p: 8px;
+
     display: flex;
-    background-color: var(--inverted-bg-color);
+    background-color: var(--bg-color);
     border: none;
     outline: none;
     border-radius: var(--radius-m);
-    padding: 8px;
+    padding: var(--switcher-p);
     user-select: none;
     cursor: pointer;
     font: var(--font-m);
-    color: var(--inverted-primary-color);
+    color: var(--primary-color);
+    border-right: var(--switcher-p) solid transparent;
 }

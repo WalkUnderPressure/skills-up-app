@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from 'shared/ui/Button';
+import * as cls from './BugButton.module.scss';
 
 // Component for testing ErrorBoundary
 const BugButton = () => {
@@ -20,7 +21,7 @@ const BugButton = () => {
   };
 
   return (
-    <Button onClick={throwError}>
+    <Button onClick={throwError} className={cls['bug-button']}>
       {t('error_boundary.throw_error', { defaultValue: 'Throw error!' })}
     </Button>
   );
