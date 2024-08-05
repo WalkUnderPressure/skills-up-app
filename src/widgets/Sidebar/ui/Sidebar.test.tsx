@@ -1,13 +1,13 @@
 import { fireEvent, screen } from '@testing-library/react';
 
-import renderWithTranslations from 'shared/lib/tests/renderWithTranslations';
+import { renderWithProviders } from 'shared/config/tests/providers/renderWithProviders';
 import Sidebar from 'widgets/Sidebar/ui/Sidebar';
 
 describe('Sidebar', () => {
   test('Test that Sidebar render successfully', () => {
     const sidebarTestId = 'SidebarTestId';
 
-    renderWithTranslations(<Sidebar dataTestId={sidebarTestId} />);
+    renderWithProviders(<Sidebar dataTestId={sidebarTestId} />);
 
     expect(screen.getByTestId(sidebarTestId)).toBeInTheDocument();
     // screen.debug();
@@ -16,7 +16,7 @@ describe('Sidebar', () => {
   test('Test that Sidebar close successfully', () => {
     const sidebarTestId = 'SidebarTestId';
 
-    renderWithTranslations(<Sidebar dataTestId={sidebarTestId} />);
+    renderWithProviders(<Sidebar dataTestId={sidebarTestId} />);
     expect(screen.getByTestId(sidebarTestId)).toBeInTheDocument();
 
     const switcherBtn = screen.getByTestId(Sidebar.switcherDataTestId);
@@ -29,7 +29,7 @@ describe('Sidebar', () => {
   test('Test that Sidebar close and then open successfully', () => {
     const sidebarTestId = 'SidebarTestId';
 
-    renderWithTranslations(<Sidebar dataTestId={sidebarTestId} />);
+    renderWithProviders(<Sidebar dataTestId={sidebarTestId} />);
     expect(screen.getByTestId(sidebarTestId)).toBeInTheDocument();
 
     const switcherBtn = screen.getByTestId(Sidebar.switcherDataTestId);

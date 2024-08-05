@@ -28,6 +28,7 @@ const config: Config = {
   moduleNameMapper: {
     '\\.(css|scss)$': '<rootDir>config/jest/mappers/identity-obj-proxy-esm.js',
     '\\.(svg)$': '<rootDir>config/jest/mappers/jest-empty-component.tsx',
+    '\\.(jpg|jpeg|png)$': 'identity-obj-proxy',
   },
 
   // Whether to use watchman for file crawling

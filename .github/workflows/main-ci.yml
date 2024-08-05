@@ -38,4 +38,4 @@ jobs:
         run: npm run storybook:build
 
       - name: Run screenshot tests
-        run: npm run test:ui:ci
+        run: npm run test:sshot:ci

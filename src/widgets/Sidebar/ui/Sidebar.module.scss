@@ -1,6 +1,9 @@
 .sidebar {
+    --sidebar-padding: 24px;
+
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: calc(100vh - var(--navbar-h));
     width: var(--sidebar-w);
     background-color: var(--inverted-bg-color);
@@ -10,17 +13,98 @@
     transition-timing-function: ease-in-out;
 }
 
-.collapsed {
-    width: var(--sidebar-w-collapsed);
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    color: var(--inverted-primary-color);
+    list-style: none;
+    padding: var(--sidebar-padding);
+
+    &-item {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        font: var(--font-l);
+
+        &-li {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+        }
+
+        &-icon {
+            --icon-w: calc(var(--sidebar-w-collapsed) - var(--sidebar-padding) * 2);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: var(--icon-w);
+            min-width: var(--icon-w);
+            fill: var(--inverted-primary-color);
+        }
+
+        &:hover {
+            .menu-item-icon {
+                fill: var(--warning-color);
+            }
+
+            color: var(--warning-color);
+        }
+    }
+}
+
+.toggle-btn {
+    position: absolute;
+    bottom: var(--sidebar-padding);
+    right: calc(var(--font-line-xl) * -1);
+    border-radius: 0 var(--radius-m) var(--radius-m) 0;
+
+    &-icon {
+        transform: scaleX(-1);
+        fill: var(--bg-color);
+    }
 }
 
 .switchers {
     width: 100%;
     position: absolute;
-    bottom: 16px;
+    bottom: var(--sidebar-padding);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 16px;
+}
+
+.collapsed {
+    width: var(--sidebar-w-collapsed);
+
+    select {
+        padding: 4px;
+    }
+
+    .menu {
+        &-item {
+            &-label {
+                opacity: 0;
+                width: 0;
+                transition: all;
+                transition-duration: 250ms;
+                transition-timing-function: ease-in-out;
+            }
+        }
+    }
+
+    .switchers {
+        flex-direction: column;
+    }
+
+    .toggle-btn-icon {
+        transform: scaleX(1);
+    }
 }

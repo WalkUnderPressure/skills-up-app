@@ -10,3 +10,6 @@ node_modules
 # Exclude Storybook files and folders
 *storybook.log
 /storybook-static
+
+# Exclude report folder
+/.loki/report

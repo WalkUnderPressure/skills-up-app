@@ -7,7 +7,7 @@ function buildDevServer(options: BuildOptions): WebpackDevServerConfiguration {
 
   return {
     liveReload: true,
-    open: true,
+    open: false,
     port,
     historyApiFallback: true,
     hot: true,

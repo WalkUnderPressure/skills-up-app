@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
-import { ButtonTheme } from 'shared/ui/Button/types';
+import { ButtonTheme, ButtonSize } from 'shared/ui/Button/types';
 import Button from './Button';
 
 const meta = {
@@ -40,3 +40,60 @@ export const OutlineDark: Story = withOverriddenThemes({
     theme: ButtonTheme.OUTLINE,
   },
 })();
+
+export const OutlineSizeM: Story = {
+  args: {
+    theme: ButtonTheme.OUTLINE,
+    size: ButtonSize.M,
+  },
+};
+
+export const OutlineSizeL: Story = {
+  args: {
+    theme: ButtonTheme.OUTLINE,
+    size: ButtonSize.L,
+  },
+};
+
+export const OutlineSizeXL: Story = {
+  args: {
+    theme: ButtonTheme.OUTLINE,
+    size: ButtonSize.XL,
+  },
+};
+
+export const SquareSizeM: Story = {
+  args: {
+    size: ButtonSize.M,
+    isSquare: true,
+    children: '+',
+  },
+};
+
+export const SquareSizeL: Story = {
+  args: {
+    size: ButtonSize.L,
+    isSquare: true,
+    children: '+',
+  },
+};
+
+export const SquareSizeXL: Story = {
+  args: {
+    size: ButtonSize.XL,
+    isSquare: true,
+    children: '+',
+  },
+};
+
+export const BackgroundTheme: Story = {
+  args: {
+    theme: ButtonTheme.BG,
+  },
+};
+
+export const InvertedBackgroundTheme: Story = {
+  args: {
+    theme: ButtonTheme.BG_INVERTED,
+  },
+};

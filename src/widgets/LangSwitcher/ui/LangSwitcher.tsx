@@ -4,25 +4,32 @@ import { useTranslation } from 'react-i18next';
 import classNames from 'shared/lib/classNames';
 import * as cls from './LangSwitcher.module.scss';
 
-type LangSwitcherProps = {
-  className?: string;
-};
-
 const LANGS = [
   {
     title: 'EN',
+    titleKey: 'languages.full.en',
+    shortTitle: 'English',
+    shortTitleKey: 'languages.short.en',
     value: 'en',
   },
   {
-    title: 'UA',
+    title: 'UK',
+    titleKey: 'languages.full.uk',
+    shortTitle: 'Ukrainian',
+    shortTitleKey: 'languages.short.uk',
     value: 'uk',
   },
 ];
 
-const LangSwitcher = (props: LangSwitcherProps) => {
-  const { className } = props;
+type LangSwitcherProps = {
+  className?: string;
+  short?: boolean;
+};
 
-  const { i18n } = useTranslation();
+const LangSwitcher = (props: LangSwitcherProps) => {
+  const { className, short = false } = props;
+
+  const { i18n, t } = useTranslation();
 
   const changeLang = async (event: ChangeEvent<HTMLSelectElement>) => {
     const nextLang = event.target.value;
@@ -38,11 +45,16 @@ const LangSwitcher = (props: LangSwitcherProps) => {
       className={classNames(cls['lang-switcher'], {}, [className])}
     >
       {LANGS.map((option) => {
-        const { title, value } = option;
+        const { titleKey, title, shortTitleKey, shortTitle, value } = option;
+
+        const transKey = short ? shortTitleKey : titleKey;
+        const transDefaultValue = short ? shortTitle : title;
+
+        const label = t(transKey, { defaultValue: transDefaultValue });
 
         return (
           <option value={value} key={value}>
-            {title}
+            {label}
           </option>
         );
       })}

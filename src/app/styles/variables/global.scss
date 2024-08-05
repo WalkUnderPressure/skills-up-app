@@ -11,11 +11,18 @@
     --font-line-l: 32px;
     --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
+    // Font XL
+    --font-size-xl: 32px;
+    --font-line-xl: 40px;
+    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
     // navbar height
     --navbar-h: 50px;
     --sidebar-w: 320px;
     --sidebar-w-collapsed: 80px;
 
     // border radius
+    --radius-s: 4px;
     --radius-m: 8px;
+    --radius-l: 16px;
 }

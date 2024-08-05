@@ -1,4 +1,14 @@
 {
+    "languages": {
+        "full": {
+            "en": "English",
+            "uk": "Ukrainian"
+        },
+        "short": {
+            "en": "EN",
+            "uk": "UK"
+        }
+    },
     "navbar": {
         "home": "Home",
         "about": "About"

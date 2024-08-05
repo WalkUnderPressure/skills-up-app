@@ -6,6 +6,10 @@
 .primary {
     color: var(--primary-color);
     font-weight: 600;
+
+    &-inverted {
+        color: var(--inverted-primary-color);
+    }
 }
 
 .secondary {

@@ -21,6 +21,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {};
 
+export const PrimaryInverted: Story = {
+  args: {
+    theme: AppLinkTheme.PRIMARY_INVERTED,
+  },
+};
+
 export const PrimaryDark: Story = withOverriddenThemes({})();
 
 export const Secondary: Story = {
