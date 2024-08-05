@@ -11,5 +11,9 @@ node_modules
 *storybook.log
 /storybook-static
 
-# Exclude report folder
+# Exclude folder with report files
 /.loki/report
+
+# Exclude folders with temporary data
+/.loki/current
+/.loki/difference
