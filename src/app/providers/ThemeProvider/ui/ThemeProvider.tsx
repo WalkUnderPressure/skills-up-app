@@ -1,4 +1,4 @@
-import { PropsWithChildren, useMemo, useState } from 'react';
+import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
 import { ETheme, LS_THEME_KEY, ThemeContext } from '../lib/ThemeContext';
 
@@ -14,16 +14,30 @@ type ThemeProviderProps = {
 const ThemeProvider = (props: ThemeProviderProps) => {
   const { children, initTheme } = props;
 
-  const [theme, setTheme] = useState<ETheme>(initTheme || defaultTheme);
-
-  const updateTheme = (nextTheme: ETheme) => {
-    setTheme(() => {
-      localStorage.setItem(LS_THEME_KEY, nextTheme);
-      return nextTheme;
-    });
+  const updateThemeInExternalStorages = (nextTheme: ETheme) => {
+    localStorage.setItem(LS_THEME_KEY, nextTheme);
+    document.documentElement.dataset.theme = nextTheme;
   };
 
-  const defaultProviderProps = useMemo(() => ({ theme, setTheme: updateTheme }), [theme]);
+  const [theme, setTheme] = useState<ETheme>(() => {
+    const themeInitValue = initTheme || defaultTheme;
+
+    updateThemeInExternalStorages(themeInitValue);
+
+    return themeInitValue;
+  });
+
+  const updateTheme = useCallback((nextTheme: ETheme) => {
+    setTheme(() => {
+      updateThemeInExternalStorages(nextTheme);
+      return nextTheme;
+    });
+  }, []);
+
+  const defaultProviderProps = useMemo(
+    () => ({ theme, setTheme: updateTheme }),
+    [theme, updateTheme],
+  );
 
   return <ThemeContext.Provider value={defaultProviderProps}>{children}</ThemeContext.Provider>;
 };

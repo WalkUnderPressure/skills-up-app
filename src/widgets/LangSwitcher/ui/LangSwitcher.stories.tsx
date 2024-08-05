@@ -6,10 +6,6 @@ import LangSwitcher from './LangSwitcher';
 const meta = {
   title: 'Widgets/LangSwitcher',
   component: LangSwitcher,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
 } satisfies Meta<typeof LangSwitcher>;
 
 export default meta;

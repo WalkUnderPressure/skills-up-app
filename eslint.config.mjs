@@ -2,12 +2,13 @@ import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import eslintReact from 'eslint-plugin-react';
-import eslintReactHooks from 'eslint-plugin-react-hooks';
+import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import eslintReactRefresh from 'eslint-plugin-react-refresh';
 import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintI18nextPlugin from 'eslint-plugin-i18next';
 import eslintStorybookPlugin from 'eslint-plugin-storybook';
+import { fixupPluginRules } from '@eslint/compat';
 
 /** @type {Array<import('eslint').Linter.Config>} */
 export default tseslint.config(
@@ -15,7 +16,7 @@ export default tseslint.config(
     plugins: {
       '@typescript-eslint': tseslint.plugin,
       react: eslintReact,
-      'react-hooks': eslintReactHooks,
+      'react-hooks': fixupPluginRules(eslintPluginReactHooks),
       'react-refresh': eslintReactRefresh,
       prettier: prettierPlugin,
       i18next: eslintI18nextPlugin,
@@ -63,6 +64,7 @@ export default tseslint.config(
       'max-params': ['error', 3],
       'eol-last': ['error', 'always'],
       'i18next/no-literal-string': 'error',
+      ...eslintPluginReactHooks.configs.recommended.rules,
     },
   },
 );

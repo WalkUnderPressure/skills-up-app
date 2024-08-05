@@ -8,10 +8,6 @@ import Button from './Button';
 const meta = {
   title: 'Shared/Button',
   component: Button,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
   args: {
     children: 'Read more',
     onClick: fn(),
@@ -32,6 +28,12 @@ export const Clear: Story = {
 export const Outline: Story = {
   args: {
     theme: ButtonTheme.OUTLINE,
+  },
+};
+
+export const OutlineInverted: Story = {
+  args: {
+    theme: ButtonTheme.OUTLINE_INVERTED,
   },
 };
 

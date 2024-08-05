@@ -6,10 +6,6 @@ import HomePage from './HomePage';
 const meta = {
   title: 'Pages/HomePage',
   component: HomePage,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
 } satisfies Meta<typeof HomePage>;
 
 export default meta;

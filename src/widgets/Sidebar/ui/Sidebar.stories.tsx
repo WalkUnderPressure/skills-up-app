@@ -7,10 +7,6 @@ import Sidebar from './Sidebar';
 const meta = {
   title: 'Widgets/Sidebar',
   component: Sidebar,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
   decorators: StoryThemeDecorator,
 } satisfies Meta<typeof Sidebar>;
 

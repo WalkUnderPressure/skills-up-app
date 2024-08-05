@@ -4,8 +4,10 @@ import RoutingDecorator from 'shared/config/storybook/decorators/RoutingDecorato
 import StyleDecorator from 'shared/config/storybook/decorators/StyleDecorator';
 import ThemeDecorator from 'shared/config/storybook/decorators/ThemeDecorator';
 
+// Additional setup in preview-head.html
 const preview: Preview = {
   parameters: {
+    layout: 'centered',
     controls: {
       matchers: {
         color: /(background|color)$/i,

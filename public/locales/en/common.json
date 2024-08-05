@@ -9,6 +9,9 @@
             "uk": "UK"
         }
     },
+    "auth": {
+        "login": "LogIn"
+    },
     "navbar": {
         "home": "Home",
         "about": "About"

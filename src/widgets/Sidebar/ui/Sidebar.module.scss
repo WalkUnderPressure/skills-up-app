@@ -91,6 +91,7 @@
     .menu {
         &-item {
             &-label {
+                white-space: nowrap;
                 opacity: 0;
                 width: 0;
                 transition: all;

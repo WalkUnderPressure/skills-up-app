@@ -32,9 +32,17 @@
 }
 
 .outline {
-    background-color: transparent;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
+}
+
+.outline-inverted {
+    border: 1px solid var(--inverted-primary-color);
+    color: var(--inverted-primary-color);
+}
+
+.outline,.outline-inverted {
+    background-color: transparent;
     border-radius: var(--radius-m);
 }
 

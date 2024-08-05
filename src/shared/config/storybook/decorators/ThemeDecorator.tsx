@@ -1,16 +1,16 @@
-import { withThemeByClassName } from '@storybook/addon-themes';
+import { withThemeByDataAttribute } from '@storybook/addon-themes';
 
 import { DEFAULT_THEME, ETheme } from 'app/providers/ThemeProvider';
-import classNames from 'shared/lib/classNames';
 
-const genThemeClassName = (theme: ETheme) => classNames('app', {}, [theme]);
-
-const ThemeDecorator = withThemeByClassName({
+// Add theme as data attribute to <html/> element
+const ThemeDecorator = withThemeByDataAttribute({
   themes: {
-    [ETheme.Light]: genThemeClassName(ETheme.Light),
-    [ETheme.Dark]: genThemeClassName(ETheme.Dark),
+    [ETheme.Light]: ETheme.Light,
+    [ETheme.Dark]: ETheme.Dark,
   },
   defaultTheme: DEFAULT_THEME,
+  attributeName: 'data-theme',
+  parentSelector: 'html',
 });
 
 export default ThemeDecorator;

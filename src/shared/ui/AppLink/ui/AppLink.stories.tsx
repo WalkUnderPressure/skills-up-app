@@ -6,10 +6,6 @@ import AppLink, { AppLinkTheme } from './AppLink';
 const meta = {
   title: 'Shared/AppLink',
   component: AppLink,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
   args: {
     to: '/',
     children: 'Read more',

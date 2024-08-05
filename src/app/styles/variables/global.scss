@@ -25,4 +25,14 @@
     --radius-s: 4px;
     --radius-m: 8px;
     --radius-l: 16px;
+
+    // z-indexes
+    --z-modal: 10;
+    --z-hidden: -1;
+
+    // overlay
+    --overlay-bg: hsl(0deg 0 0 / 50%);
+
+    // animations
+    --transition-default: all 300ms ease-in-out;
 }
