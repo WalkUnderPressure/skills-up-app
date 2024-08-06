@@ -17,3 +17,6 @@ node_modules
 # Exclude folders with temporary data
 /.loki/current
 /.loki/difference
+
+# Exclude .loki/.gitignore
+/.loki/.gitignore
