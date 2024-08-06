@@ -31,7 +31,7 @@ export const Secondary: Story = {
   },
 };
 
-export const SecondaryDark: Story = withOverriddenThemes({
+export const SecondaryDark: Story = withOverriddenThemes<Story>({
   args: {
     theme: AppLinkTheme.SECONDARY,
   },
@@ -43,7 +43,7 @@ export const Warning: Story = {
   },
 };
 
-export const WarningDark: Story = withOverriddenThemes({
+export const WarningDark: Story = withOverriddenThemes<Story>({
   args: {
     theme: AppLinkTheme.WARNING,
   },

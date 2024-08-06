@@ -49,11 +49,11 @@
         }
 
         &:hover {
+            color: var(--warning-color);
+
             .menu-item-icon {
                 fill: var(--warning-color);
             }
-
-            color: var(--warning-color);
         }
     }
 }
