@@ -1,0 +1,43 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Start working!",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Do some things!",
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "title": "We are done!",
+      "userId": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "it was easy",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "YES!",
+      "postId": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin"
+    },
+    {
+      "id": 2,
+      "username": "user",
+      "password": "user"
+    }
+  ]
+}
