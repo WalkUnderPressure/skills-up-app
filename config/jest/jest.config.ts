@@ -30,6 +30,9 @@ const config: Config = {
     '\\.(svg)$': '<rootDir>config/jest/mappers/jest-empty-component.tsx',
     '\\.(jpg|jpeg|png)$': 'identity-obj-proxy',
   },
+  globals: {
+    __IS_DEV__: true,
+  },
 
   // Whether to use watchman for file crawling
   // watchman: true,
