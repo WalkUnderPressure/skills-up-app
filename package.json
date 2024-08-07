@@ -20,7 +20,8 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "report:sshot:gen": "npm run report:ui:json && npm run report:ui:html",
     "report:sshot:json": "npx ts-node scripts/gen-ui-json-report.ts",
-    "report:sshot:html": "reg-cli --from .loki/report/report.json --report .loki/report/report.html"
+    "report:sshot:html": "reg-cli --from .loki/report/report.json --report .loki/report/report.html",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "Oleksandr Brynzei",
@@ -71,6 +72,7 @@
     "file-loader": "^6.2.0",
     "globals": "^15.8.0",
     "html-webpack-plugin": "^5.6.0",
+    "husky": "^9.1.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",

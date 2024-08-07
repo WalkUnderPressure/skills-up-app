@@ -1,0 +1,18 @@
+# App production build
+npm run build:prod
+
+# Run linter for TS
+npm run lint:ts
+
+# Run linter for SCSS
+npm run lint:scss
+
+# Run unit tests
+npm run test:unit
+
+# ScreenShot testing (Disable when add remote CI)
+# Build Storybook
+npm run storybook:build
+
+# Run screenshot tests
+npm run test:sshot:ci
