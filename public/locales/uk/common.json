@@ -9,8 +9,9 @@
             "uk": "UK"
         }
     },
-    "auth": {
-        "login": "Ввійти"
+    "sign_in": {
+        "action": "Ввійти",
+        "form_title": "Форма входу"
     },
     "navbar": {
         "home": "Головна",

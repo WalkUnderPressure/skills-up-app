@@ -11,3 +11,9 @@ export enum ButtonSize {
   L = 'size-l',
   XL = 'size-xl',
 }
+
+export enum ButtonRounded {
+  S = 'rounded-s',
+  M = 'rounded-m',
+  L = 'rounded-l',
+}

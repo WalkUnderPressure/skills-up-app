@@ -1,4 +1,4 @@
-import { ButtonTheme, ButtonSize } from './types';
+import { ButtonTheme, ButtonSize, ButtonRounded } from './types';
 import Button from './ui/Button';
 
-export { Button, ButtonTheme, ButtonSize };
+export { Button, ButtonTheme, ButtonSize, ButtonRounded };

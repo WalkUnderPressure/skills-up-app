@@ -31,6 +31,18 @@
     border: none;
 }
 
+.rounded-s {
+    border-radius: var(--radius-s);
+}
+
+.rounded-m {
+    border-radius: var(--radius-m);
+}
+
+.rounded-l {
+    border-radius: var(--radius-l);
+}
+
 .outline {
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
@@ -43,11 +55,9 @@
 
 .outline,.outline-inverted {
     background-color: transparent;
-    border-radius: var(--radius-m);
 }
 
 .square {
-    border-radius: var(--radius-m);
     padding: 0;
     margin: 0;
 

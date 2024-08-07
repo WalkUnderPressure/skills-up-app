@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
+import { SignInByUsernameModal } from 'features/SignInByUsername';
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
-import { Modal, useModal } from 'shared/ui/Modal';
+import { Button, ButtonSize, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
+import { useModal } from 'shared/ui/Modal';
 import { AppLink } from 'shared/ui/AppLink';
 import classNames from 'shared/lib/classNames';
 import * as cls from './Navbar.module.scss';
@@ -24,13 +25,16 @@ const Navbar = (props: NavbarProps) => {
         {t('navbar.home', { defaultValue: 'Home' })}
       </AppLink>
 
-      <Button theme={ButtonTheme.OUTLINE_INVERTED} size={ButtonSize.L} onClick={openModal}>
-        {t('auth.login', { defaultValue: 'LogIn' })}
+      <Button
+        rounded={ButtonRounded.M}
+        theme={ButtonTheme.OUTLINE_INVERTED}
+        size={ButtonSize.L}
+        onClick={openModal}
+      >
+        {t('sign_in.action', { defaultValue: 'Sign in' })}
       </Button>
 
-      <Modal isOpen={isOpen} onClose={closeModal}>
-        <h3>{t('auth.login', { defaultValue: 'LogIn' })}</h3>
-      </Modal>
+      <SignInByUsernameModal isOpen={isOpen} onClose={closeModal} />
     </nav>
   );
 };

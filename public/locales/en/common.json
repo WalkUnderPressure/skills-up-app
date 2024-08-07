@@ -9,8 +9,9 @@
             "uk": "UK"
         }
     },
-    "auth": {
-        "login": "LogIn"
+    "sign_in": {
+        "action": "Sign in",
+        "form_title": "Sign in form"
     },
     "navbar": {
         "home": "Home",

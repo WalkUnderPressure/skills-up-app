@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 
 import classNames from 'shared/lib/classNames';
-import { ButtonTheme, ButtonSize } from '../types';
+import { ButtonTheme, ButtonSize, ButtonRounded } from '../types';
 import * as cls from './Button.module.scss';
 
 type ButtonProps = {
@@ -9,14 +9,15 @@ type ButtonProps = {
   theme?: ButtonTheme;
   size?: ButtonSize;
   isSquare?: boolean;
+  rounded?: ButtonRounded;
 } & PropsWithChildren &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = (props: ButtonProps) => {
-  const { className, theme = '', size = '', isSquare, children, ...restProps } = props;
+  const { className, theme = '', size = '', isSquare, rounded, children, ...restProps } = props;
 
+  const modClasses = { [cls.square]: isSquare, [cls[rounded]]: rounded };
   const addClasses = [className, cls[theme], cls[size]];
-  const modClasses = { [cls.square]: isSquare };
 
   return (
     <button {...restProps} className={classNames(cls.button, modClasses, addClasses)}>

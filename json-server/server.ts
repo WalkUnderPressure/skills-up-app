@@ -22,8 +22,8 @@ server.use(async (req, res, next) => {
   next();
 });
 
-// Login endpoint
-server.post('/login', (req, res) => {
+// Sign in endpoint
+server.post('/sign-in', (req, res) => {
   try {
     const { username, password } = req.body;
     const db: DBSchema = JSON.parse(

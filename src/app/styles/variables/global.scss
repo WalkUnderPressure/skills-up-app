@@ -1,6 +1,11 @@
 :root {
     --font-family-main: "Roboto Mono", monospace;
 
+    // Font S
+    --font-size-s: 12px;
+    --font-line-s: 16px;
+    --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
     // Font M
     --font-size-m: 16px;
     --font-line-m: 24px;

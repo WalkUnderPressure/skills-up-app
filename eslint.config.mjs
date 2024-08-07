@@ -67,4 +67,10 @@ export default tseslint.config(
       ...eslintPluginReactHooks.configs.recommended.rules,
     },
   },
+  {
+    files: ['**/*.stories.{ts,tsx}'],
+    rules: {
+      'max-lines': 'off',
+    },
+  },
 );
