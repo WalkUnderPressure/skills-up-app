@@ -1,4 +1,4 @@
-import { MouseEvent, PropsWithChildren, useCallback } from 'react';
+import { MouseEvent, PropsWithChildren, useCallback, useEffect, useState } from 'react';
 
 import useEventListener from 'shared/lib/hooks/useEventListener';
 import classNames from 'shared/lib/classNames';
@@ -9,10 +9,11 @@ type ModalProps = {
   className?: string;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 } & PropsWithChildren;
 
 const Modal = (props: ModalProps) => {
-  const { children, className, isOpen, onClose } = props;
+  const { children, className, isOpen, onClose, lazy = true } = props;
 
   const onCloseHandler = useCallback(() => {
     if (onClose) {
@@ -36,6 +37,18 @@ const Modal = (props: ModalProps) => {
   useEventListener('keydown', escClickHandler, { isNeedAddListener: isOpen });
 
   const mods = { [cls.open]: isOpen };
+
+  const [isNeedShow, setIsNeedShow] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsNeedShow(true);
+    }
+  }, [isOpen]);
+
+  if (lazy && !isNeedShow) {
+    return null;
+  }
 
   return (
     <Portal>

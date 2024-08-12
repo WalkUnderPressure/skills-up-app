@@ -24,7 +24,7 @@ const SignInForm = (props: SignInFormProps) => {
     <form onSubmit={onSubmitHandler} className={classNames(cls['sign-in-form'], {}, [className])}>
       <h3>{t('sign_in.form_title', { defaultValue: 'Sign in form' })}</h3>
 
-      <Input name="username" />
+      <Input autoFocus={true} name="username" />
 
       <Input name="password" />
 
