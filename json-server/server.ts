@@ -17,7 +17,7 @@ server.use(jsonServer.bodyParser);
 // Small delay for real server behavior imitation
 server.use(async (req, res, next) => {
   await new Promise((res) => {
-    setTimeout(res, 1000);
+    setTimeout(res, 2000);
   });
   next();
 });
@@ -36,6 +36,9 @@ server.post('/sign-in', (req, res) => {
     );
 
     if (userFromBd) {
+      // remove user password before send to client
+      delete userFromBd.password;
+
       return res.json(userFromBd);
     }
 

@@ -1,7 +1,5 @@
 import { createContext } from 'react';
 
-export const LS_THEME_KEY = 'theme';
-
 export enum ETheme {
   Dark = 'dark',
   Light = 'light',

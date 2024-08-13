@@ -8,6 +8,11 @@
     padding: 16px;
 }
 
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .size-m {
     height: var(--font-line-m);
     padding: 8px;

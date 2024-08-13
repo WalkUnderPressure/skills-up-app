@@ -10,11 +10,14 @@
     --inverted-primary-color: #fff;
     --inverted-secondary-color: #aaa;
 
-    // Input
+    // input
     --input-border: rgb(150 150 150);
     --input-border-focus: rgb(92 92 211);
     --input-border-error: rgb(196 0 0);
     --input-font-color: rgb(0 21 48);
     --input-label-color: rgb(0 89 153);
     --input-bg: rgb(255 255 255);
+
+    // text
+    --error-color: rgb(255 0 0);
 }

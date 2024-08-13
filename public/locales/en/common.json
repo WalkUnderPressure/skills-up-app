@@ -11,7 +11,11 @@
     },
     "sign_in": {
         "action": "Sign in",
-        "form_title": "Sign in form"
+        "form_title": "Sign in form",
+        "failed": "Can't sign-in with provided credentials!"
+    },
+    "sign_out": {
+        "action": "Sign out"
     },
     "navbar": {
         "home": "Home",

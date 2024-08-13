@@ -16,8 +16,12 @@ type ButtonProps = {
 const Button = (props: ButtonProps) => {
   const { className, theme = '', size = '', isSquare, rounded, children, ...restProps } = props;
 
-  const modClasses = { [cls.square]: isSquare, [cls[rounded]]: rounded };
   const addClasses = [className, cls[theme], cls[size]];
+  const modClasses = {
+    [cls.square]: isSquare,
+    [cls[rounded]]: rounded,
+    [cls.disabled]: props.disabled,
+  };
 
   return (
     <button {...restProps} className={classNames(cls.button, modClasses, addClasses)}>

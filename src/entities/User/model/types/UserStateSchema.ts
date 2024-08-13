@@ -3,6 +3,6 @@ type User = {
   username: string;
 };
 
-type UserStateSchema = { userAuthData?: User };
+type UserStateSchema = { authData?: User };
 
 export { UserStateSchema, User };

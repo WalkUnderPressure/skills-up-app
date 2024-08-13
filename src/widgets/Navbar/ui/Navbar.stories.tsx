@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
+import StoreDecorator from 'shared/config/storybook/decorators/StoreDecorator';
 import Navbar from './Navbar';
 
 const meta = {
@@ -11,6 +11,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {};
+export const Authorized: Story = {
+  decorators: StoreDecorator({ user: { authData: { id: 1, username: 'moderator' } } }),
+};
 
-export const Dark: Story = withOverriddenThemes({})();
+export const NotAuthorized: Story = {
+  decorators: StoreDecorator({
+    user: { authData: null },
+    'sign-in_username': { username: 'admin', password: '12345' },
+  }),
+};

@@ -19,9 +19,22 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
+export const DefaultDisabled: Story = {
+  args: {
+    disabled: true,
+  },
+};
+
 export const DefaultRoundedM: Story = {
   args: {
     rounded: ButtonRounded.M,
+  },
+};
+
+export const DefaultRoundedMDisabled: Story = {
+  args: {
+    rounded: ButtonRounded.M,
+    disabled: true,
   },
 };
 

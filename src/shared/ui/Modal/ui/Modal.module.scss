@@ -17,6 +17,7 @@
 }
 
 .content {
+    width: var(--modal-w);
     padding: 24px;
     background-color: var(--bg-color);
     color: var(--warning-color);

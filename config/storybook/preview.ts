@@ -1,8 +1,8 @@
 import type { Preview } from '@storybook/react';
 
+import AddonThemesDecorator from 'shared/config/storybook/decorators/AddonThemesDecorator';
 import RoutingDecorator from 'shared/config/storybook/decorators/RoutingDecorator';
 import StyleDecorator from 'shared/config/storybook/decorators/StyleDecorator';
-import ThemeDecorator from 'shared/config/storybook/decorators/ThemeDecorator';
 
 // Additional setup in preview-head.html
 const preview: Preview = {
@@ -15,7 +15,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [RoutingDecorator, StyleDecorator, ThemeDecorator],
+  decorators: [RoutingDecorator, StyleDecorator, AddonThemesDecorator],
   tags: ['autodocs'],
 };
 

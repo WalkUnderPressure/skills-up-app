@@ -1,6 +1,7 @@
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
-import { ETheme, LS_THEME_KEY, ThemeContext } from '../lib/ThemeContext';
+import { LS_THEME_KEY } from 'shared/constants/localStorage';
+import { ETheme, ThemeContext } from '../lib/ThemeContext';
 
 export const DEFAULT_ALT_THEME = ETheme.Dark;
 export const DEFAULT_THEME = ETheme.Light;

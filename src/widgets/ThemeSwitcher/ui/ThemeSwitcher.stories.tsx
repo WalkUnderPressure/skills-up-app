@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import StoryThemeDecorator from 'shared/config/storybook/decorators/StoryThemeDecorator';
+import AppThemeProviderDecorator from 'shared/config/storybook/decorators/AppThemeProviderDecorator';
 import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const meta = {
   title: 'Widgets/ThemeSwitcher',
   component: ThemeSwitcher,
-  decorators: StoryThemeDecorator,
+  decorators: AppThemeProviderDecorator,
 } satisfies Meta<typeof ThemeSwitcher>;
 
 export default meta;
