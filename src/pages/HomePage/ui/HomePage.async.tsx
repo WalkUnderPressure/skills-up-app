@@ -1,5 +1,6 @@
-import asyncPageGenerator from '../../lib/asyncPageGenerator';
+import generateAsyncComponent from 'shared/lib/helpers/generateAsyncComponent';
+import { HomePageProps } from './HomePage';
 
-const HomePageAsync = asyncPageGenerator(import('./HomePage'));
+const HomePageAsync = generateAsyncComponent<HomePageProps>(import('./HomePage'));
 
 export default HomePageAsync;

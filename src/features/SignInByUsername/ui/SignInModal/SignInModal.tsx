@@ -1,5 +1,5 @@
 import { Modal } from 'shared/ui/Modal';
-import SignInForm from '../SignInForm/SignInForm';
+import SignInFormAsync from '../SignInForm/SignInForm.async';
 
 type SignInModalProps = {
   className?: string;
@@ -12,7 +12,7 @@ const SignInModal = (props: SignInModalProps) => {
 
   return (
     <Modal className={className} isOpen={isOpen} onClose={onClose}>
-      <SignInForm />
+      <SignInFormAsync />
     </Modal>
   );
 };

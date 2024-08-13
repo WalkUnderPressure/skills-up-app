@@ -12,7 +12,7 @@ import { getSignInState } from '../../model/selectors/getSignInState';
 import { signInActions } from '../../model/slice/signInSlice';
 import * as cls from './SignInForm.module.scss';
 
-type SignInFormProps = {
+export type SignInFormProps = {
   className?: string;
 };
 

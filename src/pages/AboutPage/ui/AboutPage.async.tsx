@@ -5,8 +5,9 @@
 //     setTimeout(() => resolve(import('./AboutPage')), 2000)
 // )));
 
-import { asyncPageGenerator } from '../../lib/asyncPageGenerator';
+import generateAsyncComponent from 'shared/lib/helpers/generateAsyncComponent';
+import { AboutPageProps } from './AboutPage';
 
-const AboutPageAsync = asyncPageGenerator(import('./AboutPage'));
+const AboutPageAsync = generateAsyncComponent<AboutPageProps>(import('./AboutPage'));
 
 export default AboutPageAsync;
