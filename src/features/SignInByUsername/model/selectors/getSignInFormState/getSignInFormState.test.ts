@@ -1,9 +1,9 @@
 import { StoreStateSchema } from 'app/providers/StoreProvider';
 import { SignInSchema } from '../../types/SignInSchema';
-import getSignInState from './getSignInState';
+import getSignInFormState from '.';
 
-describe('getSignInState', () => {
-  test('getSignInState check get part of state', () => {
+describe('getSignInFormState', () => {
+  test('get sign-in form state from filled store', () => {
     const expectedResult: SignInSchema = {
       username: 'admin',
       password: 'admin',
@@ -16,8 +16,13 @@ describe('getSignInState', () => {
       'sign-in_username': expectedResult,
     };
 
-    const actualResult = getSignInState(state as StoreStateSchema);
+    const actualResult = getSignInFormState(state as StoreStateSchema);
 
     expect(actualResult).toEqual(expectedResult);
+  });
+
+  test('get sign-in form state from empty store', () => {
+    const actualResult = getSignInFormState({} as StoreStateSchema);
+    expect(actualResult).toEqual({});
   });
 });

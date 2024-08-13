@@ -1,9 +1,9 @@
 import { StoreStateSchema } from 'app/providers/StoreProvider';
 import { User } from '../../types/UserStateSchema';
-import getUserAuthData from './getUserAuthData';
+import getUserAuthData from '.';
 
 describe('getUserAuthData', () => {
-  test('getUserAuthData check get part of state', () => {
+  test('get user auth data from filled store', () => {
     const expectedResult: User = { id: 1, username: 'moderator' };
 
     const state: DeepPartial<StoreStateSchema> = {
@@ -15,5 +15,10 @@ describe('getUserAuthData', () => {
     const actualResult = getUserAuthData(state as StoreStateSchema);
 
     expect(actualResult).toEqual(expectedResult);
+  });
+
+  test('get user auth data from empty store', () => {
+    const actualResult = getUserAuthData({} as StoreStateSchema);
+    expect(actualResult).toEqual(null);
   });
 });

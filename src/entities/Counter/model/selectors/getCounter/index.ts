@@ -1,3 +1,5 @@
-import getCounter from './getCounter';
+import { StoreStateSchema } from 'app/providers/StoreProvider';
 
-export { getCounter };
+const getCounter = (state: StoreStateSchema) => state.counter;
+
+export default getCounter;

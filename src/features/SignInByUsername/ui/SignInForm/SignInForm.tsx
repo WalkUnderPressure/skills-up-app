@@ -8,9 +8,13 @@ import { Button, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
 import { Text, TextTheme } from 'shared/ui/Text';
 import classNames from 'shared/lib/classNames';
 import { Input } from 'shared/ui/Input';
+import getSignInFormIsLoading from '../../model/selectors/getSignInFormIsLoading';
+import getSignInFormErrorCode from '../../model/selectors/getSignInFormErrorCode';
+import getSignInFormUsername from '../../model/selectors/getSignInFormUsername';
+import getSignInFormPassword from '../../model/selectors/getSignInFormPassword';
+import getSignInFormIsFailed from '../../model/selectors/getSignInFormIsFailed';
 import { signInActions, signInReducer } from '../../model/slice/signInSlice';
 import { signInByUsername } from '../../model/services/signInByUsername';
-import { getSignInState } from '../../model/selectors/getSignInState';
 import * as cls from './SignInForm.module.scss';
 
 const SignInReducers: ReducersMap = {
@@ -26,7 +30,12 @@ const SignInForm = memo((props: SignInFormProps) => {
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { username, password, isLoading, isFailed, errorCode } = useSelector(getSignInState) || {};
+
+  const username = useSelector(getSignInFormUsername);
+  const password = useSelector(getSignInFormPassword);
+  const isLoading = useSelector(getSignInFormIsLoading);
+  const isFailed = useSelector(getSignInFormIsFailed);
+  const errorCode = useSelector(getSignInFormErrorCode);
 
   const onSubmitHandler = useCallback(
     (event: ChangeEvent<HTMLFormElement>) => {

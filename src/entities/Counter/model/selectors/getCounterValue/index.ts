@@ -1,3 +1,7 @@
-import getCounterValue from './getCounterValue';
+import { createSelector } from '@reduxjs/toolkit';
 
-export { getCounterValue };
+import getCounter from '../getCounter';
+
+const getCounterValue = createSelector(getCounter, (counter) => counter?.value || 0);
+
+export default getCounterValue;

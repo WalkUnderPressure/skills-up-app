@@ -1,8 +1,8 @@
 import { StoreStateSchema } from 'app/providers/StoreProvider';
-import getCounterValue from './getCounterValue';
+import getCounterValue from '.';
 
 describe('getCounterValue', () => {
-  test('getCounterValue check get part of state', () => {
+  test('get counter value from filled store', () => {
     const expectedResult = 10;
 
     const state: DeepPartial<StoreStateSchema> = {
@@ -12,5 +12,10 @@ describe('getCounterValue', () => {
     const actualResult = getCounterValue(state as StoreStateSchema);
 
     expect(actualResult).toEqual(expectedResult);
+  });
+
+  test('get counter value from empty store', () => {
+    const actualResult = getCounterValue({} as StoreStateSchema);
+    expect(actualResult).toEqual(0);
   });
 });
