@@ -1,6 +1,8 @@
+import { EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@reduxjs/toolkit';
+
+import { SignInByUsernameSchema } from 'features/SignInByUsername';
 import { CounterStateSchema } from 'entities/Counter';
 import { UserStateSchema } from 'entities/User';
-import { SignInByUsernameSchema } from 'features/SignInByUsername';
 
 type StoreStateSchema = {
   counter: CounterStateSchema;
@@ -8,4 +10,25 @@ type StoreStateSchema = {
   'sign-in_username'?: SignInByUsernameSchema;
 };
 
-export default StoreStateSchema;
+type StoreReducersMapObject = ReducersMapObject<StoreStateSchema>;
+
+type StoreStateSchemaKeys = keyof StoreStateSchema;
+
+type ReducerManager = {
+  getReducerMap: () => StoreReducersMapObject;
+  reduce: (state: StoreStateSchema, action: UnknownAction) => StoreStateSchema;
+  add: (name: StoreStateSchemaKeys, reducer: Reducer) => void;
+  remove: (name: StoreStateSchemaKeys) => void;
+};
+
+interface ReduxStoreWithManager extends EnhancedStore<StoreStateSchema> {
+  reducerManager: ReducerManager;
+}
+
+export {
+  StoreStateSchema,
+  StoreStateSchemaKeys,
+  StoreReducersMapObject,
+  ReduxStoreWithManager,
+  ReducerManager,
+};

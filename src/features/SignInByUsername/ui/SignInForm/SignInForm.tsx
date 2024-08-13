@@ -2,15 +2,20 @@ import { useTranslation } from 'react-i18next';
 import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
 import { SignInByUsernameErrorCode } from 'features/SignInByUsername';
 import { Button, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
 import { Text, TextTheme } from 'shared/ui/Text';
 import classNames from 'shared/lib/classNames';
 import { Input } from 'shared/ui/Input';
+import { signInActions, signInReducer } from '../../model/slice/signInSlice';
 import { signInByUsername } from '../../model/services/signInByUsername';
 import { getSignInState } from '../../model/selectors/getSignInState';
-import { signInActions } from '../../model/slice/signInSlice';
 import * as cls from './SignInForm.module.scss';
+
+const SignInReducers: ReducersMap = {
+  'sign-in_username': signInReducer,
+};
 
 export type SignInFormProps = {
   className?: string;
@@ -21,7 +26,7 @@ const SignInForm = memo((props: SignInFormProps) => {
 
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { username, password, isLoading, isFailed, errorCode } = useSelector(getSignInState);
+  const { username, password, isLoading, isFailed, errorCode } = useSelector(getSignInState) || {};
 
   const onSubmitHandler = useCallback(
     (event: ChangeEvent<HTMLFormElement>) => {
@@ -57,31 +62,35 @@ const SignInForm = memo((props: SignInFormProps) => {
   }, [errorCode, t]);
 
   return (
-    <form onSubmit={onSubmitHandler} className={classNames(cls['sign-in-form'], {}, [className])}>
-      <h3>{t('sign_in.form_title', { defaultValue: 'Sign in form' })}</h3>
+    <DynamicReducerProvider reducers={SignInReducers}>
+      <form onSubmit={onSubmitHandler} className={classNames(cls.form, {}, [className])}>
+        <h3 className={classNames(cls.title)}>
+          {t('sign_in.form_title', { defaultValue: 'Sign in form' })}
+        </h3>
 
-      <Input
-        name="username"
-        onChange={onChangeUsername}
-        value={username}
-        disabled={isLoading}
-        autoFocus={true}
-      />
+        <Input
+          name="username"
+          onChange={onChangeUsername}
+          value={username}
+          disabled={isLoading}
+          autoFocus={true}
+        />
 
-      <Input
-        name="password"
-        onChange={onChangePassword}
-        value={password}
-        disabled={isLoading}
-        type="password"
-      />
+        <Input
+          name="password"
+          onChange={onChangePassword}
+          value={password}
+          disabled={isLoading}
+          type="password"
+        />
 
-      {Boolean(isFailed && errorCode) && <Text theme={TextTheme.ERROR} text={errorMessage} />}
+        {Boolean(isFailed && errorCode) && <Text theme={TextTheme.ERROR} text={errorMessage} />}
 
-      <Button rounded={ButtonRounded.M} theme={ButtonTheme.BG_INVERTED} disabled={isLoading}>
-        {t('sign_in.action', { defaultValue: 'Sign in' })}
-      </Button>
-    </form>
+        <Button rounded={ButtonRounded.M} theme={ButtonTheme.BG_INVERTED} disabled={isLoading}>
+          {t('sign_in.action', { defaultValue: 'Sign in' })}
+        </Button>
+      </form>
+    </DynamicReducerProvider>
   );
 });
 

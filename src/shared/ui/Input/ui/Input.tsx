@@ -14,7 +14,15 @@ type InputProps = {
 } & HtmlInputProps;
 
 const Input = memo((props: InputProps) => {
-  const { className, errorMessage, label, value, onChange, type = 'text', ...restProps } = props;
+  const {
+    className,
+    errorMessage,
+    label,
+    value = '',
+    onChange,
+    type = 'text',
+    ...restProps
+  } = props;
 
   const inputId = useId();
 

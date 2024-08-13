@@ -18,6 +18,8 @@
 
 .content {
     width: var(--modal-w);
+    min-height: var(--modal-min-h);
+    display: flex;
     padding: 24px;
     background-color: var(--bg-color);
     color: var(--warning-color);

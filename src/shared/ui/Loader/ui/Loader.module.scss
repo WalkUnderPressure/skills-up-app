@@ -1,6 +1,7 @@
 .loader {
     width: 60px;
     aspect-ratio: 4;
+    margin: auto;
 
     --loader-bg: no-repeat radial-gradient(circle closest-side, var(--inverted-bg-color) 90%,#0000);
 

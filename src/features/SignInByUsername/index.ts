@@ -1,5 +1,5 @@
-import { signInActions, signInReducer } from './model/slice/signInSlice';
 import { SignInErrorCode, SignInSchema } from './model/types/SignInSchema';
+import { signInActions } from './model/slice/signInSlice';
 import SignInModal from './ui/SignInModal/SignInModal';
 
 export {
@@ -7,5 +7,4 @@ export {
   SignInSchema as SignInByUsernameSchema,
   SignInErrorCode as SignInByUsernameErrorCode,
   signInActions as signInByUsernameActions,
-  signInReducer as signInByUsernameReducer,
 };
