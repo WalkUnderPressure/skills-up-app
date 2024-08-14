@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
-
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import getCounterValue from '../model/selectors/getCounterValue';
 import { counterActions } from '../model/slice/counterSlice';
 import { Button, ButtonTheme } from 'shared/ui/Button';
@@ -7,8 +6,8 @@ import classNames from 'shared/lib/classNames';
 import * as cls from './Counter.module.scss';
 
 const Counter = () => {
-  const counterValue = useSelector(getCounterValue);
-  const dispatch = useDispatch();
+  const counterValue = useAppSelector(getCounterValue);
+  const dispatch = useAppDispatch();
 
   const increaseCounter = () => {
     dispatch(counterActions.increment());

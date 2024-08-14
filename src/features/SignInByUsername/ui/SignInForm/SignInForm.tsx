@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { ChangeEvent, memo, useCallback, useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
-import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { SignInByUsernameErrorCode } from 'features/SignInByUsername';
+import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
 import { Button, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
 import { Text, TextTheme } from 'shared/ui/Text';
 import classNames from 'shared/lib/classNames';
@@ -29,16 +29,16 @@ const SignInForm = memo((props: SignInFormProps) => {
   const { className } = props;
 
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const username = useSelector(getSignInFormUsername);
-  const password = useSelector(getSignInFormPassword);
-  const isLoading = useSelector(getSignInFormIsLoading);
-  const isFailed = useSelector(getSignInFormIsFailed);
-  const errorCode = useSelector(getSignInFormErrorCode);
+  const username = useAppSelector(getSignInFormUsername);
+  const password = useAppSelector(getSignInFormPassword);
+  const isLoading = useAppSelector(getSignInFormIsLoading);
+  const isFailed = useAppSelector(getSignInFormIsFailed);
+  const errorCode = useAppSelector(getSignInFormErrorCode);
 
   const onSubmitHandler = useCallback(
-    (event: ChangeEvent<HTMLFormElement>) => {
+    async (event: ChangeEvent<HTMLFormElement>) => {
       event.preventDefault();
 
       // @ts-expect-error TODO: Add types dispatch

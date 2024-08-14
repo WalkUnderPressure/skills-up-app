@@ -3,4 +3,17 @@ import StoreProvider from './ui/StoreProvider';
 import createReduxStore from './config/store';
 import { StoreStateSchema } from './schemas';
 
-export { createReduxStore, StoreProvider, StoreStateSchema, StoreProviderProps };
+// typed app hooks
+import useAppDispatch from './hooks/useAppDispatch';
+import useAppSelector from './hooks/useAppSelector';
+import useAppStore from './hooks/useAppStore';
+
+export {
+  createReduxStore,
+  StoreProvider,
+  StoreStateSchema,
+  StoreProviderProps,
+  useAppDispatch,
+  useAppSelector,
+  useAppStore,
+};

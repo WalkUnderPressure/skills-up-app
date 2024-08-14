@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
 
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { SignInByUsernameModal } from 'features/SignInByUsername';
-import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { Button, ButtonSize, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
+import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { useModal } from 'shared/ui/Modal';
 import { AppLink } from 'shared/ui/AppLink';
 import classNames from 'shared/lib/classNames';
@@ -19,8 +19,8 @@ const Navbar = (props: NavbarProps) => {
   const { className } = props;
 
   const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const userAuthData = useSelector(getUserAuthData);
+  const dispatch = useAppDispatch();
+  const userAuthData = useAppSelector(getUserAuthData);
 
   const {
     isOpen: isSignInModalOpen,

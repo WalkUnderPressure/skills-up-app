@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
+import { useAppDispatch } from 'app/providers/StoreProvider';
 import { AppRouter } from 'app/providers/AppRouter';
 import classNames from 'shared/lib/classNames';
 import { userActions } from 'entities/User';
@@ -11,7 +11,7 @@ import './styles/index.scss';
 import 'shared/config/i18n';
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(userActions.initAuthData());

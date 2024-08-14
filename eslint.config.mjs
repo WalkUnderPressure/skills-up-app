@@ -68,6 +68,22 @@ export default tseslint.config(
     },
   },
   {
+    files: ['**/*.{ts,tsx}'],
+    ignores: ['**/*/useAppDispatch.ts', '**/*/useAppSelector.ts', '**/*/useAppStore.ts'],
+    rules: {
+      'no-restricted-imports': 'off',
+      '@typescript-eslint/no-restricted-imports': [
+        'error',
+        {
+          name: 'react-redux',
+          importNames: ['useDispatch', 'useSelector', 'useStore'],
+          message:
+            'Use typed hooks `useAppDispatch` and `useAppSelector` and `useAppStore` instead.',
+        },
+      ],
+    },
+  },
+  {
     files: ['**/*.stories.{ts,tsx}'],
     rules: {
       'max-lines': 'off',

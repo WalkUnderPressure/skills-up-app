@@ -1,8 +1,8 @@
 import { PropsWithChildren, useEffect } from 'react';
-import { useDispatch, useStore } from 'react-redux';
 import { Reducer } from '@reduxjs/toolkit';
 
-import { ReduxStoreWithManager, StoreStateSchemaKeys } from 'app/providers/StoreProvider/schemas';
+import { StoreStateSchemaKeys } from 'app/providers/StoreProvider/schemas';
+import { useAppDispatch, useAppStore } from 'app/providers/StoreProvider';
 
 export type ReducersMap = {
   [name in StoreStateSchemaKeys]?: Reducer;
@@ -17,8 +17,8 @@ type DynamicReducerWrapperProps = {
 function DynamicReducerProvider(props: DynamicReducerWrapperProps) {
   const { children, reducers = {} } = props;
 
-  const store = useStore() as ReduxStoreWithManager;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const store = useAppStore();
 
   useEffect(() => {
     Object.entries(reducers).forEach(([reducerName, reducer]: ReducersMapEntry) => {
