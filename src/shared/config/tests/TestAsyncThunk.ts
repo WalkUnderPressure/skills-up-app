@@ -8,8 +8,8 @@ type ActionCreatorType<Return, Arg, RejectedValue> = (
 
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
   dispatch: ThunkDispatch<StoreStateSchema, Return, UnknownAction>;
-  getState: () => StoreStateSchema;
-  actionCreator: ActionCreatorType<Return, Arg, RejectedValue>;
+  private getState: () => StoreStateSchema;
+  private actionCreator: ActionCreatorType<Return, Arg, RejectedValue>;
 
   constructor(actionCreator: ActionCreatorType<Return, Arg, RejectedValue>) {
     this.actionCreator = actionCreator;

@@ -1,7 +1,6 @@
-import { Dispatch } from '@reduxjs/toolkit';
 import axios, { AxiosResponse } from 'axios';
 
-import { StoreStateSchema } from 'app/providers/StoreProvider';
+import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk';
 import { User, userActions } from 'entities/User';
 import { SignInErrorCode } from '../../types/SignInSchema';
 import { signInByUsername, SignInByUsernameData } from '.';
@@ -10,14 +9,6 @@ jest.mock('axios');
 const mockedAxios = jest.mocked(axios);
 
 describe('signInByUsername', () => {
-  let dispatch: Dispatch;
-  let getState: () => StoreStateSchema;
-
-  beforeEach(() => {
-    dispatch = jest.fn();
-    getState = jest.fn();
-  });
-
   test('successful sign-in', async () => {
     const userData = { id: 1, username: 'admin' };
     const signInData: SignInByUsernameData = { username: 'admin', password: 'admin' };
@@ -28,13 +19,13 @@ describe('signInByUsername', () => {
       }),
     );
 
-    const action = signInByUsername(signInData);
-    const result = await action(dispatch, getState, undefined);
+    const thunk = new TestAsyncThunk(signInByUsername);
+    const result = await thunk.callThunk(signInData);
 
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
-    expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(userData));
-    expect(dispatch).toHaveBeenCalledTimes(3);
+    expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userData));
+    expect(thunk.dispatch).toHaveBeenCalledTimes(3);
     expect(result.payload).toEqual(userData);
   });
 
@@ -47,12 +38,12 @@ describe('signInByUsername', () => {
       }),
     );
 
-    const action = signInByUsername(signInData);
-    const result = await action(dispatch, getState, undefined);
+    const thunk = new TestAsyncThunk(signInByUsername);
+    const result = await thunk.callThunk(signInData);
 
     expect(mockedAxios.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');
-    expect(dispatch).toHaveBeenCalledTimes(2);
+    expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(result.payload).toEqual(SignInErrorCode.INCORRECT_DATA);
   });
 });
