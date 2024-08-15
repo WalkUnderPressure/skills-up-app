@@ -17,9 +17,10 @@
     "sign_out": {
         "action": "Sign out"
     },
-    "navbar": {
+    "menu": {
         "home": "Home",
-        "about": "About"
+        "about": "About",
+        "profile": "Profile"
     },
     "loading": "Loading",
     "page_not_found": "Sorry! Page not found!",

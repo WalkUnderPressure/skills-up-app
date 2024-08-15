@@ -1,7 +1,5 @@
-type UserSchema = {
-  id: number;
-  username: string;
-  password: string;
-};
+import { User } from 'entities/User';
+
+type UserSchema = { password: string } & User;
 
 export default UserSchema;

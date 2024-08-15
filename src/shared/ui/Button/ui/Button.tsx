@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
+import { ButtonHTMLAttributes, memo, PropsWithChildren } from 'react';
 
 import classNames from 'shared/lib/classNames';
 import { ButtonTheme, ButtonSize, ButtonRounded } from '../types';
@@ -13,7 +13,7 @@ type ButtonProps = {
 } & PropsWithChildren &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = (props: ButtonProps) => {
+const Button = memo((props: ButtonProps) => {
   const { className, theme = '', size = '', isSquare, rounded, children, ...restProps } = props;
 
   const addClasses = [className, cls[theme], cls[size]];
@@ -28,6 +28,6 @@ const Button = (props: ButtonProps) => {
       {children}
     </button>
   );
-};
+});
 
 export default Button;

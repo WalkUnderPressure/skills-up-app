@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import classNames from 'shared/lib/classNames';
@@ -26,7 +26,7 @@ type LangSwitcherProps = {
   short?: boolean;
 };
 
-const LangSwitcher = (props: LangSwitcherProps) => {
+const LangSwitcher = memo((props: LangSwitcherProps) => {
   const { className, short = false } = props;
 
   const { i18n, t } = useTranslation();
@@ -60,6 +60,6 @@ const LangSwitcher = (props: LangSwitcherProps) => {
       })}
     </select>
   );
-};
+});
 
 export default LangSwitcher;

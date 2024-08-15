@@ -1,13 +1,25 @@
-import { EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@reduxjs/toolkit';
+import {
+  EnhancedStore,
+  Reducer,
+  ReducersMapObject,
+  StoreEnhancer,
+  ThunkDispatch,
+  Tuple,
+  UnknownAction,
+} from '@reduxjs/toolkit';
 
 import { SignInByUsernameSchema } from 'features/SignInByUsername';
+import { ProfileStateSchema } from 'entities/Profile';
 import { CounterStateSchema } from 'entities/Counter';
 import { UserStateSchema } from 'entities/User';
 
 type StoreStateSchema = {
   counter: CounterStateSchema;
   user: UserStateSchema;
+
+  // Async
   'sign-in_username'?: SignInByUsernameSchema;
+  profile?: ProfileStateSchema;
 };
 
 type StoreReducersMapObject = ReducersMapObject<StoreStateSchema>;
@@ -21,9 +33,19 @@ type ReducerManager = {
   remove: (name: StoreStateSchemaKeys) => void;
 };
 
-interface ReduxStoreWithManager extends EnhancedStore<StoreStateSchema> {
-  reducerManager: ReducerManager;
-}
+type ReduxStoreWithManager = EnhancedStore<
+  StoreStateSchema,
+  UnknownAction,
+  Tuple<
+    [
+      StoreEnhancer<{
+        dispatch: ThunkDispatch<StoreStateSchema, undefined, UnknownAction>;
+        reducerManager: ReducerManager;
+      }>,
+      StoreEnhancer,
+    ]
+  >
+>;
 
 export {
   StoreStateSchema,

@@ -17,16 +17,17 @@ import { signInActions, signInReducer } from '../../model/slice/signInSlice';
 import { signInByUsername } from '../../model/services/signInByUsername';
 import * as cls from './SignInForm.module.scss';
 
-const SignInReducers: ReducersMap = {
+const reducers: ReducersMap = {
   'sign-in_username': signInReducer,
 };
 
 export type SignInFormProps = {
   className?: string;
+  onSuccess: () => void;
 };
 
 const SignInForm = memo((props: SignInFormProps) => {
-  const { className } = props;
+  const { className, onSuccess } = props;
 
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -41,10 +42,15 @@ const SignInForm = memo((props: SignInFormProps) => {
     async (event: ChangeEvent<HTMLFormElement>) => {
       event.preventDefault();
 
-      // @ts-expect-error TODO: Add types dispatch
-      dispatch(signInByUsername({ username, password }));
+      const result = await dispatch(signInByUsername({ username, password }));
+
+      const isSuccess = result.meta.requestStatus === 'fulfilled';
+
+      if (onSuccess && isSuccess) {
+        onSuccess();
+      }
     },
-    [dispatch, password, username],
+    [dispatch, password, username, onSuccess],
   );
 
   const onChangeUsername = useCallback(
@@ -71,7 +77,7 @@ const SignInForm = memo((props: SignInFormProps) => {
   }, [errorCode, t]);
 
   return (
-    <DynamicReducerProvider reducers={SignInReducers}>
+    <DynamicReducerProvider reducers={reducers}>
       <form onSubmit={onSubmitHandler} className={classNames(cls.form, {}, [className])}>
         <h3 className={classNames(cls.title)}>
           {t('sign_in.form_title', { defaultValue: 'Sign in form' })}

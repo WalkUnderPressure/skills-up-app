@@ -8,7 +8,7 @@ import createReducerManager from './createReducerManager';
 function createReduxStore(
   initialState?: StoreStateSchema,
   initialReducers?: StoreReducersMapObject,
-): ReduxStoreWithManager {
+) {
   const rootReducer: StoreReducersMapObject = {
     ...initialReducers,
     counter: counterReducer,
@@ -17,15 +17,15 @@ function createReduxStore(
 
   const reducerManager = createReducerManager(rootReducer);
 
-  const rootStore = configureStore<StoreStateSchema>({
+  const rootStore = configureStore({
     reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-  });
+  }) as ReduxStoreWithManager;
 
-  const store: ReduxStoreWithManager = { ...rootStore, reducerManager };
+  rootStore.reducerManager = reducerManager;
 
-  return store;
+  return rootStore;
 }
 
 export type AppStore = ReturnType<typeof createReduxStore>;

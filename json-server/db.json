@@ -39,5 +39,29 @@
       "username": "user",
       "password": "user"
     }
+  ],
+  "profiles": [
+    {
+      "user_id": 1,
+      "first_name": "Oleksandr",
+      "last_name": "Brynzei",
+      "age": 25,
+      "currency": "USD",
+      "country": "USA",
+      "city": "Sacramento",
+      "username": "admin",
+      "avatar": "https://images.pexels.com/photos/1033142/pexels-photo-1033142.jpeg"
+    },
+    {
+      "user_id": 2,
+      "first_name": "George",
+      "last_name": "Second",
+      "age": 24,
+      "currency": "EUR",
+      "country": "Germany",
+      "city": "Frankfurt",
+      "username": "user",
+      "avatar": ""
+    }
   ]
 }

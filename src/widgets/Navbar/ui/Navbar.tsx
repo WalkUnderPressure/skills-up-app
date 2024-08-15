@@ -34,9 +34,7 @@ const Navbar = (props: NavbarProps) => {
 
   return (
     <nav className={classNames(cls.navbar, {}, [className])}>
-      <AppLink to={RouterPaths[AppRoutes.HOME]}>
-        {t('navbar.home', { defaultValue: 'Home' })}
-      </AppLink>
+      <AppLink to={RouterPaths[AppRoutes.HOME]}>{t('menu.home', { defaultValue: 'Home' })}</AppLink>
 
       {userAuthData ? (
         <Button

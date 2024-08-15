@@ -1,11 +1,20 @@
+import { memo } from 'react';
+
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import getCounterValue from '../model/selectors/getCounterValue';
-import { counterActions } from '../model/slice/counterSlice';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import classNames from 'shared/lib/classNames';
+import getCounterValue from '../model/selectors/getCounterValue';
+import { counterActions } from '../model/slice/counterSlice';
+import { CounterDataTestIdProps } from './Counter.test-ids';
 import * as cls from './Counter.module.scss';
 
-const Counter = () => {
+type CounterProps = {
+  className?: string;
+} & CounterDataTestIdProps;
+
+const Counter = memo((props: CounterProps) => {
+  const { decrementDataTestId, valueDataTestId, incrementDataTestId } = props;
+
   const counterValue = useAppSelector(getCounterValue);
   const dispatch = useAppDispatch();
 
@@ -19,27 +28,15 @@ const Counter = () => {
 
   return (
     <div className={classNames(cls.counter)}>
-      <Button
-        data-testid={Counter.DecrementDataTestId}
-        onClick={decreaseCounter}
-        theme={ButtonTheme.CLEAR}
-      >
+      <Button data-testid={decrementDataTestId} onClick={decreaseCounter} theme={ButtonTheme.CLEAR}>
         {'<'}
       </Button>
-      <span data-testid={Counter.ValueDataTestId}>{counterValue}</span>
-      <Button
-        data-testid={Counter.IncrementDataTestId}
-        onClick={increaseCounter}
-        theme={ButtonTheme.CLEAR}
-      >
+      <span data-testid={valueDataTestId}>{counterValue}</span>
+      <Button data-testid={incrementDataTestId} onClick={increaseCounter} theme={ButtonTheme.CLEAR}>
         {'>'}
       </Button>
     </div>
   );
-};
-
-Counter.ValueDataTestId = 'ValueDataTestId';
-Counter.IncrementDataTestId = 'IncrementDataTestId';
-Counter.DecrementDataTestId = 'DecrementDataTestId';
+});
 
 export default Counter;

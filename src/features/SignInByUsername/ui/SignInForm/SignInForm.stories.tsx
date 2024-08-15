@@ -10,6 +10,9 @@ const USER_DATA = { username: 'admin', password: '12345' };
 const meta = {
   title: 'Features/SignInForm',
   component: SignInForm,
+  args: {
+    onSuccess: () => {},
+  },
   decorators: StoreDecorator({ 'sign-in_username': USER_DATA }),
 } satisfies Meta<typeof SignInForm>;
 
