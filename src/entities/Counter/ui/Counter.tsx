@@ -10,7 +10,7 @@ import * as cls from './Counter.module.scss';
 
 type CounterProps = {
   className?: string;
-} & CounterDataTestIdProps;
+} & Partial<CounterDataTestIdProps>;
 
 const Counter = memo((props: CounterProps) => {
   const { decrementDataTestId, valueDataTestId, incrementDataTestId } = props;

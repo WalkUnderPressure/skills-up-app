@@ -14,7 +14,15 @@ type ButtonProps = {
   ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = memo((props: ButtonProps) => {
-  const { className, theme = '', size = '', isSquare, rounded, children, ...restProps } = props;
+  const {
+    className,
+    rounded = ButtonRounded.NONE,
+    theme = '',
+    size = '',
+    isSquare,
+    children,
+    ...restProps
+  } = props;
 
   const addClasses = [className, cls[theme], cls[size]];
   const modClasses = {

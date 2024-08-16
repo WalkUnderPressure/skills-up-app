@@ -63,7 +63,7 @@ export const OutlineInverted: Story = {
   },
 };
 
-export const OutlineDark: Story = withOverriddenThemes({
+export const OutlineDark: Story = withOverriddenThemes<Story>({
   args: {
     theme: ButtonTheme.OUTLINE,
   },

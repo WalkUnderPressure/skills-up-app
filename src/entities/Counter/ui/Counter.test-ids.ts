@@ -1,7 +1,7 @@
 type CounterDataTestIdProps = {
-  decrementDataTestId?: string;
-  valueDataTestId?: string;
-  incrementDataTestId?: string;
+  decrementDataTestId: string;
+  valueDataTestId: string;
+  incrementDataTestId: string;
 };
 
 const CounterDataTestIds: CounterDataTestIdProps = Object.freeze({

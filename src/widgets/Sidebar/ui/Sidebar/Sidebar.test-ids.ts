@@ -1,6 +1,6 @@
 type SidebarDataTestIdProps = {
-  switcherDataTestId?: string;
-  sidebarDataTestId?: string;
+  switcherDataTestId: string;
+  sidebarDataTestId: string;
 };
 
 const SidebarDataTestIds: SidebarDataTestIdProps = Object.freeze({

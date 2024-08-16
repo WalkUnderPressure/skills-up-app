@@ -3,6 +3,6 @@ type User = {
   username: string;
 };
 
-type UserStateSchema = { authData?: User };
+type UserStateSchema = { authData?: Nullable<User> };
 
 export { UserStateSchema, User };

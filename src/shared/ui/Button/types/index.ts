@@ -13,6 +13,7 @@ export enum ButtonSize {
 }
 
 export enum ButtonRounded {
+  NONE = '',
   S = 'rounded-s',
   M = 'rounded-m',
   L = 'rounded-l',

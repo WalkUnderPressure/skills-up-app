@@ -13,7 +13,7 @@ type ModalProps = {
 } & PropsWithChildren;
 
 const Modal = (props: ModalProps) => {
-  const { children, className, isOpen, onClose, lazy = true } = props;
+  const { children, className, isOpen = false, onClose, lazy = true } = props;
 
   const onCloseHandler = useCallback(() => {
     if (onClose) {

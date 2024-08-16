@@ -22,7 +22,7 @@ class LocalStorageMock implements Storage {
   }
 
   getItem(name: string): string {
-    return this.store[name] || null;
+    return this.store[name] || '';
   }
 
   setItem(name: string, value: string) {

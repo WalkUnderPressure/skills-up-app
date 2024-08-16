@@ -13,7 +13,7 @@ import ArrowRightLine from 'shared/assets/icons/arrow-right-line.svg';
 
 type SidebarProps = {
   className?: string;
-} & SidebarDataTestIdProps;
+} & Partial<SidebarDataTestIdProps>;
 
 const Sidebar = memo((props: SidebarProps) => {
   const { className, sidebarDataTestId, switcherDataTestId } = props;

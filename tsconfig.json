@@ -5,6 +5,7 @@
         "target": "ES5",
         "jsx": "react-jsx",
         "allowJs": false,
+        "strict": true,
         "moduleResolution": "node",
         // use "import" instead "import * as"
         "allowSyntheticDefaultImports": true,
