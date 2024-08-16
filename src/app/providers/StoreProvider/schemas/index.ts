@@ -7,6 +7,8 @@ import {
   Tuple,
   UnknownAction,
 } from '@reduxjs/toolkit';
+import { NavigateFunction } from 'react-router-dom';
+import { AxiosInstance } from 'axios';
 
 import { SignInByUsernameSchema } from 'features/SignInByUsername';
 import { ProfileStateSchema } from 'entities/Profile';
@@ -33,21 +35,25 @@ type ReducerManager = {
   remove: (name: StoreStateSchemaKeys) => void;
 };
 
-type ReduxStoreWithManager = EnhancedStore<
-  StoreStateSchema,
-  UnknownAction,
-  Tuple<
-    [
-      StoreEnhancer<{
-        dispatch: ThunkDispatch<StoreStateSchema, undefined, UnknownAction>;
-        reducerManager: ReducerManager;
-      }>,
-      StoreEnhancer,
-    ]
-  >
+type StoreEnhancers = Tuple<
+  [
+    StoreEnhancer<{
+      dispatch: ThunkDispatch<StoreStateSchema, undefined, UnknownAction>;
+      reducerManager: ReducerManager;
+    }>,
+    StoreEnhancer,
+  ]
 >;
 
+type ReduxStoreWithManager = EnhancedStore<StoreStateSchema, UnknownAction, StoreEnhancers>;
+
+type ThunkExtra = {
+  api: AxiosInstance;
+  navigate: NavigateFunction;
+};
+
 export {
+  ThunkExtra,
   StoreStateSchema,
   StoreStateSchemaKeys,
   StoreReducersMapObject,

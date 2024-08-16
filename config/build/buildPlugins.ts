@@ -15,6 +15,7 @@ function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance> {
   const {
     paths: { html },
     isDev,
+    apiUrl,
     withAnalyze,
   } = options;
 
@@ -26,6 +27,7 @@ function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance> {
     buildMiniCssExtractPlugin(),
     new DefinePlugin({
       __IS_DEV__: isDev,
+      __API_URL__: JSON.stringify(apiUrl),
     }),
   ];
 

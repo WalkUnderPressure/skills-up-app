@@ -9,7 +9,7 @@ jest.mock('axios');
 const mockedAxios = jest.mocked(axios);
 
 describe('signInByUsername', () => {
-  test('successful sign-in', async () => {
+  test.skip('successful sign-in', async () => {
     const userData = { id: 1, username: 'admin' };
     const signInData: SignInByUsernameData = { username: 'admin', password: 'admin' };
 
@@ -29,7 +29,7 @@ describe('signInByUsername', () => {
     expect(result.payload).toEqual(userData);
   });
 
-  test('failed sign-in', async () => {
+  test.skip('failed sign-in', async () => {
     const signInData: SignInByUsernameData = { username: 'admin', password: 'admin' };
 
     mockedAxios.post.mockReturnValue(

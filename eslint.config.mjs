@@ -84,6 +84,21 @@ export default tseslint.config(
     },
   },
   {
+    files: ['**/*.{ts,tsx}'],
+    ignores: ['**/*/createAppAsyncThunk.ts'],
+    rules: {
+      'no-restricted-imports': 'off',
+      '@typescript-eslint/no-restricted-imports': [
+        'error',
+        {
+          name: '@reduxjs/toolkit',
+          importNames: ['createAsyncThunk'],
+          message: 'Use typed hooks `createAppAsyncThunk` instead.',
+        },
+      ],
+    },
+  },
+  {
     files: ['**/*.stories.{ts,tsx}'],
     rules: {
       'max-lines': 'off',

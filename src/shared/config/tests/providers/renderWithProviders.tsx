@@ -15,11 +15,11 @@ function renderWithProviders(component: ReactNode, providersOptions: ProvidersOp
   const { router = {}, translations = {}, store = {} } = providersOptions;
 
   render(
-    <RenderWithStore {...store}>
-      <RenderWithRouter {...router}>
-        <RenderWithTranslate {...translations}>{component}</RenderWithTranslate>
-      </RenderWithRouter>
-    </RenderWithStore>,
+    <RenderWithRouter {...router}>
+      <RenderWithTranslate {...translations}>
+        <RenderWithStore {...store}>{component}</RenderWithStore>
+      </RenderWithTranslate>
+    </RenderWithRouter>,
   );
 }
 

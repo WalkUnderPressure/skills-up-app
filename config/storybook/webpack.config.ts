@@ -46,6 +46,7 @@ export default ({ config }: StorybookWebpackConfig) => {
   if (definePlugin) {
     // Run code like in production
     definePlugin.definitions['__IS_DEV__'] = false;
+    definePlugin.definitions['__API_URL__'] = JSON.stringify('');
   }
 
   return config;

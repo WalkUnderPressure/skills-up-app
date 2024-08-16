@@ -32,6 +32,7 @@ const config: Config = {
   },
   globals: {
     __IS_DEV__: true,
+    __API_URL__: '/',
   },
 
   // Whether to use watchman for file crawling

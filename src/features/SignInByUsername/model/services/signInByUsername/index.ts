@@ -1,6 +1,4 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
+import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
 import { SignInByUsernameErrorCode } from 'features/SignInByUsername';
 import { LS_AUTH_USER } from 'shared/constants/localStorage';
 import { User, userActions } from 'entities/User';
@@ -10,25 +8,32 @@ export type SignInByUsernameData = {
   password: string;
 };
 
-const signInByUsername = createAsyncThunk<
+const signInByUsername = createAppAsyncThunk<
   User,
   SignInByUsernameData,
-  { rejectValue: SignInByUsernameErrorCode }
+  AsyncThunkRejectValue<SignInByUsernameErrorCode>
 >('sign-in/signInByUsername', async (signInData, thunkAPI) => {
+  const {
+    dispatch,
+    rejectWithValue,
+    extra: { api, navigate },
+  } = thunkAPI;
+
   try {
-    const response = await axios.post<User>('http://localhost:7000/sign-in/', signInData);
+    const response = await api.post<User>('/sign-in/', signInData);
     const createdUser = response.data;
 
     if (!createdUser) {
       throw new Error();
     }
 
-    thunkAPI.dispatch(userActions.setAuthData(createdUser));
+    dispatch(userActions.setAuthData(createdUser));
     localStorage.setItem(LS_AUTH_USER, JSON.stringify(createdUser));
+    navigate('/profile');
 
     return createdUser;
   } catch (error) {
-    return thunkAPI.rejectWithValue(SignInByUsernameErrorCode.INCORRECT_DATA);
+    return rejectWithValue(SignInByUsernameErrorCode.INCORRECT_DATA);
   }
 });
 
