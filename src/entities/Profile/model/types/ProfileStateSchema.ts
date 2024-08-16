@@ -2,7 +2,7 @@ import Currency from 'shared/constants/currencies';
 import Country from 'shared/constants/countries';
 
 enum ProfileErrorCode {
-  INCORRECT_DATA = 'INCORRECT_DATA',
+  PROFILE_NOT_FOUND = 'PROFILE_NOT_FOUND',
 }
 
 interface Profile {

@@ -1,7 +1,7 @@
 import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
-import { SignInByUsernameErrorCode } from 'features/SignInByUsername';
 import { LS_AUTH_USER } from 'shared/constants/localStorage';
 import { User, userActions } from 'entities/User';
+import { SignInErrorCode } from '../../types/SignInSchema';
 
 export type SignInByUsernameData = {
   username: string;
@@ -11,7 +11,7 @@ export type SignInByUsernameData = {
 const signInByUsername = createAppAsyncThunk<
   User,
   SignInByUsernameData,
-  AsyncThunkRejectValue<SignInByUsernameErrorCode>
+  AsyncThunkRejectValue<SignInErrorCode>
 >('sign-in/signInByUsername', async (signInData, thunkAPI) => {
   const {
     dispatch,
@@ -33,7 +33,7 @@ const signInByUsername = createAppAsyncThunk<
 
     return createdUser;
   } catch (error) {
-    return rejectWithValue(SignInByUsernameErrorCode.INCORRECT_DATA);
+    return rejectWithValue(SignInErrorCode.INCORRECT_DATA);
   }
 });
 

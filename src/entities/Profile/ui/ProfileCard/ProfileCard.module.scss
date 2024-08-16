@@ -1,0 +1,42 @@
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.edit {
+    --icon-size: 24px;
+
+    width: var(--icon-size);
+    height: var(--icon-size);
+    fill: var(--bg-color);
+}
+
+.edit-btn {
+    padding: 8px;
+
+    &:hover {
+        .edit {
+            fill: var(--warning-color);
+        }
+    }
+
+}
+
+.avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 100%;
+    object-fit: cover;
+}
