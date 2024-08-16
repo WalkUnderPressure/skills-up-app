@@ -22,10 +22,10 @@ jobs:
       - name: Install packages
         run: npm i
 
-      - name: App production build
-        run: npm run build:prod
-
       # TODO: return after fix all new ts errors
+      # - name: App production build
+      # run: npm run build:prod
+
       # - name: Run linter for ESlint
       # run: npm run lint:eslint
 

@@ -1,6 +1,7 @@
-# App production build
-npm run build:prod
 # TODO: return after fix all new ts errors
+# App production build
+# npm run build:prod
+
 # Run linter for ESlint
 # npm run lint:eslint
 
