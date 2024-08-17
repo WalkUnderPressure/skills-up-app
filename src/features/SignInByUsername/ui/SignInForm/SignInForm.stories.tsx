@@ -19,21 +19,21 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default = {} satisfies Story;
 
-export const DefaultDark: Story = withOverriddenThemes<Story>({})();
+export const DefaultDark = withOverriddenThemes<Story>({})() satisfies Story;
 
-export const Disabled: Story = {
+export const Disabled = {
   decorators: StoreDecorator({
     'sign-in_username': { ...USER_DATA, isLoading: true },
   }),
-};
+} satisfies Story;
 
-export const DisabledDark: Story = withOverriddenThemes<Story>({
+export const DisabledDark = withOverriddenThemes<Story>({
   decorators: StoreDecorator({
     'sign-in_username': { ...USER_DATA, isLoading: true },
   }),
-})();
+})() satisfies Story;
 
 const FAILED_STATE = {
   'sign-in_username': {
@@ -44,10 +44,10 @@ const FAILED_STATE = {
   } as SignInByUsernameSchema,
 };
 
-export const Failed: Story = {
+export const Failed = {
   decorators: StoreDecorator(FAILED_STATE),
-};
+} satisfies Story;
 
-export const FailedDark: Story = withOverriddenThemes({
+export const FailedDark = withOverriddenThemes({
   decorators: StoreDecorator(FAILED_STATE),
-})();
+})() satisfies Story;

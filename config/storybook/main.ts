@@ -21,6 +21,9 @@ const config: StorybookConfig = {
   docs: {},
 
   typescript: {
+    check: false,
+    checkOptions: {},
+    skipCompiler: false,
     reactDocgen: 'react-docgen-typescript',
   },
 };

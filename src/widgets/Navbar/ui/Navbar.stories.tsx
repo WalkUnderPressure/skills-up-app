@@ -11,13 +11,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Authorized: Story = {
+export const Authorized = {
   decorators: StoreDecorator({ user: { authData: { id: 1, username: 'moderator' } } }),
-};
+} satisfies Story;
 
-export const NotAuthorized: Story = {
+export const NotAuthorized = {
   decorators: StoreDecorator({
     user: { authData: null },
     'sign-in_username': { username: 'admin', password: '12345' },
   }),
-};
+} satisfies Story;

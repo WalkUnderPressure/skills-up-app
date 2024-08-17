@@ -15,10 +15,13 @@ const fetchProfileData = createAppAsyncThunk<
   const state = getState();
 
   try {
-    const userId = state.user.authData.id;
+    const userId = state?.user?.authData?.id || '';
+    let userProfileData = null;
 
-    const response = await api.get<Array<Profile>>(`/profiles/?user_id=${userId}`);
-    const userProfileData = response.data.at(0);
+    if (userId) {
+      const response = await api.get<Array<Profile>>(`/profiles/?user_id=${userId}`);
+      userProfileData = response.data.at(0);
+    }
 
     if (!userProfileData) {
       throw new Error();

@@ -1,4 +1,4 @@
-import { Configuration, DefinePlugin, RuleSetRule, WebpackPluginInstance } from 'webpack';
+import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 
 import buildMiniCssExtractPlugin from '../build/plugins/buildMiniCssExtractPlugin';
@@ -16,33 +16,38 @@ export default ({ config }: StorybookWebpackConfig) => {
 
   // Setup for using absolute imports
   const srcPath = path.resolve(__dirname, '..', '..', 'src');
-  config.resolve.modules.push(srcPath);
-  config.resolve.extensions.push('.tsx', '.ts');
+  config.resolve?.modules?.push(srcPath);
+  config.resolve?.extensions?.push('.tsx', '.ts');
 
   // Setup for using css files
   const cssLoader = buildCssLoader({ isDev });
-  config.module.rules.push(cssLoader);
+  config.module?.rules?.push(cssLoader);
 
   // Add MiniCssExtractPlugin to plugins if it's production
   if (!isDev) {
-    config.plugins.push(buildMiniCssExtractPlugin());
+    config.plugins?.push(buildMiniCssExtractPlugin());
   }
 
   // Setup for using svg
-  config.module.rules = config.module.rules.filter((rule: RuleSetRule) => {
-    return Boolean(!/svg/g.test(String(rule.test)));
-  });
+  if (Array.isArray(config.module?.rules)) {
+    config.module.rules = config.module?.rules?.filter((rule) => {
+      const ruleTestStr = String((rule as RuleSetRule).test || '');
+
+      return Boolean(!/svg/g.test(ruleTestStr));
+    });
+  }
   const svgLoader = buildSvgLoader();
-  config.module.rules.push(svgLoader);
+  config.module?.rules?.push(svgLoader);
 
   // Setup for using files
   const fileLoader = buildFileLoader();
-  config.module.rules.push(fileLoader);
+  config.module?.rules?.push(fileLoader);
 
   // Setup for add additional variables to DefinePlugin
-  const definePlugin: DefinePlugin | undefined = config.plugins.find(
-    (plugin: WebpackPluginInstance) => plugin instanceof DefinePlugin,
+  const definePlugin: DefinePlugin | undefined = config.plugins?.find(
+    (plugin) => plugin instanceof DefinePlugin,
   );
+
   if (definePlugin) {
     // Run code like in production
     definePlugin.definitions['__IS_DEV__'] = false;

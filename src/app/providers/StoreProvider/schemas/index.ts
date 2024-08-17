@@ -20,9 +20,11 @@ type StoreStateSchema = {
   user: UserStateSchema;
 
   // Async
-  'sign-in_username'?: SignInByUsernameSchema;
-  profile?: ProfileStateSchema;
+  'sign-in_username'?: SignInByUsernameSchema | undefined;
+  profile?: ProfileStateSchema | undefined;
 };
+
+export type StoreStateSchemaPossibleEmpty = StoreStateSchema | undefined;
 
 type StoreReducersMapObject = ReducersMapObject<StoreStateSchema>;
 
@@ -30,7 +32,7 @@ type StoreStateSchemaKeys = keyof StoreStateSchema;
 
 type ReducerManager = {
   getReducerMap: () => StoreReducersMapObject;
-  reduce: (state: StoreStateSchema, action: UnknownAction) => StoreStateSchema;
+  reduce: (state: StoreStateSchemaPossibleEmpty, action: UnknownAction) => StoreStateSchema;
   add: (name: StoreStateSchemaKeys, reducer: Reducer) => void;
   remove: (name: StoreStateSchemaKeys) => void;
 };
@@ -38,7 +40,7 @@ type ReducerManager = {
 type StoreEnhancers = Tuple<
   [
     StoreEnhancer<{
-      dispatch: ThunkDispatch<StoreStateSchema, undefined, UnknownAction>;
+      dispatch: ThunkDispatch<StoreStateSchema, ThunkExtra, UnknownAction>;
       reducerManager: ReducerManager;
     }>,
     StoreEnhancer,

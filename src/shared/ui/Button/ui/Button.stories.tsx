@@ -17,134 +17,134 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default = {} satisfies Story;
 
-export const DefaultDisabled: Story = {
+export const DefaultDisabled = {
   args: {
     disabled: true,
   },
-};
+} satisfies Story;
 
-export const DefaultRoundedM: Story = {
+export const DefaultRoundedM = {
   args: {
     rounded: ButtonRounded.M,
   },
-};
+} satisfies Story;
 
-export const DefaultRoundedMDisabled: Story = {
+export const DefaultRoundedMDisabled = {
   args: {
     rounded: ButtonRounded.M,
     disabled: true,
   },
-};
+} satisfies Story;
 
-export const Clear: Story = {
+export const Clear = {
   args: {
     theme: ButtonTheme.CLEAR,
   },
-};
+} satisfies Story;
 
-export const Outline: Story = {
+export const Outline = {
   args: {
     theme: ButtonTheme.OUTLINE,
   },
-};
+} satisfies Story;
 
-export const OutlineRoundedM: Story = {
+export const OutlineRoundedM = {
   args: {
     theme: ButtonTheme.OUTLINE,
     rounded: ButtonRounded.M,
   },
-};
+} satisfies Story;
 
-export const OutlineInverted: Story = {
+export const OutlineInverted = {
   args: {
     theme: ButtonTheme.OUTLINE_INVERTED,
   },
-};
+} satisfies Story;
 
-export const OutlineDark: Story = withOverriddenThemes<Story>({
+export const OutlineDark = withOverriddenThemes<Story>({
   args: {
     theme: ButtonTheme.OUTLINE,
   },
-})();
+})() satisfies Story;
 
-export const OutlineSizeM: Story = {
+export const OutlineSizeM = {
   args: {
     theme: ButtonTheme.OUTLINE,
     size: ButtonSize.M,
   },
-};
+} satisfies Story;
 
-export const OutlineSizeL: Story = {
+export const OutlineSizeL = {
   args: {
     theme: ButtonTheme.OUTLINE,
     size: ButtonSize.L,
   },
-};
+} satisfies Story;
 
-export const OutlineSizeXL: Story = {
+export const OutlineSizeXL = {
   args: {
     theme: ButtonTheme.OUTLINE,
     size: ButtonSize.XL,
   },
-};
+} satisfies Story;
 
-export const SquareSizeM: Story = {
+export const SquareSizeM = {
   args: {
     size: ButtonSize.M,
     isSquare: true,
     children: '+',
   },
-};
+} satisfies Story;
 
-export const SquareSizeL: Story = {
+export const SquareSizeL = {
   args: {
     size: ButtonSize.L,
     isSquare: true,
     children: '+',
   },
-};
+} satisfies Story;
 
-export const SquareSizeXL: Story = {
+export const SquareSizeXL = {
   args: {
     size: ButtonSize.XL,
     isSquare: true,
     children: '+',
   },
-};
+} satisfies Story;
 
-export const SquareSizeXLRoundedM: Story = {
+export const SquareSizeXLRoundedM = {
   args: {
     size: ButtonSize.XL,
     isSquare: true,
     children: '+',
     rounded: ButtonRounded.M,
   },
-};
+} satisfies Story;
 
-export const BackgroundTheme: Story = {
+export const BackgroundTheme = {
   args: {
     theme: ButtonTheme.BG,
   },
-};
+} satisfies Story;
 
-export const BackgroundThemeRoundedM: Story = {
+export const BackgroundThemeRoundedM = {
   args: {
     theme: ButtonTheme.BG,
     rounded: ButtonRounded.M,
   },
-};
+} satisfies Story;
 
-export const InvertedBackgroundTheme: Story = {
+export const InvertedBackgroundTheme = {
   args: {
     theme: ButtonTheme.BG_INVERTED,
   },
-};
+} satisfies Story;
 
-export const InvertedBackgroundThemeRoundedM: Story = {
+export const InvertedBackgroundThemeRoundedM = {
   args: {
     theme: ButtonTheme.BG_INVERTED,
     rounded: ButtonRounded.M,
   },
-};
+} satisfies Story;

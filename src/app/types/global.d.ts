@@ -26,3 +26,5 @@ declare type DeepPartial<T> = T extends object
   : T;
 
 declare type Nullable<T> = T | null;
+
+declare type EmptyObject = Record<string, never>;

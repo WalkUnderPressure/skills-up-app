@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import safeJsonParse from 'shared/lib/helpers/safeJsonParse';
 import { LS_AUTH_USER } from 'shared/constants/localStorage';
 import { UserStateSchema, User } from '../types/UserStateSchema';
 
@@ -19,7 +20,7 @@ export const userSlice = createSlice({
       localStorage.removeItem(LS_AUTH_USER);
     },
     initAuthData(state) {
-      const initUserData = JSON.parse(localStorage.getItem(LS_AUTH_USER));
+      const initUserData = safeJsonParse(localStorage.getItem(LS_AUTH_USER));
 
       if (initUserData) {
         state.authData = initUserData;

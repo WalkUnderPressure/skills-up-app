@@ -17,11 +17,11 @@ interface Profile {
 }
 
 interface ProfileStateSchema {
-  data?: Profile;
+  data?: Nullable<Profile>;
   isLoading?: boolean;
   isReadonly: boolean;
   isFailed: boolean;
-  errorCode?: ProfileErrorCode;
+  errorCode?: Nullable<ProfileErrorCode>;
 }
 
 export { Profile, ProfileStateSchema, ProfileErrorCode };

@@ -3,6 +3,7 @@ import jsonServer from 'json-server';
 import path from 'path';
 import fs from 'fs';
 
+import deleteFieldFrom from 'shared/lib/helpers/deleteFieldFrom';
 import UserSchema from './schemas/UserSchema';
 import DBSchema from './schemas/DBSchema';
 
@@ -37,15 +38,18 @@ server.post('/sign-in', (req, res) => {
 
     if (userFromBd) {
       // remove user password before send to client
-      delete userFromBd.password;
+      deleteFieldFrom(userFromBd, 'password');
 
       return res.json(userFromBd);
     }
 
     return res.status(403).json({ message: 'User not found' });
-  } catch (e) {
-    console.log(e);
-    return res.status(500).json({ message: e.message });
+  } catch (error) {
+    console.log(error);
+
+    if (error instanceof Error) {
+      return res.status(500).json({ message: error.message });
+    }
   }
 });
 

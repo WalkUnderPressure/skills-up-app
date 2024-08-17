@@ -25,6 +25,8 @@ const meta = {
   component: Modal,
   args: {
     children: <h3>{MODAL_TITLE}</h3>,
+    // mock, because we push real handler in ModalRender
+    onClose: () => {},
   },
   render: ModalRender,
 } satisfies Meta<typeof Modal>;
@@ -32,12 +34,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default = {} satisfies Story;
 
-export const Dark: Story = withOverriddenThemes({})();
+export const Dark = withOverriddenThemes({})() satisfies Story;
 
-export const DarkEscClose: Story = withOverriddenThemes<Story>({
+export const DarkEscClose = withOverriddenThemes<Story>({
   args: {
     children: <h3>{ESC_CLOSE_TITLE}</h3>,
   },
-})();
+})() satisfies Story;

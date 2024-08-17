@@ -18,7 +18,7 @@ function useTheme() {
       nextTheme = ETheme.Light;
     }
 
-    setTheme(nextTheme);
+    setTheme?.(nextTheme);
   };
 
   return { theme, switchTheme };

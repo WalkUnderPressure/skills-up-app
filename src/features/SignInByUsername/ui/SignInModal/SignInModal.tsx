@@ -7,7 +7,7 @@ import SignInFormAsync from '../SignInForm/SignInForm.async';
 type SignInModalProps = {
   className?: string;
   isOpen?: boolean;
-  onClose?: () => void;
+  onClose: () => void;
 };
 
 const SignInModal = (props: SignInModalProps) => {

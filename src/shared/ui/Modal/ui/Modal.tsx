@@ -8,7 +8,7 @@ import * as cls from './Modal.module.scss';
 type ModalProps = {
   className?: string;
   isOpen?: boolean;
-  onClose?: () => void;
+  onClose: () => void;
   lazy?: boolean;
 } & PropsWithChildren;
 
@@ -34,7 +34,9 @@ const Modal = (props: ModalProps) => {
     [onCloseHandler],
   );
 
-  useEventListener('keydown', escClickHandler, { isNeedAddListener: isOpen });
+  useEventListener('keydown', escClickHandler, {
+    isNeedAddHandler: isOpen,
+  });
 
   const mods = { [cls.open]: isOpen };
 

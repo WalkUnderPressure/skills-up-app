@@ -21,13 +21,17 @@ function DynamicReducerProvider(props: DynamicReducerWrapperProps) {
   const store = useAppStore();
 
   useEffect(() => {
-    Object.entries(reducers).forEach(([reducerName, reducer]: ReducersMapEntry) => {
+    Object.entries(reducers).forEach((entry) => {
+      const [reducerName, reducer] = entry as ReducersMapEntry;
+
       store.reducerManager.add(reducerName, reducer);
       dispatch({ type: `@ADD_DYNAMIC_REDUCER: ${reducerName}` });
     });
 
     return () => {
-      Object.entries(reducers).forEach(([reducerName]: ReducersMapEntry) => {
+      Object.entries(reducers).forEach((entry) => {
+        const [reducerName] = entry as ReducersMapEntry;
+
         store.reducerManager.remove(reducerName);
         dispatch({ type: `@REMOVE_DYNAMIC_REDUCER: ${reducerName}` });
       });

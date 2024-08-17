@@ -16,36 +16,36 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Primary = {} satisfies Story;
 
-export const PrimaryInverted: Story = {
+export const PrimaryInverted = {
   args: {
     theme: AppLinkTheme.PRIMARY_INVERTED,
   },
-};
+} satisfies Story;
 
-export const PrimaryDark: Story = withOverriddenThemes({})();
+export const PrimaryDark = withOverriddenThemes({})() satisfies Story;
 
-export const Secondary: Story = {
+export const Secondary = {
   args: {
     theme: AppLinkTheme.SECONDARY,
   },
-};
+} satisfies Story;
 
-export const SecondaryDark: Story = withOverriddenThemes<Story>({
+export const SecondaryDark = withOverriddenThemes<Story>({
   args: {
     theme: AppLinkTheme.SECONDARY,
   },
-})();
+})() satisfies Story;
 
-export const Warning: Story = {
+export const Warning = {
   args: {
     theme: AppLinkTheme.WARNING,
   },
-};
+} satisfies Story;
 
-export const WarningDark: Story = withOverriddenThemes<Story>({
+export const WarningDark = withOverriddenThemes<Story>({
   args: {
     theme: AppLinkTheme.WARNING,
   },
-})();
+})() satisfies Story;

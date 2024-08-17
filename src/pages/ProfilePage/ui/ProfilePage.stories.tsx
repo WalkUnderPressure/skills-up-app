@@ -13,6 +13,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default = {} satisfies Story;
 
-export const DefaultDark: Story = withOverriddenThemes({})();
+export const DefaultDark = withOverriddenThemes({})() satisfies Story;

@@ -16,56 +16,56 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const DefaultWithTitleAndText: Story = {
+export const DefaultWithTitleAndText = {
   args: {
     title: DEFAULT_TITLE,
     text: DEFAULT_TEXT,
   },
-};
+} satisfies Story;
 
-export const ErrorWithTitleAndText: Story = {
-  args: {
-    title: DEFAULT_TITLE,
-    text: DEFAULT_TEXT,
-    theme: TextTheme.ERROR,
-  },
-};
-
-export const DefaultOnlyTitle: Story = {
-  args: {
-    title: DEFAULT_TITLE,
-  },
-};
-
-export const DefaultOnlyText: Story = {
-  args: {
-    text: DEFAULT_TEXT,
-  },
-};
-
-export const DefaultWithTitleAndTextDark: Story = withOverriddenThemes<Story>({
-  args: {
-    title: DEFAULT_TITLE,
-    text: DEFAULT_TEXT,
-  },
-})();
-
-export const ErrorWithTitleAndTextDark: Story = withOverriddenThemes<Story>({
+export const ErrorWithTitleAndText = {
   args: {
     title: DEFAULT_TITLE,
     text: DEFAULT_TEXT,
     theme: TextTheme.ERROR,
   },
-})();
+} satisfies Story;
 
-export const DefaultOnlyTitleDark: Story = withOverriddenThemes<Story>({
+export const DefaultOnlyTitle = {
   args: {
     title: DEFAULT_TITLE,
   },
-})();
+} satisfies Story;
 
-export const DefaultOnlyTextDark: Story = withOverriddenThemes<Story>({
+export const DefaultOnlyText = {
   args: {
     text: DEFAULT_TEXT,
   },
-})();
+} satisfies Story;
+
+export const DefaultWithTitleAndTextDark = withOverriddenThemes<Story>({
+  args: {
+    title: DEFAULT_TITLE,
+    text: DEFAULT_TEXT,
+  },
+})() satisfies Story;
+
+export const ErrorWithTitleAndTextDark = withOverriddenThemes<Story>({
+  args: {
+    title: DEFAULT_TITLE,
+    text: DEFAULT_TEXT,
+    theme: TextTheme.ERROR,
+  },
+})() satisfies Story;
+
+export const DefaultOnlyTitleDark = withOverriddenThemes<Story>({
+  args: {
+    title: DEFAULT_TITLE,
+  },
+})() satisfies Story;
+
+export const DefaultOnlyTextDark = withOverriddenThemes<Story>({
+  args: {
+    text: DEFAULT_TEXT,
+  },
+})() satisfies Story;

@@ -61,7 +61,7 @@ export default tseslint.config(
       ],
       'react/self-closing-comp': ['error', { component: true, html: true }],
       'max-lines': ['warn', { max: 124 }],
-      'max-params': ['error', 3],
+      'max-params': ['error', 4],
       'eol-last': ['error', 'always'],
       'i18next/no-literal-string': 'error',
       ...eslintPluginReactHooks.configs.recommended.rules,

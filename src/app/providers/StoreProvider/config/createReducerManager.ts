@@ -3,16 +3,19 @@ import { combineReducers, Reducer, UnknownAction } from '@reduxjs/toolkit';
 import {
   ReducerManager,
   StoreReducersMapObject,
-  StoreStateSchema,
   StoreStateSchemaKeys,
+  StoreStateSchema,
+  StoreStateSchemaPossibleEmpty,
 } from '../schemas';
+
+type RequiredCombineReducers = Required<StoreReducersMapObject>;
 
 function createReducerManager(initialReducers: StoreReducersMapObject): ReducerManager {
   // Create an object which maps keys to reducers
   const reducers = { ...initialReducers };
 
   // Create the initial combinedReducer
-  let combinedReducer = combineReducers(reducers);
+  let combinedReducer = combineReducers(reducers as RequiredCombineReducers);
 
   // An array which is used to delete state keys when reducers are removed
   let keysToRemove: Array<StoreStateSchemaKeys> = [];
@@ -22,13 +25,15 @@ function createReducerManager(initialReducers: StoreReducersMapObject): ReducerM
 
     // The root reducer function exposed by this object
     // This will be passed to the store
-    reduce: (state: StoreStateSchema, action: UnknownAction) => {
+    reduce: (state: StoreStateSchemaPossibleEmpty, action: UnknownAction): StoreStateSchema => {
       // If any reducers have been removed, clean up their state first
       if (keysToRemove.length > 0) {
-        state = { ...state };
-        for (const key of keysToRemove) {
-          delete state[key];
-        }
+        state = { ...state } as StoreStateSchema;
+
+        keysToRemove.forEach((key) => {
+          delete state?.[key];
+        });
+
         keysToRemove = [];
       }
 
@@ -46,7 +51,7 @@ function createReducerManager(initialReducers: StoreReducersMapObject): ReducerM
       reducers[name] = reducer;
 
       // Generate a new combined reducer
-      combinedReducer = combineReducers(reducers);
+      combinedReducer = combineReducers(reducers as RequiredCombineReducers);
     },
 
     // Removes a reducer with the specified key
@@ -62,7 +67,7 @@ function createReducerManager(initialReducers: StoreReducersMapObject): ReducerM
       keysToRemove.push(name);
 
       // Generate a new combined reducer
-      combinedReducer = combineReducers(reducers);
+      combinedReducer = combineReducers(reducers as RequiredCombineReducers);
     },
   };
 }

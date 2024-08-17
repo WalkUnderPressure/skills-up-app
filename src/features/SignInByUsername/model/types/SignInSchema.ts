@@ -7,7 +7,7 @@ interface SignInSchema {
   password: string;
   isLoading: boolean;
   isFailed: boolean;
-  errorCode?: SignInErrorCode;
+  errorCode?: Nullable<SignInErrorCode>;
 }
 
 export { SignInSchema, SignInErrorCode };

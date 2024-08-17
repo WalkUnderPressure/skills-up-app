@@ -6,6 +6,7 @@
         "jsx": "react-jsx",
         "allowJs": false,
         "strict": true,
+        "skipLibCheck": true,
         "moduleResolution": "node",
         // use "import" instead "import * as"
         "allowSyntheticDefaultImports": true,
