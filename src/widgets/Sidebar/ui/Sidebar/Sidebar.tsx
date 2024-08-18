@@ -1,9 +1,11 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 
 import SidebarItem from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
+import { useAppSelector } from 'app/providers/StoreProvider';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
+import { getUserAuthData } from 'entities/User';
 import classNames from 'shared/lib/classNames';
 import { SidebarDataTestIdProps } from './Sidebar.test-ids';
 import SidebarMenuItems from '../model/menuItems';
@@ -24,6 +26,13 @@ const Sidebar = memo((props: SidebarProps) => {
     setIsCollapsed((prevCollapsed) => !prevCollapsed);
   }, []);
 
+  const isAuthorized = useAppSelector(getUserAuthData);
+
+  const sidebarItems = useMemo(
+    () => SidebarMenuItems.filter(({ authOnly }) => (authOnly ? isAuthorized : true)),
+    [isAuthorized],
+  );
+
   return (
     <div
       data-testid={sidebarDataTestId}
@@ -37,11 +46,11 @@ const Sidebar = memo((props: SidebarProps) => {
         className={cls['toggle-btn']}
         data-testid={switcherDataTestId}
       >
-        <ArrowRightLine className={cls['toggle-btn-icon']} />
+        <ArrowRightLine width={24} height={24} className={cls['toggle-btn-icon']} />
       </Button>
 
       <ul className={classNames(cls.menu)}>
-        {SidebarMenuItems.map((menuItem) => {
+        {sidebarItems.map((menuItem) => {
           const { id } = menuItem;
 
           return <SidebarItem key={id} item={menuItem} isCollapsed={isCollapsed} />;

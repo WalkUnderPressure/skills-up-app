@@ -1,0 +1,38 @@
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.btn-icon {
+    --icon-size: 24px;
+
+    width: var(--icon-size);
+    height: var(--icon-size);
+    fill: var(--bg-color);
+}
+
+.btn-icon-inverted {
+    fill: var(--inverted-bg-color);
+}
+
+.header-btn {
+    height: 42px;
+    padding: 8px;
+
+    &:hover {
+        color: var(--warning-color);
+
+        .btn-icon {
+            fill: var(--warning-color);
+        }
+    }
+}
+
+.save-block {
+    display: flex;
+    gap: 16px;
+}

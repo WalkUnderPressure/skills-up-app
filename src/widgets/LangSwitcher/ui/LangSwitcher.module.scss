@@ -1,15 +1,17 @@
-.lang-switcher {
-    --switcher-p: 8px;
+.wrapper {
+    height: var(--font-line-xl);
 
-    display: flex;
-    background-color: var(--bg-color);
-    border: none;
-    outline: none;
-    border-radius: var(--radius-m);
-    padding: var(--switcher-p);
-    user-select: none;
-    cursor: pointer;
-    font: var(--font-m);
-    color: var(--primary-color);
-    border-right: var(--switcher-p) solid transparent;
+    select {
+        border-right: 4px solid transparent;
+    }
 }
+
+.border {
+    height: 100%;
+    border: none;
+}
+
+.select {
+    height: 100%;
+    padding: 8px;
+} 

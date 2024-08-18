@@ -18,6 +18,7 @@ function buildSvgLoader(): RuleSetRule {
       {
         loader: '@svgr/webpack',
         options: {
+          icon: true,
           svgoConfig: {
             plugins: svgoConfigPlugins,
           },

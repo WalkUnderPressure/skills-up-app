@@ -3,7 +3,7 @@ import jsonServer from 'json-server';
 import path from 'path';
 import fs from 'fs';
 
-import deleteFieldFrom from 'shared/lib/helpers/deleteFieldFrom';
+import deleteFieldFrom from '../src/shared/lib/helpers/deleteFieldFrom';
 import UserSchema from './schemas/UserSchema';
 import DBSchema from './schemas/DBSchema';
 

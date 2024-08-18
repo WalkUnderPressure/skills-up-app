@@ -22,7 +22,7 @@ const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
       className={classNames(cls['theme-switcher'], {}, [className])}
       onClick={switchTheme}
     >
-      <ThemeSwitch transform="scale(0.7)" fill="var(--theme-switch-bg)" />
+      <ThemeSwitch width={32} height={32} fill="var(--theme-switch-bg)" />
     </Button>
   );
 });

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
 import StoreDecorator from 'shared/config/storybook/decorators/StoreDecorator';
-import ProfilePage from './ProfilePage';
+import ProfilePage from '.';
 
 const meta = {
   title: 'Pages/ProfilePage',

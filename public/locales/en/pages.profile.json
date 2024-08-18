@@ -6,5 +6,9 @@
     "age": "Age",
     "currency": "Currency",
     "country": "Country",
-    "city": "City"
+    "city": "City",
+    "error": {
+        "not_found": "Unable to upload profile data!",
+        "update_fail": "Failed to update profile data!"
+    }
 }

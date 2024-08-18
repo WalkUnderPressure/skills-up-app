@@ -25,6 +25,12 @@ declare type DeepPartial<T> = T extends object
     }
   : T;
 
-declare type Nullable<T> = T | null;
+declare type Nullable<T> = T | null | undefined;
 
 declare type EmptyObject = Record<string, never>;
+
+// App
+declare type ErrorData<T> = {
+  isFailed?: boolean;
+  errorCode?: Nullable<T>;
+};

@@ -1,14 +1,23 @@
 import { Route, Routes } from 'react-router-dom';
-import { Suspense } from 'react';
+import { memo, Suspense, useMemo } from 'react';
 
+import { useAppSelector } from 'app/providers/StoreProvider';
 import { routerConfig } from 'shared/config/routerConfig';
+import { getUserAuthData } from 'entities/User';
 import { PageLoader } from 'widgets/PageLoader';
 
-const AppRouter = () => {
+const AppRouter = memo(() => {
+  const isAuthorized = useAppSelector(getUserAuthData);
+
+  const routes = useMemo(
+    () => Object.values(routerConfig).filter(({ authOnly }) => (authOnly ? isAuthorized : true)),
+    [isAuthorized],
+  );
+
   return (
     <div className="page-wrapper">
       <Routes>
-        {Object.values(routerConfig).map((routeProps) => {
+        {routes.map((routeProps) => {
           const { path, element } = routeProps;
 
           return (
@@ -22,6 +31,6 @@ const AppRouter = () => {
       </Routes>
     </div>
   );
-};
+});
 
 export default AppRouter;

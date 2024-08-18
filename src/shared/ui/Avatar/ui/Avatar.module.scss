@@ -1,0 +1,31 @@
+:root {
+    --avatar-size: 160px;
+}
+
+.avatar {
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    margin: 0 auto;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.size-xs {
+    --avatar-size: 32px;
+}
+
+.size-s {
+    --avatar-size: 80px;
+}
+
+.size-m {
+    --avatar-size: 160px;
+}
+
+.size-l {
+    --avatar-size: 240px;
+}
+
+.size-xl {
+    --avatar-size: 320px;
+}

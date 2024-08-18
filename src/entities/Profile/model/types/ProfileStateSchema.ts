@@ -1,27 +1,33 @@
-import Currency from 'shared/constants/currencies';
-import Country from 'shared/constants/countries';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 
 enum ProfileErrorCode {
   PROFILE_NOT_FOUND = 'PROFILE_NOT_FOUND',
+  CANT_UPDATE_PROFILE = 'CANT_UPDATE_PROFILE',
 }
 
 interface Profile {
-  first_name: string;
-  last_name: string;
-  age: number;
-  currency: Currency;
-  country: Country;
-  city: string;
   username: string;
-  avatar: string;
+  id?: string;
+  first_name?: string;
+  last_name?: string;
+  age?: number;
+  currency?: Currency;
+  country?: Country;
+  city?: string;
+  avatar?: string;
 }
+
+type ProfileKeys = keyof Profile;
 
 interface ProfileStateSchema {
   data?: Nullable<Profile>;
+  form?: Nullable<Profile>;
   isLoading?: boolean;
   isReadonly: boolean;
   isFailed: boolean;
   errorCode?: Nullable<ProfileErrorCode>;
+  isSaving?: boolean;
 }
 
-export { Profile, ProfileStateSchema, ProfileErrorCode };
+export { Profile, ProfileKeys, ProfileStateSchema, ProfileErrorCode };

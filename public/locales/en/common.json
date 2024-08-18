@@ -23,6 +23,11 @@
         "profile": "Profile"
     },
     "loading": "Loading",
+    "form": {
+        "edit": "Edit",
+        "save": "Save",
+        "reset": "Reset"
+    },
     "page_not_found": "Sorry! Page not found!",
     "error_boundary": {
         "title": "Sorry, unexpected error occurred! Try to reload page.",

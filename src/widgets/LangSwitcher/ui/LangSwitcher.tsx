@@ -1,7 +1,8 @@
-import { ChangeEvent, memo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import classNames from 'shared/lib/classNames';
+
+import { Select, SelectTheme, SelectOption } from 'shared/ui/Select';
 import * as cls from './LangSwitcher.module.scss';
 
 const LANGS = [
@@ -31,34 +32,39 @@ const LangSwitcher = memo((props: LangSwitcherProps) => {
 
   const { i18n, t } = useTranslation();
 
-  const changeLang = async (event: ChangeEvent<HTMLSelectElement>) => {
-    const nextLang = event.target.value;
+  const changeLang = useCallback(
+    async (nextLang: string) => {
+      await i18n.changeLanguage(nextLang);
+    },
+    [i18n],
+  );
 
-    await i18n.changeLanguage(nextLang);
-  };
+  const options = useMemo<Array<SelectOption>>(() => {
+    return LANGS.map((option) => {
+      const { titleKey, title, shortTitleKey, shortTitle, value } = option;
+
+      const transKey = short ? shortTitleKey : titleKey;
+      const transDefaultValue = short ? shortTitle : title;
+
+      const label = t(transKey, { defaultValue: transDefaultValue });
+
+      return { label, value };
+    });
+  }, [short, t]);
 
   return (
-    <select
+    <Select
+      theme={SelectTheme.INVERTED}
+      className={{
+        wrapper: classNames(cls['wrapper'], {}, [className]),
+        border: classNames(cls['border'], {}, [className]),
+        select: classNames(cls['select'], {}, [className]),
+      }}
+      options={options}
       name="lang"
       onChange={changeLang}
       value={i18n.language}
-      className={classNames(cls['lang-switcher'], {}, [className])}
-    >
-      {LANGS.map((option) => {
-        const { titleKey, title, shortTitleKey, shortTitle, value } = option;
-
-        const transKey = short ? shortTitleKey : titleKey;
-        const transDefaultValue = short ? shortTitle : title;
-
-        const label = t(transKey, { defaultValue: transDefaultValue });
-
-        return (
-          <option value={value} key={value}>
-            {label}
-          </option>
-        );
-      })}
-    </select>
+    />
   );
 });
 

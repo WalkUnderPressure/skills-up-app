@@ -26,6 +26,7 @@ const SidebarMenuItems: Array<SidebarItemType> = [
     title: 'Profile',
     titleKey: 'menu.profile',
     icon: ProfilePageIcon,
+    authOnly: true,
   },
 ];
 

@@ -17,6 +17,10 @@
             width: 100%;
         }
 
+        &-label {
+            transition: width 250ms ease-in-out 150ms, opacity 250ms ease-in-out 150ms;
+        }
+
         &-icon {
             --icon-w: calc(var(--sidebar-w-collapsed) - var(--sidebar-padding) * 2);
 
@@ -45,9 +49,6 @@
                 white-space: nowrap;
                 opacity: 0;
                 width: 0;
-                transition: all;
-                transition-duration: 250ms;
-                transition-timing-function: ease-in-out;
             }
         }
     }

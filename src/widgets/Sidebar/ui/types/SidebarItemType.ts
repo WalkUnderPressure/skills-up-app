@@ -12,4 +12,5 @@ export type SidebarItemType = {
       title?: string;
     }
   >;
+  authOnly?: boolean;
 };

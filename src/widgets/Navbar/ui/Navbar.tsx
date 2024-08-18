@@ -1,15 +1,16 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { SignInByUsernameModal } from 'features/SignInByUsername';
 import { Button, ButtonSize, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
+import { getUserAuthData, userActions } from 'entities/User';
 import { useModal } from 'shared/ui/Modal';
 import { AppLink } from 'shared/ui/AppLink';
 import classNames from 'shared/lib/classNames';
 import * as cls from './Navbar.module.scss';
-import { getUserAuthData, userActions } from 'entities/User';
 
 type NavbarProps = {
   className?: string;
@@ -21,6 +22,7 @@ const Navbar = (props: NavbarProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const userAuthData = useAppSelector(getUserAuthData);
+  const navigate = useNavigate();
 
   const {
     isOpen: isSignInModalOpen,
@@ -28,9 +30,11 @@ const Navbar = (props: NavbarProps) => {
     closeModal: closeSignInModal,
   } = useModal();
 
-  const onClickSignOut = useCallback(() => {
-    dispatch(userActions.signOut());
-  }, [dispatch]);
+  const onClickSignOut = useCallback(async () => {
+    await dispatch(userActions.signOut());
+
+    navigate(RouterPaths[AppRoutes.HOME]);
+  }, [dispatch, navigate]);
 
   return (
     <nav className={classNames(cls.navbar, {}, [className])}>

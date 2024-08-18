@@ -45,6 +45,7 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
+    padding: 0 24px;
 }
 
 .collapsed {
@@ -56,6 +57,7 @@
 
     .switchers {
         flex-direction: column;
+        padding: 0 12px;
     }
 
     .toggle-btn-icon {

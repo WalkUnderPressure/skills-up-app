@@ -1,6 +1,7 @@
 .input-wrapper {
     --input-padding: 16px;
 
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -8,8 +9,10 @@
 }
 
 .input {
+    width: 100%;
+    height: var(--input-h);
     padding: var(--input-padding);
-    border-width: 2px;
+    border-width: var(--input-border-w);
     border-style: solid;
     border-color: var(--input-border);
     border-radius: var(--radius-m);
@@ -19,6 +22,11 @@
 
     &:focus {
         border-color: var(--input-border-focus);
+    }
+
+    &:read-only {
+        opacity: 0.8;
+        border-color: var(--input-border);
     }
 }
 

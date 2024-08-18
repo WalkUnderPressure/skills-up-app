@@ -1,0 +1,89 @@
+import { useCallback, useEffect } from 'react';
+
+import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
+import getProfileFormData from 'entities/Profile/model/selectors/getProfileFormData';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
+import ProfilePageHeader from 'pages/ProfilePage/ui/ProfilePageHeader';
+import classNames from 'shared/lib/classNames';
+import {
+  fetchProfileData,
+  updateProfileData,
+  getProfileIsLoading,
+  getProfileIsReadonly,
+  profileActions,
+  ProfileCard,
+  ProfileKeys,
+  profileReducer,
+  getProfileIsSaving,
+  getProfileErrorData,
+} from 'entities/Profile';
+
+import * as cls from './ProfilePage.module.scss';
+
+const reducers: ReducersMap = {
+  profile: profileReducer,
+};
+
+export type ProfilePageProps = {
+  className?: string;
+};
+
+const ProfilePage = (props: ProfilePageProps) => {
+  const { className } = props;
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
+
+  const errorData = useAppSelector(getProfileErrorData);
+  const isReadonly = useAppSelector(getProfileIsReadonly);
+  const isLoading = useAppSelector(getProfileIsLoading);
+  const isSaving = useAppSelector(getProfileIsSaving);
+  const profile = useAppSelector(getProfileFormData);
+
+  const onEdit = useCallback(() => {
+    dispatch(profileActions.setIsReadonly(false));
+  }, [dispatch]);
+
+  const onReset = useCallback(() => {
+    dispatch(profileActions.resetFormData());
+  }, [dispatch]);
+
+  const onChangeInputValue = useCallback(
+    (fieldName: ProfileKeys, value: string) => {
+      dispatch(profileActions.updateProfileFormData({ [fieldName]: value }));
+    },
+    [dispatch],
+  );
+
+  const onSave = useCallback(() => {
+    dispatch(updateProfileData());
+  }, [dispatch]);
+
+  return (
+    <DynamicReducerProvider reducers={reducers}>
+      <div className={classNames(cls.content, {}, [className])}>
+        <ProfilePageHeader
+          isReadonly={isReadonly}
+          onEdit={onEdit}
+          onReset={onReset}
+          onSave={onSave}
+          errorData={errorData}
+        />
+
+        <ProfileCard
+          profile={profile}
+          isLoading={isLoading}
+          isReadonly={isReadonly}
+          errorData={errorData}
+          onChange={onChangeInputValue}
+          isDisabled={isSaving}
+        />
+      </div>
+    </DynamicReducerProvider>
+  );
+};
+
+export default ProfilePage;
