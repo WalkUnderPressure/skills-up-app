@@ -1,11 +1,12 @@
 import { useCallback, useEffect } from 'react';
 
 import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
-import getProfileFormData from 'entities/Profile/model/selectors/getProfileFormData';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import ProfilePageHeader from 'pages/ProfilePage/ui/ProfilePageHeader';
+import ProfilePageHeader from '../ProfilePageHeader';
 import classNames from 'shared/lib/classNames';
 import {
+  getProfileValidationErrors,
+  getProfileFormData,
   fetchProfileData,
   updateProfileData,
   getProfileIsLoading,
@@ -16,6 +17,7 @@ import {
   profileReducer,
   getProfileIsSaving,
   getProfileErrorData,
+  isValidForm,
 } from 'entities/Profile';
 
 import * as cls from './ProfilePage.module.scss';
@@ -37,11 +39,14 @@ const ProfilePage = (props: ProfilePageProps) => {
     dispatch(fetchProfileData());
   }, [dispatch]);
 
+  const validationErrors = useAppSelector(getProfileValidationErrors);
   const errorData = useAppSelector(getProfileErrorData);
   const isReadonly = useAppSelector(getProfileIsReadonly);
   const isLoading = useAppSelector(getProfileIsLoading);
   const isSaving = useAppSelector(getProfileIsSaving);
   const profile = useAppSelector(getProfileFormData);
+
+  const isValid = isValidForm(validationErrors);
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setIsReadonly(false));
@@ -71,6 +76,7 @@ const ProfilePage = (props: ProfilePageProps) => {
           onReset={onReset}
           onSave={onSave}
           errorData={errorData}
+          isValid={!isValid}
         />
 
         <ProfileCard
@@ -80,6 +86,7 @@ const ProfilePage = (props: ProfilePageProps) => {
           errorData={errorData}
           onChange={onChangeInputValue}
           isDisabled={isSaving}
+          validationErrors={validationErrors}
         />
       </div>
     </DynamicReducerProvider>

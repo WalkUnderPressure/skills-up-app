@@ -24,10 +24,12 @@
     padding: 8px;
 
     &:hover {
-        color: var(--warning-color);
+        &:not([disabled]) {
+            color: var(--warning-color);
 
-        .btn-icon {
-            fill: var(--warning-color);
+            .btn-icon {
+                fill: var(--warning-color);
+            }
         }
     }
 }

@@ -1,39 +1,52 @@
 import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
-import getProfileFormData from 'entities/Profile/model/selectors/getProfileFormData';
-import { Profile, ProfileErrorCode } from '../../types/ProfileStateSchema';
+import { Profile, ProfileErrorCode, ValidationErrors } from '../../types/ProfileStateSchema';
+import getProfileValidationErrors from '../../selectors/getProfileValidationErrors';
+import getProfileFormData from '../../selectors/getProfileFormData';
+import { isValidForm } from 'entities/Profile/model/services/validateProfileData';
 
-const updateProfileData = createAppAsyncThunk<
-  Profile,
-  void,
-  AsyncThunkRejectValue<ProfileErrorCode>
->('profile/updateProfileData', async (_, thunkAPI) => {
-  const {
-    getState,
-    rejectWithValue,
-    extra: { api },
-  } = thunkAPI;
+type ErrorDataType = {
+  validation?: ValidationErrors;
+  error?: ProfileErrorCode;
+};
 
-  const state = getState();
+const updateProfileData = createAppAsyncThunk<Profile, void, AsyncThunkRejectValue<ErrorDataType>>(
+  'profile/updateProfileData',
+  async (_, thunkAPI) => {
+    const {
+      getState,
+      rejectWithValue,
+      extra: { api },
+    } = thunkAPI;
 
-  try {
+    const state = getState();
     const profileFormData = getProfileFormData(state);
+    const validationErrors = getProfileValidationErrors(state);
     const postId = state?.profile?.data?.id || '';
+    const isValid = isValidForm(validationErrors);
 
-    let profileData = null;
+    try {
+      let profileData = null;
 
-    if (postId && profileFormData) {
-      const response = await api.patch<Profile>(`/profiles/${postId}`, profileFormData);
-      profileData = response.data;
+      if (postId && profileFormData && isValid) {
+        const response = await api.patch<Profile>(`/profiles/${postId}`, profileFormData);
+        profileData = response.data;
+      }
+
+      if (!profileData) {
+        throw new Error();
+      }
+
+      return profileData;
+    } catch (error) {
+      let errorData: ErrorDataType = { error: ProfileErrorCode.CANT_UPDATE_PROFILE };
+
+      if (!isValid) {
+        errorData = { validation: validationErrors };
+      }
+
+      return rejectWithValue(errorData);
     }
-
-    if (!profileData) {
-      throw new Error();
-    }
-
-    return profileData;
-  } catch (error) {
-    return rejectWithValue(ProfileErrorCode.CANT_UPDATE_PROFILE);
-  }
-});
+  },
+);
 
 export { updateProfileData };

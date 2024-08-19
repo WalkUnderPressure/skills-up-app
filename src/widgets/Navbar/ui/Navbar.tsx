@@ -8,7 +8,6 @@ import { Button, ButtonSize, ButtonTheme, ButtonRounded } from 'shared/ui/Button
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { getUserAuthData, userActions } from 'entities/User';
 import { useModal } from 'shared/ui/Modal';
-import { AppLink } from 'shared/ui/AppLink';
 import classNames from 'shared/lib/classNames';
 import * as cls from './Navbar.module.scss';
 
@@ -38,8 +37,6 @@ const Navbar = (props: NavbarProps) => {
 
   return (
     <nav className={classNames(cls.navbar, {}, [className])}>
-      <AppLink to={RouterPaths[AppRoutes.HOME]}>{t('menu.home', { defaultValue: 'Home' })}</AppLink>
-
       {userAuthData ? (
         <Button
           rounded={ButtonRounded.M}

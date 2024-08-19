@@ -25,6 +25,10 @@ declare type DeepPartial<T> = T extends object
     }
   : T;
 
+declare type PartialRecord<K, T> = {
+  [P in K]?: T;
+};
+
 declare type Nullable<T> = T | null | undefined;
 
 declare type EmptyObject = Record<string, never>;

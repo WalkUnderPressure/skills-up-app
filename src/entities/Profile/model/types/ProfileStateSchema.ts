@@ -2,12 +2,13 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 
 enum ProfileErrorCode {
+  REQUIRED = 'REQUIRED',
   PROFILE_NOT_FOUND = 'PROFILE_NOT_FOUND',
   CANT_UPDATE_PROFILE = 'CANT_UPDATE_PROFILE',
 }
 
 interface Profile {
-  username: string;
+  username?: string;
   id?: string;
   first_name?: string;
   last_name?: string;
@@ -20,6 +21,8 @@ interface Profile {
 
 type ProfileKeys = keyof Profile;
 
+type ValidationErrors = PartialRecord<ProfileKeys, Array<ProfileErrorCode>>;
+
 interface ProfileStateSchema {
   data?: Nullable<Profile>;
   form?: Nullable<Profile>;
@@ -28,6 +31,7 @@ interface ProfileStateSchema {
   isFailed: boolean;
   errorCode?: Nullable<ProfileErrorCode>;
   isSaving?: boolean;
+  validationErrors?: ValidationErrors;
 }
 
-export { Profile, ProfileKeys, ProfileStateSchema, ProfileErrorCode };
+export { Profile, ProfileKeys, ProfileStateSchema, ProfileErrorCode, ValidationErrors };

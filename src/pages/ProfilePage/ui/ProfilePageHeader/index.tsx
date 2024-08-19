@@ -17,11 +17,12 @@ type ProfilePageHeaderProps = {
   onReset: () => void;
   onSave: () => void;
   errorData?: ErrorData<ProfileErrorCode>;
+  isValid?: boolean;
 };
 
 const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
+  const { isReadonly = true, errorData, isValid } = props;
   const { className, onEdit, onReset, onSave } = props;
-  const { isReadonly = true, errorData } = props;
 
   const { t } = useTranslation('pages.profile');
 
@@ -64,6 +65,7 @@ const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                 rounded={ButtonRounded.S}
                 theme={ButtonTheme.BG_INVERTED}
                 onClick={onSave}
+                disabled={isValid}
               >
                 {t('form.save', { defaultValue: 'Save' })}
                 <SaveIcon className={classNames(cls['btn-icon'])} />

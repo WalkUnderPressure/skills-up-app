@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { updateProfileData } from 'entities/Profile/model/services/updateProfileData';
 import { Profile, ProfileStateSchema } from '../types/ProfileStateSchema';
+import { updateProfileData } from '../services/updateProfileData';
+import validateProfileData from '../services/validateProfileData';
 import { fetchProfileData } from '../services/fetchProfileData';
 
 const initialState: ProfileStateSchema = {
@@ -12,6 +13,7 @@ const initialState: ProfileStateSchema = {
   isFailed: false,
   errorCode: null,
   isSaving: false,
+  validationErrors: {},
 };
 
 export const profileSlice = createSlice({
@@ -23,17 +25,21 @@ export const profileSlice = createSlice({
     },
     updateProfileFormData: (state, action: PayloadAction<Partial<Profile>>) => {
       const newProfileData = action.payload;
-      const userName = newProfileData?.username || state.form?.username || '';
 
-      state.form = {
+      const newFormData = {
         ...state.form,
         ...newProfileData,
-        username: userName,
       };
+
+      const validationErrors = validateProfileData(newFormData);
+
+      state.validationErrors = validationErrors;
+      state.form = newFormData;
     },
     resetFormData: (state) => {
       state.form = state.data;
       state.isReadonly = true;
+      state.validationErrors = {};
     },
   },
   extraReducers: (builder) => {
@@ -78,8 +84,15 @@ export const profileSlice = createSlice({
       })
       .addCase(updateProfileData.rejected, (state, action) => {
         state.isSaving = false;
-        state.isFailed = true;
-        state.errorCode = action.payload;
+
+        const errorCode = action.payload?.error ?? null;
+
+        if (errorCode) {
+          state.isFailed = true;
+          state.errorCode = errorCode;
+        } else {
+          state.validationErrors = action.payload?.validation;
+        }
       });
   },
 });

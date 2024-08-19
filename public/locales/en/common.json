@@ -26,7 +26,10 @@
     "form": {
         "edit": "Edit",
         "save": "Save",
-        "reset": "Reset"
+        "reset": "Reset",
+        "errors": {
+            "required": "This field is required!"
+        }
     },
     "page_not_found": "Sorry! Page not found!",
     "error_boundary": {

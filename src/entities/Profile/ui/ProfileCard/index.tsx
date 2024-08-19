@@ -8,12 +8,18 @@ import { CountrySelect } from 'entities/Country';
 import classNames from 'shared/lib/classNames';
 import { Loader } from 'shared/ui/Loader';
 import { Input } from 'shared/ui/Input';
-import { Profile, ProfileErrorCode, ProfileKeys } from '../../model/types/ProfileStateSchema';
+import {
+  Profile,
+  ProfileErrorCode,
+  ProfileKeys,
+  ValidationErrors,
+} from '../../model/types/ProfileStateSchema';
 import * as cls from './ProfileCard.module.scss';
 
 type ProfileProps = {
   className?: string;
   profile?: Nullable<Profile>;
+  validationErrors?: ValidationErrors;
   isLoading?: boolean;
   isReadonly?: boolean;
   isDisabled?: boolean;
@@ -21,9 +27,26 @@ type ProfileProps = {
   onChange?: (fieldName: ProfileKeys, value: string) => void;
 };
 
+type ErrorTranslates = Record<ProfileErrorCode, string>;
+
+const getFieldError = (
+  validationErrors: ValidationErrors = {},
+  fieldName: ProfileKeys,
+  errorsTranslates: ErrorTranslates,
+) => {
+  const index = validationErrors?.[fieldName]?.at(0);
+  let message = '';
+
+  if (index) {
+    message = errorsTranslates[index];
+  }
+
+  return message;
+};
+
 const ProfileCard = (props: ProfileProps) => {
   const { isLoading = false, isReadonly = true, isDisabled = false } = props;
-  const { profile, className, onChange, errorData } = props;
+  const { profile, className, onChange, errorData, validationErrors } = props;
 
   const {
     username,
@@ -60,6 +83,17 @@ const ProfileCard = (props: ProfileProps) => {
     [onChange],
   );
 
+  const errorsTranslates = useMemo(
+    () =>
+      ({
+        REQUIRED: t('form.errors.required', {
+          defaultValue: 'This field is required!',
+          ns: 'common',
+        }),
+      }) as ErrorTranslates,
+    [t],
+  );
+
   return (
     <div className={classNames(cls['profile-card'], {}, [className])}>
       {isLoading && <Loader />}
@@ -81,6 +115,7 @@ const ProfileCard = (props: ProfileProps) => {
               readOnly={isReadonly}
               disabled={isDisabled}
               onChange={onChangeHandler('username')}
+              errorMessage={getFieldError(validationErrors, 'username', errorsTranslates)}
             />
 
             <Input
@@ -98,6 +133,7 @@ const ProfileCard = (props: ProfileProps) => {
               readOnly={isReadonly}
               disabled={isDisabled}
               onChange={onChangeHandler('first_name')}
+              errorMessage={getFieldError(validationErrors, 'first_name', errorsTranslates)}
             />
 
             <Input
@@ -106,6 +142,7 @@ const ProfileCard = (props: ProfileProps) => {
               readOnly={isReadonly}
               disabled={isDisabled}
               onChange={onChangeHandler('last_name')}
+              errorMessage={getFieldError(validationErrors, 'last_name', errorsTranslates)}
             />
 
             <CurrencySelect
@@ -132,6 +169,7 @@ const ProfileCard = (props: ProfileProps) => {
               readOnly={isReadonly}
               disabled={isDisabled}
               onChange={onChangeHandler('city')}
+              errorMessage={getFieldError(validationErrors, 'city', errorsTranslates)}
             />
           </div>
         </>

@@ -9,13 +9,17 @@ import { fetchProfileData } from './model/services/fetchProfileData';
 import { updateProfileData } from './model/services/updateProfileData';
 import ProfileCard from './ui/ProfileCard';
 
+import getProfileValidationErrors from './model/selectors/getProfileValidationErrors';
 import getProfileIsReadonly from './model/selectors/getProfileIsReadonly';
 import getProfileIsLoading from './model/selectors/getProfileIsLoading';
 import getProfileErrorData from './model/selectors/getProfileErrorData';
+import getProfileFormData from './model/selectors/getProfileFormData';
 import getProfileIsSaving from './model/selectors/getProfileIsSaving';
 import getProfileData from './model/selectors/getProfileData';
+import { isValidForm } from './model/services/validateProfileData';
 
 export {
+  isValidForm,
   ProfileCard,
   profileActions,
   profileReducer,
@@ -28,6 +32,8 @@ export {
   getProfileData,
   getProfileIsLoading,
   getProfileIsReadonly,
+  getProfileValidationErrors,
+  getProfileFormData,
   getProfileErrorData,
   getProfileIsSaving,
 };
