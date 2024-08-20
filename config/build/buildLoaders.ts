@@ -1,37 +1,17 @@
 import { RuleSetRule } from 'webpack';
 
+import buildBabelLoader from './loaders/buildBabelLoader';
 import buildFileLoader from './loaders/buildFileLoader';
 import buildCssLoader from './loaders/buildCssLoader';
 import buildSvgLoader from './loaders/buildSvgLoader';
+import buildTsLoader from './loaders/buildTsLoader';
 import { BuildOptions } from './types';
 
 function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
-  const { isDev } = options;
-
-  const babelPlugins = [];
-  if (isDev) {
-    babelPlugins.push('react-refresh/babel');
-  }
-
-  const babelLoader = {
-    test: /\.[jt]sx?$/,
-    exclude: /node_modules/,
-    use: [
-      {
-        loader: 'babel-loader',
-        options: {
-          plugins: babelPlugins,
-        },
-      },
-    ],
-  };
+  const babelLoader = buildBabelLoader(options);
 
   // If not using TS, need include "babel-loader"
-  const tsLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  };
+  const tsLoader = buildTsLoader(options);
 
   const cssLoader = buildCssLoader(options);
 
@@ -39,6 +19,7 @@ function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
 
   const fileLoader = buildFileLoader();
 
+  // Order important
   return [babelLoader, tsLoader, cssLoader, svgLoader, fileLoader];
 }
 
