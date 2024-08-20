@@ -1,8 +1,10 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-import { BuildOptions } from '../types';
+type BuildCssLoaderOptions = {
+  isDev: boolean;
+};
 
-function buildCssLoader(options: BuildOptions) {
+function buildCssLoader(options: BuildCssLoaderOptions) {
   const { isDev } = options;
 
   return {
