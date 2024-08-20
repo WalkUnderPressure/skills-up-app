@@ -45,8 +45,8 @@ const getFieldError = (
 };
 
 const ProfileCard = (props: ProfileProps) => {
-  const { isLoading = false, isReadonly = true, isDisabled = false } = props;
   const { profile, className, onChange, errorData, validationErrors } = props;
+  const { isLoading = false, isReadonly = true, isDisabled = false } = props;
 
   const {
     username,
@@ -108,7 +108,11 @@ const ProfileCard = (props: ProfileProps) => {
         <>
           {avatar && <Avatar src={avatar} alt="ProfileUserAvatar" size={AvatarSize.L} />}
 
-          <div className={classNames(cls.inputs)}>
+          <div
+            className={classNames(cls.inputs, {
+              [cls['inputs-full']]: Boolean(__PROJECT__ === 'storybook'),
+            })}
+          >
             <Input
               label={t('username', { defaultValue: 'Username' })}
               value={username}

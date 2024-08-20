@@ -14,6 +14,7 @@ export type BuildOptions = {
   paths: BuildPaths;
   port: number;
   withAnalyze: boolean;
+  project: 'app' | 'jest' | 'storybook';
 };
 
 export type BuildEnv = {

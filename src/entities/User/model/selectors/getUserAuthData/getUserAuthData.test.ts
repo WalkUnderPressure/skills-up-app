@@ -4,7 +4,7 @@ import getUserAuthData from '.';
 
 describe('getUserAuthData', () => {
   test('get user auth data from filled store', () => {
-    const expectedResult: User = { id: 1, username: 'moderator' };
+    const expectedResult: User = { id: '1', username: 'moderator' };
 
     const state: DeepPartial<StoreStateSchema> = {
       user: {

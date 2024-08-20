@@ -22,24 +22,23 @@ jobs:
       - name: Install packages
         run: npm i
 
-      # TODO: return after fix all new ts errors
-      # - name: App production build
-      # run: npm run build:prod
+      - name: App production build
+        run: npm run build:prod
 
-      # - name: Run linter for ESlint
-      # run: npm run lint:eslint
+      - name: Run linter for ESlint
+        run: npm run lint:code
 
-      # - name: Run linter for TS
-      # run: npm run lint:ts
+      - name: Run linter for TS
+        run: npm run lint:ts
 
-      # - name: Run linter for SCSS
-      # run: npm run lint:scss
+      - name: Run linter for SCSS
+        run: npm run lint:scss
 
-      # - name: Run unit tests
-      # run: npm run test:unit
+      - name: Run unit tests
+        run: npm run test:unit
 
-      # - name: Build Storybook
-      # run: npm run storybook:build
+      - name: Build Storybook
+        run: npm run storybook:build
 
-      # - name: Run screenshot tests
-      # run: npm run test:sshot:ci
+      - name: Run screenshot tests
+        run: npm run test:sshot:ci

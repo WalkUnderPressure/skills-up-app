@@ -1,7 +1,7 @@
 type PostSchema = {
-  id: number;
+  id: string;
   title: string;
-  userId: number;
+  userId: string;
 };
 
 export default PostSchema;

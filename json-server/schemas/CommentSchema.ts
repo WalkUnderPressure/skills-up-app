@@ -1,7 +1,7 @@
 type CommentSchema = {
-  id: number;
+  id: string;
   body: string;
-  postId: number;
+  postId: string;
 };
 
 export default CommentSchema;

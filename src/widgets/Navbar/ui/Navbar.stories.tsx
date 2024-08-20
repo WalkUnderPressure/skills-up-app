@@ -12,7 +12,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Authorized = {
-  decorators: StoreDecorator({ user: { authData: { id: 1, username: 'moderator' } } }),
+  decorators: StoreDecorator({ user: { authData: { id: '1', username: 'moderator' } } }),
 } satisfies Story;
 
 export const NotAuthorized = {

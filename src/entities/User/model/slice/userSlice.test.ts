@@ -5,7 +5,7 @@ import { userActions, userReducer } from './userSlice';
 
 describe('userSlice', () => {
   test('check setAuthData', () => {
-    const userData: User = { id: 1, username: 'admin' };
+    const userData: User = { id: '1', username: 'admin' };
 
     const expectedResult: UserStateSchema = { authData: userData };
 
@@ -22,7 +22,7 @@ describe('userSlice', () => {
   });
 
   test('check signOut', () => {
-    const userData: User = { id: 1, username: 'admin' };
+    const userData: User = { id: '1', username: 'admin' };
 
     const expectedResult: UserStateSchema = { authData: null };
 
@@ -44,7 +44,7 @@ describe('userSlice with LocalStorage', () => {
   });
 
   test('check initAuthData when LS empty', () => {
-    const userData: User = { id: 1, username: 'admin' };
+    const userData: User = { id: '1', username: 'admin' };
 
     const expectedResult: UserStateSchema = { authData: userData };
     const initState: DeepPartial<UserStateSchema> = { authData: userData };
@@ -55,7 +55,7 @@ describe('userSlice with LocalStorage', () => {
   });
 
   test('check initAuthData when LS full', () => {
-    const userData: User = { id: 1, username: 'admin' };
+    const userData: User = { id: '1', username: 'admin' };
 
     localStorageMock.add({
       [LS_AUTH_USER]: JSON.stringify(userData),

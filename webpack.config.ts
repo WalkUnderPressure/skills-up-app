@@ -21,6 +21,7 @@ export default (env: BuildEnv) => {
       src: path.resolve(__dirname, 'src'),
     },
     port: PORT,
+    project: 'app',
   };
 
   const config = buildWebpackConfig(options);

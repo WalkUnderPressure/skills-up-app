@@ -7,7 +7,7 @@ import { signInByUsername, SignInByUsernameData } from '.';
 
 describe('signInByUsername', () => {
   test('successful sign-in', async () => {
-    const userData = { id: 1, username: 'admin' };
+    const userData = { id: '1', username: 'admin' };
     const signInData: SignInByUsernameData = { username: 'admin', password: 'admin' };
     const thunk = new TestAsyncThunk(signInByUsername);
 
