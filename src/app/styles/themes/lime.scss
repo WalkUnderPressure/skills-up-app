@@ -1,12 +1,12 @@
-:root[data-theme="app-light-theme"] {
+:root[data-theme="app-lime-theme"] {
     // backgrounds
-    --bg-color: #95e6ff;
-    --inverted-bg-color: #362a3b;
+    --bg-color: #F4FBF7;
+    --inverted-bg-color: #208754;
 
     // fonts
     --primary-color: #000;
     --secondary-color: #444;
-    --warning-color: #f90;
+    --warning-color: #09dc09;
     --inverted-primary-color: #fff;
     --inverted-secondary-color: #aaa;
 
@@ -22,5 +22,5 @@
     --error-color: rgb(255 0 0);
 
     // colors
-    --theme-switch-bg: hsl(47deg 100% 50%);
+    --theme-switch-bg: hsl(108deg 100% 50%);
 }

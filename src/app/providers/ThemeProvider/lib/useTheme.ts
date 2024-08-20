@@ -12,13 +12,23 @@ function useTheme() {
   const { theme, setTheme } = themeContext;
 
   const switchTheme = () => {
-    let nextTheme = ETheme.Dark;
+    if (setTheme) {
+      let nextTheme = ETheme.Light;
 
-    if (theme === ETheme.Dark) {
-      nextTheme = ETheme.Light;
+      switch (theme) {
+        case ETheme.Light:
+          nextTheme = ETheme.Lime;
+          break;
+        case ETheme.Lime:
+          nextTheme = ETheme.Dark;
+          break;
+        case ETheme.Dark:
+          nextTheme = ETheme.Light;
+          break;
+      }
+
+      setTheme(nextTheme);
     }
-
-    setTheme?.(nextTheme);
   };
 
   return { theme, switchTheme };
