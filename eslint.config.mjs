@@ -29,7 +29,14 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['build', 'storybook-static', 'node_modules', 'coverage', 'eslint.config.js'],
+    ignores: [
+      'build',
+      'storybook-static',
+      'node_modules',
+      'coverage',
+      'eslint.config.js',
+      '.fttemplates',
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
