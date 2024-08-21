@@ -22,6 +22,6 @@ describe('getProfileValidationErrors', () => {
 
   test('get profile validation errors from empty store', () => {
     const actualResult = getProfileValidationErrors({} as StoreStateSchema);
-    expect(actualResult).toEqual({});
+    expect(actualResult).toEqual(null);
   });
 });

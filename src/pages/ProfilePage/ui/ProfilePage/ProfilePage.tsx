@@ -18,6 +18,7 @@ import {
   getProfileIsSaving,
   getProfileErrorData,
   isValidForm,
+  ProfileValidationErrors,
 } from 'entities/Profile';
 
 import * as cls from './ProfilePage.module.scss';
@@ -41,7 +42,8 @@ const ProfilePage = (props: ProfilePageProps) => {
     }
   }, [dispatch]);
 
-  const validationErrors = useAppSelector(getProfileValidationErrors);
+  const validationErrors: ProfileValidationErrors =
+    useAppSelector(getProfileValidationErrors) || {};
   const errorData = useAppSelector(getProfileErrorData);
   const isReadonly = useAppSelector(getProfileIsReadonly);
   const isLoading = useAppSelector(getProfileIsLoading);

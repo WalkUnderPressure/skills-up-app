@@ -1,3 +1,4 @@
-.[FTName | kebabcase] {
-    display: flex;
+.[FTName|kebabcase] {
+  display: flex;
+  flex-direction: column;
 }

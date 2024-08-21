@@ -4,6 +4,8 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { AboutPage } from 'pages/AboutPage';
 import { HomePage } from 'pages/HomePage';
+import { BlogPage } from 'pages/BlogPage';
+import { PostPage } from 'pages/PostPage';
 
 export type AppRouteProps = {
   authOnly?: boolean;
@@ -13,6 +15,8 @@ export enum AppRoutes {
   HOME = 'home',
   ABOUT = 'about',
   PROFILE = 'profile',
+  BLOG = 'blog',
+  POST = 'post',
 
   // when no route is suitable
   NOT_FOUND = 'not_found',
@@ -22,6 +26,8 @@ export const RouterPaths: Record<AppRoutes, string> = {
   [AppRoutes.HOME]: '/',
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.PROFILE]: '/profile',
+  [AppRoutes.BLOG]: '/blog',
+  [AppRoutes.POST]: '/post', // :id
 
   // when no route is suitable
   [AppRoutes.NOT_FOUND]: '*',
@@ -39,6 +45,16 @@ export const routerConfig: Record<AppRoutes, AppRouteProps> = {
   [AppRoutes.PROFILE]: {
     path: RouterPaths[AppRoutes.PROFILE],
     element: <ProfilePage />,
+    authOnly: true,
+  },
+  [AppRoutes.BLOG]: {
+    path: RouterPaths[AppRoutes.BLOG],
+    element: <BlogPage />,
+    authOnly: true,
+  },
+  [AppRoutes.POST]: {
+    path: `${RouterPaths[AppRoutes.POST]}/:id`,
+    element: <PostPage />,
     authOnly: true,
   },
 

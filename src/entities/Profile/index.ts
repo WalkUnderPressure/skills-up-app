@@ -9,6 +9,8 @@ import { fetchProfileData } from './model/services/fetchProfileData';
 import { updateProfileData } from './model/services/updateProfileData';
 import ProfileCard from './ui/ProfileCard';
 
+import type { ValidationErrors as ProfileValidationErrors } from './model/types/ProfileStateSchema';
+
 import getProfileValidationErrors from './model/selectors/getProfileValidationErrors';
 import getProfileIsReadonly from './model/selectors/getProfileIsReadonly';
 import getProfileIsLoading from './model/selectors/getProfileIsLoading';
@@ -36,4 +38,5 @@ export {
   getProfileFormData,
   getProfileErrorData,
   getProfileIsSaving,
+  ProfileValidationErrors,
 };

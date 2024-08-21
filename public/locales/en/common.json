@@ -20,7 +20,8 @@
     "menu": {
         "home": "Home",
         "about": "About",
-        "profile": "Profile"
+        "profile": "Profile",
+        "blog": "Blog"
     },
     "loading": "Loading",
     "form": {

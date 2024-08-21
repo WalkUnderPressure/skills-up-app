@@ -2,6 +2,7 @@ import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { SidebarItemType } from '../types/SidebarItemType';
 
 import ProfilePageIcon from 'shared/assets/icons/profile.svg';
+import BlogPageIcon from 'shared/assets/icons/article.svg';
 import AboutPageIcon from 'shared/assets/icons/about.svg';
 import HomePageIcon from 'shared/assets/icons/home.svg';
 
@@ -26,6 +27,14 @@ const SidebarMenuItems: Array<SidebarItemType> = [
     title: 'Profile',
     titleKey: 'menu.profile',
     icon: ProfilePageIcon,
+    authOnly: true,
+  },
+  {
+    id: AppRoutes.BLOG,
+    to: RouterPaths[AppRoutes.BLOG],
+    title: 'Blog',
+    titleKey: 'menu.blog',
+    icon: BlogPageIcon,
     authOnly: true,
   },
 ];

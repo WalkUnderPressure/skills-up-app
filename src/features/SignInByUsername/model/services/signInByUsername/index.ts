@@ -1,5 +1,4 @@
 import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
-import { LS_AUTH_USER } from 'shared/constants/localStorage';
 import { User, userActions } from 'entities/User';
 import { SignInErrorCode } from '../../types/SignInSchema';
 
@@ -28,7 +27,6 @@ const signInByUsername = createAppAsyncThunk<
     }
 
     dispatch(userActions.setAuthData(createdUser));
-    localStorage.setItem(LS_AUTH_USER, JSON.stringify(createdUser));
     navigate('/profile');
 
     return createdUser;
