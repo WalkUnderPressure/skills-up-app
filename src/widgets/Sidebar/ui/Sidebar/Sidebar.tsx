@@ -2,10 +2,9 @@ import { memo, useCallback, useMemo, useState } from 'react';
 
 import SidebarItem from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
-import { useAppSelector } from 'app/providers/StoreProvider';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import { getUserAuthData } from 'entities/User';
+import { useIsAuthorized } from 'entities/User';
 import classNames from 'shared/lib/classNames';
 import { SidebarDataTestIdProps } from './Sidebar.test-ids';
 import SidebarMenuItems from '../model/menuItems';
@@ -26,7 +25,7 @@ const Sidebar = memo((props: SidebarProps) => {
     setIsCollapsed((prevCollapsed) => !prevCollapsed);
   }, []);
 
-  const isAuthorized = useAppSelector(getUserAuthData);
+  const { isAuthorized } = useIsAuthorized();
 
   const sidebarItems = useMemo(
     () => SidebarMenuItems.filter(({ authOnly }) => (authOnly ? isAuthorized : true)),

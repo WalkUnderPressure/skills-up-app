@@ -2,11 +2,11 @@ import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import { SignInByUsernameModal } from 'features/SignInByUsername';
 import { Button, ButtonSize, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
-import { getUserAuthData, userActions } from 'entities/User';
+import { SignInByUsernameModal } from 'features/SignInByUsername';
+import { useIsAuthorized, userActions } from 'entities/User';
+import { useAppDispatch } from 'app/providers/StoreProvider';
 import { useModal } from 'shared/ui/Modal';
 import classNames from 'shared/lib/classNames';
 import * as cls from './Navbar.module.scss';
@@ -20,8 +20,9 @@ const Navbar = (props: NavbarProps) => {
 
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const userAuthData = useAppSelector(getUserAuthData);
   const navigate = useNavigate();
+
+  const { isAuthorized } = useIsAuthorized();
 
   const {
     isOpen: isSignInModalOpen,
@@ -37,7 +38,7 @@ const Navbar = (props: NavbarProps) => {
 
   return (
     <nav className={classNames(cls.navbar, {}, [className])}>
-      {userAuthData ? (
+      {isAuthorized ? (
         <Button
           rounded={ButtonRounded.M}
           theme={ButtonTheme.OUTLINE_INVERTED}

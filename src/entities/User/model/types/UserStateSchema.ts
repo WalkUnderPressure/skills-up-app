@@ -3,6 +3,9 @@ type User = {
   username: string;
 };
 
-type UserStateSchema = { authData?: Nullable<User> };
+type UserStateSchema = {
+  authData?: Nullable<User>;
+  isInitialized?: boolean;
+};
 
 export { UserStateSchema, User };

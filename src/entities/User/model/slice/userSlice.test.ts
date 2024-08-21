@@ -51,7 +51,7 @@ describe('userSlice with LocalStorage', () => {
 
     const actualResult = userReducer(initState as UserStateSchema, userActions.initAuthData());
 
-    expect(actualResult).toEqual(expectedResult);
+    expect({ authData: actualResult.authData }).toEqual(expectedResult);
   });
 
   test('check initAuthData when LS full', () => {
@@ -66,6 +66,6 @@ describe('userSlice with LocalStorage', () => {
 
     const actualResult = userReducer(initState as UserStateSchema, userActions.initAuthData());
 
-    expect(actualResult).toEqual(expectedResult);
+    expect({ authData: actualResult.authData }).toEqual(expectedResult);
   });
 });

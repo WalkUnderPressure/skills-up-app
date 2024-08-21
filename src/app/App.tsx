@@ -3,7 +3,7 @@ import { Suspense, useEffect } from 'react';
 import { useAppDispatch } from 'app/providers/StoreProvider';
 import { AppRouter } from 'app/providers/AppRouter';
 import classNames from 'shared/lib/classNames';
-import { userActions } from 'entities/User';
+import { userActions, useUserIsInitialized } from 'entities/User';
 import { Sidebar } from 'widgets/Sidebar';
 import { Navbar } from 'widgets/Navbar';
 import './styles/index.scss';
@@ -12,6 +12,8 @@ import 'shared/config/i18n';
 
 const App = () => {
   const dispatch = useAppDispatch();
+
+  const { isUserInitialized } = useUserIsInitialized();
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
@@ -25,7 +27,9 @@ const App = () => {
 
         <div className="page-layout">
           <Sidebar />
-          <AppRouter />
+
+          {/* Maybe in future wrap all App */}
+          {isUserInitialized && <AppRouter />}
         </div>
       </Suspense>
     </main>

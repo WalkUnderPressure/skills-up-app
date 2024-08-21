@@ -6,6 +6,7 @@ import { UserStateSchema, User } from '../types/UserStateSchema';
 
 const initialState: UserStateSchema = {
   authData: null,
+  isInitialized: false,
 };
 
 export const userSlice = createSlice({
@@ -25,6 +26,8 @@ export const userSlice = createSlice({
       if (initUserData) {
         state.authData = initUserData;
       }
+
+      state.isInitialized = true;
     },
   },
 });

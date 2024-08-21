@@ -34,7 +34,7 @@ export default tseslint.config(
       'storybook-static',
       'node_modules',
       'coverage',
-      'eslint.config.js',
+      'eslint.config.mjs',
       '.fttemplates',
     ],
   },
@@ -76,7 +76,12 @@ export default tseslint.config(
   },
   {
     files: ['**/*.{ts,tsx}'],
-    ignores: ['**/*/useAppDispatch.ts', '**/*/useAppSelector.ts', '**/*/useAppStore.ts'],
+    ignores: [
+      '**/*/createAppAsyncThunk.ts',
+      '**/*/useAppDispatch.ts',
+      '**/*/useAppSelector.ts',
+      '**/*/useAppStore.ts',
+    ],
     rules: {
       'no-restricted-imports': 'off',
       '@typescript-eslint/no-restricted-imports': [
@@ -87,16 +92,6 @@ export default tseslint.config(
           message:
             'Use typed hooks `useAppDispatch` and `useAppSelector` and `useAppStore` instead.',
         },
-      ],
-    },
-  },
-  {
-    files: ['**/*.{ts,tsx}'],
-    ignores: ['**/*/createAppAsyncThunk.ts'],
-    rules: {
-      'no-restricted-imports': 'off',
-      '@typescript-eslint/no-restricted-imports': [
-        'error',
         {
           name: '@reduxjs/toolkit',
           importNames: ['createAsyncThunk'],
