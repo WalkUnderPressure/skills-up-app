@@ -13,6 +13,7 @@ import { AxiosInstance } from 'axios';
 import { SignInByUsernameSchema } from 'features/SignInByUsername';
 import { ProfileStateSchema } from 'entities/Profile';
 import { CounterStateSchema } from 'entities/Counter';
+import { PostDetailsSchema } from 'entities/Post';
 import { UserStateSchema } from 'entities/User';
 
 type StoreStateSchema = {
@@ -22,6 +23,7 @@ type StoreStateSchema = {
   // Async
   'sign-in_username'?: SignInByUsernameSchema | undefined;
   profile?: ProfileStateSchema | undefined;
+  postDetails?: PostDetailsSchema;
 };
 
 export type StoreStateSchemaPossibleEmpty = StoreStateSchema | undefined;

@@ -1,4 +1,4 @@
-import mapEnum from 'shared/lib/helpers/mapEnum';
+import { getEnumValues } from 'shared/lib/helpers/mapEnum';
 
 enum Currency {
   'EUR' = 'EUR',
@@ -6,6 +6,6 @@ enum Currency {
   'UAH' = 'UAH',
 }
 
-export const CurrencyMap = mapEnum(Currency);
+export const CurrencyMap = getEnumValues(Currency);
 
 export default Currency;

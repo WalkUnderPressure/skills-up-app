@@ -21,6 +21,16 @@
     // text
     --error-color: rgb(255 0 0);
 
-    // colors
+    // theme
     --theme-switch-bg: hsl(47deg 100% 50%);
+
+    // skeleton
+    --skeleton-bg: #003a6ba3;
+    --skeleton-color: #aaafffc7;
+    --skeleton-shadow: #008cff;
+
+    // code
+    --code-bg: #72bcf7;
+    --code-color: #222b27;
+    --code-border: #222b27;
 }

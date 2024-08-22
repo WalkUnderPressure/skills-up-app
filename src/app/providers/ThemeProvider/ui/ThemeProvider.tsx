@@ -1,7 +1,7 @@
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
 import { LS_THEME_KEY } from 'shared/constants/localStorage';
-import mapEnum from 'shared/lib/helpers/mapEnum';
+import { getEnumValues } from 'shared/lib/helpers/mapEnum';
 import { ETheme, ThemeContext } from '../lib/ThemeContext';
 
 export const DEFAULT_ALT_THEME = ETheme.Dark;
@@ -11,7 +11,7 @@ const getDefaultTheme = (): ETheme => {
   let resultTheme = DEFAULT_THEME;
 
   const themeFromLS = localStorage.getItem(LS_THEME_KEY) as ETheme;
-  const allThemes = mapEnum(ETheme);
+  const allThemes = getEnumValues(ETheme);
 
   if (allThemes.includes(themeFromLS)) {
     resultTheme = themeFromLS;

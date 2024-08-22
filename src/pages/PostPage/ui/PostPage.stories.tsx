@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
+import { MockPostDetailsData } from 'entities/Post/mock/MockPostDetailsData';
+import StoreDecorator from 'shared/config/storybook/decorators/StoreDecorator';
 import PostPage from './PostPage';
 
+// TODO: Add tests for selectors, slice, service
 const meta = {
   title: 'Pages/PostPage',
   component: PostPage,
+  decorators: [StoreDecorator({ postDetails: { data: MockPostDetailsData } })],
 } satisfies Meta<typeof PostPage>;
 
 export default meta;

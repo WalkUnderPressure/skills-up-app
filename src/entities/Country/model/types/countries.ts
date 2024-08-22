@@ -1,4 +1,4 @@
-import mapEnum from 'shared/lib/helpers/mapEnum';
+import { getEnumValues } from 'shared/lib/helpers/mapEnum';
 
 enum Country {
   USA = 'USA',
@@ -6,6 +6,6 @@ enum Country {
   Germany = 'Germany',
 }
 
-export const CountryMap = mapEnum(Country);
+export const CountryMap = getEnumValues(Country);
 
 export default Country;

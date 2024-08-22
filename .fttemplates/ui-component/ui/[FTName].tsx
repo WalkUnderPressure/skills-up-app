@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import classNames from 'shared/lib/classNames';
 import * as cls from './[FTName].module.scss';
 
@@ -5,7 +7,7 @@ type [FTName]Props = {
   className?: string;
 };
 
-const [FTName] = (props: [FTName]Props) => {
+const [FTName] = memo((props: [FTName]Props) => {
   const { className } = props;
 
   return (
@@ -13,6 +15,6 @@ const [FTName] = (props: [FTName]Props) => {
       <span />
     </div>
   );
-};
+});
 
 export default [FTName];

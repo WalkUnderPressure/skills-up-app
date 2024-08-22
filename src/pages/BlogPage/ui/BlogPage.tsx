@@ -14,7 +14,7 @@ const BlogPage = (props: BlogPageProps) => {
       <h3>{'__' + 'BLOG PAGE'}</h3>
 
       <div>
-        <AppLink to="/post/1">{'__' + 'First post'}</AppLink>
+        <AppLink to="/posts/1">{'__' + 'First post'}</AppLink>
       </div>
     </div>
   );

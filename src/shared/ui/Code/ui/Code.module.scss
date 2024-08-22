@@ -1,0 +1,25 @@
+.code {
+    border: 2px solid var(--code-border);
+    padding: 20px;
+    position: relative;
+    background: var(--code-bg);
+    overflow: auto;
+    border-radius: var(--radius-m);
+    color: var(--code-color);
+}
+
+.copy-btn {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    padding: 8px;
+    background-color: var(--code-bg);
+    border-radius: var(--radius-m);
+    z-index: var(--z-one);
+    border: 2px solid var(--code-border);
+}
+
+.copy-icon {
+    stroke: var(--code-color);
+    fill: transparent;
+}

@@ -1,5 +1,6 @@
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
+import { PostDetails } from 'entities/Post';
 import classNames from 'shared/lib/classNames';
 import * as cls from './PostPage.module.scss';
 
@@ -10,13 +11,11 @@ export type PostPageProps = {
 const PostPage = (props: PostPageProps) => {
   const { className } = props;
 
-  const location = useLocation();
+  const { id: postId } = useParams();
 
   return (
     <div className={classNames(cls['post-page'], {}, [className])}>
-      <h3>{'__' + 'POST PAGE'}</h3>
-
-      <p>{location.pathname}</p>
+      <PostDetails postId={postId} />
     </div>
   );
 };

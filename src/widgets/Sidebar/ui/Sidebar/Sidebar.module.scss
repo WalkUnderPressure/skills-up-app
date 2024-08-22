@@ -6,6 +6,7 @@
     justify-content: space-between;
     height: calc(100vh - var(--navbar-h));
     width: var(--sidebar-w);
+    min-width: var(--sidebar-w);
     background-color: var(--inverted-bg-color);
     position: relative;
     transition-property: width;
@@ -50,6 +51,7 @@
 
 .collapsed {
     width: var(--sidebar-w-collapsed);
+    min-width: var(--sidebar-w-collapsed);
 
     select {
         padding: 4px;

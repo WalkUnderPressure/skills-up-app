@@ -1,0 +1,17 @@
+.text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 12px;
+}
+
+.paragraph {
+  text-indent: 2rem;
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

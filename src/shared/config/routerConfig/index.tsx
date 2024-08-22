@@ -27,7 +27,7 @@ export const RouterPaths: Record<AppRoutes, string> = {
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.PROFILE]: '/profile',
   [AppRoutes.BLOG]: '/blog',
-  [AppRoutes.POST]: '/post', // :id
+  [AppRoutes.POST]: '/posts', // :id
 
   // when no route is suitable
   [AppRoutes.NOT_FOUND]: '*',
