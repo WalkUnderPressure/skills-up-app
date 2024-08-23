@@ -1,11 +1,11 @@
 import { createAppAsyncThunk, AsyncThunkRejectValue } from 'app/providers/StoreProvider';
-import { Post } from '../../types/Post';
+import { Commentary } from 'entities/Commentary';
 
-export const fetchPostById = createAppAsyncThunk<
-  Post,
+const fetchCommentariesByPostId = createAppAsyncThunk<
+  Array<Commentary>,
   string | undefined,
   AsyncThunkRejectValue<string>
->('postDetails/fetchPostById', async (postId, thunkApi) => {
+>('postCommentaries/fetchCommentariesByPostId', async (postId, thunkApi) => {
   const { extra, rejectWithValue } = thunkApi;
 
   try {
@@ -13,7 +13,12 @@ export const fetchPostById = createAppAsyncThunk<
       throw new Error();
     }
 
-    const response = await extra.api.get<Post>(`/posts/${postId}`);
+    const response = await extra.api.get<Array<Commentary>>(`/comments/`, {
+      params: {
+        postId,
+        _expand: 'profile',
+      },
+    });
 
     if (!response.data) {
       throw new Error();
@@ -25,3 +30,5 @@ export const fetchPostById = createAppAsyncThunk<
     return rejectWithValue('error');
   }
 });
+
+export default fetchCommentariesByPostId;

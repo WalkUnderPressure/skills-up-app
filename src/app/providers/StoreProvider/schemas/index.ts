@@ -11,6 +11,7 @@ import { NavigateFunction } from 'react-router-dom';
 import { AxiosInstance } from 'axios';
 
 import { SignInByUsernameSchema } from 'features/SignInByUsername';
+import { PostCommentarySchema } from 'pages/PostPage';
 import { ProfileStateSchema } from 'entities/Profile';
 import { CounterStateSchema } from 'entities/Counter';
 import { PostDetailsSchema } from 'entities/Post';
@@ -24,6 +25,7 @@ type StoreStateSchema = {
   'sign-in_username'?: SignInByUsernameSchema | undefined;
   profile?: ProfileStateSchema | undefined;
   postDetails?: PostDetailsSchema;
+  postCommentaries?: PostCommentarySchema;
 };
 
 export type StoreStateSchemaPossibleEmpty = StoreStateSchema | undefined;

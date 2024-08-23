@@ -37,5 +37,9 @@
         "title": "Sorry, unexpected error occurred! Try to reload page.",
         "action-btn": "Reload page",
         "throw_error": "Throw error!"
+    },
+    "commentaries": {
+        "title": "Commentaries",
+        "empty": "There are no comments here yet."
     }
 }

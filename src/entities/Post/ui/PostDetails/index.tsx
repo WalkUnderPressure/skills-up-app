@@ -30,7 +30,7 @@ type PostDetailsProps = {
 };
 
 const PostDetails = memo((props: PostDetailsProps) => {
-  const { className, postId = '' } = props;
+  const { className, postId } = props;
 
   const dispatch = useAppDispatch();
   const { t, i18n } = useTranslation('pages.blog');
@@ -40,9 +40,7 @@ const PostDetails = memo((props: PostDetailsProps) => {
   const postError = useAppSelector(getPostError);
 
   useEffect(() => {
-    if (postId && __PROJECT__ !== 'storybook') {
-      dispatch(fetchPostById(postId));
-    }
+    dispatch(fetchPostById(postId));
   }, [dispatch, postId]);
 
   return (
@@ -54,7 +52,12 @@ const PostDetails = memo((props: PostDetailsProps) => {
 
             {!isPostLoading && (
               <div className={classNames(cls['post-content'])}>
-                <Avatar size={AvatarSize.L} src={postDetails?.img || ''} alt="PostAvatar" />
+                <Avatar
+                  size={AvatarSize.L}
+                  src={postDetails?.img || ''}
+                  alt="PostAvatar"
+                  className={classNames(cls.avatar)}
+                />
 
                 <div className={classNames(cls['post-info'])}>
                   <Text title={postDetails?.title} text={postDetails?.subtitle} />

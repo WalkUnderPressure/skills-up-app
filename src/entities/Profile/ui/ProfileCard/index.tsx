@@ -106,7 +106,14 @@ const ProfileCard = (props: ProfileProps) => {
 
       {!isLoading && !errorData?.isFailed && (
         <>
-          {avatar && <Avatar src={avatar} alt="ProfileUserAvatar" size={AvatarSize.L} />}
+          {avatar && (
+            <Avatar
+              src={avatar}
+              alt="ProfileUserAvatar"
+              size={AvatarSize.L}
+              className={classNames(cls.avatar)}
+            />
+          )}
 
           <div
             className={classNames(cls.inputs, {
@@ -149,16 +156,6 @@ const ProfileCard = (props: ProfileProps) => {
               errorMessage={getFieldError(validationErrors, 'last_name', errorsTranslates)}
             />
 
-            <CurrencySelect
-              label={t('currency', { defaultValue: 'Currency' })}
-              value={currency}
-              onChange={onChangeHandler('currency')}
-              disabled={isDisabled}
-              readOnly={isReadonly}
-            />
-
-            <div />
-
             <CountrySelect
               value={String(country)}
               onChange={onChangeHandler('country')}
@@ -174,6 +171,14 @@ const ProfileCard = (props: ProfileProps) => {
               disabled={isDisabled}
               onChange={onChangeHandler('city')}
               errorMessage={getFieldError(validationErrors, 'city', errorsTranslates)}
+            />
+
+            <CurrencySelect
+              label={t('currency', { defaultValue: 'Currency' })}
+              value={currency}
+              onChange={onChangeHandler('currency')}
+              disabled={isDisabled}
+              readOnly={isReadonly}
             />
           </div>
         </>

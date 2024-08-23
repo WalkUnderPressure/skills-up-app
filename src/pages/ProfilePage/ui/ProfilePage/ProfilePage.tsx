@@ -37,9 +37,7 @@ const ProfilePage = (props: ProfilePageProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
+    dispatch(fetchProfileData());
   }, [dispatch]);
 
   const validationErrors: ProfileValidationErrors =
@@ -68,9 +66,7 @@ const ProfilePage = (props: ProfilePageProps) => {
   );
 
   const onSave = useCallback(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(updateProfileData());
-    }
+    dispatch(updateProfileData());
   }, [dispatch]);
 
   return (

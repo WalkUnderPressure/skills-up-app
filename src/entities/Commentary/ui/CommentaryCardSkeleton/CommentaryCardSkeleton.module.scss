@@ -1,0 +1,16 @@
+.block {
+    display: flex;
+    flex-direction: column;    
+    border-radius: 12px;
+    padding: 8px;
+    gap: 8px;
+    background-color: var(--inverted-bg-color);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+}
