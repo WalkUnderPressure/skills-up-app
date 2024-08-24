@@ -1,8 +1,10 @@
 import { memo } from 'react';
 
+import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar';
-import { Text } from 'shared/ui/Text';
 import classNames from 'shared/lib/classNames';
+import { AppLink } from 'shared/ui/AppLink';
+import { Text } from 'shared/ui/Text';
 import { Commentary } from '../../model/types/commentary';
 import * as cls from './CommentaryCard.module.scss';
 
@@ -15,14 +17,17 @@ const CommentaryCard = memo((props: CommentaryCardProps) => {
   const { className, commentary } = props;
 
   const userAvatarSrc = commentary?.profile.avatar || '';
+  const authorUserId = commentary?.profile.user_id || '';
 
   return (
     <div className={classNames(cls['commentary-card'], {}, [className])}>
-      <div className={classNames(cls.header)}>
-        {Boolean(userAvatarSrc) && <Avatar size={AvatarSize.XS} src={userAvatarSrc} />}
+      <AppLink to={`${RouterPaths[AppRoutes.PROFILE]}${authorUserId}`}>
+        <div className={classNames(cls.header)}>
+          {Boolean(userAvatarSrc) && <Avatar size={AvatarSize.XS} src={userAvatarSrc} />}
 
-        <Text title={commentary?.profile.username} />
-      </div>
+          <Text title={commentary?.profile.username} />
+        </div>
+      </AppLink>
 
       <Text text={commentary?.text} />
     </div>

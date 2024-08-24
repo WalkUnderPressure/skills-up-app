@@ -25,9 +25,9 @@ export enum AppRoutes {
 export const RouterPaths: Record<AppRoutes, string> = {
   [AppRoutes.HOME]: '/',
   [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.PROFILE]: '/profile',
+  [AppRoutes.PROFILE]: '/profile/', // :id
   [AppRoutes.BLOG]: '/blog',
-  [AppRoutes.POST]: '/posts', // :id
+  [AppRoutes.POST]: '/posts/', // :id
 
   // when no route is suitable
   [AppRoutes.NOT_FOUND]: '*',
@@ -43,7 +43,7 @@ export const routerConfig: Record<AppRoutes, AppRouteProps> = {
     element: <AboutPage />,
   },
   [AppRoutes.PROFILE]: {
-    path: RouterPaths[AppRoutes.PROFILE],
+    path: `${RouterPaths[AppRoutes.PROFILE]}:id`,
     element: <ProfilePage />,
     authOnly: true,
   },
@@ -53,7 +53,7 @@ export const routerConfig: Record<AppRoutes, AppRouteProps> = {
     authOnly: true,
   },
   [AppRoutes.POST]: {
-    path: `${RouterPaths[AppRoutes.POST]}/:id`,
+    path: `${RouterPaths[AppRoutes.POST]}:id`,
     element: <PostPage />,
     authOnly: true,
   },

@@ -1,4 +1,5 @@
 import { useCallback, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
@@ -20,6 +21,7 @@ import {
   isValidForm,
   ProfileValidationErrors,
 } from 'entities/Profile';
+import { getUserId } from 'entities/User';
 
 import * as cls from './ProfilePage.module.scss';
 
@@ -35,10 +37,14 @@ const ProfilePage = (props: ProfilePageProps) => {
   const { className } = props;
 
   const dispatch = useAppDispatch();
+  const { id: userId } = useParams();
+  const authUserId = useAppSelector(getUserId);
 
   useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+    const profileUserId = userId || authUserId || '';
+
+    dispatch(fetchProfileData(profileUserId));
+  }, [authUserId, dispatch, userId]);
 
   const validationErrors: ProfileValidationErrors =
     useAppSelector(getProfileValidationErrors) || {};

@@ -25,6 +25,7 @@
     },
     "loading": "Loading",
     "form": {
+        "send": "Send",
         "edit": "Edit",
         "save": "Save",
         "reset": "Reset",

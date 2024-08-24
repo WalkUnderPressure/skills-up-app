@@ -3,19 +3,15 @@ import { Profile, ProfileErrorCode } from '../../types/ProfileStateSchema';
 
 const fetchProfileData = createAppAsyncThunk<
   Profile,
-  void,
+  string | undefined,
   AsyncThunkRejectValue<ProfileErrorCode>
->('profile/fetchProfileData', async (_, thunkAPI) => {
+>('profile/fetchProfileData', async (userId, thunkAPI) => {
   const {
-    getState,
     rejectWithValue,
     extra: { api },
   } = thunkAPI;
 
-  const state = getState();
-
   try {
-    const userId = state?.user?.authData?.id || '';
     let userProfileData = null;
 
     if (userId) {

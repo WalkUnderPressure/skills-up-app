@@ -1,4 +1,5 @@
 import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
+import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { User, userActions } from 'entities/User';
 import { SignInErrorCode } from '../../types/SignInSchema';
 
@@ -20,16 +21,16 @@ const signInByUsername = createAppAsyncThunk<
 
   try {
     const response = await api.post<User>('/sign-in/', signInData);
-    const createdUser = response.data;
+    const authorizedUser = response.data;
 
-    if (!createdUser) {
+    if (!authorizedUser) {
       throw new Error();
     }
 
-    dispatch(userActions.setAuthData(createdUser));
-    navigate('/profile');
+    dispatch(userActions.setAuthData(authorizedUser));
+    navigate(`${RouterPaths[AppRoutes.PROFILE]}${authorizedUser.id}`);
 
-    return createdUser;
+    return authorizedUser;
   } catch (error) {
     return rejectWithValue(SignInErrorCode.INCORRECT_DATA);
   }

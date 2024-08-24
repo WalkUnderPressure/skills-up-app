@@ -7,8 +7,10 @@ import { fetchProfileData } from '.';
 
 describe('fetchProfileData', () => {
   test('successful fetchProfileData when userId exist', async () => {
+    const userId = '1';
+
     const thunk = new TestAsyncThunk(fetchProfileData, {
-      user: { authData: { id: '1' } },
+      user: { authData: { id: userId } },
     });
 
     thunk.api.get.mockReturnValue(
@@ -17,7 +19,7 @@ describe('fetchProfileData', () => {
       }),
     );
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(userId);
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -26,8 +28,10 @@ describe('fetchProfileData', () => {
   });
 
   test('failed fetchProfileData when userId exist', async () => {
+    const userId = '1';
+
     const thunk = new TestAsyncThunk(fetchProfileData, {
-      user: { authData: { id: '1' } },
+      user: { authData: { id: userId } },
     });
 
     thunk.api.get.mockReturnValue(
@@ -36,7 +40,7 @@ describe('fetchProfileData', () => {
       }),
     );
 
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk(userId);
 
     expect(thunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');

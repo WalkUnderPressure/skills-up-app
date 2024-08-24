@@ -10,6 +10,7 @@ import {
 import { NavigateFunction } from 'react-router-dom';
 import { AxiosInstance } from 'axios';
 
+import { AddCommentaryFormSchema } from 'features/AddCommentaryForm';
 import { SignInByUsernameSchema } from 'features/SignInByUsername';
 import { PostCommentarySchema } from 'pages/PostPage';
 import { ProfileStateSchema } from 'entities/Profile';
@@ -26,6 +27,7 @@ type StoreStateSchema = {
   profile?: ProfileStateSchema | undefined;
   postDetails?: PostDetailsSchema;
   postCommentaries?: PostCommentarySchema;
+  addCommentaryForm?: AddCommentaryFormSchema;
 };
 
 export type StoreStateSchemaPossibleEmpty = StoreStateSchema | undefined;

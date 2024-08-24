@@ -1,0 +1,10 @@
+.add-commentary-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px;
+    background-color: var(--inverted-bg-color);
+    border-radius: var(--radius-m);
+}

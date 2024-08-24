@@ -22,12 +22,12 @@
           ]
         },
         {
-          "id": "4",
+          "id": "2",
           "type": "CODE",
           "code": "const today = Temporal.Now.plainDateISO();\n\nconst lastWeek = today.subtract({ days: 7});\n\nconst nextWeek = today.add({ days: 7 });"
         },
         {
-          "id": "5",
+          "id": "3",
           "type": "TEXT",
           "title": "Pipe Operator",
           "paragraphs": [
@@ -36,13 +36,13 @@
           ]
         },
         {
-          "id": "2",
+          "id": "4",
           "type": "IMAGE",
           "src": "https://wavelop.com/static/528bbb228615a3160dcbe094c6fe905e/ba228/js-pipe-function.png",
           "title": "A pipe function is a function that accepts a series of functions, which process an input parameter and return a output which will be the input for the next function."
         },
         {
-          "id": "7",
+          "id": "5",
           "type": "TEXT",
           "title": "Records and Tuples",
           "paragraphs": [
@@ -51,12 +51,12 @@
           ]
         },
         {
-          "id": "3",
+          "id": "6",
           "type": "CODE",
           "code": "const heroes = #[\"Batman\", \"Superman\", \"Wonder Woman\", The Record and Tuple proposal aims to bring immutable data structures to JavaScript.]"
         },
         {
-          "id": "3",
+          "id": "7",
           "type": "CODE",
           "code": "const traitors = #{\n  diane: false,\n  paul: true,\n  zac: false,\n  harry: true\n}"
         }
@@ -75,13 +75,6 @@
       "id": "2",
       "text": "Great job! Thanks!",
       "postId": "1",
-      "userId": "2",
-      "profileId": "2"
-    },
-    {
-      "id": "3",
-      "text": "Old information!",
-      "postId": "2",
       "userId": "2",
       "profileId": "2"
     }

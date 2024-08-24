@@ -28,8 +28,8 @@ const CommentaryList = memo((props: CommentaryListProps) => {
 
       {isLoading ? (
         <div className={classNames(cls.commentaries)}>
-          {LOADING_COMMENTARY_ITEMS.map(() => (
-            <CommentaryCardSkeleton />
+          {LOADING_COMMENTARY_ITEMS.map((index) => (
+            <CommentaryCardSkeleton key={index} />
           ))}
         </div>
       ) : (

@@ -4,6 +4,7 @@ import { Button, ButtonRounded, ButtonTheme } from 'shared/ui/Button';
 import { ProfileErrorCode } from 'entities/Profile';
 import classNames from 'shared/lib/classNames';
 import { Text } from 'shared/ui/Text';
+import useIsCanEdit from './useIsCanEdit';
 import * as cls from './ProfilePageHeader.module.scss';
 
 import EditIcon from 'shared/assets/icons/edit.svg';
@@ -26,51 +27,57 @@ const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
 
   const { t } = useTranslation('pages.profile');
 
+  const isCanEdit = useIsCanEdit();
+
   return (
     <div className={classNames(cls.header, {}, [className])}>
       <Text title={t('profile', { defaultValue: 'User profile' })} />
 
-      {!errorData?.isFailed && (
+      {isCanEdit && (
         <>
-          {isReadonly ? (
-            <Button
-              className={classNames(cls['header-btn'])}
-              isSquare={true}
-              rounded={ButtonRounded.S}
-              theme={ButtonTheme.BG_INVERTED}
-              onClick={onEdit}
-            >
-              {t('form.edit', { defaultValue: 'Edit' })}
-              <EditIcon className={classNames(cls['btn-icon'])} />
-            </Button>
-          ) : (
-            <div className={classNames(cls['save-block'])}>
-              <Button
-                className={classNames(cls['header-btn'])}
-                isSquare={true}
-                rounded={ButtonRounded.S}
-                theme={ButtonTheme.OUTLINE}
-                onClick={onReset}
-              >
-                {t('form.reset', { defaultValue: 'Reset' })}
-                <ResetIcon
-                  width="100px"
-                  className={classNames(cls['btn-icon'], {}, [cls['btn-icon-inverted']])}
-                />
-              </Button>
+          {!errorData?.isFailed && (
+            <>
+              {isReadonly ? (
+                <Button
+                  className={classNames(cls['header-btn'])}
+                  isSquare={true}
+                  rounded={ButtonRounded.S}
+                  theme={ButtonTheme.BG_INVERTED}
+                  onClick={onEdit}
+                >
+                  {t('form.edit', { defaultValue: 'Edit' })}
+                  <EditIcon className={classNames(cls['btn-icon'])} />
+                </Button>
+              ) : (
+                <div className={classNames(cls['save-block'])}>
+                  <Button
+                    className={classNames(cls['header-btn'])}
+                    isSquare={true}
+                    rounded={ButtonRounded.S}
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={onReset}
+                  >
+                    {t('form.reset', { defaultValue: 'Reset' })}
+                    <ResetIcon
+                      width="100px"
+                      className={classNames(cls['btn-icon'], {}, [cls['btn-icon-inverted']])}
+                    />
+                  </Button>
 
-              <Button
-                className={classNames(cls['header-btn'])}
-                isSquare={true}
-                rounded={ButtonRounded.S}
-                theme={ButtonTheme.BG_INVERTED}
-                onClick={onSave}
-                disabled={isValid}
-              >
-                {t('form.save', { defaultValue: 'Save' })}
-                <SaveIcon className={classNames(cls['btn-icon'])} />
-              </Button>
-            </div>
+                  <Button
+                    className={classNames(cls['header-btn'])}
+                    isSquare={true}
+                    rounded={ButtonRounded.S}
+                    theme={ButtonTheme.BG_INVERTED}
+                    onClick={onSave}
+                    disabled={isValid}
+                  >
+                    {t('form.save', { defaultValue: 'Save' })}
+                    <SaveIcon className={classNames(cls['btn-icon'])} />
+                  </Button>
+                </div>
+              )}
+            </>
           )}
         </>
       )}
