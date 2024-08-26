@@ -7,7 +7,7 @@ import { ETheme } from 'app/providers/ThemeProvider';
 import PostDetails from '.';
 
 const meta = {
-  title: 'Entities/PostDetails',
+  title: 'Entities/Blog/PostDetails',
   component: PostDetails,
   args: {
     postId: MockPostDetailsData.id,

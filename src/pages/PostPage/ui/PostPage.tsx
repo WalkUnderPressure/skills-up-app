@@ -11,6 +11,7 @@ import { getPostCommentaries, postCommentariesReducer } from '../model/slice/pos
 import fetchCommentariesByPostId from '../model/services/fetchCommentariesByPostId';
 import { getPostCommentariesIsLoading } from '../model/selectors/commentaries';
 import { addCommentaryToPost } from '../model/services/addCommentaryToPost';
+import BackToBlogBtn from './BackToBlogBtn';
 import * as cls from './PostPage.module.scss';
 
 export type PostPageProps = {
@@ -44,6 +45,8 @@ const PostPage = (props: PostPageProps) => {
 
   return (
     <DynamicReducerProvider reducers={reducers}>
+      <BackToBlogBtn />
+
       <div className={classNames(cls['post-page'], {}, [className])}>
         <PostDetails postId={postId} />
 

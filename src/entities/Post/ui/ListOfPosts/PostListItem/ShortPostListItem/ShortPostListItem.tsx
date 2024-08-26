@@ -1,0 +1,64 @@
+import { memo } from 'react';
+
+import useDateTransformer from 'shared/lib/hooks/useDateTransformer';
+import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
+import classNames from 'shared/lib/classNames';
+import { AppLink } from 'shared/ui/AppLink';
+import { Card } from 'shared/ui/Card';
+import { Text } from 'shared/ui/Text';
+import ShortPostListItemSkeleton from './ShortPostListItemSkeleton/ShortPostListItemSkeleton';
+import { Post } from '../../../../model/types/Post';
+
+import * as cls from './ShortPostListItem.module.scss';
+
+import EyeIcon from 'shared/assets/icons/eye.svg';
+
+type PostShortListItemProps = {
+  className?: string;
+  post?: Post;
+  isLoading?: boolean;
+};
+
+const ShortPostListItem = memo((props: PostShortListItemProps) => {
+  const { className, post, isLoading = false } = props;
+
+  const createdAt = useDateTransformer(post?.createdAt);
+
+  if (isLoading) {
+    return <ShortPostListItemSkeleton />;
+  }
+
+  if (!post) {
+    return null;
+  }
+
+  const postId = post.id;
+
+  return (
+    <div className={classNames('', {}, [className])}>
+      <AppLink to={`${RouterPaths[AppRoutes.POST]}${postId}`}>
+        <Card className={cls.card}>
+          <div className={classNames(cls['img-wrapper'])}>
+            <Text className={classNames(cls['img-date'])} text={createdAt} />
+            <img src={post.img} alt={post.subtitle} className={classNames(cls['image'])} />
+          </div>
+
+          <div className={classNames(cls['info'])}>
+            <div className={classNames(cls['tags'])}>
+              <span>{post.tags.map((tag) => `#${tag}`).join(', ')}</span>
+            </div>
+
+            <div className={classNames(cls['views'])}>
+              <EyeIcon />
+              {post.views}
+            </div>
+          </div>
+
+          <Text title={post.title} className={classNames(cls['title'])} />
+        </Card>
+      </AppLink>
+    </div>
+  );
+});
+
+export default ShortPostListItem;

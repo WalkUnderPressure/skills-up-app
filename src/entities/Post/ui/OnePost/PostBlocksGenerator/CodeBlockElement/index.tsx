@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import { Code } from 'shared/ui/Code';
-import { PostCodeBlock } from '../../../model/types/Post';
+import { PostCodeBlock } from '../../../../model/types/Post';
 
 type CodeBlockElementProps = {
   className?: string;

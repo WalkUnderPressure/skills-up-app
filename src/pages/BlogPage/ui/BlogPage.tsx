@@ -1,5 +1,6 @@
+import { MockPostsListData } from 'entities/Post/mock/MockPostsListData';
+import { PostsList, PostsViewType } from 'entities/Post';
 import classNames from 'shared/lib/classNames';
-import { AppLink } from 'shared/ui/AppLink';
 import * as cls from './BlogPage.module.scss';
 
 export type BlogPageProps = {
@@ -11,11 +12,12 @@ const BlogPage = (props: BlogPageProps) => {
 
   return (
     <div className={classNames(cls['blog-page'], {}, [className])}>
-      <h3>{'__' + 'BLOG PAGE'}</h3>
-
-      <div>
-        <AppLink to="/posts/1">{'__' + 'First post'}</AppLink>
-      </div>
+      <PostsList
+        posts={MockPostsListData}
+        isLoading={false}
+        // viewType={PostsViewType.SHORT}
+        viewType={PostsViewType.FULL}
+      />
     </div>
   );
 };

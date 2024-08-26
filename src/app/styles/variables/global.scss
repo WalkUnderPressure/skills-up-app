@@ -34,6 +34,7 @@
 
     // z-indexes
     --z-modal: 10;
+    --z-mid: 5;
     --z-one: 1;
     --z-hidden: -1;
 
@@ -50,4 +51,8 @@
     // inputs
     --input-border-w: 2px;
     --input-h: 52px;
+
+    // card
+    --card-w: 300px;
+    --card-p: 16px;
 }

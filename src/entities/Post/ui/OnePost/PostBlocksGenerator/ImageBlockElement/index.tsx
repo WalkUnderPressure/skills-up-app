@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import classNames from 'shared/lib/classNames';
 import { Text } from 'shared/ui/Text';
-import { PostImageBlock } from '../../../model/types/Post';
+import { PostImageBlock } from '../../../../model/types/Post';
 import * as cls from './ImageBlockElement.module.scss';
 
 type ImageBlockProps = {

@@ -1,0 +1,11 @@
+.back-btn {
+    position: sticky;
+    top: 0;
+    margin-bottom: -52px;
+    z-index: var(--z-mid);
+    margin-inline-start: auto;
+  
+    * {
+      color: var(--inverted-primary-color);
+    }
+}

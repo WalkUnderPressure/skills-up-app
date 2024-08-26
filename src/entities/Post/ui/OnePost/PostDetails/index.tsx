@@ -1,24 +1,25 @@
 import { memo, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import classNames from 'shared/lib/classNames';
-import { postDetailsReducer } from '../../model/slice/postDetailsSlice';
-import { fetchPostById } from '../../model/services/fetchPostById';
+import { postDetailsReducer } from '../../../model/slice/postDetailsSlice';
+import { fetchPostById } from '../../../model/services/fetchPostById';
 import {
   getPostDetails,
   getPostIsLoading,
   getPostError,
-} from '../../model/selectors/postDetailsSelectors';
-import { useTranslation } from 'react-i18next';
+} from '../../../model/selectors/postDetailsSelectors';
+import PostBlocksGenerator from '../PostBlocksGenerator';
 import { Text, TextTheme } from 'shared/ui/Text';
 import PostDetailsSkeleton from '../PostDetailsSkeleton';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar';
+import classNames from 'shared/lib/classNames';
 import * as cls from './PostDetails.module.scss';
 
-import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import PostBlocksGenerator from 'entities/Post/ui/PostBlocksGenerator';
+import EyeIcon from 'shared/assets/icons/eye.svg';
+import useDateTransformer from 'shared/lib/hooks/useDateTransformer';
 
 const reducers: ReducersMap = {
   postDetails: postDetailsReducer,
@@ -33,7 +34,7 @@ const PostDetails = memo((props: PostDetailsProps) => {
   const { className, postId } = props;
 
   const dispatch = useAppDispatch();
-  const { t, i18n } = useTranslation('pages.blog');
+  const { t } = useTranslation('pages.blog');
 
   const isPostLoading = useAppSelector(getPostIsLoading);
   const postDetails = useAppSelector(getPostDetails);
@@ -42,6 +43,8 @@ const PostDetails = memo((props: PostDetailsProps) => {
   useEffect(() => {
     dispatch(fetchPostById(postId));
   }, [dispatch, postId]);
+
+  const createdAt = useDateTransformer(Number(postDetails?.createdAt));
 
   return (
     <DynamicReducerProvider reducers={reducers}>
@@ -70,11 +73,7 @@ const PostDetails = memo((props: PostDetailsProps) => {
 
                     <div className={classNames(cls['info-block'])}>
                       <CalendarIcon fill="currentColor" />
-                      <Text
-                        text={new Date(postDetails?.createdAt || '').toLocaleDateString(
-                          i18n.language,
-                        )}
-                      />
+                      <Text text={createdAt} />
                     </div>
 
                     <div>{postDetails?.tags.map((tag) => <span key={tag}>{`#${tag}`}</span>)}</div>

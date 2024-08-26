@@ -1,0 +1,12 @@
+.card-img {
+    --size: calc(var(--card-w) - 2 * var(--card-p)); 
+
+    width: var(--size);
+    height: var(--size);
+}
+
+.info {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+}

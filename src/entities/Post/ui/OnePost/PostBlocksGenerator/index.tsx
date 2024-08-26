@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 
-import { PostBlock, PostBlockType } from '../../model/types/Post';
+import { PostBlock, PostBlockType } from '../../../model/types/Post';
 import ImageBlockElement from './ImageBlockElement';
 import CodeBlockElement from './CodeBlockElement';
 import TextBlockElement from './TextBlockElement';

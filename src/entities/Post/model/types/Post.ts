@@ -1,7 +1,20 @@
+import { Profile } from 'entities/Profile';
+
 export enum PostBlockType {
   CODE = 'CODE',
   IMAGE = 'IMAGE',
   TEXT = 'TEXT',
+}
+
+export enum PostTags {
+  IT = 'IT',
+  SCIENCE = 'SCIENCE',
+  ECONOMICS = 'ECONOMICS',
+}
+
+export enum PostsViewType {
+  SHORT = 'short',
+  FULL = 'full',
 }
 
 export interface PostBlockBase {
@@ -28,12 +41,6 @@ export interface PostTextBlock extends PostBlockBase {
 
 export type PostBlock = PostCodeBlock | PostImageBlock | PostTextBlock;
 
-export enum PostTags {
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS',
-}
-
 export interface Post {
   id: string;
   title: string;
@@ -43,4 +50,5 @@ export interface Post {
   createdAt: number;
   tags: Array<PostTags>;
   blocks: Array<PostBlock>;
+  profile?: Profile;
 }

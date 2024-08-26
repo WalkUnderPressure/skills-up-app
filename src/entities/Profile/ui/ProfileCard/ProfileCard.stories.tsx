@@ -6,7 +6,7 @@ import { ProfileErrorCode, ValidationErrors } from '../../model/types/ProfileSta
 import ProfileCard from '.';
 
 const meta = {
-  title: 'Entities/ProfileCard',
+  title: 'Entities/Profile/ProfileCard',
   component: ProfileCard,
   args: {
     profile: MockProfileWithAvatar,
