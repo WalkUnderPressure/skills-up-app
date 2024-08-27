@@ -3,10 +3,14 @@ declare module '*.module.scss' {
   export = classes;
 }
 
-declare module '*.svg' {
-  import { FunctionComponent, SVGProps } from 'react';
+declare type SvgIconType = import('react').FunctionComponent<
+  import('react').SVGProps<SVGSVGElement> & {
+    title?: string;
+  }
+>;
 
-  const ReactComponent: FunctionComponent<SVGProps<SVGSVGElement> & { title?: string }>;
+declare module '*.svg' {
+  const ReactComponent: SvgIconType;
 
   export default ReactComponent;
 }

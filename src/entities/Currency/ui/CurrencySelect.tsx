@@ -8,10 +8,12 @@ type CurrencySelectProps = {
   onChange?: (value: string) => void;
 } & Omit<SelectProps, 'options'>;
 
-const CURRENCY_OPTIONS: Array<SelectOption> = CurrencyMap.map((currency) => ({
-  label: currency,
-  value: currency,
-}));
+const CURRENCY_OPTIONS: Array<SelectOption> = Object.entries(CurrencyMap).map(
+  ([currencyName, currencyValue]) => ({
+    label: currencyName,
+    value: currencyValue,
+  }),
+);
 
 const CurrencySelect = (props: CurrencySelectProps) => {
   const { value, label, className, onChange, ...restProps } = props;

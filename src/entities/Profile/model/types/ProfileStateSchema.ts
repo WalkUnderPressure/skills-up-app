@@ -1,5 +1,5 @@
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { CurrencyMapKey } from 'entities/Currency';
+import { CountryMapKey } from 'entities/Country';
 
 enum ProfileErrorCode {
   REQUIRED = 'REQUIRED',
@@ -14,8 +14,8 @@ interface Profile {
   first_name?: string;
   last_name?: string;
   age?: number;
-  currency?: Currency;
-  country?: Country;
+  currency?: CurrencyMapKey;
+  country?: CountryMapKey;
   city?: string;
   avatar?: string;
 }

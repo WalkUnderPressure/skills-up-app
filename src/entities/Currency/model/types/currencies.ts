@@ -1,11 +1,9 @@
-import { getEnumValues } from 'shared/lib/helpers/mapEnum';
+const CurrencyMap = Object.freeze({
+  EUR: 'EUR',
+  USD: 'USD',
+  UAH: 'UAH',
+});
 
-enum Currency {
-  'EUR' = 'EUR',
-  'USD' = 'USD',
-  'UAH' = 'UAH',
-}
+type CurrencyMapKey = (typeof CurrencyMap)[keyof typeof CurrencyMap];
 
-export const CurrencyMap = getEnumValues(Currency);
-
-export default Currency;
+export { CurrencyMap, CurrencyMapKey };

@@ -8,10 +8,12 @@ type CountrySelectProps = {
   onChange?: (value: string) => void;
 } & Omit<SelectProps, 'options'>;
 
-const COUNTRY_OPTIONS: Array<SelectOption> = CountryMap.map((country) => ({
-  label: country,
-  value: country,
-}));
+const COUNTRY_OPTIONS: Array<SelectOption> = Object.entries(CountryMap).map(
+  ([countryName, countryValue]) => ({
+    label: countryName,
+    value: countryValue,
+  }),
+);
 
 const CountrySelect = (props: CountrySelectProps) => {
   const { value, label, className, onChange, ...restProps } = props;

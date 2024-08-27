@@ -1,4 +1,4 @@
 import CurrencySelect from './ui/CurrencySelect';
-import Currency from './model/types/currencies';
+import { CurrencyMap, CurrencyMapKey } from './model/types/currencies';
 
-export { Currency, CurrencySelect };
+export { CurrencyMap, CurrencyMapKey, CurrencySelect };

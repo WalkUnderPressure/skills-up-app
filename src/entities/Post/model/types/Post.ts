@@ -1,47 +1,49 @@
 import { Profile } from 'entities/Profile';
 
-export enum PostBlockType {
+enum PostBlockType {
   CODE = 'CODE',
   IMAGE = 'IMAGE',
   TEXT = 'TEXT',
 }
 
-export enum PostTags {
+enum PostTags {
   IT = 'IT',
   SCIENCE = 'SCIENCE',
   ECONOMICS = 'ECONOMICS',
 }
 
-export enum PostsViewType {
-  SHORT = 'short',
-  FULL = 'full',
-}
+const PostViewMap = Object.freeze({
+  SHORT: 'short',
+  FULL: 'full',
+});
 
-export interface PostBlockBase {
+type PostViewKey = (typeof PostViewMap)[keyof typeof PostViewMap];
+
+interface PostBlockBase {
   id: string;
   type: PostBlockType;
 }
 
-export interface PostCodeBlock extends PostBlockBase {
+interface PostCodeBlock extends PostBlockBase {
   type: PostBlockType.CODE;
   code: string;
 }
 
-export interface PostImageBlock extends PostBlockBase {
+interface PostImageBlock extends PostBlockBase {
   type: PostBlockType.IMAGE;
   src: string;
   title: string;
 }
 
-export interface PostTextBlock extends PostBlockBase {
+interface PostTextBlock extends PostBlockBase {
   type: PostBlockType.TEXT;
   paragraphs: Array<string>;
   title?: string;
 }
 
-export type PostBlock = PostCodeBlock | PostImageBlock | PostTextBlock;
+type PostBlock = PostCodeBlock | PostImageBlock | PostTextBlock;
 
-export interface Post {
+interface Post {
   id: string;
   title: string;
   subtitle: string;
@@ -52,3 +54,16 @@ export interface Post {
   blocks: Array<PostBlock>;
   profile?: Profile;
 }
+
+export {
+  PostBlockType,
+  PostTags,
+  PostBlockBase,
+  PostCodeBlock,
+  PostImageBlock,
+  PostTextBlock,
+  PostBlock,
+  Post,
+  PostViewMap,
+  PostViewKey,
+};

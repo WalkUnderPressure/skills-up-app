@@ -1,0 +1,32 @@
+.switcher {
+    position: sticky;
+    top: 0;
+    background-color: var(--inverted-bg-color);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--radius-m);
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 4px;
+}
+
+.icon {
+    --icon-size: 28px;
+
+    width: var(--icon-size);
+    height: var(--icon-size);
+    fill: var(--inverted-primary-color);
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+        scale: 1.01;
+    }
+}
+
+.active {
+    fill: var(--warning-color);
+}

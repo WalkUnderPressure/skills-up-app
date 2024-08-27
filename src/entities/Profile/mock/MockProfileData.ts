@@ -1,6 +1,6 @@
 import { Profile } from '../model/types/ProfileStateSchema';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { CurrencyMap } from 'entities/Currency';
+import { CountryMap } from 'entities/Country';
 
 import RomeImg from 'shared/assets/images/rome.jpg';
 
@@ -11,8 +11,8 @@ const MockProfileData: Profile = {
   city: 'Katwicsa',
   first_name: 'Maurice',
   last_name: 'Tucker',
-  country: Country.USA,
-  currency: Currency.USD,
+  country: CountryMap.USA,
+  currency: CurrencyMap.USD,
   avatar: '',
 };
 

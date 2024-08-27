@@ -1,22 +1,22 @@
 import { memo } from 'react';
 
+import { Post, PostViewKey, PostViewMap } from '../../../model/types/Post';
+import PostListItem from '../PostListItem/PostListItem';
 import classNames from 'shared/lib/classNames';
 import * as cls from './PostsList.module.scss';
-import PostListItem from '../PostListItem/PostListItem';
-import { Post, PostsViewType } from '../../../model/types/Post';
 
 type PostsListProps = {
   className?: string;
   posts?: Array<Post>;
   isLoading?: boolean;
-  viewType?: PostsViewType;
+  viewType?: PostViewKey;
 };
 
 const PostsList = memo((props: PostsListProps) => {
-  const { className, posts, isLoading = false, viewType = PostsViewType.SHORT } = props;
+  const { className, posts, isLoading = false, viewType = PostViewMap.SHORT } = props;
 
   if (isLoading) {
-    const itemsLoadingCount = viewType === PostsViewType.FULL ? 3 : 15;
+    const itemsLoadingCount = viewType === PostViewMap.FULL ? 3 : 15;
     const loadPosts = new Array(itemsLoadingCount).fill(0);
 
     return (

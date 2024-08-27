@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
 import StoreDecorator from 'shared/config/storybook/decorators/StoreDecorator';
 import { MockPostDetailsData } from 'entities/Post/mock/MockPostDetailsData';
-import { ETheme } from 'app/providers/ThemeProvider';
+import { ThemesMap } from 'app/providers/ThemeProvider';
 import PostDetails from '.';
 
 const meta = {
@@ -22,7 +22,7 @@ export const Default = {} satisfies Story;
 
 export const DefaultDark = withOverriddenThemes<Story>({})() satisfies Story;
 
-export const DefaultLime = withOverriddenThemes<Story>({})(ETheme.Lime) satisfies Story;
+export const DefaultLime = withOverriddenThemes<Story>({})(ThemesMap.Lime) satisfies Story;
 
 export const DefaultLoading = {
   decorators: [StoreDecorator({ postDetails: { isLoading: true } })],

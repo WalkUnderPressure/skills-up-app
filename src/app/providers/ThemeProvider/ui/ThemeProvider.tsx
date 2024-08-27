@@ -1,40 +1,27 @@
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
+import getSafeLocalStorageValue from 'shared/lib/helpers/getSafeValueFromLS';
 import { LS_THEME_KEY } from 'shared/constants/localStorage';
-import { getEnumValues } from 'shared/lib/helpers/mapEnum';
-import { ETheme, ThemeContext } from '../lib/ThemeContext';
+import { ThemesMap, ThemeContext, ThemesMapKey } from '../lib/ThemeContext';
 
-export const DEFAULT_ALT_THEME = ETheme.Dark;
-export const DEFAULT_THEME = ETheme.Light;
+export const DEFAULT_ALT_THEME = ThemesMap.Dark;
+export const DEFAULT_THEME = ThemesMap.Light;
 
-const getDefaultTheme = (): ETheme => {
-  let resultTheme = DEFAULT_THEME;
-
-  const themeFromLS = localStorage.getItem(LS_THEME_KEY) as ETheme;
-  const allThemes = getEnumValues(ETheme);
-
-  if (allThemes.includes(themeFromLS)) {
-    resultTheme = themeFromLS;
-  }
-
-  return resultTheme;
-};
-
-const defaultTheme = getDefaultTheme();
+const defaultTheme = getSafeLocalStorageValue<ThemesMapKey>(LS_THEME_KEY, ThemesMap, DEFAULT_THEME);
 
 type ThemeProviderProps = {
-  initTheme?: ETheme;
+  initTheme?: ThemesMapKey;
 } & PropsWithChildren;
 
 const ThemeProvider = (props: ThemeProviderProps) => {
   const { children, initTheme } = props;
 
-  const updateThemeInExternalStorages = (nextTheme: ETheme) => {
+  const updateThemeInExternalStorages = (nextTheme: ThemesMapKey) => {
     localStorage.setItem(LS_THEME_KEY, nextTheme);
     document.documentElement.dataset.theme = nextTheme;
   };
 
-  const [theme, setTheme] = useState<ETheme>(() => {
+  const [theme, setTheme] = useState<ThemesMapKey>(() => {
     const themeInitValue = initTheme || defaultTheme;
 
     updateThemeInExternalStorages(themeInitValue);
@@ -42,7 +29,7 @@ const ThemeProvider = (props: ThemeProviderProps) => {
     return themeInitValue;
   });
 
-  const updateTheme = useCallback((nextTheme: ETheme) => {
+  const updateTheme = useCallback((nextTheme: ThemesMapKey) => {
     setTheme(() => {
       updateThemeInExternalStorages(nextTheme);
       return nextTheme;

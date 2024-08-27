@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { ETheme, ThemeContext } from './ThemeContext';
+import { ThemesMap, ThemeContext, ThemesMapKey } from './ThemeContext';
 
 function useTheme() {
   const themeContext = useContext(ThemeContext);
@@ -13,17 +13,17 @@ function useTheme() {
 
   const switchTheme = () => {
     if (setTheme) {
-      let nextTheme = ETheme.Light;
+      let nextTheme: ThemesMapKey = ThemesMap.Light;
 
       switch (theme) {
-        case ETheme.Light:
-          nextTheme = ETheme.Lime;
+        case ThemesMap.Light:
+          nextTheme = ThemesMap.Lime;
           break;
-        case ETheme.Lime:
-          nextTheme = ETheme.Dark;
+        case ThemesMap.Lime:
+          nextTheme = ThemesMap.Dark;
           break;
-        case ETheme.Dark:
-          nextTheme = ETheme.Light;
+        case ThemesMap.Dark:
+          nextTheme = ThemesMap.Light;
           break;
       }
 

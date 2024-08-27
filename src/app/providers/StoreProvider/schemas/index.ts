@@ -17,6 +17,7 @@ import { ProfileStateSchema } from 'entities/Profile';
 import { CounterStateSchema } from 'entities/Counter';
 import { PostDetailsSchema } from 'entities/Post';
 import { UserStateSchema } from 'entities/User';
+import { BlogPageSchema } from 'pages/BlogPage';
 
 type StoreStateSchema = {
   counter: CounterStateSchema;
@@ -28,6 +29,7 @@ type StoreStateSchema = {
   postDetails?: PostDetailsSchema;
   postCommentaries?: PostCommentarySchema;
   addCommentaryForm?: AddCommentaryFormSchema;
+  blogPage?: BlogPageSchema;
 };
 
 export type StoreStateSchemaPossibleEmpty = StoreStateSchema | undefined;

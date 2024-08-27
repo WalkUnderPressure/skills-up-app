@@ -1,9 +1,8 @@
 import { withThemeByDataAttribute } from '@storybook/addon-themes';
 
-import { DEFAULT_THEME, ETheme } from 'app/providers/ThemeProvider';
-import { getEnumRecord } from 'shared/lib/helpers/mapEnum';
+import { DEFAULT_THEME, ThemesMap } from 'app/providers/ThemeProvider';
 
-export const ThemesKeys = Object.entries(getEnumRecord(ETheme)).reduce(
+export const InvertedThemesMap = Object.entries(ThemesMap).reduce(
   (acc, [key, value]) => {
     acc[value] = key;
     return acc;
@@ -13,8 +12,8 @@ export const ThemesKeys = Object.entries(getEnumRecord(ETheme)).reduce(
 
 // Add theme as data attribute to <html/> element
 const AddonThemesDecorator = withThemeByDataAttribute({
-  themes: getEnumRecord(ETheme),
-  defaultTheme: ThemesKeys[DEFAULT_THEME],
+  themes: ThemesMap,
+  defaultTheme: InvertedThemesMap[DEFAULT_THEME],
   attributeName: 'data-theme',
   parentSelector: 'html',
 });

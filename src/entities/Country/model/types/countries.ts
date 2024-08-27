@@ -1,11 +1,9 @@
-import { getEnumValues } from 'shared/lib/helpers/mapEnum';
+const CountryMap = Object.freeze({
+  USA: 'USA',
+  Ukraine: 'Ukraine',
+  Germany: 'Germany',
+});
 
-enum Country {
-  USA = 'USA',
-  Ukraine = 'Ukraine',
-  Germany = 'Germany',
-}
+type CountryMapKey = (typeof CountryMap)[keyof typeof CountryMap];
 
-export const CountryMap = getEnumValues(Country);
-
-export default Country;
+export { CountryMap, CountryMapKey };

@@ -7,6 +7,7 @@ import { addCommentaryReducer } from 'features/AddCommentaryForm/model/slice/add
 import { postCommentariesReducer } from 'pages/PostPage/model/slice/postCommentariesSlice';
 import { postDetailsReducer } from 'entities/Post/model/slice/postDetailsSlice';
 import { profileReducer } from 'entities/Profile';
+import { blogPageReducer } from 'pages/BlogPage';
 
 const initialReducers: DeepPartial<StoreReducersMapObject> = {
   'sign-in_username': signInReducer,
@@ -14,6 +15,7 @@ const initialReducers: DeepPartial<StoreReducersMapObject> = {
   postDetails: postDetailsReducer,
   postCommentaries: postCommentariesReducer,
   addCommentaryForm: addCommentaryReducer,
+  blogPage: blogPageReducer,
 };
 
 const StoreDecorator = (initialState: DeepPartial<StoreStateSchema> = {}) => {
