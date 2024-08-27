@@ -53,6 +53,7 @@ interface Post {
   tags: Array<PostTags>;
   blocks: Array<PostBlock>;
   profile?: Profile;
+  profileId?: string;
 }
 
 export {

@@ -1,16 +1,14 @@
 // Working version "json-server": "^0.17.0"
 import jsonServer from 'json-server';
-import path from 'path';
-import fs from 'fs';
 
 import deleteFieldFrom from '../src/shared/lib/helpers/deleteFieldFrom';
-import UserSchema from './schemas/UserSchema';
-import DBSchema from './schemas/DBSchema';
+import { UserSchema } from './db/users';
+import getDB from './db/__db__';
 
-const DB_JSON_PATH = 'db.json';
+const DB_DATA = getDB();
 
 const server = jsonServer.create();
-const router = jsonServer.router(path.resolve(__dirname, DB_JSON_PATH));
+const router = jsonServer.router(DB_DATA);
 
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
@@ -27,10 +25,8 @@ server.use(async (req, res, next) => {
 server.post('/sign-in', (req, res) => {
   try {
     const { username, password } = req.body;
-    const db: DBSchema = JSON.parse(
-      fs.readFileSync(path.resolve(__dirname, DB_JSON_PATH), { encoding: 'utf-8' }),
-    );
-    const { users = [] } = db;
+
+    const { users = [] } = DB_DATA;
 
     const userFromBd = users.find(
       (user: UserSchema) => user.username === username && user.password === password,

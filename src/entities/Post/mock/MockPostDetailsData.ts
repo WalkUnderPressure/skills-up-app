@@ -2,6 +2,7 @@ import { Post, PostBlockType, PostTags } from '../model/types/Post';
 
 const MockPostDetailsData: Post = {
   id: '1',
+  profileId: '1',
   title: 'Javascript news',
   subtitle: "What's new in JS for 2024?",
   img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
@@ -63,4 +64,39 @@ const MockPostDetailsData: Post = {
   ],
 };
 
-export { MockPostDetailsData };
+const MockPostDetailsDataTwo: Post = {
+  id: '2',
+  profileId: '2',
+  title: 'What is Science?',
+  subtitle: 'Short info about science',
+  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/MANNapoli_124545_plato%27s_academy_mosaic.jpg/920px-MANNapoli_124545_plato%27s_academy_mosaic.jpg',
+  views: 991,
+  createdAt: 1724548384024,
+  tags: [PostTags.SCIENCE],
+  blocks: [
+    {
+      id: '1',
+      type: PostBlockType.TEXT,
+      title: 'Etymology',
+      paragraphs: [
+        'The word science has been used in Middle English since the 14th century in the sense of "the state of knowing". The word was borrowed from the Anglo-Norman language as the suffix -cience, which was borrowed from the Latin word scientia, meaning "knowledge, awareness, understanding". It is a noun derivative of the Latin sciens meaning "knowing", and undisputedly derived from the Latin sciō, the present participle scīre, meaning "to know".',
+      ],
+    },
+    {
+      id: '4',
+      type: PostBlockType.IMAGE,
+      src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Plimpton_322.jpg/1920px-Plimpton_322.jpg',
+      title: 'Babylonian tablet listing pythagorean triples',
+    },
+    {
+      id: '2',
+      type: PostBlockType.TEXT,
+      title: 'History',
+      paragraphs: [
+        'Science has no single origin. Rather, systematic methods emerged gradually over the course of tens of thousands of years, taking different forms around the world, and few details are known about the very earliest developments. Women likely played a central role in prehistoric science, as did religious rituals. Some scholars use the term "protoscience" to label activities in the past that resemble modern science in some but not all features; however, this label has also been criticised as denigrating, or too suggestive of presentism, thinking about those activities only in relation to modern categories.',
+      ],
+    },
+  ],
+};
+
+export { MockPostDetailsData, MockPostDetailsDataTwo };

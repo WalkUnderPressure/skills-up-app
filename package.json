@@ -36,6 +36,7 @@
     "@chromatic-com/storybook": "^1.6.1",
     "@eslint/compat": "^1.1.1",
     "@eslint/js": "^9.8.0",
+    "@faker-js/faker": "^8.4.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "@storybook/addon-essentials": "^8.2.7",
     "@storybook/addon-interactions": "^8.2.7",
