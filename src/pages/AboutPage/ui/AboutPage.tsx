@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
 import classNames from 'shared/lib/classNames';
+import { Page } from 'shared/ui/Page';
+
 import HtmlImage from 'shared/assets/images/html.png';
 
 export type AboutPageProps = {
@@ -13,11 +15,11 @@ const AboutPage = (props: AboutPageProps) => {
   const { t } = useTranslation('pages.about');
 
   return (
-    <div className={classNames(className)}>
+    <Page className={classNames(className)}>
       <h3>{t('title', { defaultValue: 'About page' })}</h3>
 
       <img src={HtmlImage} />
-    </div>
+    </Page>
   );
 };
 

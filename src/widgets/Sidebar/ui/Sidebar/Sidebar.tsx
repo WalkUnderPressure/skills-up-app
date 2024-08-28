@@ -28,7 +28,7 @@ const Sidebar = memo((props: SidebarProps) => {
   const sidebarItems = useAppSelector(getSidebarMenuItems);
 
   return (
-    <div
+    <menu
       data-testid={sidebarDataTestId}
       className={classNames(cls.sidebar, { [cls.collapsed]: isCollapsed }, [className])}
     >
@@ -56,7 +56,7 @@ const Sidebar = memo((props: SidebarProps) => {
 
         <ThemeSwitcher />
       </div>
-    </div>
+    </menu>
   );
 });
 

@@ -35,29 +35,30 @@ const ShortPostListItem = memo((props: PostShortListItemProps) => {
   const postId = post.id;
 
   return (
-    <div className={classNames('', {}, [className])}>
-      <AppLink to={`${RouterPaths[AppRoutes.POST]}${postId}`}>
-        <Card className={cls.card}>
-          <div className={classNames(cls['img-wrapper'])}>
-            <Text className={classNames(cls['img-date'])} text={createdAt} />
-            <img src={post.img} alt={post.subtitle} className={classNames(cls['image'])} />
+    <AppLink
+      to={`${RouterPaths[AppRoutes.POST]}${postId}`}
+      className={classNames(cls.link, {}, [className])}
+    >
+      <Card className={cls.card}>
+        <div className={classNames(cls['img-wrapper'])}>
+          <Text className={classNames(cls['img-date'])} text={createdAt} />
+          <img src={post.img} alt={post.subtitle} className={classNames(cls['image'])} />
+        </div>
+
+        <div className={classNames(cls['info'])}>
+          <div className={classNames(cls['tags'])}>
+            <span>{post.tags.map((tag) => `#${tag}`).join(', ')}</span>
           </div>
 
-          <div className={classNames(cls['info'])}>
-            <div className={classNames(cls['tags'])}>
-              <span>{post.tags.map((tag) => `#${tag}`).join(', ')}</span>
-            </div>
-
-            <div className={classNames(cls['views'])}>
-              <EyeIcon />
-              {post.views}
-            </div>
+          <div className={classNames(cls['views'])}>
+            <EyeIcon />
+            {post.views}
           </div>
+        </div>
 
-          <Text title={post.title} className={classNames(cls['title'])} />
-        </Card>
-      </AppLink>
-    </div>
+        <Text title={post.title} className={classNames(cls['title'])} />
+      </Card>
+    </AppLink>
   );
 });
 

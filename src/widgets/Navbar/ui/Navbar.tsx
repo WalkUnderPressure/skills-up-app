@@ -37,7 +37,7 @@ const Navbar = (props: NavbarProps) => {
   }, [dispatch, navigate]);
 
   return (
-    <nav className={classNames(cls.navbar, {}, [className])}>
+    <header className={classNames(cls.navbar, {}, [className])}>
       {isAuthorized ? (
         <Button
           rounded={ButtonRounded.M}
@@ -61,7 +61,7 @@ const Navbar = (props: NavbarProps) => {
           <SignInByUsernameModal isOpen={isSignInModalOpen} onClose={closeSignInModal} />
         </React.Fragment>
       )}
-    </nav>
+    </header>
   );
 };
 

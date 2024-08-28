@@ -1,5 +1,11 @@
 .blog-page {
+    --page-gap: 24px;
+
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--page-gap);
+
+    & > :last-child {
+        margin-top: calc(var(--page-gap) * -1);
+    }
 }

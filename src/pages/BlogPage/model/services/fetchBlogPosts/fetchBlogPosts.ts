@@ -1,27 +1,40 @@
 import { createAppAsyncThunk, AsyncThunkRejectValue } from 'app/providers/StoreProvider';
+import { getBlogPostsLimit } from '../../selectors/blogPageSelectors';
 import { Post } from 'entities/Post';
 
-const fetchBlogPosts = createAppAsyncThunk<Array<Post>, void, AsyncThunkRejectValue<string>>(
-  'blogPage/fetchBlogPosts',
-  async (_, thunkApi) => {
-    const { extra, rejectWithValue } = thunkApi;
+type FetchBlogPostsParams = {
+  page?: number;
+};
 
-    try {
-      const response = await extra.api.get<Array<Post>>(`/posts/`, {
-        params: {
-          _expand: 'profile',
-        },
-      });
+const fetchBlogPosts = createAppAsyncThunk<
+  Array<Post>,
+  FetchBlogPostsParams | undefined,
+  AsyncThunkRejectValue<string>
+>('blogPage/fetchBlogPosts', async (params = {}, thunkApi) => {
+  const { extra, rejectWithValue, getState } = thunkApi;
 
-      if (!response.data) {
-        throw new Error();
-      }
+  const state = getState();
 
-      return response.data;
-    } catch (e) {
-      return rejectWithValue('error');
+  const limit = getBlogPostsLimit(state);
+  const { page = 1 } = params;
+
+  try {
+    const response = await extra.api.get<Array<Post>>(`/posts/`, {
+      params: {
+        _expand: 'profile',
+        _limit: limit,
+        _page: page,
+      },
+    });
+
+    if (!response.data) {
+      throw new Error();
     }
-  },
-);
+
+    return response.data;
+  } catch (e) {
+    return rejectWithValue('error');
+  }
+});
 
 export default fetchBlogPosts;

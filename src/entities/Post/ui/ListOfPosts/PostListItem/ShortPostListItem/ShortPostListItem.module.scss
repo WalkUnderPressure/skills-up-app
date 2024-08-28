@@ -13,6 +13,10 @@
     }
 }
 
+.link {
+  display: flex;
+}
+
 .card {
     margin: 2px;
     transition: all 300ms;
@@ -38,9 +42,13 @@
 }
   
 .image {
-    max-width: 100%;
-    border-radius: var(--radius-m);
-    object-fit: cover;
+  --size: calc(var(--card-w) - 2 * var(--card-p)); 
+
+  height: var(--size);
+  width: var(--size);
+  max-width: 100%;
+  border-radius: var(--radius-m);
+  object-fit: cover;
 }
   
 .info {

@@ -18,11 +18,7 @@ const AppRouter = memo(() => {
     );
   }, []);
 
-  return (
-    <div className="page-wrapper">
-      <Routes>{Object.values(routerConfig).map(renderWithWrapper)}</Routes>
-    </div>
-  );
+  return <Routes>{Object.values(routerConfig).map(renderWithWrapper)}</Routes>;
 });
 
 export default AppRouter;

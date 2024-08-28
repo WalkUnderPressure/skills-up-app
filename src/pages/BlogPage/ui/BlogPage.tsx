@@ -4,10 +4,12 @@ import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/Dynam
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { getBlogPostsIsLoading, getBlogPostViewType } from '../model/selectors/blogPageSelectors';
 import { blogPageActions, blogPageReducer, getBlogPosts } from '../model/slice/blogPageSlice';
+import fetchNextBlogPostsPage from '../model/services/fetchNextBlogPostsPage/fetchNextBlogPostsPage';
 import fetchBlogPosts from '../model/services/fetchBlogPosts/fetchBlogPosts';
 import { BlogViewTypeSwitcher } from 'features/BlogViewTypeSwitcher';
 import { PostsList, PostViewKey } from 'entities/Post';
 import classNames from 'shared/lib/classNames';
+import { Page } from 'shared/ui/Page';
 import * as cls from './BlogPage.module.scss';
 
 const reducers: ReducersMap = {
@@ -27,6 +29,10 @@ const BlogPage = (props: BlogPageProps) => {
   const postViewType = useAppSelector(getBlogPostViewType);
   const posts = useAppSelector(getBlogPosts.selectAll);
 
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextBlogPostsPage());
+  }, [dispatch]);
+
   useEffect(() => {
     dispatch(blogPageActions.initState());
     dispatch(fetchBlogPosts());
@@ -41,11 +47,11 @@ const BlogPage = (props: BlogPageProps) => {
 
   return (
     <DynamicReducerProvider reducers={reducers}>
-      <div className={classNames(cls['blog-page'], {}, [className])}>
+      <Page onScrollEnd={onLoadNextPart} className={classNames(cls['blog-page'], {}, [className])}>
         <BlogViewTypeSwitcher viewType={postViewType} onChangeView={changeViewType} />
 
         <PostsList posts={posts} isLoading={postsIsLoading} viewType={postViewType} />
-      </div>
+      </Page>
     </DynamicReducerProvider>
   );
 };

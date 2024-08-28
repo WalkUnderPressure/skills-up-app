@@ -5,6 +5,9 @@ import PostListItem from '../PostListItem/PostListItem';
 import classNames from 'shared/lib/classNames';
 import * as cls from './PostsList.module.scss';
 
+const DEFAULT_POST_SHORT_SKELETONS = 12;
+const DEFAULT_POST_FULL_SKELETONS = 4;
+
 type PostsListProps = {
   className?: string;
   posts?: Array<Post>;
@@ -15,25 +18,22 @@ type PostsListProps = {
 const PostsList = memo((props: PostsListProps) => {
   const { className, posts, isLoading = false, viewType = PostViewMap.SHORT } = props;
 
-  if (isLoading) {
-    const itemsLoadingCount = viewType === PostViewMap.FULL ? 3 : 15;
-    const loadPosts = new Array(itemsLoadingCount).fill(0);
-
-    return (
-      <div className={classNames(cls['posts-list'], {}, [className])}>
-        {loadPosts.map((_, index) => (
-          <PostListItem key={index} isLoading={isLoading} viewType={viewType} />
-        ))}
-      </div>
-    );
-  }
+  const itemsLoadingCount =
+    viewType === PostViewMap.FULL ? DEFAULT_POST_FULL_SKELETONS : DEFAULT_POST_SHORT_SKELETONS;
+  const loadPosts = new Array(itemsLoadingCount).fill(0);
 
   return (
     <div className={classNames(cls['posts-list'], {}, [className])}>
       {Boolean(posts?.length) &&
-        posts?.map((post) => (
-          <PostListItem key={post.id} post={post} isLoading={isLoading} viewType={viewType} />
-        ))}
+        posts?.map((post) => <PostListItem key={post.id} post={post} viewType={viewType} />)}
+
+      {isLoading && (
+        <>
+          {loadPosts.map((_, index) => (
+            <PostListItem key={index} isLoading={isLoading} viewType={viewType} />
+          ))}
+        </>
+      )}
     </div>
   );
 });

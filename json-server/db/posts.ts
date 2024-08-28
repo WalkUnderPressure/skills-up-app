@@ -12,7 +12,7 @@ type PostSchema = Post;
 function getPosts(): { posts: Array<PostSchema> } {
   const data = { posts: [MockPostDetailsData, MockPostDetailsDataTwo] };
 
-  const addPostsCount = 100;
+  const addPostsCount = 24;
   for (let i = 0; i < addPostsCount; i++) {
     data.posts.push({
       id: faker.string.uuid().slice(0, 8),

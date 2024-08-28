@@ -6,8 +6,8 @@ import { StoreReducersMapObject } from 'app/providers/StoreProvider/schemas';
 import { addCommentaryReducer } from 'features/AddCommentaryForm/model/slice/addCommentarySlice';
 import { postCommentariesReducer } from 'pages/PostPage/model/slice/postCommentariesSlice';
 import { postDetailsReducer } from 'entities/Post/model/slice/postDetailsSlice';
+import { blogPageReducer } from 'pages/BlogPage/model/slice/blogPageSlice';
 import { profileReducer } from 'entities/Profile';
-import { blogPageReducer } from 'pages/BlogPage';
 
 const initialReducers: DeepPartial<StoreReducersMapObject> = {
   'sign-in_username': signInReducer,
