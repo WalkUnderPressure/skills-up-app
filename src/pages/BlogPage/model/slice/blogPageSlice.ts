@@ -23,6 +23,7 @@ const initialState: BlogPageSchema = {
   viewType: DEFAULT_POST_VIEW_TYPE,
   page: 1,
   hasMore: true,
+  isInitialized: false,
 };
 
 export const getBlogPosts = blogPostsAdapter.getSelectors<StoreStateSchema>((state) => {
@@ -54,6 +55,8 @@ const blogPageSlice = createSlice({
 
       state.viewType = initViewType;
       state.limit = limit;
+
+      state.isInitialized = true;
     },
   },
   extraReducers: (builder) => {

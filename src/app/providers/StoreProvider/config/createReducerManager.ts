@@ -44,7 +44,8 @@ function createReducerManager(initialReducers: StoreReducersMapObject): ReducerM
     // Adds a new reducer with the specified key
     add: (name: StoreStateSchemaKeys, reducer: Reducer) => {
       if (!name || reducers[name]) {
-        return;
+        // return true when reducer was not added
+        return false;
       }
 
       // Add the reducer to the reducer mapping
@@ -52,6 +53,9 @@ function createReducerManager(initialReducers: StoreReducersMapObject): ReducerM
 
       // Generate a new combined reducer
       combinedReducer = combineReducers(reducers as RequiredCombineReducers);
+
+      // return true when reducer was added
+      return true;
     },
 
     // Removes a reducer with the specified key

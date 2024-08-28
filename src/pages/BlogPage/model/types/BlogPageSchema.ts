@@ -1,5 +1,6 @@
 import { EntityState } from '@reduxjs/toolkit';
 
+import IInitialized from 'shared/types/IInitialized';
 import { Post, PostViewKey } from 'entities/Post';
 
 type BlogPageSchema = {
@@ -11,6 +12,7 @@ type BlogPageSchema = {
   page: number;
   limit?: number;
   hasMore: boolean;
-} & EntityState<Post, string>;
+} & IInitialized &
+  EntityState<Post, string>;
 
 export default BlogPageSchema;

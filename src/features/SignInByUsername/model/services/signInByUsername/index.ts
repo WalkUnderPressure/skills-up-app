@@ -1,7 +1,6 @@
 import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
-import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
-import { User, userActions } from 'entities/User';
 import { SignInErrorCode } from '../../types/SignInSchema';
+import { User, userActions } from 'entities/User';
 
 export type SignInByUsernameData = {
   username: string;
@@ -16,7 +15,7 @@ const signInByUsername = createAppAsyncThunk<
   const {
     dispatch,
     rejectWithValue,
-    extra: { api, navigate },
+    extra: { api },
   } = thunkAPI;
 
   try {
@@ -28,7 +27,6 @@ const signInByUsername = createAppAsyncThunk<
     }
 
     dispatch(userActions.setAuthData(authorizedUser));
-    navigate(`${RouterPaths[AppRoutes.PROFILE]}${authorizedUser.id}`);
 
     return authorizedUser;
   } catch (error) {

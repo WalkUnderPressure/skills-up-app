@@ -7,7 +7,6 @@ import {
   Tuple,
   UnknownAction,
 } from '@reduxjs/toolkit';
-import { NavigateFunction } from 'react-router-dom';
 import { AxiosInstance } from 'axios';
 
 import { AddCommentaryFormSchema } from 'features/AddCommentaryForm';
@@ -41,7 +40,7 @@ type StoreStateSchemaKeys = keyof StoreStateSchema;
 type ReducerManager = {
   getReducerMap: () => StoreReducersMapObject;
   reduce: (state: StoreStateSchemaPossibleEmpty, action: UnknownAction) => StoreStateSchema;
-  add: (name: StoreStateSchemaKeys, reducer: Reducer) => void;
+  add: (name: StoreStateSchemaKeys, reducer: Reducer) => boolean;
   remove: (name: StoreStateSchemaKeys) => void;
 };
 
@@ -59,7 +58,6 @@ type ReduxStoreWithManager = EnhancedStore<StoreStateSchema, UnknownAction, Stor
 
 type ThunkExtra = {
   api: AxiosInstance;
-  navigate: NavigateFunction;
 };
 
 export {

@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { getBlogPostsIsLoading, getBlogPostViewType } from '../model/selectors/blogPageSelectors';
 import { blogPageActions, blogPageReducer, getBlogPosts } from '../model/slice/blogPageSlice';
 import fetchNextBlogPostsPage from '../model/services/fetchNextBlogPostsPage/fetchNextBlogPostsPage';
-import fetchBlogPosts from '../model/services/fetchBlogPosts/fetchBlogPosts';
+import initBlogPageState from '../model/services/initBlogPageState/initBlogPageState';
 import { BlogViewTypeSwitcher } from 'features/BlogViewTypeSwitcher';
 import { PostsList, PostViewKey } from 'entities/Post';
 import classNames from 'shared/lib/classNames';
@@ -34,8 +34,7 @@ const BlogPage = (props: BlogPageProps) => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(blogPageActions.initState());
-    dispatch(fetchBlogPosts());
+    dispatch(initBlogPageState());
   }, [dispatch]);
 
   const changeViewType = useCallback(
@@ -46,7 +45,7 @@ const BlogPage = (props: BlogPageProps) => {
   );
 
   return (
-    <DynamicReducerProvider reducers={reducers}>
+    <DynamicReducerProvider reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart} className={classNames(cls['blog-page'], {}, [className])}>
         <BlogViewTypeSwitcher viewType={postViewType} onChangeView={changeViewType} />
 

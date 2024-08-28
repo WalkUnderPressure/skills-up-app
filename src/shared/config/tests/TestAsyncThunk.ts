@@ -1,5 +1,4 @@
 import { AsyncThunkAction, ThunkDispatch, UnknownAction } from '@reduxjs/toolkit';
-import { NavigateFunction } from 'react-router-dom';
 import axios, { AxiosStatic } from 'axios';
 
 import { StoreStateSchema } from 'app/providers/StoreProvider';
@@ -18,7 +17,6 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
   private actionCreator: ActionCreatorType<Return, Arg, RejectedValue>;
 
   api: jest.MockedFunctionDeep<AxiosStatic>;
-  navigate: NavigateFunction;
 
   constructor(
     actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
@@ -30,7 +28,6 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
     this.getState = jest.fn(() => initialState as StoreStateSchema);
 
     this.api = mockedAxios;
-    this.navigate = jest.fn();
   }
 
   async callThunk(arg: Arg) {
@@ -38,7 +35,6 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
 
     const thunkExtra: ThunkExtra = {
       api: this.api,
-      navigate: this.navigate,
     };
 
     const result = await action(this.dispatch, this.getState, thunkExtra);

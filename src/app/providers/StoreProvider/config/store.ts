@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { NavigateFunction } from 'react-router-dom';
 
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
@@ -15,7 +14,6 @@ import createReducerManager from './createReducerManager';
 type CreateReduxStoreParams = {
   initialState?: StoreStateSchema;
   initialReducers?: StoreReducersMapObject;
-  navigate: NavigateFunction;
 };
 
 const rootRed = () => ({
@@ -26,7 +24,7 @@ const rootRed = () => ({
 export type RootStatePart = ReturnType<typeof rootRed>;
 
 function createReduxStore(params: CreateReduxStoreParams) {
-  const { initialState, initialReducers, navigate } = params;
+  const { initialState, initialReducers } = params;
 
   const rootReducer: StoreReducersMapObject = {
     ...initialReducers,
@@ -37,7 +35,6 @@ function createReduxStore(params: CreateReduxStoreParams) {
 
   const argsExt: ThunkExtra = {
     api: $api,
-    navigate,
   };
 
   const rootStore = configureStore({

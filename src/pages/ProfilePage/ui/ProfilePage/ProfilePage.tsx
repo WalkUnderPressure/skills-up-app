@@ -78,25 +78,27 @@ const ProfilePage = (props: ProfilePageProps) => {
 
   return (
     <DynamicReducerProvider reducers={reducers}>
-      <Page className={classNames(cls.content, {}, [className])}>
-        <ProfilePageHeader
-          isReadonly={isReadonly}
-          onEdit={onEdit}
-          onReset={onReset}
-          onSave={onSave}
-          errorData={errorData}
-          isValid={!isValid}
-        />
+      <Page>
+        <div className={classNames(cls.content, {}, [className])}>
+          <ProfilePageHeader
+            isReadonly={isReadonly}
+            onEdit={onEdit}
+            onReset={onReset}
+            onSave={onSave}
+            errorData={errorData}
+            isValid={!isValid}
+          />
 
-        <ProfileCard
-          profile={profile}
-          isLoading={isLoading}
-          isReadonly={isReadonly}
-          errorData={errorData}
-          onChange={onChangeInputValue}
-          isDisabled={isSaving}
-          validationErrors={validationErrors}
-        />
+          <ProfileCard
+            profile={profile}
+            isLoading={isLoading}
+            isReadonly={isReadonly}
+            errorData={errorData}
+            onChange={onChangeInputValue}
+            isDisabled={isSaving}
+            validationErrors={validationErrors}
+          />
+        </div>
       </Page>
     </DynamicReducerProvider>
   );

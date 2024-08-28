@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { ChangeEvent, memo, useCallback, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { SignInByUsernameErrorCode } from 'features/SignInByUsername';
@@ -15,6 +16,8 @@ import getSignInFormPassword from '../../model/selectors/getSignInFormPassword';
 import getSignInFormIsFailed from '../../model/selectors/getSignInFormIsFailed';
 import { signInActions, signInReducer } from '../../model/slice/signInSlice';
 import { signInByUsername } from '../../model/services/signInByUsername';
+import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
+import { User } from 'entities/User';
 import * as cls from './SignInForm.module.scss';
 
 const reducers: ReducersMap = {
@@ -31,6 +34,7 @@ const SignInForm = memo((props: SignInFormProps) => {
 
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const username = useAppSelector(getSignInFormUsername);
   const password = useAppSelector(getSignInFormPassword);
@@ -46,11 +50,17 @@ const SignInForm = memo((props: SignInFormProps) => {
 
       const isSuccess = result.meta.requestStatus === 'fulfilled';
 
-      if (onSuccess && isSuccess) {
+      if (isSuccess) {
+        const authorizedUser = result.payload as User;
+
+        if (authorizedUser?.id) {
+          navigate(`${RouterPaths[AppRoutes.PROFILE]}${authorizedUser.id}`);
+        }
+
         onSuccess();
       }
     },
-    [dispatch, password, username, onSuccess],
+    [dispatch, password, username, onSuccess, navigate],
   );
 
   const onChangeUsername = useCallback(

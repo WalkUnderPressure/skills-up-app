@@ -1,3 +1,5 @@
+import IInitialized from 'shared/types/IInitialized';
+
 type User = {
   id: string;
   username: string;
@@ -5,7 +7,6 @@ type User = {
 
 type UserStateSchema = {
   authData?: Nullable<User>;
-  isInitialized?: boolean;
-};
+} & IInitialized;
 
 export { UserStateSchema, User };

@@ -21,10 +21,15 @@ const getBlogPostsPage = (state: StoreStateSchema) => {
   return state.blogPage?.page || 1;
 };
 
+const getBlogPostsPageInitialized = (state: StoreStateSchema) => {
+  return state.blogPage?.isInitialized ?? false;
+};
+
 export {
   getBlogPostViewType,
   getBlogPostsIsLoading,
   getBlogPostsLimit,
   getBlogPostsHasMore,
   getBlogPostsPage,
+  getBlogPostsPageInitialized,
 };

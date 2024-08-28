@@ -12,10 +12,11 @@ type ReducersMapEntry = [StoreStateSchemaKeys, Reducer];
 
 type DynamicReducerWrapperProps = {
   reducers: ReducersMap;
+  removeAfterUnmount?: boolean;
 } & PropsWithChildren;
 
 function DynamicReducerProvider(props: DynamicReducerWrapperProps) {
-  const { children, reducers = {} } = props;
+  const { children, reducers = {}, removeAfterUnmount = true } = props;
 
   const dispatch = useAppDispatch();
   const store = useAppStore();
@@ -24,17 +25,22 @@ function DynamicReducerProvider(props: DynamicReducerWrapperProps) {
     Object.entries(reducers).forEach((entry) => {
       const [reducerName, reducer] = entry as ReducersMapEntry;
 
-      store.reducerManager.add(reducerName, reducer);
-      dispatch({ type: `@ADD_DYNAMIC_REDUCER: ${reducerName}` });
+      const isReducerAdded = store.reducerManager.add(reducerName, reducer);
+
+      if (isReducerAdded) {
+        dispatch({ type: `@ADD_DYNAMIC_REDUCER: ${reducerName}` });
+      }
     });
 
     return () => {
-      Object.entries(reducers).forEach((entry) => {
-        const [reducerName] = entry as ReducersMapEntry;
+      if (removeAfterUnmount) {
+        Object.entries(reducers).forEach((entry) => {
+          const [reducerName] = entry as ReducersMapEntry;
 
-        store.reducerManager.remove(reducerName);
-        dispatch({ type: `@REMOVE_DYNAMIC_REDUCER: ${reducerName}` });
-      });
+          store.reducerManager.remove(reducerName);
+          dispatch({ type: `@REMOVE_DYNAMIC_REDUCER: ${reducerName}` });
+        });
+      }
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
