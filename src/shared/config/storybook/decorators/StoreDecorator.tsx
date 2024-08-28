@@ -7,6 +7,7 @@ import { addCommentaryReducer } from 'features/AddCommentaryForm/model/slice/add
 import { postCommentariesReducer } from 'pages/PostPage/model/slice/postCommentariesSlice';
 import { postDetailsReducer } from 'entities/Post/model/slice/postDetailsSlice';
 import { blogPageReducer } from 'pages/BlogPage/model/slice/blogPageSlice';
+import { scrollKeeperReducer } from 'features/ScrollKeeper';
 import { profileReducer } from 'entities/Profile';
 
 const initialReducers: DeepPartial<StoreReducersMapObject> = {
@@ -16,6 +17,7 @@ const initialReducers: DeepPartial<StoreReducersMapObject> = {
   postCommentaries: postCommentariesReducer,
   addCommentaryForm: addCommentaryReducer,
   blogPage: blogPageReducer,
+  scrollKeeper: scrollKeeperReducer,
 };
 
 const StoreDecorator = (initialState: DeepPartial<StoreStateSchema> = {}) => {

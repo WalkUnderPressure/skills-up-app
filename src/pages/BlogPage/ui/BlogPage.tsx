@@ -9,7 +9,7 @@ import initBlogPageState from '../model/services/initBlogPageState/initBlogPageS
 import { BlogViewTypeSwitcher } from 'features/BlogViewTypeSwitcher';
 import { PostsList, PostViewKey } from 'entities/Post';
 import classNames from 'shared/lib/classNames';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import * as cls from './BlogPage.module.scss';
 
 const reducers: ReducersMap = {

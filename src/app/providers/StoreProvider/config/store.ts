@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import { scrollKeeperReducer } from 'features/ScrollKeeper';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import $api from 'shared/api/api';
@@ -16,19 +17,20 @@ type CreateReduxStoreParams = {
   initialReducers?: StoreReducersMapObject;
 };
 
-const rootRed = () => ({
+const rootReducers = (): StoreReducersMapObject => ({
   counter: counterReducer,
   user: userReducer,
+  scrollKeeper: scrollKeeperReducer,
 });
 
-export type RootStatePart = ReturnType<typeof rootRed>;
+export type RootStatePart = ReturnType<typeof rootReducers>;
 
 function createReduxStore(params: CreateReduxStoreParams) {
   const { initialState, initialReducers } = params;
 
   const rootReducer: StoreReducersMapObject = {
     ...initialReducers,
-    ...rootRed(),
+    ...rootReducers(),
   };
 
   const reducerManager = createReducerManager(rootReducer);

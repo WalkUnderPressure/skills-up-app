@@ -11,6 +11,7 @@ import { AxiosInstance } from 'axios';
 
 import { AddCommentaryFormSchema } from 'features/AddCommentaryForm';
 import { SignInByUsernameSchema } from 'features/SignInByUsername';
+import { ScrollKeeperSchema } from 'features/ScrollKeeper';
 import { PostCommentarySchema } from 'pages/PostPage';
 import { ProfileStateSchema } from 'entities/Profile';
 import { CounterStateSchema } from 'entities/Counter';
@@ -21,6 +22,7 @@ import { BlogPageSchema } from 'pages/BlogPage';
 type StoreStateSchema = {
   counter: CounterStateSchema;
   user: UserStateSchema;
+  scrollKeeper: ScrollKeeperSchema;
 
   // Async
   'sign-in_username'?: SignInByUsernameSchema | undefined;

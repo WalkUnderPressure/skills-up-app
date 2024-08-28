@@ -22,7 +22,7 @@ import {
   ProfileValidationErrors,
 } from 'entities/Profile';
 import { getUserId } from 'entities/User';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 
 import * as cls from './ProfilePage.module.scss';
 

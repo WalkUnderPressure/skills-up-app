@@ -21,12 +21,12 @@ const MockPostDetailsData: Post = {
       ],
     },
     {
-      id: '4',
+      id: '2',
       type: PostBlockType.CODE,
       code: 'const today = Temporal.Now.plainDateISO();\n\nconst lastWeek = today.subtract({ days: 7});\n\nconst nextWeek = today.add({ days: 7 });',
     },
     {
-      id: '5',
+      id: '3',
       type: PostBlockType.TEXT,
       title: 'Pipe Operator',
       paragraphs: [
@@ -35,14 +35,14 @@ const MockPostDetailsData: Post = {
       ],
     },
     {
-      id: '2',
+      id: '4',
       type: PostBlockType.IMAGE,
       src: 'https://wavelop.com/static/528bbb228615a3160dcbe094c6fe905e/ba228/js-pipe-function.png',
       title:
         'A pipe function is a function that accepts a series of functions, which process an input parameter and return a output which will be the input for the next function.',
     },
     {
-      id: '7',
+      id: '5',
       type: PostBlockType.TEXT,
       title: 'Records and Tuples',
       paragraphs: [
@@ -51,13 +51,13 @@ const MockPostDetailsData: Post = {
       ],
     },
     {
-      id: '3',
+      id: '6',
       type: PostBlockType.CODE,
       //   code: 'const heroes = #["Batman", "Superman", "Wonder Woman"]',
       code: 'const heroes = #["Batman", "Superman", "Wonder Woman", The Record and Tuple proposal aims to bring immutable data structures to JavaScript.]',
     },
     {
-      id: '3',
+      id: '7',
       type: PostBlockType.CODE,
       code: 'const traitors = #{\n  diane: false,\n  paul: true,\n  zac: false,\n  harry: true\n}',
     },
@@ -83,13 +83,13 @@ const MockPostDetailsDataTwo: Post = {
       ],
     },
     {
-      id: '4',
+      id: '2',
       type: PostBlockType.IMAGE,
       src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Plimpton_322.jpg/1920px-Plimpton_322.jpg',
       title: 'Babylonian tablet listing pythagorean triples',
     },
     {
-      id: '2',
+      id: '3',
       type: PostBlockType.TEXT,
       title: 'History',
       paragraphs: [

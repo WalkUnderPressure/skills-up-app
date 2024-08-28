@@ -12,7 +12,7 @@ import fetchCommentariesByPostId from '../model/services/fetchCommentariesByPost
 import { getPostCommentariesIsLoading } from '../model/selectors/commentaries';
 import { addCommentaryToPost } from '../model/services/addCommentaryToPost';
 import BackToBlogBtn from './BackToBlogBtn';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import * as cls from './PostPage.module.scss';
 
 export type PostPageProps = {
@@ -46,14 +46,16 @@ const PostPage = (props: PostPageProps) => {
 
   return (
     <DynamicReducerProvider reducers={reducers}>
-      <BackToBlogBtn />
+      <Page>
+        <BackToBlogBtn />
 
-      <Page className={classNames(cls['post-page'], {}, [className])}>
-        <PostDetails postId={postId} />
+        <div className={classNames(cls['post-page'], {}, [className])}>
+          <PostDetails postId={postId} />
 
-        <AddCommentaryForm onSendCommentary={onSendCommentary} />
+          <AddCommentaryForm onSendCommentary={onSendCommentary} />
 
-        <CommentaryList isLoading={isCommentariesLoading} commentaries={commentaries} />
+          <CommentaryList isLoading={isCommentariesLoading} commentaries={commentaries} />
+        </div>
       </Page>
     </DynamicReducerProvider>
   );
