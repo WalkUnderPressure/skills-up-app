@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 
 import useDateTransformer from 'shared/lib/hooks/useDateTransformer';
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
@@ -17,10 +17,11 @@ type PostShortListItemProps = {
   className?: string;
   post?: Post;
   isLoading?: boolean;
+  target?: HTMLAttributeAnchorTarget | undefined;
 };
 
 const ShortPostListItem = memo((props: PostShortListItemProps) => {
-  const { className, post, isLoading = false } = props;
+  const { className, post, isLoading = false, target } = props;
 
   const createdAt = useDateTransformer(post?.createdAt);
 
@@ -36,6 +37,7 @@ const ShortPostListItem = memo((props: PostShortListItemProps) => {
 
   return (
     <AppLink
+      target={target}
       to={`${RouterPaths[AppRoutes.POST]}${postId}`}
       className={classNames(cls.link, {}, [className])}
     >

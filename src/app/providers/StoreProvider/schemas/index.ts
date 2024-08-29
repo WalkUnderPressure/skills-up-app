@@ -12,12 +12,12 @@ import { AxiosInstance } from 'axios';
 import { AddCommentaryFormSchema } from 'features/AddCommentaryForm';
 import { SignInByUsernameSchema } from 'features/SignInByUsername';
 import { ScrollKeeperSchema } from 'features/ScrollKeeper';
-import { PostCommentarySchema } from 'pages/PostPage';
 import { ProfileStateSchema } from 'entities/Profile';
 import { CounterStateSchema } from 'entities/Counter';
 import { PostDetailsSchema } from 'entities/Post';
 import { UserStateSchema } from 'entities/User';
 import { BlogPageSchema } from 'pages/BlogPage';
+import { PostPageSchema } from 'pages/PostPage';
 
 type StoreStateSchema = {
   counter: CounterStateSchema;
@@ -28,9 +28,9 @@ type StoreStateSchema = {
   'sign-in_username'?: SignInByUsernameSchema | undefined;
   profile?: ProfileStateSchema | undefined;
   postDetails?: PostDetailsSchema;
-  postCommentaries?: PostCommentarySchema;
   addCommentaryForm?: AddCommentaryFormSchema;
   blogPage?: BlogPageSchema;
+  postPage?: PostPageSchema;
 };
 
 export type StoreStateSchemaPossibleEmpty = StoreStateSchema | undefined;

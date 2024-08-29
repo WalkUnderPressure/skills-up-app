@@ -46,6 +46,7 @@
 
   height: var(--size);
   width: var(--size);
+  min-width: var(--size);
   max-width: 100%;
   border-radius: var(--radius-m);
   object-fit: cover;

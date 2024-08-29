@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button, ButtonRounded, ButtonSize, ButtonTheme } from 'shared/ui/Button';
@@ -21,10 +21,11 @@ type PostFullListItemProps = {
   className?: string;
   post?: Post;
   isLoading?: boolean;
+  target?: HTMLAttributeAnchorTarget | undefined;
 };
 
 const FullPostListItem = memo((props: PostFullListItemProps) => {
-  const { className, post, isLoading = false } = props;
+  const { className, post, isLoading = false, target } = props;
 
   const { t } = useTranslation('pages.blog');
 
@@ -74,7 +75,7 @@ const FullPostListItem = memo((props: PostFullListItemProps) => {
             theme={ButtonTheme.OUTLINE_INVERTED}
             rounded={ButtonRounded.M}
           >
-            <AppLink to={`${RouterPaths[AppRoutes.POST]}${postId}`}>
+            <AppLink to={`${RouterPaths[AppRoutes.POST]}${postId}`} target={target}>
               {t('read-more', { defaultValue: 'Read more' }) + '...'}
             </AppLink>
           </Button>

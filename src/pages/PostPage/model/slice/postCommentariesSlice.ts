@@ -20,7 +20,7 @@ const initialState: PostCommentarySchema = {
 };
 
 export const getPostCommentaries = commentariesAdapter.getSelectors<StoreStateSchema>((state) => {
-  return state?.postCommentaries || initialState;
+  return state?.postPage?.postCommentaries || initialState;
 });
 
 const postCommentariesSlice = createSlice({

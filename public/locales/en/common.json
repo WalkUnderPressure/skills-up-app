@@ -50,5 +50,8 @@
     "commentaries": {
         "title": "Commentaries",
         "empty": "There are no comments here yet."
+    },
+    "recommendations": {
+        "title": "Recommendations"
     }
 }

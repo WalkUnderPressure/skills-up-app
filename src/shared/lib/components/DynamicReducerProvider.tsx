@@ -1,11 +1,11 @@
 import { PropsWithChildren, useEffect } from 'react';
 import { Reducer } from '@reduxjs/toolkit';
 
-import { StoreStateSchemaKeys } from 'app/providers/StoreProvider/schemas';
+import { StoreStateSchema, StoreStateSchemaKeys } from 'app/providers/StoreProvider/schemas';
 import { useAppDispatch, useAppStore } from 'app/providers/StoreProvider';
 
 export type ReducersMap = {
-  [name in StoreStateSchemaKeys]?: Reducer;
+  [name in StoreStateSchemaKeys]?: Reducer<NonNullable<StoreStateSchema[name]>>;
 };
 
 type ReducersMapEntry = [StoreStateSchemaKeys, Reducer];
