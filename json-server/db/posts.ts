@@ -1,6 +1,11 @@
 import { faker } from '@faker-js/faker';
 
-import { PostBlockType, PostTags, Post } from '../../src/entities/Post/model/types/Post';
+import {
+  PostBlockType,
+  PostTagsMap,
+  PostTagsKey,
+  Post,
+} from '../../src/entities/Post/model/types/Post';
 import {
   MockPostDetailsData,
   MockPostDetailsDataTwo,
@@ -21,10 +26,10 @@ function getPosts(): { posts: Array<PostSchema> } {
       subtitle: faker.word.words({ count: { min: 3, max: 15 } }),
       img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/MANNapoli_124545_plato%27s_academy_mosaic.jpg/920px-MANNapoli_124545_plato%27s_academy_mosaic.jpg',
       views: faker.number.int({ min: 20, max: 500_000 }),
-      createdAt: new Date(faker.date.anytime()).getMilliseconds(),
+      createdAt: new Date(faker.date.anytime()).getTime(),
       tags: [
-        randomInArray<PostTags>([PostTags.SCIENCE, PostTags.IT, PostTags.ECONOMICS]) ??
-          PostTags.SCIENCE,
+        randomInArray<PostTagsKey>([PostTagsMap.SCIENCE, PostTagsMap.IT, PostTagsMap.ECONOMICS]) ??
+          PostTagsMap.SCIENCE,
       ],
       blocks: [
         {

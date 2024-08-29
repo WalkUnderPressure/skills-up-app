@@ -27,7 +27,7 @@ describe('fetchNextBlogPostsPage', () => {
     await thunk.callThunk();
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(4);
-    expect(fetchBlogPosts).toHaveBeenCalledWith({ page: pageNumber + 1 });
+    expect(fetchBlogPosts).toHaveBeenCalled();
   });
 
   test('fetchBlogPosts should not be called (when hasMore is false)', async () => {

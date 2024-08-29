@@ -6,11 +6,14 @@ enum PostBlockType {
   TEXT = 'TEXT',
 }
 
-enum PostTags {
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS',
-}
+const PostTagsMap = Object.freeze({
+  ALL: 'ALL',
+  IT: 'IT',
+  SCIENCE: 'SCIENCE',
+  ECONOMICS: 'ECONOMICS',
+});
+
+type PostTagsKey = (typeof PostTagsMap)[keyof typeof PostTagsMap];
 
 const PostViewMap = Object.freeze({
   SHORT: 'short',
@@ -18,6 +21,14 @@ const PostViewMap = Object.freeze({
 });
 
 type PostViewKey = (typeof PostViewMap)[keyof typeof PostViewMap];
+
+const PostSortFieldsMap = Object.freeze({
+  TITLE: 'title',
+  VIEWS: 'views',
+  CREATED_AT: 'createdAt',
+});
+
+type PostSortFieldsKey = (typeof PostSortFieldsMap)[keyof typeof PostSortFieldsMap];
 
 interface PostBlockBase {
   id: string;
@@ -50,7 +61,7 @@ interface Post {
   img: string;
   views: number;
   createdAt: number;
-  tags: Array<PostTags>;
+  tags: Array<PostTagsKey>;
   blocks: Array<PostBlock>;
   profile?: Profile;
   profileId?: string;
@@ -58,7 +69,8 @@ interface Post {
 
 export {
   PostBlockType,
-  PostTags,
+  PostTagsMap,
+  PostTagsKey,
   PostBlockBase,
   PostCodeBlock,
   PostImageBlock,
@@ -67,4 +79,6 @@ export {
   Post,
   PostViewMap,
   PostViewKey,
+  PostSortFieldsMap,
+  PostSortFieldsKey,
 };

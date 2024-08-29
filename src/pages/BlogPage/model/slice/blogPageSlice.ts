@@ -3,9 +3,18 @@ import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolki
 import getSafeLocalStorageValue from 'shared/lib/helpers/getSafeValueFromLS';
 import fetchBlogPosts from '../services/fetchBlogPosts/fetchBlogPosts';
 import { StoreStateSchema } from 'app/providers/StoreProvider';
-import { Post, PostViewMap, PostViewKey } from 'entities/Post';
+import {
+  Post,
+  PostViewMap,
+  PostViewKey,
+  PostSortFieldsMap,
+  PostSortFieldsKey,
+  PostTagsKey,
+  PostTagsMap,
+} from 'entities/Post';
 import { LS_BLOG_VIEW } from 'shared/constants/localStorage';
 import BlogPageSchema from '../types/BlogPageSchema';
+import { SortOrder } from 'shared/types/SortOrder';
 
 const blogPostsAdapter = createEntityAdapter({
   selectId: (post: Post) => post.id,
@@ -14,6 +23,9 @@ const blogPostsAdapter = createEntityAdapter({
 export const DEFAULT_POST_VIEW_TYPE = PostViewMap.SHORT;
 export const DEFAULT_POST_SHORT_LIMIT = 12;
 export const DEFAULT_POST_FULL_LIMIT = 4;
+export const DEFAULT_SORT_FIELD = PostSortFieldsMap.CREATED_AT;
+export const DEFAULT_SORT_ORDER: SortOrder = 'asc';
+export const DEFAULT_SEARCH_TAG: PostTagsKey = PostTagsMap.ALL;
 
 const initialState: BlogPageSchema = {
   ids: [],
@@ -24,6 +36,11 @@ const initialState: BlogPageSchema = {
   page: 1,
   hasMore: true,
   isInitialized: false,
+  limit: DEFAULT_POST_SHORT_LIMIT,
+  sortOrder: DEFAULT_SORT_ORDER,
+  sortField: DEFAULT_SORT_FIELD,
+  search: '',
+  searchTag: DEFAULT_SEARCH_TAG,
 };
 
 export const getBlogPosts = blogPostsAdapter.getSelectors<StoreStateSchema>((state) => {
@@ -43,6 +60,18 @@ const blogPageSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
+    setSortOrder: (state, action: PayloadAction<SortOrder>) => {
+      state.sortOrder = action.payload;
+    },
+    setSortField: (state, action: PayloadAction<PostSortFieldsKey>) => {
+      state.sortField = action.payload;
+    },
+    setSearch: (state, action: PayloadAction<string>) => {
+      state.search = action.payload;
+    },
+    setSearchTag: (state, action: PayloadAction<PostTagsKey>) => {
+      state.searchTag = action.payload;
+    },
     initState: (state) => {
       const initViewType = getSafeLocalStorageValue<PostViewKey>(
         LS_BLOG_VIEW,
@@ -61,18 +90,26 @@ const blogPageSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchBlogPosts.pending, (state) => {
+      .addCase(fetchBlogPosts.pending, (state, action) => {
         state.isLoading = true;
         state.error = '';
+
+        if (action.meta.arg?.replace) {
+          blogPostsAdapter.removeAll(state);
+        }
       })
-      .addCase(fetchBlogPosts.fulfilled, (state, action: PayloadAction<Array<Post>>) => {
+      .addCase(fetchBlogPosts.fulfilled, (state, action) => {
+        const posts = action.payload;
+
+        state.hasMore = posts.length >= state.limit;
         state.isLoading = false;
         state.error = '';
 
-        const posts = action.payload;
-
-        blogPostsAdapter.addMany(state, posts);
-        state.hasMore = posts.length > 0;
+        if (action.meta.arg?.replace) {
+          blogPostsAdapter.setAll(state, posts);
+        } else {
+          blogPostsAdapter.addMany(state, posts);
+        }
       })
       .addCase(fetchBlogPosts.rejected, (state, action) => {
         state.isLoading = false;

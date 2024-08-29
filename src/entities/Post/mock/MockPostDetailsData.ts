@@ -1,4 +1,4 @@
-import { Post, PostBlockType, PostTags } from '../model/types/Post';
+import { Post, PostBlockType, PostTagsMap } from '../model/types/Post';
 
 const MockPostDetailsData: Post = {
   id: '1',
@@ -8,7 +8,7 @@ const MockPostDetailsData: Post = {
   img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
   views: 681,
   createdAt: 1724270894246,
-  tags: [PostTags.IT],
+  tags: [PostTagsMap.IT],
   blocks: [
     {
       id: '1',
@@ -72,7 +72,7 @@ const MockPostDetailsDataTwo: Post = {
   img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/MANNapoli_124545_plato%27s_academy_mosaic.jpg/920px-MANNapoli_124545_plato%27s_academy_mosaic.jpg',
   views: 991,
   createdAt: 1724548384024,
-  tags: [PostTags.SCIENCE],
+  tags: [PostTagsMap.SCIENCE],
   blocks: [
     {
       id: '1',

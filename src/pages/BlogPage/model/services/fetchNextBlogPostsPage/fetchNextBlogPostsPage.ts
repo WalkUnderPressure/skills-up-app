@@ -21,12 +21,7 @@ const fetchNextBlogPostsPage = createAppAsyncThunk<void, void, AsyncThunkRejectV
       const nextPage = page + 1;
 
       dispatch(blogPageActions.setPage(nextPage));
-
-      dispatch(
-        fetchBlogPosts({
-          page: nextPage,
-        }),
-      );
+      dispatch(fetchBlogPosts());
     }
   },
 );

@@ -1,5 +1,19 @@
 {
     "post-not-exist": "The post does not exist or could not be loaded! Try again later!",
     "read-more": "Read more",
-    "back-to-blog": "Back to blog"
+    "back-to-blog": "Back to blog",
+    "sort": {
+        "fields": {
+            "title": "Title",
+            "views": "Views",
+            "createdAt": "Created at"
+        }
+    },
+    "empty": "No publications with the specified parameters were found",
+    "tags": {
+        "all": "All",
+        "it": "IT",
+        "science": "Science",
+        "economics": "Economics"
+    }
 }

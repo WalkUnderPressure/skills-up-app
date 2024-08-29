@@ -1,32 +1,33 @@
-import { ChangeEvent, memo, SelectHTMLAttributes, useCallback, useId } from 'react';
+import { ChangeEvent, SelectHTMLAttributes, useCallback, useId } from 'react';
 
 import classNames from 'shared/lib/classNames';
 import * as cls from './Select.module.scss';
+import genericMemo from 'shared/lib/genericMemo';
 
 export enum SelectTheme {
   DEFAULT = '',
   INVERTED = 'inverted',
 }
 
-export type SelectOption = {
+export type SelectOption<T extends string = string> = {
   label: string;
-  value: string;
+  value: T;
 };
 
-export type SelectProps = {
+export type SelectProps<T extends string = string> = {
   className?: {
     wrapper?: string;
     border?: string;
     select?: string;
   };
-  onChange?: (value: string) => void;
+  onChange?: (value: T) => void;
   theme?: SelectTheme;
-  options: Array<SelectOption>;
+  options: Array<SelectOption<T>>;
   label?: string;
   readOnly?: boolean;
 } & Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange' | 'className'>;
 
-const Select = memo((props: SelectProps) => {
+const Select = genericMemo(<T extends string>(props: SelectProps<T>) => {
   const {
     label,
     className,
@@ -45,7 +46,7 @@ const Select = memo((props: SelectProps) => {
   const onChangeHandler = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
       if (onChange) {
-        const selectedValue = event.target.value;
+        const selectedValue = event.target.value as T;
         onChange(selectedValue);
       }
     },

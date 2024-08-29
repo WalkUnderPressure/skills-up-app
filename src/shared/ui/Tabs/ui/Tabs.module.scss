@@ -1,0 +1,26 @@
+.tabs {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.tab {
+    background-color: var(--bg-color);
+    border-radius: var(--radius-m);
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--primary-color);
+    border: 1px solid var(--inverted-bg-color);
+
+    &:hover {
+        transform: scale(1.01);
+    }
+}
+
+.active {
+    background-color: var(--inverted-bg-color);
+    color: var(--inverted-primary-color);
+}

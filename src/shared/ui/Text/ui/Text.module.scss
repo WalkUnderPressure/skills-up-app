@@ -9,6 +9,12 @@
     color: var(--secondary-color);
 }
 
+.warn {
+    .title, .text {
+        color: var(--warning-color);
+    }    
+}
+
 .error {
     .title, .text {
         color: var(--error-color);

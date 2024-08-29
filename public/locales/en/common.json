@@ -33,6 +33,14 @@
             "required": "This field is required!"
         }
     },
+    "sort": {
+        "field": "Sort field",
+        "by": "Sort by",
+        "order": {
+            "asc": "ascending",
+            "desc": "descending"
+        }
+    },
     "page_not_found": "Sorry! Page not found!",
     "error_boundary": {
         "title": "Sorry, unexpected error occurred! Try to reload page.",
