@@ -9,6 +9,9 @@ export default (env: BuildEnv) => {
   const WITH_ANALYZE = env.analyze || false;
   const PORT = env.port || 3000;
 
+  const localesFolder = 'locales';
+  const buildFolder = 'build';
+
   const options: BuildOptions = {
     mode: BUILD_MODE,
     isDev: BUILD_MODE === 'development',
@@ -16,9 +19,11 @@ export default (env: BuildEnv) => {
     withAnalyze: WITH_ANALYZE,
     paths: {
       entry: path.resolve(__dirname, 'src', 'index.tsx'),
-      output: path.resolve(__dirname, 'build'),
+      output: path.resolve(__dirname, buildFolder),
       html: path.resolve(__dirname, 'public', 'index.html'),
       src: path.resolve(__dirname, 'src'),
+      locales: path.resolve(__dirname, 'public', localesFolder),
+      buildLocales: path.resolve(__dirname, '', buildFolder, localesFolder),
     },
     port: PORT,
     project: 'app',

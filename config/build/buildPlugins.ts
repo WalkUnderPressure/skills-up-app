@@ -7,6 +7,7 @@ import {
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 
 import buildMiniCssExtractPlugin from './plugins/buildMiniCssExtractPlugin';
 import { BuildOptions } from './types';
@@ -45,6 +46,16 @@ function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance> {
           overlay: false,
         }),
       ],
+    );
+  }
+
+  if (!isDev) {
+    const { locales, buildLocales } = options.paths;
+
+    plugins.push(
+      new CopyPlugin({
+        patterns: [{ from: locales, to: buildLocales }],
+      }),
     );
   }
 
