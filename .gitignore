@@ -23,3 +23,6 @@ node_modules
 
 # Exclude coverage
 /coverage/
+
+# Exclude JSON-SERVER
+/json-server/
