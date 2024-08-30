@@ -1,5 +1,6 @@
 import { RouteProps } from 'react-router-dom';
 
+import { PostEditPage } from 'pages/PostEditPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { AboutPage } from 'pages/AboutPage';
@@ -17,6 +18,8 @@ export enum AppRoutes {
   PROFILE = 'profile',
   BLOG = 'blog',
   POST = 'post',
+  POST_CREATE = 'post_create',
+  POST_EDIT = 'post_edit',
 
   // when no route is suitable
   NOT_FOUND = 'not_found',
@@ -28,6 +31,8 @@ export const RouterPaths: Record<AppRoutes, string> = {
   [AppRoutes.PROFILE]: '/profile/', // :id
   [AppRoutes.BLOG]: '/blog',
   [AppRoutes.POST]: '/posts/', // :id
+  [AppRoutes.POST_CREATE]: '/posts/create',
+  [AppRoutes.POST_EDIT]: '/posts/:id/edit',
 
   // when no route is suitable
   [AppRoutes.NOT_FOUND]: '*',
@@ -55,6 +60,16 @@ export const routerConfig: Record<AppRoutes, AppRouteProps> = {
   [AppRoutes.POST]: {
     path: `${RouterPaths[AppRoutes.POST]}:id`,
     element: <PostPage />,
+    authOnly: true,
+  },
+  [AppRoutes.POST_CREATE]: {
+    path: RouterPaths[AppRoutes.POST_CREATE],
+    element: <PostEditPage />,
+    authOnly: true,
+  },
+  [AppRoutes.POST_EDIT]: {
+    path: RouterPaths[AppRoutes.POST_EDIT],
+    element: <PostEditPage />,
     authOnly: true,
   },
 

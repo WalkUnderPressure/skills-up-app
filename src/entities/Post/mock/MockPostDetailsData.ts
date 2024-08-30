@@ -3,6 +3,7 @@ import { Post, PostBlockType, PostTagsMap } from '../model/types/Post';
 const MockPostDetailsData: Post = {
   id: '1',
   profileId: '1',
+  userId: '1',
   title: 'Javascript news',
   subtitle: "What's new in JS for 2024?",
   img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
@@ -67,6 +68,7 @@ const MockPostDetailsData: Post = {
 const MockPostDetailsDataTwo: Post = {
   id: '2',
   profileId: '2',
+  userId: '2',
   title: 'What is Science?',
   subtitle: 'Short info about science',
   img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/MANNapoli_124545_plato%27s_academy_mosaic.jpg/920px-MANNapoli_124545_plato%27s_academy_mosaic.jpg',

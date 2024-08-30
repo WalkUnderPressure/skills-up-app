@@ -1,18 +1,26 @@
 .title {
     font: var(--font-l);
-    color: var(--primary-color);
     font-weight: 600;
 }
 
 .text {
     font: var(--font-m);
-    color: var(--secondary-color);
+}
+
+.normal {
+    .title {
+        color: var(--primary-color);
+    }
+   
+    .text {
+        color: var(--secondary-color);
+    }
 }
 
 .warn {
     .title, .text {
         color: var(--warning-color);
-    }    
+    }
 }
 
 .error {

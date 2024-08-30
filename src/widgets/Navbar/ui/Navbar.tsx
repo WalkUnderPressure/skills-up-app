@@ -7,6 +7,8 @@ import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { SignInByUsernameModal } from 'features/SignInByUsername';
 import { useIsAuthorized, userActions } from 'entities/User';
 import { useAppDispatch } from 'app/providers/StoreProvider';
+import { APP_NAME } from 'shared/constants/appInfo';
+import { Text, TextTheme } from 'shared/ui/Text';
 import { useModal } from 'shared/ui/Modal';
 import classNames from 'shared/lib/classNames';
 import * as cls from './Navbar.module.scss';
@@ -36,17 +38,34 @@ const Navbar = (props: NavbarProps) => {
     navigate(RouterPaths[AppRoutes.HOME]);
   }, [dispatch, navigate]);
 
+  const onClickCreatePost = useCallback(() => {
+    navigate(RouterPaths[AppRoutes.POST_CREATE]);
+  }, [navigate]);
+
   return (
     <header className={classNames(cls.navbar, {}, [className])}>
+      <Text title={APP_NAME} className={classNames(cls.logo)} theme={TextTheme.NONE} />
+
       {isAuthorized ? (
-        <Button
-          rounded={ButtonRounded.M}
-          theme={ButtonTheme.OUTLINE_INVERTED}
-          size={ButtonSize.L}
-          onClick={onClickSignOut}
-        >
-          {t('sign_out.action', { defaultValue: 'Sign out' })}
-        </Button>
+        <div className={classNames(cls.actions)}>
+          <Button
+            rounded={ButtonRounded.M}
+            theme={ButtonTheme.OUTLINE_INVERTED}
+            size={ButtonSize.L}
+            onClick={onClickCreatePost}
+          >
+            {t('create_post', { defaultValue: 'Create post' })}
+          </Button>
+
+          <Button
+            rounded={ButtonRounded.M}
+            theme={ButtonTheme.OUTLINE_INVERTED}
+            size={ButtonSize.L}
+            onClick={onClickSignOut}
+          >
+            {t('sign_out.action', { defaultValue: 'Sign out' })}
+          </Button>
+        </div>
       ) : (
         <React.Fragment>
           <Button

@@ -1,5 +1,6 @@
 export enum TextTheme {
-  NORMAL = '',
+  NONE = '',
+  NORMAL = 'normal',
   WARN = 'warn',
   ERROR = 'error',
 }

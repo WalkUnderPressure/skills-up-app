@@ -1,0 +1,11 @@
+.edit {
+    position: sticky;
+    top: 0;
+    margin-bottom: -52px;
+    z-index: var(--z-mid);
+    margin-inline-end: auto;
+
+    * {
+        fill: var(--inverted-primary-color);
+    }
+}

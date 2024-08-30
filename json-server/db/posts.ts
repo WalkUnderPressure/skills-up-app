@@ -19,9 +19,12 @@ function getPosts(): { posts: Array<PostSchema> } {
 
   const addPostsCount = 24;
   for (let i = 0; i < addPostsCount; i++) {
+    const userId = randomInArray<string>(['1', '2']);
+
     data.posts.push({
       id: faker.string.uuid().slice(0, 8),
-      profileId: randomInArray<string>(['1', '2']),
+      profileId: userId,
+      userId: userId,
       title: faker.word.words({ count: { min: 3, max: 15 } }),
       subtitle: faker.word.words({ count: { min: 3, max: 15 } }),
       img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/MANNapoli_124545_plato%27s_academy_mosaic.jpg/920px-MANNapoli_124545_plato%27s_academy_mosaic.jpg',

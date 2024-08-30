@@ -8,15 +8,15 @@ import { AddCommentaryForm } from 'features/AddCommentaryForm';
 import { CommentaryList } from 'entities/Commentary';
 import classNames from 'shared/lib/classNames';
 import { PostDetails, PostsList, PostViewMap } from 'entities/Post';
-import { getPostRecommendationsIsLoading } from '../model/selectors/postRecommendationsSelectors';
-import { getPostCommentariesIsLoading } from '../model/selectors/commentariesSelectors';
-import fetchCommentariesByPostId from '../model/services/fetchCommentariesByPostId';
-import fetchPostRecommendations from '../model/services/fetchPostRecommendations';
-import { getPostRecommendations } from '../model/slice/postRecommendationsSlice';
-import { addCommentaryToPost } from '../model/services/addCommentaryToPost';
-import { getPostCommentaries } from '../model/slice/postCommentariesSlice';
-import postPageReducer from '../model/slice/postPageReducer';
-import BackToBlogBtn from './BackToBlogBtn';
+import { getPostRecommendationsIsLoading } from '../../model/selectors/postRecommendationsSelectors';
+import { getPostCommentariesIsLoading } from '../../model/selectors/commentariesSelectors';
+import fetchCommentariesByPostId from '../../model/services/fetchCommentariesByPostId';
+import fetchPostRecommendations from '../../model/services/fetchPostRecommendations';
+import { getPostRecommendations } from '../../model/slice/postRecommendationsSlice';
+import { addCommentaryToPost } from '../../model/services/addCommentaryToPost';
+import { getPostCommentaries } from '../../model/slice/postCommentariesSlice';
+import postPageReducer from '../../model/slice/postPageReducer';
+import PostPageHeader from '../PostPageHeader';
 import { Text } from 'shared/ui/Text';
 import { Page } from 'widgets/Page';
 import * as cls from './PostPage.module.scss';
@@ -57,7 +57,7 @@ const PostPage = (props: PostPageProps) => {
   return (
     <DynamicReducerProvider reducers={reducers}>
       <Page>
-        <BackToBlogBtn />
+        <PostPageHeader />
 
         <div className={classNames(cls['post-page'], {}, [className])}>
           <PostDetails postId={postId} />

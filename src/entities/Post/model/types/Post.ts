@@ -65,6 +65,7 @@ interface Post {
   blocks: Array<PostBlock>;
   profile?: Profile;
   profileId?: string;
+  userId?: string;
 }
 
 export {

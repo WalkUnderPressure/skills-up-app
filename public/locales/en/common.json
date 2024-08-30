@@ -23,6 +23,7 @@
         "profile": "Profile",
         "blog": "Blog"
     },
+    "create_post": "Create post",
     "loading": "Loading",
     "form": {
         "send": "Send",
