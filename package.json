@@ -4,8 +4,7 @@
   "description": "",
   "scripts": {
     "start:front": "webpack serve",
-    "start:server": "npx ts-node ./json-server/server.ts",
-    "start:app": "concurrently -n front,server \"npm run start:front\" \"npm run start:server\"",
+    "start:app": "concurrently -n front \"npm run start:front\"",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "build:analyze": "webpack --env mode=production analyze=true",

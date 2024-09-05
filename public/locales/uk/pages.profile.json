@@ -1,8 +1,8 @@
 {
     "profile": "Профіль користувача",
     "username": "Логін",
-    "first_name": "Ім'я",
-    "last_name": "Прізвище",
+    "firstName": "Ім'я",
+    "lastName": "Прізвище",
     "age": "Вік",
     "currency": "Валюта",
     "country": "Країна",

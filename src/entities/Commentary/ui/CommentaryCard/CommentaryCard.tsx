@@ -17,7 +17,7 @@ const CommentaryCard = memo((props: CommentaryCardProps) => {
   const { className, commentary } = props;
 
   const userAvatarSrc = commentary?.profile.avatar || '';
-  const authorUserId = commentary?.profile.user_id || '';
+  const authorUserId = commentary?.profile.userId || '';
 
   return (
     <div className={classNames(cls['commentary-card'], {}, [className])}>

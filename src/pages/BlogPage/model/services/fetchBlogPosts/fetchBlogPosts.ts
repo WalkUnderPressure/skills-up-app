@@ -45,7 +45,6 @@ const fetchBlogPosts = createAppAsyncThunk<
 
     const response = await extra.api.get<Array<Post>>(`/posts/`, {
       params: {
-        _expand: 'profile',
         _limit: limit,
         _page: page,
         _sort: sortField,

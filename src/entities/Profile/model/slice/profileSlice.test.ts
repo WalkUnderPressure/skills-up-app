@@ -40,8 +40,8 @@ describe('profileSlice', () => {
 
   test('updateProfileFormData', () => {
     const dataForUpdate: Partial<Profile> = {
-      first_name: 'First',
-      last_name: 'Last',
+      firstName: 'First',
+      lastName: 'Last',
     };
 
     const initState: DeepPartial<ProfileStateSchema> = {

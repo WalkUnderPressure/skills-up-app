@@ -13,11 +13,7 @@ export const fetchPostById = createAppAsyncThunk<
       throw new Error();
     }
 
-    const response = await extra.api.get<Post>(`/posts/${postId}`, {
-      params: {
-        _expand: 'profile',
-      },
-    });
+    const response = await extra.api.get<Post>(`/posts/${postId}`);
 
     if (!response.data) {
       throw new Error();

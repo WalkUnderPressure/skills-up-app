@@ -1,8 +1,8 @@
 {
     "profile": "User profile",
     "username": "Username",
-    "first_name": "First name",
-    "last_name": "Last name",
+    "firstName": "First name",
+    "lastName": "Last name",
     "age": "Age",
     "currency": "Currency",
     "country": "Country",

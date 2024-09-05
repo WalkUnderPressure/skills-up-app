@@ -64,8 +64,8 @@ export const DefaultErrorDark = withOverriddenThemes<Story>({
 
 const validationErrors: ValidationErrors = {
   username: [ProfileErrorCode.REQUIRED],
-  first_name: [ProfileErrorCode.REQUIRED],
-  last_name: [ProfileErrorCode.REQUIRED],
+  firstName: [ProfileErrorCode.REQUIRED],
+  lastName: [ProfileErrorCode.REQUIRED],
   city: [ProfileErrorCode.REQUIRED],
   age: [ProfileErrorCode.REQUIRED],
 };

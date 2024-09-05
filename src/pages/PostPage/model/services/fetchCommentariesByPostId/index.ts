@@ -16,7 +16,6 @@ const fetchCommentariesByPostId = createAppAsyncThunk<
     const response = await extra.api.get<Array<Commentary>>(`/comments/`, {
       params: {
         postId,
-        _expand: 'profile',
       },
     });
 

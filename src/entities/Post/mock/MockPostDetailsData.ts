@@ -2,7 +2,6 @@ import { Post, PostBlockType, PostTagsMap } from '../model/types/Post';
 
 const MockPostDetailsData: Post = {
   id: '1',
-  profileId: '1',
   userId: '1',
   title: 'Javascript news',
   subtitle: "What's new in JS for 2024?",
@@ -67,7 +66,6 @@ const MockPostDetailsData: Post = {
 
 const MockPostDetailsDataTwo: Post = {
   id: '2',
-  profileId: '2',
   userId: '2',
   title: 'What is Science?',
   subtitle: 'Short info about science',

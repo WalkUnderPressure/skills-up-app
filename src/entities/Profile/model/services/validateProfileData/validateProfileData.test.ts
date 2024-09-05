@@ -13,13 +13,13 @@ describe('validateProfileData', () => {
   test('failed validateProfileData', () => {
     const expectedResult: ValidationErrors = {
       username: [ProfileErrorCode.REQUIRED],
-      first_name: [ProfileErrorCode.REQUIRED],
+      firstName: [ProfileErrorCode.REQUIRED],
     };
 
     const formData = {
       ...MockProfileWithAvatar,
       username: undefined,
-      first_name: undefined,
+      firstName: undefined,
       avatar: undefined,
     };
 

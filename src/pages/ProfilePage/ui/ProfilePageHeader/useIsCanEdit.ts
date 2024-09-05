@@ -5,7 +5,8 @@ import { getUserAuthData } from 'entities/User';
 function useIsCanEdit() {
   const userAuthData = useAppSelector(getUserAuthData);
   const profileData = useAppSelector(getProfileData);
-  const isCanEdit = userAuthData?.id === profileData?.id;
+
+  const isCanEdit = userAuthData?.id === profileData?.userId;
 
   return isCanEdit;
 }

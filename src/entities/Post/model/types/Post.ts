@@ -64,7 +64,6 @@ interface Post {
   tags: Array<PostTagsKey>;
   blocks: Array<PostBlock>;
   profile?: Profile;
-  profileId?: string;
   userId?: string;
 }
 

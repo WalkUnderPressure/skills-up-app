@@ -25,14 +25,14 @@ const updateProfileData = createAppAsyncThunk<
   const state = getState();
   const profileFormData = getProfileFormData(state);
   const validationErrors = validateProfileData(profileFormData ?? {});
-  const postId = state?.profile?.data?.id || '';
+  const profileId = state?.profile?.data?.id || '';
   const isValid = isValidForm(validationErrors);
 
   try {
     let profileData = null;
 
-    if (postId && profileFormData && isValid) {
-      const response = await api.patch<Profile>(`/profiles/${postId}`, profileFormData);
+    if (profileId && profileFormData && isValid) {
+      const response = await api.patch<Profile>(`/profiles/${profileId}`, profileFormData);
       profileData = response.data;
     }
 

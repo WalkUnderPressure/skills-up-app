@@ -14,8 +14,8 @@ describe('fetchProfileData', () => {
     });
 
     thunk.api.get.mockReturnValue(
-      Promise.resolve<Partial<AxiosResponse<Array<Profile>>>>({
-        data: [MockProfileData],
+      Promise.resolve<Partial<AxiosResponse<Profile>>>({
+        data: MockProfileData,
       }),
     );
 

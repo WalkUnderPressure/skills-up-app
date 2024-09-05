@@ -15,8 +15,8 @@ const fetchProfileData = createAppAsyncThunk<
     let userProfileData = null;
 
     if (userId) {
-      const response = await api.get<Array<Profile>>(`/profiles/?user_id=${userId}`);
-      userProfileData = response.data.at(0);
+      const response = await api.get<Profile>(`/profiles/${userId}`);
+      userProfileData = response.data;
     }
 
     if (!userProfileData) {

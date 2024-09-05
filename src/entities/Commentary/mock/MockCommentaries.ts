@@ -10,7 +10,7 @@ const MockCommentaries = [
     profileId: '1',
     profile: {
       ...MockProfileWithAvatar,
-      user_id: MockProfileWithAvatar.id,
+      userId: MockProfileWithAvatar.id,
     },
   },
   {
@@ -22,7 +22,7 @@ const MockCommentaries = [
     profile: {
       ...MockProfileData,
       username: 'martha_dean',
-      user_id: MockProfileWithAvatar.id,
+      userId: MockProfileWithAvatar.id,
     } as Profile,
   },
 ];

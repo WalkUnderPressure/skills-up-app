@@ -13,7 +13,6 @@ const fetchPostRecommendations = createAppAsyncThunk<
   try {
     const response = await extra.api.get<Array<Post>>(`/posts/`, {
       params: {
-        _expand: 'profile',
         _limit: RECOMMENDATIONS_COUNT,
       },
     });

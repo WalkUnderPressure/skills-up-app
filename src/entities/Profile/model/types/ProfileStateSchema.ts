@@ -8,11 +8,11 @@ enum ProfileErrorCode {
 }
 
 interface Profile {
-  username?: string;
   id?: string;
-  user_id?: string;
-  first_name?: string;
-  last_name?: string;
+  userId?: string;
+  username?: string;
+  firstName?: string;
+  lastName?: string;
   age?: number;
   currency?: CurrencyMapKey;
   country?: CountryMapKey;

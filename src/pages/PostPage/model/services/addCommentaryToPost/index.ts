@@ -29,18 +29,11 @@ const addCommentaryToPost = createAppAsyncThunk<Commentary, string, AsyncThunkRe
         profileId: userId,
       });
 
-      let createdCommentary = response.data;
+      const createdCommentary = response.data;
 
       if (!createdCommentary) {
         throw new Error();
       }
-
-      const updatedCommentaryInfo = await api.get<Commentary>(`/comments/${createdCommentary.id}`, {
-        params: {
-          _expand: 'profile',
-        },
-      });
-      createdCommentary = updatedCommentaryInfo.data;
 
       return createdCommentary;
     } catch (error) {

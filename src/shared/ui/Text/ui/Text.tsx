@@ -10,7 +10,7 @@ type TextProps = {
 };
 
 const Text = (props: TextProps) => {
-  const { className, title, text, theme = TextTheme.NORMAL } = props;
+  const { className, title, text, theme = TextTheme.NONE } = props;
 
   return (
     <div className={classNames(cls[theme], {}, [className])}>

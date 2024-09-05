@@ -48,16 +48,7 @@ const ProfileCard = (props: ProfileProps) => {
   const { profile, className, onChange, errorData, validationErrors } = props;
   const { isLoading = false, isReadonly = true, isDisabled = false } = props;
 
-  const {
-    username,
-    first_name: firstName,
-    last_name: lastName,
-    age,
-    currency,
-    country,
-    city,
-    avatar,
-  } = profile || {};
+  const { username, firstName, lastName, age, currency, country, city, avatar } = profile || {};
 
   const { t } = useTranslation('pages.profile');
 
@@ -139,21 +130,21 @@ const ProfileCard = (props: ProfileProps) => {
             />
 
             <Input
-              label={t('first_name', { defaultValue: 'First name' })}
+              label={t('firstName', { defaultValue: 'First name' })}
               value={firstName}
               readOnly={isReadonly}
               disabled={isDisabled}
-              onChange={onChangeHandler('first_name')}
-              errorMessage={getFieldError(validationErrors, 'first_name', errorsTranslates)}
+              onChange={onChangeHandler('firstName')}
+              errorMessage={getFieldError(validationErrors, 'firstName', errorsTranslates)}
             />
 
             <Input
-              label={t('last_name', { defaultValue: 'Last name' })}
+              label={t('lastName', { defaultValue: 'Last name' })}
               value={lastName}
               readOnly={isReadonly}
               disabled={isDisabled}
-              onChange={onChangeHandler('last_name')}
-              errorMessage={getFieldError(validationErrors, 'last_name', errorsTranslates)}
+              onChange={onChangeHandler('lastName')}
+              errorMessage={getFieldError(validationErrors, 'lastName', errorsTranslates)}
             />
 
             <CountrySelect

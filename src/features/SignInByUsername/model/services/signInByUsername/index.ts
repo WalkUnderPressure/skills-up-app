@@ -19,7 +19,7 @@ const signInByUsername = createAppAsyncThunk<
   } = thunkAPI;
 
   try {
-    const response = await api.post<User>('/sign-in/', signInData);
+    const response = await api.post<User>('/auth/sign-in/', signInData);
     const authorizedUser = response.data;
 
     if (!authorizedUser) {

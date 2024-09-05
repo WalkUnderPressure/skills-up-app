@@ -5,8 +5,8 @@ import getProfileValidationErrors from '.';
 describe('getProfileValidationErrors', () => {
   test('get profile validation errors from filled store', () => {
     const expectedResult: ValidationErrors = {
-      first_name: [ProfileErrorCode.REQUIRED],
-      last_name: [ProfileErrorCode.REQUIRED],
+      firstName: [ProfileErrorCode.REQUIRED],
+      lastName: [ProfileErrorCode.REQUIRED],
     };
 
     const state: DeepPartial<StoreStateSchema> = {

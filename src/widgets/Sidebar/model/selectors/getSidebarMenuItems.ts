@@ -27,25 +27,28 @@ const getSidebarMenuItems = createSelector(getUserAuthData, (userAuthData) => {
     },
   ];
 
-  if (userAuthData?.id) {
+  const isAuthorized = userAuthData;
+
+  if (isAuthorized) {
     const userId = userAuthData.id;
 
-    menuItems.push(
-      {
+    if (userId) {
+      menuItems.push({
         id: AppRoutes.PROFILE,
         to: `${RouterPaths[AppRoutes.PROFILE]}${userId}`,
         title: 'Profile',
         titleKey: 'menu.profile',
         icon: ProfilePageIcon,
-      },
-      {
-        id: AppRoutes.BLOG,
-        to: RouterPaths[AppRoutes.BLOG],
-        title: 'Blog',
-        titleKey: 'menu.blog',
-        icon: BlogPageIcon,
-      },
-    );
+      });
+    }
+
+    menuItems.push({
+      id: AppRoutes.BLOG,
+      to: RouterPaths[AppRoutes.BLOG],
+      title: 'Blog',
+      titleKey: 'menu.blog',
+      icon: BlogPageIcon,
+    });
   }
 
   return menuItems;
