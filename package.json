@@ -5,7 +5,7 @@
   "scripts": {
     "start:front": "webpack serve",
     "start:app": "concurrently -n front \"npm run start:front\"",
-    "build:prod": "webpack --env mode=production",
+    "build:prod": "webpack --env mode=production apiUrl=https://skills-up-server.vercel.app/",
     "build:dev": "webpack --env mode=development",
     "build:analyze": "webpack --env mode=production analyze=true",
     "lint:ts": "npx tsc --noemit",
