@@ -1,4 +1,4 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button, ButtonRounded, ButtonSize, ButtonTheme } from 'shared/ui/Button';
@@ -11,28 +11,24 @@ import { Text } from 'shared/ui/Text';
 import { Card } from 'shared/ui/Card';
 import FullPostListItemSkeleton from './FullPostListItemSkeleton/FullPostListItemSkeleton';
 import TextBlockElement from '../../../OnePost/PostBlocksGenerator/TextBlockElement';
-import { Post, PostBlockType, PostTextBlock } from '../../../../model/types/Post';
+import { PostBlockType, PostTextBlock } from '../../../../model/types/Post';
+import { CommonPostListItemProps } from '../PostListItem';
 
 import * as cls from './FullPostListItem.module.scss';
 
 import EyeIcon from 'shared/assets/icons/eye.svg';
 
-type PostFullListItemProps = {
-  className?: string;
-  post?: Post;
-  isLoading?: boolean;
-  target?: HTMLAttributeAnchorTarget | undefined;
-};
+type PostFullListItemProps = CommonPostListItemProps;
 
 const FullPostListItem = memo((props: PostFullListItemProps) => {
-  const { className, post, isLoading = false, target } = props;
+  const { className, post, isLoading = false, target, onItemLinkClick } = props;
 
   const { t } = useTranslation('pages.blog');
 
   const createdAt = useDateTransformer(post?.createdAt);
 
   if (isLoading) {
-    return <FullPostListItemSkeleton />;
+    return <FullPostListItemSkeleton className={className} />;
   }
 
   if (!post) {
@@ -74,6 +70,7 @@ const FullPostListItem = memo((props: PostFullListItemProps) => {
             size={ButtonSize.L}
             theme={ButtonTheme.OUTLINE_INVERTED}
             rounded={ButtonRounded.M}
+            onClick={onItemLinkClick}
           >
             <AppLink to={`${RouterPaths[AppRoutes.POST]}${postId}`} target={target}>
               {t('read-more', { defaultValue: 'Read more' }) + '...'}

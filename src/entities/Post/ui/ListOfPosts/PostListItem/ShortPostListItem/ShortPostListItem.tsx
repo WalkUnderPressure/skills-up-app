@@ -1,4 +1,4 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { memo } from 'react';
 
 import useDateTransformer from 'shared/lib/hooks/useDateTransformer';
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
@@ -7,21 +7,16 @@ import { AppLink } from 'shared/ui/AppLink';
 import { Card } from 'shared/ui/Card';
 import { Text } from 'shared/ui/Text';
 import ShortPostListItemSkeleton from './ShortPostListItemSkeleton/ShortPostListItemSkeleton';
-import { Post } from '../../../../model/types/Post';
+import { CommonPostListItemProps } from '../PostListItem';
 
 import * as cls from './ShortPostListItem.module.scss';
 
 import EyeIcon from 'shared/assets/icons/eye.svg';
 
-type PostShortListItemProps = {
-  className?: string;
-  post?: Post;
-  isLoading?: boolean;
-  target?: HTMLAttributeAnchorTarget | undefined;
-};
+type PostShortListItemProps = CommonPostListItemProps;
 
 const ShortPostListItem = memo((props: PostShortListItemProps) => {
-  const { className, post, isLoading = false, target } = props;
+  const { className, post, isLoading = false, target, onItemLinkClick } = props;
 
   const createdAt = useDateTransformer(post?.createdAt);
 
@@ -41,7 +36,7 @@ const ShortPostListItem = memo((props: PostShortListItemProps) => {
       to={`${RouterPaths[AppRoutes.POST]}${postId}`}
       className={classNames(cls.link, {}, [className])}
     >
-      <Card className={cls.card}>
+      <Card className={cls.card} onClick={onItemLinkClick}>
         <div className={classNames(cls['img-wrapper'])}>
           <Text className={classNames(cls['img-date'])} text={createdAt} />
           <img src={post.img} alt={post.subtitle} className={classNames(cls['image'])} />

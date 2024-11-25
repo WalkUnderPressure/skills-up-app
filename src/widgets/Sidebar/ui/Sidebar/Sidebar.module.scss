@@ -30,6 +30,7 @@
     bottom: var(--sidebar-padding);
     right: calc(var(--font-line-xl) * -1);
     border-radius: 0 var(--radius-m) var(--radius-m) 0;
+    z-index: var(--z-mid);
 
     &-icon {
         transform: scaleX(-1);

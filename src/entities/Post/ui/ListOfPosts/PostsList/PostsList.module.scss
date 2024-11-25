@@ -1,9 +1,26 @@
-.posts-list {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: flex-start;
+.short {
+  .posts-list {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: flex-start;
+  }
+
+  .list-item {
+    padding-bottom: 0;
+  }
+}
+
+.full {
+  .list-item {
+    padding-bottom: 24px;
+    padding-right: 8px;
+  }
+
+  .last-item {
+    padding-bottom: 0;
+  }
 }
 
 .empty {

@@ -1,3 +1,4 @@
+import VirtPostsList from './ui/ListOfPosts/PostsList/VirtPostsList';
 import PostsList from './ui/ListOfPosts/PostsList/PostsList';
 import PostDetails from './ui/OnePost/PostDetails';
 
@@ -24,6 +25,7 @@ export {
   Post,
   fetchPostById,
   getPostDetails,
+  VirtPostsList,
   PostsList,
   PostTagsMap,
   PostTagsKey,

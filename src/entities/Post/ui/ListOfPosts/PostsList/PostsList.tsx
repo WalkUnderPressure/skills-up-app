@@ -5,10 +5,8 @@ import { Post, PostViewKey, PostViewMap } from '../../../model/types/Post';
 import PostListItem from '../PostListItem/PostListItem';
 import classNames from 'shared/lib/classNames';
 import * as cls from './PostsList.module.scss';
+import PostsSkeletons from './PostsSkeletons';
 import { Text, TextTheme } from 'shared/ui/Text';
-
-const DEFAULT_POST_SHORT_SKELETONS = 12;
-const DEFAULT_POST_FULL_SKELETONS = 4;
 
 type PostsListProps = {
   className?: string;
@@ -22,10 +20,6 @@ const PostsList = memo((props: PostsListProps) => {
   const { className, posts, isLoading = false, viewType = PostViewMap.SHORT, target } = props;
 
   const { t } = useTranslation('pages.blog');
-
-  const itemsLoadingCount =
-    viewType === PostViewMap.FULL ? DEFAULT_POST_FULL_SKELETONS : DEFAULT_POST_SHORT_SKELETONS;
-  const loadPosts = new Array(itemsLoadingCount).fill(0);
 
   if (!isLoading && !posts?.length) {
     return (
@@ -46,13 +40,7 @@ const PostsList = memo((props: PostsListProps) => {
           <PostListItem key={post.id} post={post} viewType={viewType} target={target} />
         ))}
 
-      {isLoading && (
-        <>
-          {loadPosts.map((_, index) => (
-            <PostListItem key={index} isLoading={isLoading} viewType={viewType} />
-          ))}
-        </>
-      )}
+      {isLoading && <PostsSkeletons viewType={viewType} />}
     </div>
   );
 });

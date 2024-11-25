@@ -10,4 +10,6 @@ const getScrollByPath = createSelector(
   (scroll, path) => scroll[path] || 0,
 );
 
-export { getScrollKeeperState, getScrollByPath };
+const getScrollIndex = (state: StoreStateSchema) => state.scrollKeeper?.idx ?? 0;
+
+export { getScrollKeeperState, getScrollByPath, getScrollIndex };

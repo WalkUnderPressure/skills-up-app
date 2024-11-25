@@ -4,21 +4,42 @@ import ShortPostListItem from '../PostListItem/ShortPostListItem/ShortPostListIt
 import FullPostListItem from '../PostListItem/FullPostListItem/FullPostListItem';
 import { Post, PostViewKey, PostViewMap } from '../../../model/types/Post';
 
-type PostListItemProps = {
+export type CommonPostListItemProps = {
   className?: string;
   post?: Post;
   isLoading?: boolean;
-  viewType?: PostViewKey;
   target?: HTMLAttributeAnchorTarget | undefined;
+  onItemLinkClick?: () => void;
 };
 
+type PostListItemProps = {
+  viewType?: PostViewKey;
+} & CommonPostListItemProps;
+
 const PostListItem = memo((props: PostListItemProps) => {
-  const { post, isLoading = false, viewType = PostViewMap.SHORT, target } = props;
+  const { isLoading = false, viewType = PostViewMap.SHORT } = props;
+  const { post, target, className, onItemLinkClick } = props;
 
   if (viewType === PostViewMap.SHORT) {
-    return <ShortPostListItem post={post} isLoading={isLoading} target={target} />;
+    return (
+      <ShortPostListItem
+        className={className}
+        post={post}
+        isLoading={isLoading}
+        target={target}
+        onItemLinkClick={onItemLinkClick}
+      />
+    );
   } else {
-    return <FullPostListItem post={post} isLoading={isLoading} target={target} />;
+    return (
+      <FullPostListItem
+        className={className}
+        post={post}
+        isLoading={isLoading}
+        target={target}
+        onItemLinkClick={onItemLinkClick}
+      />
+    );
   }
 });
 

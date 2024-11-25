@@ -3,6 +3,7 @@ type ScrollSchema = Record<string, number>;
 
 type ScrollKeeperSchema = {
   scroll: ScrollSchema;
+  idx?: number;
 };
 
 export { ScrollSchema, ScrollKeeperSchema };

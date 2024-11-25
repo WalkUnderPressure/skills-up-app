@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 
 import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
+import { getScrollIndex, scrollKeeperActions } from 'features/ScrollKeeper';
 import {
   getBlogPostsIsLoading,
   getBlogPostViewType,
@@ -11,7 +12,7 @@ import { blogPageReducer, getBlogPosts } from '../../model/slice/blogPageSlice';
 import fetchNextBlogPostsPage from '../../model/services/fetchNextBlogPostsPage/fetchNextBlogPostsPage';
 import initBlogPageState from '../../model/services/initBlogPageState/initBlogPageState';
 import BlogPageFilters from '../BlogPageFilters/BlogPageFilters';
-import { PostsList } from 'entities/Post';
+import { VirtPostsList } from 'entities/Post';
 import classNames from 'shared/lib/classNames';
 import { Page } from 'widgets/Page';
 import * as cls from './BlogPage.module.scss';
@@ -33,6 +34,7 @@ const BlogPage = (props: BlogPageProps) => {
   const postsIsLoading = useAppSelector(getBlogPostsIsLoading);
   const postViewType = useAppSelector(getBlogPostViewType);
   const posts = useAppSelector(getBlogPosts.selectAll);
+  const scrollIndex = useAppSelector(getScrollIndex);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextBlogPostsPage());
@@ -43,12 +45,26 @@ const BlogPage = (props: BlogPageProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
+  const handleScrollIndexClick = useCallback(
+    (index: number) => {
+      dispatch(scrollKeeperActions.setScrollIndex(index));
+    },
+    [dispatch],
+  );
+
   return (
     <DynamicReducerProvider reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart} className={classNames(cls['blog-page'], {}, [className])}>
         <BlogPageFilters />
 
-        <PostsList posts={posts} isLoading={postsIsLoading} viewType={postViewType} />
+        <VirtPostsList
+          posts={posts}
+          isLoading={postsIsLoading}
+          viewType={postViewType}
+          onLoadNextPart={onLoadNextPart}
+          scrollIndex={scrollIndex}
+          handleScrollIndexClick={handleScrollIndexClick}
+        />
       </Page>
     </DynamicReducerProvider>
   );
