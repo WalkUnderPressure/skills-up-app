@@ -9,6 +9,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintI18nextPlugin from 'eslint-plugin-i18next';
 import eslintStorybookPlugin from 'eslint-plugin-storybook';
 import { fixupPluginRules } from '@eslint/compat';
+import eslintFsd from 'eslint-plugin-wup-fsd';
 
 /** @type {Array<import('eslint').Linter.Config>} */
 export default tseslint.config(
@@ -21,6 +22,7 @@ export default tseslint.config(
       prettier: prettierPlugin,
       i18next: eslintI18nextPlugin,
       storybook: eslintStorybookPlugin,
+      'wup-fsd': eslintFsd,
     },
     settings: {
       react: {
@@ -50,6 +52,12 @@ export default tseslint.config(
       parserOptions: {
         project: ['tsconfig.json'],
       },
+    },
+  },
+  {
+    files: ['src/**/*.{ts,tsx}'],
+    rules: {
+      'wup-fsd/relative-path-checker': 'error',
     },
   },
   {
