@@ -1,5 +1,6 @@
 import { Skeleton, SkeletonThemes } from 'shared/ui/Skeleton';
 import classNames from 'shared/lib/classNames';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 import * as cls from './CommentaryCardSkeleton.module.scss';
 
@@ -7,14 +8,14 @@ const AVATAR_SIZE = 32;
 
 const CommentaryCardSkeleton = () => {
   return (
-    <div className={classNames(cls['block'])}>
-      <div className={classNames(cls['user-info'])}>
+    <VStack gap="8" className={classNames(cls['block'])}>
+      <HStack gap="8" align="center" justify="start">
         <Skeleton width={AVATAR_SIZE} height={AVATAR_SIZE} theme={SkeletonThemes.CIRCLE} />
         <Skeleton height={24} width="30%" />
-      </div>
+      </HStack>
 
       <Skeleton height={24} width="100%" />
-    </div>
+    </VStack>
   );
 };
 

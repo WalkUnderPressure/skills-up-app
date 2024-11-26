@@ -11,6 +11,7 @@ import getSidebarMenuItems from '../../model/selectors/getSidebarMenuItems';
 import * as cls from './Sidebar.module.scss';
 
 import ArrowRightLine from 'shared/assets/icons/arrow-right-line.svg';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 type SidebarProps = {
   className?: string;
@@ -28,7 +29,9 @@ const Sidebar = memo((props: SidebarProps) => {
   const sidebarItems = useAppSelector(getSidebarMenuItems);
 
   return (
-    <menu
+    <VStack
+      as="menu"
+      justify="between"
       data-testid={sidebarDataTestId}
       className={classNames(cls.sidebar, { [cls.collapsed]: isCollapsed }, [className])}
     >
@@ -43,20 +46,20 @@ const Sidebar = memo((props: SidebarProps) => {
         <ArrowRightLine width={24} height={24} className={cls['toggle-btn-icon']} />
       </Button>
 
-      <ul className={classNames(cls.menu)}>
+      <VStack as="ul" justify="center" align="start" gap="16" className={classNames(cls.menu)}>
         {sidebarItems.map((menuItem) => {
           const { id } = menuItem;
 
           return <SidebarItem key={id} item={menuItem} isCollapsed={isCollapsed} />;
         })}
-      </ul>
+      </VStack>
 
-      <div className={cls.switchers}>
+      <HStack fullW justify="center" align="center" gap="16" className={cls.switchers}>
         <LangSwitcher short={isCollapsed} />
 
         <ThemeSwitcher />
-      </div>
-    </menu>
+      </HStack>
+    </VStack>
   );
 });
 

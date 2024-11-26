@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Avatar, AvatarSize } from 'shared/ui/Avatar';
 import { CurrencySelect } from 'entities/Currency';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { CountrySelect } from 'entities/Country';
 import classNames from 'shared/lib/classNames';
@@ -86,13 +87,13 @@ const ProfileCard = (props: ProfileProps) => {
   );
 
   return (
-    <div className={classNames(cls['profile-card'], {}, [className])}>
+    <VStack align="start" justify="start" gap="24" fullH fullW className={className}>
       {isLoading && <Loader />}
 
       {!isLoading && errorData?.isFailed && (
-        <div className={classNames(cls['error-block'], {}, [className])}>
+        <HStack justify="center" align="center" fullW fullH>
           <Text title={errorMessage} theme={TextTheme.ERROR} />
-        </div>
+        </HStack>
       )}
 
       {!isLoading && !errorData?.isFailed && (
@@ -174,7 +175,7 @@ const ProfileCard = (props: ProfileProps) => {
           </div>
         </>
       )}
-    </div>
+    </VStack>
   );
 };
 

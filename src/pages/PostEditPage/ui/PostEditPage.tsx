@@ -1,8 +1,9 @@
-import classNames from 'shared/lib/classNames';
-import * as cls from './PostEditPage.module.scss';
-import { Page } from 'widgets/Page';
 import { useParams } from 'react-router-dom';
+
 import { Text, TextTheme } from 'shared/ui/Text';
+import classNames from 'shared/lib/classNames';
+import { HStack } from 'shared/ui/Stack';
+import { Page } from 'widgets/Page';
 
 export type PostEditPageProps = {
   className?: string;
@@ -17,7 +18,7 @@ const PostEditPage = (props: PostEditPageProps) => {
   return (
     <>
       <Page>
-        <div className={classNames(cls['post-edit-page'], {}, [className])}>
+        <HStack className={classNames('', {}, [className])}>
           <Text
             theme={TextTheme.WARN}
             title={
@@ -25,7 +26,7 @@ const PostEditPage = (props: PostEditPageProps) => {
               ' functionality will be added in the future!'
             }
           />
-        </div>
+        </HStack>
       </Page>
     </>
   );

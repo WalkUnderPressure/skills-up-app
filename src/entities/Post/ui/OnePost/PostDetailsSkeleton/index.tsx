@@ -1,12 +1,12 @@
 import { Skeleton, SkeletonThemes } from 'shared/ui/Skeleton';
-import classNames from 'shared/lib/classNames';
+import { VStack } from 'shared/ui/Stack';
 import * as cls from './PostDetailsSkeleton.module.scss';
 
 const AVATAR_SIZE = 240;
 
 const PostDetailsSkeleton = () => {
   return (
-    <div className={classNames(cls['skeletons-block'])}>
+    <VStack fullW fullH gap="24">
       <Skeleton
         className={cls.avatar}
         height={AVATAR_SIZE}
@@ -20,7 +20,7 @@ const PostDetailsSkeleton = () => {
       <Skeleton height={200} width="100%" />
       <Skeleton height={200} width="100%" />
       <Skeleton height={200} width="100%" />
-    </div>
+    </VStack>
   );
 };
 

@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
+import { HStack } from 'shared/ui/Stack';
 import classNames from 'shared/lib/classNames';
 import { SidebarItemType } from '../../model/types/SidebarItemType';
 import * as cls from './SidebarItem.module.scss';
@@ -19,7 +20,7 @@ const SidebarItem = memo((props: SidebarItemProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls['menu-item-li'], { [cls.collapsed]: isCollapsed })}>
+    <HStack justify="start" fullW className={classNames('', { [cls.collapsed]: isCollapsed })}>
       <AppLink
         className={classNames(cls['menu-item'])}
         theme={AppLinkTheme.PRIMARY_INVERTED}
@@ -33,7 +34,7 @@ const SidebarItem = memo((props: SidebarItemProps) => {
           {t(titleKey, { defaultValue: title })}
         </span>
       </AppLink>
-    </div>
+    </HStack>
   );
 });
 

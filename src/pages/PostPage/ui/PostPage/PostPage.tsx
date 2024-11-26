@@ -17,6 +17,7 @@ import { addCommentaryToPost } from '../../model/services/addCommentaryToPost';
 import { getPostCommentaries } from '../../model/slice/postCommentariesSlice';
 import postPageReducer from '../../model/slice/postPageReducer';
 import PostPageHeader from '../PostPageHeader';
+import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
 import { Page } from 'widgets/Page';
 import * as cls from './PostPage.module.scss';
@@ -59,25 +60,25 @@ const PostPage = (props: PostPageProps) => {
       <Page>
         <PostPageHeader />
 
-        <div className={classNames(cls['post-page'], {}, [className])}>
+        <VStack gap="48" fullW className={classNames(cls['post-page'], {}, [className])}>
           <PostDetails postId={postId} />
 
-          <div>
+          <VStack fullW>
             <Text title={t('recommendations.title', { defaultValue: 'Recommendations' })} />
 
             <PostsList
               posts={recommendations}
               isLoading={isRecommendationsLoading}
               viewType={PostViewMap.SHORT}
-              className={classNames(cls.recommendations)}
+              className={cls.recommendations}
               target="_blank"
             />
-          </div>
+          </VStack>
 
           <AddCommentaryForm onSendCommentary={onSendCommentary} />
 
           <CommentaryList isLoading={isCommentariesLoading} commentaries={commentaries} />
-        </div>
+        </VStack>
       </Page>
     </DynamicReducerProvider>
   );

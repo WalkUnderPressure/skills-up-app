@@ -4,11 +4,6 @@
     background-color: var(--inverted-bg-color);
     border: 1px solid var(--primary-color);
     border-radius: var(--radius-m);
-    display: flex;
-    flex-direction: row;
-    gap: 4px;
-    justify-content: center;
-    align-items: center;
     width: fit-content;
     padding: 4px;
     z-index: var(--z-one);

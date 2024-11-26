@@ -22,6 +22,7 @@ import {
   ProfileValidationErrors,
 } from 'entities/Profile';
 import { getUserId } from 'entities/User';
+import { VStack } from 'shared/ui/Stack';
 import { Page } from 'widgets/Page';
 
 import * as cls from './ProfilePage.module.scss';
@@ -79,7 +80,7 @@ const ProfilePage = (props: ProfilePageProps) => {
   return (
     <DynamicReducerProvider reducers={reducers}>
       <Page>
-        <div className={classNames(cls.content, {}, [className])}>
+        <VStack gap="32" className={classNames(cls.content, {}, [className])}>
           <ProfilePageHeader
             isReadonly={isReadonly}
             onEdit={onEdit}
@@ -98,7 +99,7 @@ const ProfilePage = (props: ProfilePageProps) => {
             isDisabled={isSaving}
             validationErrors={validationErrors}
           />
-        </div>
+        </VStack>
       </Page>
     </DynamicReducerProvider>
   );

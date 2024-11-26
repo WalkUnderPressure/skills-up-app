@@ -13,13 +13,14 @@ import {
 import PostBlocksGenerator from '../PostBlocksGenerator';
 import { Text, TextTheme } from 'shared/ui/Text';
 import PostDetailsSkeleton from '../PostDetailsSkeleton';
+import useDateTransformer from 'shared/lib/hooks/useDateTransformer';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar';
 import classNames from 'shared/lib/classNames';
 import * as cls from './PostDetails.module.scss';
 
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import EyeIcon from 'shared/assets/icons/eye.svg';
-import useDateTransformer from 'shared/lib/hooks/useDateTransformer';
 
 const reducers: ReducersMap = {
   postDetails: postDetailsReducer,
@@ -48,13 +49,13 @@ const PostDetails = memo((props: PostDetailsProps) => {
 
   return (
     <DynamicReducerProvider reducers={reducers}>
-      <div className={classNames(cls['post-details'], {}, [className])}>
+      <VStack justify="center" align="center" fullW className={className}>
         {!postError ? (
           <>
             {isPostLoading && <PostDetailsSkeleton />}
 
             {!isPostLoading && (
-              <div className={classNames(cls['post-content'])}>
+              <VStack fullW fullH>
                 <Avatar
                   size={AvatarSize.L}
                   src={postDetails?.img || ''}
@@ -62,30 +63,29 @@ const PostDetails = memo((props: PostDetailsProps) => {
                   className={classNames(cls.avatar)}
                 />
 
-                <div className={classNames(cls['post-info'])}>
+                <VStack gap="16" className={classNames(cls['post-info'])}>
                   <Text title={postDetails?.title} text={postDetails?.subtitle} />
 
-                  <div className={classNames(cls['info-block-wrapper'])}>
-                    <div className={classNames(cls['info-block'])}>
+                  <HStack align="center" gap="24">
+                    <HStack justify="start" align="center" gap="8">
                       <EyeIcon fill="currentColor" />
                       <Text text={String(postDetails?.views)} />
-                    </div>
+                    </HStack>
 
-                    <div className={classNames(cls['info-block'])}>
+                    <HStack justify="start" align="center" gap="8">
                       <CalendarIcon fill="currentColor" />
                       <Text text={createdAt} />
-                    </div>
-
+                    </HStack>
                     <div>{postDetails?.tags.map((tag) => <span key={tag}>{`#${tag}`}</span>)}</div>
-                  </div>
-                </div>
+                  </HStack>
+                </VStack>
 
-                <div className={classNames(cls.blocks)}>
+                <VStack gap="24">
                   {postDetails?.blocks.map((block) => (
                     <PostBlocksGenerator key={block.id} block={block} />
                   ))}
-                </div>
-              </div>
+                </VStack>
+              </VStack>
             )}
           </>
         ) : (
@@ -98,7 +98,7 @@ const PostDetails = memo((props: PostDetailsProps) => {
             />
           </div>
         )}
-      </div>
+      </VStack>
     </DynamicReducerProvider>
   );
 });

@@ -2,6 +2,7 @@ import { memo } from 'react';
 
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar';
+import { HStack, VStack } from 'shared/ui/Stack';
 import classNames from 'shared/lib/classNames';
 import { AppLink } from 'shared/ui/AppLink';
 import { Text } from 'shared/ui/Text';
@@ -20,17 +21,17 @@ const CommentaryCard = memo((props: CommentaryCardProps) => {
   const authorUserId = commentary?.profile.userId || '';
 
   return (
-    <div className={classNames(cls['commentary-card'], {}, [className])}>
+    <VStack gap="8" fullW className={classNames(cls['commentary-card'], {}, [className])}>
       <AppLink to={`${RouterPaths[AppRoutes.PROFILE]}${authorUserId}`}>
-        <div className={classNames(cls.header)}>
+        <HStack justify="start" align="center" gap="8">
           {Boolean(userAvatarSrc) && <Avatar size={AvatarSize.XS} src={userAvatarSrc} />}
 
           <Text title={commentary?.profile.username} />
-        </div>
+        </HStack>
       </AppLink>
 
       <Text text={commentary?.text} />
-    </div>
+    </VStack>
   );
 });
 

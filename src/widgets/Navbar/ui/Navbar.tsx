@@ -12,6 +12,7 @@ import { Text, TextTheme } from 'shared/ui/Text';
 import { useModal } from 'shared/ui/Modal';
 import classNames from 'shared/lib/classNames';
 import * as cls from './Navbar.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 type NavbarProps = {
   className?: string;
@@ -43,11 +44,18 @@ const Navbar = (props: NavbarProps) => {
   }, [navigate]);
 
   return (
-    <header className={classNames(cls.navbar, {}, [className])}>
+    <HStack
+      as="header"
+      fullW
+      justify="end"
+      align="center"
+      gap="24"
+      className={classNames(cls.navbar, {}, [className])}
+    >
       <Text title={APP_NAME} className={classNames(cls.logo)} theme={TextTheme.NONE} />
 
       {isAuthorized ? (
-        <div className={classNames(cls.actions)}>
+        <HStack justify="center" align="center" gap="16">
           <Button
             rounded={ButtonRounded.M}
             theme={ButtonTheme.OUTLINE_INVERTED}
@@ -65,7 +73,7 @@ const Navbar = (props: NavbarProps) => {
           >
             {t('sign_out.action', { defaultValue: 'Sign out' })}
           </Button>
-        </div>
+        </HStack>
       ) : (
         <React.Fragment>
           <Button
@@ -80,7 +88,7 @@ const Navbar = (props: NavbarProps) => {
           <SignInByUsernameModal isOpen={isSignInModalOpen} onClose={closeSignInModal} />
         </React.Fragment>
       )}
-    </header>
+    </HStack>
   );
 };
 

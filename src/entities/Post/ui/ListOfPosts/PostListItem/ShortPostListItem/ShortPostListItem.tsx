@@ -12,6 +12,7 @@ import { CommonPostListItemProps } from '../PostListItem';
 import * as cls from './ShortPostListItem.module.scss';
 
 import EyeIcon from 'shared/assets/icons/eye.svg';
+import { HStack } from 'shared/ui/Stack';
 
 type PostShortListItemProps = CommonPostListItemProps;
 
@@ -42,16 +43,16 @@ const ShortPostListItem = memo((props: PostShortListItemProps) => {
           <img src={post.img} alt={post.subtitle} className={classNames(cls['image'])} />
         </div>
 
-        <div className={classNames(cls['info'])}>
-          <div className={classNames(cls['tags'])}>
+        <HStack justify="between" align="center" gap="24">
+          <HStack align="center" justify="center" gap="8" className={classNames(cls['tags'])}>
             <span>{post.tags.map((tag) => `#${tag}`).join(', ')}</span>
-          </div>
+          </HStack>
 
-          <div className={classNames(cls['views'])}>
+          <HStack justify="center" align="center" gap="8">
             <EyeIcon />
             {post.views}
-          </div>
-        </div>
+          </HStack>
+        </HStack>
 
         <Text title={post.title} className={classNames(cls['title'])} />
       </Card>

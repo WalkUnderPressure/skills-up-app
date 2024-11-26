@@ -1,5 +1,6 @@
 import { Skeleton, SkeletonThemes } from 'shared/ui/Skeleton';
 import classNames from 'shared/lib/classNames';
+import { HStack } from 'shared/ui/Stack';
 import { Card } from 'shared/ui/Card';
 
 import * as cls from './FullPostListItemSkeleton.module.scss';
@@ -14,28 +15,28 @@ const FullPostListItemSkeleton = (props: FullPostListItemSkeletonProps) => {
   return (
     <div className={classNames(className)}>
       <Card className={classNames(cls['card-wrapper'])}>
-        <div className={cls.header}>
-          <div className={cls['header-info']}>
+        <HStack justify="between" align="center" gap="32">
+          <HStack justify="center" align="center" gap="8">
             <Skeleton theme={SkeletonThemes.CIRCLE} width={32} height={32} />
             <Skeleton height={24} width={150} />
-          </div>
+          </HStack>
 
           <Skeleton height={24} width={150} />
-        </div>
+        </HStack>
 
-        <div className={cls.title}>
+        <HStack justify="between" gap="8">
           <Skeleton height={32} width="60%" />
           <Skeleton height={32} width="20%" />
-        </div>
+        </HStack>
 
         <div className={cls.text}>
           <Skeleton height="100%" width="100%" />
         </div>
 
-        <div className={cls.footer}>
+        <HStack justify="between" align="center" gap="8">
           <Skeleton height={32} width="60%" />
           <Skeleton height={32} width="20%" />
-        </div>
+        </HStack>
       </Card>
     </div>
   );

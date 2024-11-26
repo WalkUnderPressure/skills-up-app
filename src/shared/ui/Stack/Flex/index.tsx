@@ -43,11 +43,25 @@ export interface FlexProps {
   direction: FlexDirection;
   gap?: FlexGap;
   fullW?: boolean;
+  fullH?: boolean;
+  as?: keyof HTMLElementTagNameMap;
 }
 
+// TODO: add work with desktop and mobile
 const Flex = (props: FlexProps) => {
-  const { justify = 'start', align = 'center', direction = 'row' } = props;
-  const { className, children, gap, fullW } = props;
+  const {
+    justify = 'start',
+    align = 'center',
+    direction = 'row',
+    className,
+    children,
+    gap,
+    fullW,
+    fullH,
+    ...restProps
+  } = props;
+
+  const Component = props.as ?? 'div';
 
   const classes = [
     className,
@@ -58,10 +72,15 @@ const Flex = (props: FlexProps) => {
   ];
 
   const mods: Mods = {
-    [cls.full]: fullW,
+    [cls['full-w']]: fullW,
+    [cls['full-h']]: fullH,
   };
 
-  return <div className={classNames(cls.flex, mods, classes)}>{children}</div>;
+  return (
+    <Component {...restProps} className={classNames(cls.flex, mods, classes)}>
+      {children}
+    </Component>
+  );
 };
 
 export default Flex;

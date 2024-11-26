@@ -1,12 +1,11 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import classNames from 'shared/lib/classNames';
+import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
 import CommentaryCardSkeleton from '../CommentaryCardSkeleton/CommentaryCardSkeleton';
 import CommentaryCard from '../CommentaryCard/CommentaryCard';
 import { Commentary } from '../../model/types/commentary';
-import * as cls from './CommentaryList.module.scss';
 
 const LOADING_COMMENTARY_ITEMS = Array.from({ length: 3 }, (x, i) => i);
 
@@ -23,23 +22,23 @@ const CommentaryList = memo((props: CommentaryListProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls['commentary-list'], {}, [className])}>
+    <VStack fullW className={className}>
       <Text title={title || t('commentaries.title', { defaultValue: 'Commentaries' })} />
 
       {isLoading ? (
-        <div className={classNames(cls.commentaries)}>
+        <VStack gap="8">
           {LOADING_COMMENTARY_ITEMS.map((index) => (
             <CommentaryCardSkeleton key={index} />
           ))}
-        </div>
+        </VStack>
       ) : (
         <>
           {commentaries?.length ? (
-            <div className={classNames(cls.commentaries)}>
+            <VStack gap="8" fullW>
               {commentaries.map((commentary) => {
                 return <CommentaryCard key={commentary.id} commentary={commentary} />;
               })}
-            </div>
+            </VStack>
           ) : (
             <Text
               text={t('commentaries.empty', { defaultValue: 'There are no comments here yet.' })}
@@ -47,7 +46,7 @@ const CommentaryList = memo((props: CommentaryListProps) => {
           )}
         </>
       )}
-    </div>
+    </VStack>
   );
 });
 

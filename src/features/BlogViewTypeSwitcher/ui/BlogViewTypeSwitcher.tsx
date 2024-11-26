@@ -7,6 +7,7 @@ import * as cls from './BlogViewTypeSwitcher.module.scss';
 
 import ListedIcon from 'shared/assets/icons/listed.svg';
 import TiledIcon from 'shared/assets/icons/tiled.svg';
+import { HStack } from 'shared/ui/Stack';
 
 const ViewTypesList: Record<PostViewKey, { name: PostViewKey; Icon: SvgIconType }> = {
   [PostViewMap.FULL]: {
@@ -36,7 +37,12 @@ const BlogViewTypeSwitcher = memo((props: BlogViewTypeSwitcherProps) => {
   );
 
   return (
-    <div className={classNames(cls['switcher'], {}, [className])}>
+    <HStack
+      gap="4"
+      justify="center"
+      align="center"
+      className={classNames(cls['switcher'], {}, [className])}
+    >
       {Object.values(ViewTypesList).map((viewInfo) => {
         const { name, Icon } = viewInfo;
 
@@ -52,7 +58,7 @@ const BlogViewTypeSwitcher = memo((props: BlogViewTypeSwitcherProps) => {
           </Button>
         );
       })}
-    </div>
+    </HStack>
   );
 });
 

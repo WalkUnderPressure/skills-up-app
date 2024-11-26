@@ -10,6 +10,7 @@ import * as cls from './ProfilePageHeader.module.scss';
 import EditIcon from 'shared/assets/icons/edit.svg';
 import ResetIcon from 'shared/assets/icons/reset.svg';
 import SaveIcon from 'shared/assets/icons/save.svg';
+import { HStack } from 'shared/ui/Stack';
 
 type ProfilePageHeaderProps = {
   className?: string;
@@ -30,7 +31,7 @@ const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
   const isCanEdit = useIsCanEdit();
 
   return (
-    <div className={classNames(cls.header, {}, [className])}>
+    <HStack className={classNames(className)} fullW justify="between" align="center" gap="24">
       <Text title={t('profile', { defaultValue: 'User profile' })} />
 
       {isCanEdit && (
@@ -49,7 +50,7 @@ const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                   <EditIcon className={classNames(cls['btn-icon'])} />
                 </Button>
               ) : (
-                <div className={classNames(cls['save-block'])}>
+                <HStack gap="16" className="HEER">
                   <Button
                     className={classNames(cls['header-btn'])}
                     isSquare={true}
@@ -75,13 +76,13 @@ const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                     {t('form.save', { defaultValue: 'Save' })}
                     <SaveIcon className={classNames(cls['btn-icon'])} />
                   </Button>
-                </div>
+                </HStack>
               )}
             </>
           )}
         </>
       )}
-    </div>
+    </HStack>
   );
 };
 

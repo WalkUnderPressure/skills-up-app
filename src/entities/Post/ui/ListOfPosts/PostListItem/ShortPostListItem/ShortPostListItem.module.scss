@@ -37,8 +37,8 @@
 }
   
 .img-wrapper {
-    display: flex;
-    position: relative;
+  display: flex;
+  position: relative;
 }
   
 .image {
@@ -51,40 +51,21 @@
   border-radius: var(--radius-m);
   object-fit: cover;
 }
-  
-.info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-}
-  
+    
 .tags {
-    max-width: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  max-width: 60%;
   
-    * {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+  * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
-  
-.views {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-}
-  
+
 .title {
-    * {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+  * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

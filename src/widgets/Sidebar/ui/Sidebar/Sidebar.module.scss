@@ -1,9 +1,6 @@
 .sidebar {
     --sidebar-padding: 24px;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     height: calc(100vh - var(--navbar-h));
     width: var(--sidebar-w);
     min-width: var(--sidebar-w);
@@ -15,11 +12,6 @@
 }
 
 .menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 16px;
     color: var(--inverted-primary-color);
     list-style: none;
     padding: var(--sidebar-padding);
@@ -39,14 +31,8 @@
 }
 
 .switchers {
-    width: 100%;
     position: absolute;
     bottom: var(--sidebar-padding);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
     padding: 0 24px;
 }
 

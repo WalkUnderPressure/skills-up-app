@@ -17,6 +17,7 @@ import { CommonPostListItemProps } from '../PostListItem';
 import * as cls from './FullPostListItem.module.scss';
 
 import EyeIcon from 'shared/assets/icons/eye.svg';
+import { HStack } from 'shared/ui/Stack';
 
 type PostFullListItemProps = CommonPostListItemProps;
 
@@ -42,30 +43,30 @@ const FullPostListItem = memo((props: PostFullListItemProps) => {
   ) as PostTextBlock;
 
   return (
-    <div className={classNames(cls['card-wrapper'], {}, [className])}>
+    <HStack fullW className={classNames('', {}, [className])}>
       <Card className={cls.card}>
-        <div className={cls.header}>
-          <div className={cls['header-info']}>
+        <HStack justify="between" align="center" gap="32">
+          <HStack align="center" gap="8">
             {post.profile?.avatar && (
               <Avatar size={AvatarSize.XS} src={post.profile.avatar || ''} />
             )}
 
             <Text text={post?.profile?.username} />
-          </div>
+          </HStack>
 
           <span>{createdAt}</span>
-        </div>
+        </HStack>
 
-        <div className={cls.title}>
+        <HStack justify="between" align="center" gap="32">
           <Text title={post.title} />
           <span>{post.tags.map((tag) => `#${tag}`).join(', ')}</span>
-        </div>
+        </HStack>
 
         <img className={cls.poster} src={post.img} alt={post.subtitle} />
 
         <TextBlockElement className={cls.text} block={textBlock} hideTitle={true} />
 
-        <div className={cls.footer}>
+        <HStack justify="between" align="center" gap="32">
           <Button
             size={ButtonSize.L}
             theme={ButtonTheme.OUTLINE_INVERTED}
@@ -77,13 +78,13 @@ const FullPostListItem = memo((props: PostFullListItemProps) => {
             </AppLink>
           </Button>
 
-          <div className={cls['footer-info']}>
+          <HStack align="center" gap="8">
             <EyeIcon />
             {post.views}
-          </div>
-        </div>
+          </HStack>
+        </HStack>
       </Card>
-    </div>
+    </HStack>
   );
 });
 

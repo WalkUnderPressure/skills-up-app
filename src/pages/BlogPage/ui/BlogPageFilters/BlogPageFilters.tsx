@@ -17,12 +17,11 @@ import {
 } from '../../model/selectors/blogPageSelectors';
 import { BlogViewTypeSwitcher } from 'features/BlogViewTypeSwitcher';
 import { blogPageActions } from '../../model/slice/blogPageSlice';
-import classNames from 'shared/lib/classNames';
-import * as cls from './BlogPageFilters.module.scss';
 import { Input } from 'shared/ui/Input';
 import { SortOrder } from 'shared/types/SortOrder';
 import fetchBlogPosts from '../../model/services/fetchBlogPosts/fetchBlogPosts';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 const FETCH_DELAY = 500;
 
@@ -88,8 +87,8 @@ const BlogPageFilters = memo((props: BlogPageFiltersProps) => {
   );
 
   return (
-    <div className={classNames(cls['blog-page-filters'], {}, [className])}>
-      <div className={classNames(cls['header'])}>
+    <VStack gap="16" fullW className={className}>
+      <HStack justify="between" align="center" gap="32" fullW>
         <PostSortSelector
           sortField={postSortFiled}
           sortOrder={postSortOrder}
@@ -98,12 +97,12 @@ const BlogPageFilters = memo((props: BlogPageFiltersProps) => {
         />
 
         <BlogViewTypeSwitcher viewType={postViewType} onChangeView={changeViewType} />
-      </div>
+      </HStack>
 
       <Input value={postSearch} onChange={changeSearch} />
 
       <PostTagsTabs value={postSearchTag} onChangeTab={changeSearchTag} />
-    </div>
+    </VStack>
   );
 });
 

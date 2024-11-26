@@ -5,35 +5,7 @@
     gap: 24px;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 32px;
-}
-
-.header-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-}
-
-.title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 8px;
-}
-
 .text {
     height: calc(var(--card-w) / 2);
     width: 100%;
-}
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
 }

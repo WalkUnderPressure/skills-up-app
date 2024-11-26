@@ -3,7 +3,6 @@ import { memo } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import classNames from 'shared/lib/classNames';
-import * as cls from './ThemeSwitcher.module.scss';
 
 import ThemeSwitch from 'shared/assets/icons/theme-switch.svg';
 
@@ -19,7 +18,7 @@ const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
   return (
     <Button
       theme={ButtonTheme.CLEAR}
-      className={classNames(cls['theme-switcher'], {}, [className])}
+      className={classNames('', {}, [className])}
       onClick={switchTheme}
     >
       <ThemeSwitch width={32} height={32} fill="var(--theme-switch-bg)" />

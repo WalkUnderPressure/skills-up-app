@@ -1,12 +1,7 @@
 .navbar {
     padding: 24px;
-    width: 100%;
     height: var(--navbar-h);
     background-color: var(--inverted-bg-color);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 24px;
 
     a {
         color: var(--bg-color);
@@ -20,12 +15,4 @@
     * {
         color: var(--inverted-primary-color);
     }
-}
-
-.actions {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
 }

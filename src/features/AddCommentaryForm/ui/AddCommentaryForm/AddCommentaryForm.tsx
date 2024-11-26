@@ -12,6 +12,7 @@ import {
   getAddCommentaryText,
 } from '../../model/selectors/addCommentarySelectors';
 import * as cls from './AddCommentaryForm.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 const reducers: ReducersMap = {
   addCommentaryForm: addCommentaryReducer,
@@ -45,7 +46,13 @@ const AddCommentaryForm = memo((props: AddCommentaryFormProps) => {
 
   return (
     <DynamicReducerProvider reducers={reducers}>
-      <div className={classNames(cls['add-commentary-form'], {}, [className])}>
+      <HStack
+        align="center"
+        justify="between"
+        gap="24"
+        fullW
+        className={classNames(cls['add-commentary-form'], {}, [className])}
+      >
         <Input
           name="commentary"
           onChange={onChangeCommentaryText}
@@ -56,7 +63,7 @@ const AddCommentaryForm = memo((props: AddCommentaryFormProps) => {
         <Button rounded={ButtonRounded.M} theme={ButtonTheme.BG} onClick={onSend}>
           {t('form.send', { defaultValue: 'Send' })}
         </Button>
-      </div>
+      </HStack>
     </DynamicReducerProvider>
   );
 });

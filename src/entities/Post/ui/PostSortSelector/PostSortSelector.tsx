@@ -7,6 +7,7 @@ import { Select, SelectOption } from 'shared/ui/Select';
 import { SortOrder } from 'shared/types/SortOrder';
 import classNames from 'shared/lib/classNames';
 import * as cls from './PostSortSelector.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 type PostSortSelectorProps = {
   sortField: PostSortFieldsKey;
@@ -50,7 +51,7 @@ const PostSortSelector = memo((props: PostSortSelectorProps) => {
   }, [t]);
 
   return (
-    <div className={classNames(cls['sort-box'])}>
+    <HStack justify="center" align="center" gap="8">
       <Select<PostSortFieldsKey>
         label={t('sort.field', { defaultValue: 'Sort field', ns: 'common' })}
         options={sortFieldOptions}
@@ -74,7 +75,7 @@ const PostSortSelector = memo((props: PostSortSelectorProps) => {
           select: classNames(cls['select']),
         }}
       />
-    </div>
+    </HStack>
   );
 });
 
