@@ -30,7 +30,7 @@ const Sidebar = memo((props: SidebarProps) => {
 
   return (
     <VStack
-      as="menu"
+      as="aside"
       justify="between"
       data-testid={sidebarDataTestId}
       className={classNames(cls.sidebar, { [cls.collapsed]: isCollapsed }, [className])}
@@ -46,7 +46,13 @@ const Sidebar = memo((props: SidebarProps) => {
         <ArrowRightLine width={24} height={24} className={cls['toggle-btn-icon']} />
       </Button>
 
-      <VStack as="ul" justify="center" align="start" gap="16" className={classNames(cls.menu)}>
+      <VStack
+        role="navigation"
+        justify="center"
+        align="start"
+        gap="16"
+        className={classNames(cls.menu)}
+      >
         {sidebarItems.map((menuItem) => {
           const { id } = menuItem;
 

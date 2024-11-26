@@ -11,61 +11,90 @@ const DEFAULT_TEXT =
 const meta = {
   title: 'Shared/Text',
   component: Text,
+  args: {
+    title: DEFAULT_TITLE,
+    text: DEFAULT_TEXT,
+  },
 } satisfies Meta<typeof Text>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const DefaultWithTitleAndText = {
+export const DefaultWithTitleAndText = {} satisfies Story;
+
+export const DefaultTextP = {
   args: {
-    title: DEFAULT_TITLE,
-    text: DEFAULT_TEXT,
+    title: '',
+    asText: 'p',
+  },
+} satisfies Story;
+
+export const DefaultTextSpan = {
+  args: {
+    title: '',
+    asText: 'span',
+  },
+} satisfies Story;
+
+export const DefaultTitleH1 = {
+  args: {
+    text: '',
+    asTitle: 'h1',
+  },
+} satisfies Story;
+
+export const DefaultTitleH2 = {
+  args: {
+    text: '',
+    asTitle: 'h2',
+  },
+} satisfies Story;
+
+export const DefaultTitleH3 = {
+  args: {
+    text: '',
+    asTitle: 'h3',
   },
 } satisfies Story;
 
 export const ErrorWithTitleAndText = {
   args: {
-    title: DEFAULT_TITLE,
-    text: DEFAULT_TEXT,
     theme: TextTheme.ERROR,
   },
 } satisfies Story;
 
 export const DefaultOnlyTitle = {
   args: {
+    text: '',
     title: DEFAULT_TITLE,
   },
 } satisfies Story;
 
 export const DefaultOnlyText = {
   args: {
+    title: '',
     text: DEFAULT_TEXT,
   },
 } satisfies Story;
 
-export const DefaultWithTitleAndTextDark = withOverriddenThemes<Story>({
-  args: {
-    title: DEFAULT_TITLE,
-    text: DEFAULT_TEXT,
-  },
-})() satisfies Story;
+export const DefaultWithTitleAndTextDark = withOverriddenThemes<Story>({})() satisfies Story;
 
 export const ErrorWithTitleAndTextDark = withOverriddenThemes<Story>({
   args: {
-    title: DEFAULT_TITLE,
-    text: DEFAULT_TEXT,
     theme: TextTheme.ERROR,
   },
 })() satisfies Story;
 
 export const DefaultOnlyTitleDark = withOverriddenThemes<Story>({
   args: {
+    text: '',
     title: DEFAULT_TITLE,
   },
 })() satisfies Story;
 
 export const DefaultOnlyTextDark = withOverriddenThemes<Story>({
   args: {
+    title: '',
     text: DEFAULT_TEXT,
   },
 })() satisfies Story;

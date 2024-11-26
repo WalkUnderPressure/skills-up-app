@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { HTMLProps } from 'react';
 
 import classNames, { Mods } from 'shared/lib/classNames';
 import * as cls from './Flex.module.scss';
@@ -35,20 +35,20 @@ const gapClasses: Record<FlexGap, string> = {
   48: cls.gap48,
 };
 
-export interface FlexProps {
+export type FlexProps<T extends keyof JSX.IntrinsicElements = 'div'> = {
   className?: string;
-  children: ReactNode;
+  children: React.ReactNode;
   justify?: FlexJustify;
   align?: FlexAlign;
-  direction: FlexDirection;
+  direction?: FlexDirection;
   gap?: FlexGap;
   fullW?: boolean;
   fullH?: boolean;
-  as?: keyof HTMLElementTagNameMap;
-}
+  as?: T;
+} & HTMLProps<JSX.IntrinsicElements[T]>;
 
 // TODO: add work with desktop and mobile
-const Flex = (props: FlexProps) => {
+const Flex = <T extends keyof JSX.IntrinsicElements = 'div'>(props: FlexProps<T>) => {
   const {
     justify = 'start',
     align = 'center',
@@ -58,10 +58,11 @@ const Flex = (props: FlexProps) => {
     gap,
     fullW,
     fullH,
+    as: asElement,
     ...restProps
   } = props;
 
-  const Component = props.as ?? 'div';
+  const Component = asElement ?? 'div';
 
   const classes = [
     className,
@@ -76,10 +77,10 @@ const Flex = (props: FlexProps) => {
     [cls['full-h']]: fullH,
   };
 
-  return (
-    <Component {...restProps} className={classNames(cls.flex, mods, classes)}>
-      {children}
-    </Component>
+  return React.createElement(
+    Component,
+    { ...restProps, className: classNames(cls.flex, mods, classes) },
+    children,
   );
 };
 
