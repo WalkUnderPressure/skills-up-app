@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 
 import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
 import ListBox, { ListBoxProps, ListBoxItem } from '.';
@@ -34,7 +33,6 @@ const meta = {
     label: 'Select item',
     defaultValue: ITEMS[2].value,
     items: ITEMS,
-    onChange: fn,
   },
   render: RenderListBox,
 } satisfies Meta<typeof ListBox>;
