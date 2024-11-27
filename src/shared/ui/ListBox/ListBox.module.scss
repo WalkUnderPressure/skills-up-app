@@ -1,0 +1,44 @@
+.list-box {
+    position: relative;
+    width: 100%;
+}
+
+.trigger-btn {
+    height: 40px;
+    width: 100%;
+}
+
+.options {
+    width: 100%;
+    background: var(--listbox-bg);
+    position: absolute;
+    z-index: var(--z-one);
+    border-radius: var(--radius-m);
+    box-shadow: 4px 4px 8px var(--listbox-bg);
+}
+
+.item {
+    border-radius: var(--radius-m);
+    padding: 8px 16px;
+}
+
+.focus {
+    cursor: pointer;
+    background: var(--listbox-focus);
+}
+
+.selected {
+    background: var(--listbox-selected);
+}
+
+.disabled {
+    opacity: 0.7;
+}
+
+.options-bottom {
+    top: 100%;
+}
+
+.options-top {
+    bottom: 100%;
+}

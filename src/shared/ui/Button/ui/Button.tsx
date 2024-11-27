@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, memo, PropsWithChildren } from 'react';
+import { ButtonHTMLAttributes, forwardRef, PropsWithChildren } from 'react';
 
 import classNames from 'shared/lib/classNames';
 import { ButtonTheme, ButtonSize, ButtonRounded } from '../types';
@@ -13,7 +13,7 @@ type ButtonProps = {
 } & PropsWithChildren &
   ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button = memo((props: ButtonProps) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     className,
     rounded = ButtonRounded.NONE,
@@ -32,7 +32,7 @@ const Button = memo((props: ButtonProps) => {
   };
 
   return (
-    <button {...restProps} className={classNames(cls.button, modClasses, addClasses)}>
+    <button {...restProps} className={classNames(cls.button, modClasses, addClasses)} ref={ref}>
       {children}
     </button>
   );
