@@ -1,4 +1,4 @@
-import { ElementType, Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react';
 
 import { DropdownDirection } from 'shared/types/ui';
@@ -51,22 +51,30 @@ const Dropdown = (props: DropdownProps) => {
         {items.map((item) => {
           const { id, href, disabled, onClick, content: itemContent } = item;
 
-          let asElement: ElementType = Fragment;
-          let elementProps = {};
+          const itemClassName = ({ focus, disabled }: { focus: boolean; disabled: boolean }) =>
+            classNames(cls.item, {
+              [cls.focus]: focus,
+              [cls.disabled]: disabled,
+            });
 
           if (href) {
-            asElement = AppLink;
-            elementProps = { to: href };
+            return (
+              <MenuItem key={id} as={AppLink} to={href} disabled={disabled}>
+                {({ focus, disabled }: ItemRenderPropArg) => (
+                  <span className={itemClassName({ focus, disabled })}>{itemContent}</span>
+                )}
+              </MenuItem>
+            );
           }
 
           return (
-            <MenuItem key={id} as={asElement} {...elementProps} disabled={disabled}>
+            <MenuItem key={id} as={Fragment} disabled={disabled}>
               {({ focus, disabled }: ItemRenderPropArg) => (
                 <button
                   type="button"
                   disabled={disabled}
                   onClick={onClick}
-                  className={classNames(cls.item, { [cls.focus]: focus, [cls.disabled]: disabled })}
+                  className={itemClassName({ focus, disabled })}
                 >
                   {itemContent}
                 </button>

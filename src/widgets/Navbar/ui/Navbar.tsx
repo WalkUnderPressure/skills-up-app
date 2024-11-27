@@ -1,18 +1,21 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { Button, ButtonSize, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { SignInByUsernameModal } from 'features/SignInByUsername';
-import { useIsAuthorized, userActions } from 'entities/User';
-import { useAppDispatch } from 'app/providers/StoreProvider';
+import { getUserAuthData, getUserId, useIsAuthorized, userActions } from 'entities/User';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { APP_NAME } from 'shared/constants/appInfo';
+import { AvatarLetters } from 'shared/ui/Avatar';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { useModal } from 'shared/ui/Modal';
-import classNames from 'shared/lib/classNames';
-import * as cls from './Navbar.module.scss';
+import Dropdown from 'shared/ui/Dropdown';
 import { HStack } from 'shared/ui/Stack';
+import classNames from 'shared/lib/classNames';
+
+import * as cls from './Navbar.module.scss';
 
 type NavbarProps = {
   className?: string;
@@ -25,7 +28,9 @@ const Navbar = (props: NavbarProps) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  const userData = useAppSelector(getUserAuthData);
   const { isAuthorized } = useIsAuthorized();
+  const userId = useAppSelector(getUserId);
 
   const {
     isOpen: isSignInModalOpen,
@@ -33,8 +38,8 @@ const Navbar = (props: NavbarProps) => {
     closeModal: closeSignInModal,
   } = useModal();
 
-  const onClickSignOut = useCallback(async () => {
-    await dispatch(userActions.signOut());
+  const onClickSignOut = useCallback(() => {
+    dispatch(userActions.signOut());
 
     navigate(RouterPaths[AppRoutes.HOME]);
   }, [dispatch, navigate]);
@@ -55,27 +60,29 @@ const Navbar = (props: NavbarProps) => {
       <Text title={APP_NAME} className={classNames(cls.logo)} theme={TextTheme.NONE} />
 
       {isAuthorized ? (
-        <HStack justify="center" align="center" gap="16">
-          <Button
-            rounded={ButtonRounded.M}
-            theme={ButtonTheme.OUTLINE_INVERTED}
-            size={ButtonSize.L}
-            onClick={onClickCreatePost}
-          >
-            {t('create_post', { defaultValue: 'Create post' })}
-          </Button>
-
-          <Button
-            rounded={ButtonRounded.M}
-            theme={ButtonTheme.OUTLINE_INVERTED}
-            size={ButtonSize.L}
-            onClick={onClickSignOut}
-          >
-            {t('sign_out.action', { defaultValue: 'Sign out' })}
-          </Button>
-        </HStack>
+        <Dropdown
+          direction="bottom-left"
+          trigger={<AvatarLetters username={userData?.username} />}
+          items={[
+            {
+              id: 'profile',
+              content: t('menu.profile', { defaultValue: 'Profile' }),
+              href: `${RouterPaths[AppRoutes.PROFILE]}${userId}`,
+            },
+            {
+              id: 'post',
+              content: t('create_post', { defaultValue: 'Create post' }),
+              onClick: onClickCreatePost,
+            },
+            {
+              id: 'sign-out',
+              content: t('sign_out.action', { defaultValue: 'Sign out' }),
+              onClick: onClickSignOut,
+            },
+          ]}
+        />
       ) : (
-        <React.Fragment>
+        <>
           <Button
             rounded={ButtonRounded.M}
             theme={ButtonTheme.OUTLINE_INVERTED}
@@ -86,7 +93,7 @@ const Navbar = (props: NavbarProps) => {
           </Button>
 
           <SignInByUsernameModal isOpen={isSignInModalOpen} onClose={closeSignInModal} />
-        </React.Fragment>
+        </>
       )}
     </HStack>
   );

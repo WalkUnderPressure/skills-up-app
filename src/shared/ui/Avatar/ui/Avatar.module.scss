@@ -9,6 +9,13 @@
     object-fit: cover;
 }
 
+.avatar-letters {
+    background-color: var(--bg-color);
+    border-radius: var(--radius-full);
+    font-weight: 800;
+    padding: 4px;
+}
+
 .size-xs {
     --avatar-size: 32px;
 }
