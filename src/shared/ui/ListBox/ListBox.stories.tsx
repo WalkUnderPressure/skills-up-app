@@ -24,15 +24,7 @@ const ITEMS: Array<ListBoxItem> = [
 const RenderListBox = (props: ListBoxProps) => {
   const [value, setValue] = useState(props.value ?? props.defaultValue);
 
-  return (
-    <ListBox
-      {...props}
-      value={value}
-      onChange={(newValue) => {
-        setValue(newValue);
-      }}
-    />
-  );
+  return <ListBox {...props} value={value} onChange={setValue} />;
 };
 
 const meta = {
@@ -40,7 +32,7 @@ const meta = {
   component: ListBox,
   args: {
     label: 'Select item',
-    value: ITEMS[0].value,
+    defaultValue: ITEMS[2],
     items: ITEMS,
     onChange: fn,
   },
