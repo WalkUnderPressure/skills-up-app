@@ -149,7 +149,7 @@ const ProfileCard = (props: ProfileProps) => {
             />
 
             <CountrySelect
-              value={String(country)}
+              value={country}
               onChange={onChangeHandler('country')}
               label={t('country', { defaultValue: 'Country' })}
               disabled={isDisabled}

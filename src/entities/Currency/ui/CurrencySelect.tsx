@@ -1,31 +1,32 @@
-import { Select, SelectOption, SelectProps } from 'shared/ui/Select';
-import { CurrencyMap } from '../model/types/currencies';
+import ListBox, { ListBoxItem, ListBoxProps } from 'shared/ui/ListBox';
+import { CurrencyMap, CurrencyMapKey } from '../model/types/currencies';
 
 type CurrencySelectProps = {
   className?: string;
-  value?: string;
+  value?: CurrencyMapKey;
   label?: string;
   onChange?: (value: string) => void;
-} & Omit<SelectProps, 'options'>;
+} & ListBoxProps<CurrencyMapKey>;
 
-const CURRENCY_OPTIONS: Array<SelectOption> = Object.entries(CurrencyMap).map(
+const CURRENCY_OPTIONS: Array<ListBoxItem<CurrencyMapKey>> = Object.entries(CurrencyMap).map(
   ([currencyName, currencyValue]) => ({
-    label: currencyName,
+    content: currencyName,
     value: currencyValue,
   }),
 );
 
 const CurrencySelect = (props: CurrencySelectProps) => {
-  const { value, label, className, onChange, ...restProps } = props;
+  const { value, defaultValue, label, className, onChange, ...restProps } = props;
 
   return (
-    <Select
+    <ListBox<CurrencyMapKey>
       {...restProps}
       className={className}
+      label={label}
       onChange={onChange}
       value={value}
-      label={label}
-      options={CURRENCY_OPTIONS}
+      defaultValue={defaultValue}
+      items={CURRENCY_OPTIONS}
     />
   );
 };

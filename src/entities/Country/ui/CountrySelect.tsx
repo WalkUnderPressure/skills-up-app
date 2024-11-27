@@ -1,31 +1,32 @@
-import { Select, SelectOption, SelectProps } from 'shared/ui/Select';
-import { CountryMap } from '../model/types/countries';
+import ListBox, { ListBoxItem, ListBoxProps } from 'shared/ui/ListBox';
+import { CountryMap, CountryMapKey } from '../model/types/countries';
 
 type CountrySelectProps = {
   className?: string;
   value?: string;
   label?: string;
   onChange?: (value: string) => void;
-} & Omit<SelectProps, 'options'>;
+} & ListBoxProps<CountryMapKey>;
 
-const COUNTRY_OPTIONS: Array<SelectOption> = Object.entries(CountryMap).map(
+const COUNTRY_OPTIONS: Array<ListBoxItem<CountryMapKey>> = Object.entries(CountryMap).map(
   ([countryName, countryValue]) => ({
-    label: countryName,
+    content: countryName,
     value: countryValue,
   }),
 );
 
 const CountrySelect = (props: CountrySelectProps) => {
-  const { value, label, className, onChange, ...restProps } = props;
+  const { value, defaultValue, label, className, onChange, ...restProps } = props;
 
   return (
-    <Select
+    <ListBox<CountryMapKey>
       {...restProps}
       className={className}
+      label={label}
       onChange={onChange}
       value={value}
-      label={label}
-      options={COUNTRY_OPTIONS}
+      defaultValue={defaultValue}
+      items={COUNTRY_OPTIONS}
     />
   );
 };

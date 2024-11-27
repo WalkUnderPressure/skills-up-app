@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
 import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
-import ListBox, { ListBoxProps, ListBoxItem } from './ListBox';
+import ListBox, { ListBoxProps, ListBoxItem } from '.';
 
 const ITEMS: Array<ListBoxItem> = [
   {
@@ -32,7 +32,7 @@ const meta = {
   component: ListBox,
   args: {
     label: 'Select item',
-    defaultValue: ITEMS[2],
+    defaultValue: ITEMS[2].value,
     items: ITEMS,
     onChange: fn,
   },
