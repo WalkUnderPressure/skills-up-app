@@ -16,7 +16,7 @@
     background: var(--listbox-bg);
     box-shadow: 4px 4px 8px var(--listbox-bg);
     position: absolute;
-    z-index: var(--z-one);
+    z-index: var(--z-drop);
     border-radius: var(--radius-m);
     flex-direction: column;
     display: flex;

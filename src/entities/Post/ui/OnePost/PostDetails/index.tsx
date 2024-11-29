@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import { postDetailsReducer } from '../../../model/slice/postDetailsSlice';
+import { postDetailsReducer } from '../../../model/slices/postDetailsSlice';
 import { fetchPostById } from '../../../model/services/fetchPostById';
 import {
   getPostDetails,

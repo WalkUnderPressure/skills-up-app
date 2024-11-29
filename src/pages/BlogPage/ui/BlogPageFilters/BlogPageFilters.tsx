@@ -16,7 +16,7 @@ import {
   getBlogPostViewType,
 } from '../../model/selectors/blogPageSelectors';
 import { BlogViewTypeSwitcher } from 'features/BlogViewTypeSwitcher';
-import { blogPageActions } from '../../model/slice/blogPageSlice';
+import { blogPageActions } from '../../model/slices/blogPageSlice';
 import { Input } from 'shared/ui/Input';
 import { SortOrder } from 'shared/types/SortOrder';
 import fetchBlogPosts from '../../model/services/fetchBlogPosts/fetchBlogPosts';

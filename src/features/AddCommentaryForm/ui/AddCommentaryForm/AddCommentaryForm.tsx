@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { Button, ButtonRounded, ButtonTheme } from 'shared/ui/Button';
 import classNames from 'shared/lib/classNames';
 import { Input } from 'shared/ui/Input';
-import { addCommentaryActions, addCommentaryReducer } from '../../model/slice/addCommentarySlice';
+import { addCommentaryActions, addCommentaryReducer } from '../../model/slices/addCommentarySlice';
 import {
   getAddCommentaryIsLoading,
   getAddCommentaryText,

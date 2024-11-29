@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import classNames from 'shared/lib/classNames';
 import getCounterValue from '../model/selectors/getCounterValue';
-import { counterActions } from '../model/slice/counterSlice';
+import { counterActions } from '../model/slices/counterSlice';
 import { CounterDataTestIdProps } from './Counter.test-ids';
 import * as cls from './Counter.module.scss';
 

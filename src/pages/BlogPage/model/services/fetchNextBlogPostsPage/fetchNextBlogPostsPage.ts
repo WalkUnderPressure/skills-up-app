@@ -5,7 +5,7 @@ import {
   getBlogPostsPage,
 } from '../../selectors/blogPageSelectors';
 import fetchBlogPosts from '../../services/fetchBlogPosts/fetchBlogPosts';
-import { blogPageActions } from '../../slice/blogPageSlice';
+import { blogPageActions } from '../../slices/blogPageSlice';
 
 const fetchNextBlogPostsPage = createAppAsyncThunk<void, void, AsyncThunkRejectValue<string>>(
   'blogPage/fetchNextBlogPostsPage',

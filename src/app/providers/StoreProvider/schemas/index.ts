@@ -12,17 +12,19 @@ import { AxiosInstance } from 'axios';
 import { AddCommentaryFormSchema } from 'features/AddCommentaryForm';
 import { SignInByUsernameSchema } from 'features/SignInByUsername';
 import { ScrollKeeperSchema } from 'features/ScrollKeeper';
-import { ProfileStateSchema } from 'entities/Profile';
+import { ProfileStateSchema } from 'features/EditableProfileCard';
 import { CounterStateSchema } from 'entities/Counter';
 import { PostDetailsSchema } from 'entities/Post';
 import { UserStateSchema } from 'entities/User';
 import { BlogPageSchema } from 'pages/BlogPage';
 import { PostPageSchema } from 'pages/PostPage';
+import rtkApi from 'shared/api/rtkApi';
 
 type StoreStateSchema = {
   counter: CounterStateSchema;
   user: UserStateSchema;
   scrollKeeper: ScrollKeeperSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // Async
   'sign-in_username'?: SignInByUsernameSchema | undefined;

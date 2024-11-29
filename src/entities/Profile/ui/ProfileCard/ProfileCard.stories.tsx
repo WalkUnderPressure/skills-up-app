@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
+import { ProfileValidationErrors, ProfileErrorCode } from 'features/EditableProfileCard';
 import { MockProfileWithAvatar } from 'entities/Profile/mock/MockProfileData';
-import { ProfileErrorCode, ValidationErrors } from '../../model/types/ProfileStateSchema';
 import ProfileCard from '.';
 
 const meta = {
@@ -62,7 +62,7 @@ export const DefaultErrorDark = withOverriddenThemes<Story>({
   },
 })() satisfies Story;
 
-const validationErrors: ValidationErrors = {
+const validationErrors: ProfileValidationErrors = {
   username: [ProfileErrorCode.REQUIRED],
   firstName: [ProfileErrorCode.REQUIRED],
   lastName: [ProfileErrorCode.REQUIRED],

@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { ProfileErrorCode, ProfileValidationErrors } from 'features/EditableProfileCard';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar';
 import { CurrencySelect } from 'entities/Currency';
 import { HStack, VStack } from 'shared/ui/Stack';
@@ -9,18 +10,13 @@ import { CountrySelect } from 'entities/Country';
 import classNames from 'shared/lib/classNames';
 import { Loader } from 'shared/ui/Loader';
 import { Input } from 'shared/ui/Input';
-import {
-  Profile,
-  ProfileErrorCode,
-  ProfileKeys,
-  ValidationErrors,
-} from '../../model/types/ProfileStateSchema';
+import { Profile, ProfileKeys } from '../../model/types/ProfileStateSchema';
 import * as cls from './ProfileCard.module.scss';
 
 type ProfileProps = {
   className?: string;
   profile?: Nullable<Profile>;
-  validationErrors?: ValidationErrors;
+  validationErrors?: ProfileValidationErrors;
   isLoading?: boolean;
   isReadonly?: boolean;
   isDisabled?: boolean;
@@ -31,7 +27,7 @@ type ProfileProps = {
 type ErrorTranslates = Record<ProfileErrorCode, string>;
 
 const getFieldError = (
-  validationErrors: ValidationErrors = {},
+  validationErrors: ProfileValidationErrors = {},
   fieldName: ProfileKeys,
   errorsTranslates: ErrorTranslates,
 ) => {

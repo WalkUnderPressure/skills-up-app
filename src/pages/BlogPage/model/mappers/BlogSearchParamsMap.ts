@@ -1,4 +1,4 @@
-import { blogPageActions } from '../slice/blogPageSlice';
+import { blogPageActions } from '../slices/blogPageSlice';
 
 export type SearchFieldType = 'sort' | 'order' | 'search' | 'tag';
 

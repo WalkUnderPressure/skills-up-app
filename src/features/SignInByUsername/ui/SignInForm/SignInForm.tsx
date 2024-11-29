@@ -14,7 +14,7 @@ import getSignInFormErrorCode from '../../model/selectors/getSignInFormErrorCode
 import getSignInFormUsername from '../../model/selectors/getSignInFormUsername';
 import getSignInFormPassword from '../../model/selectors/getSignInFormPassword';
 import getSignInFormIsFailed from '../../model/selectors/getSignInFormIsFailed';
-import { signInActions, signInReducer } from '../../model/slice/signInSlice';
+import { signInActions, signInReducer } from '../../model/slices/signInSlice';
 import { signInByUsername } from '../../model/services/signInByUsername';
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { User } from 'entities/User';

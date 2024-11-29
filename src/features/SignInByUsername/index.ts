@@ -1,5 +1,5 @@
 import { SignInErrorCode, SignInSchema } from './model/types/SignInSchema';
-import { signInActions } from './model/slice/signInSlice';
+import { signInActions } from './model/slices/signInSlice';
 import SignInModal from './ui/SignInModal/SignInModal';
 
 export {

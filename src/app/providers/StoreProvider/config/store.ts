@@ -3,6 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { scrollKeeperReducer } from 'features/ScrollKeeper';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
+import rtkApi from 'shared/api/rtkApi';
 import $api from 'shared/api/api';
 import {
   StoreStateSchema,
@@ -21,6 +22,7 @@ const rootReducers = (): StoreReducersMapObject => ({
   counter: counterReducer,
   user: userReducer,
   scrollKeeper: scrollKeeperReducer,
+  [rtkApi.reducerPath]: rtkApi.reducer,
 });
 
 export type RootStatePart = ReturnType<typeof rootReducers>;
@@ -48,7 +50,7 @@ function createReduxStore(params: CreateReduxStoreParams) {
         thunk: {
           extraArgument: argsExt,
         },
-      }),
+      }).concat(rtkApi.middleware),
   }) as ReduxStoreWithManager;
 
   rootStore.reducerManager = reducerManager;

@@ -1,14 +1,14 @@
 import { StoryFn } from '@storybook/react';
 
-import { signInReducer } from 'features/SignInByUsername/model/slice/signInSlice';
+import { signInReducer } from 'features/SignInByUsername/model/slices/signInSlice';
 import { StoreProvider, StoreStateSchema } from 'app/providers/StoreProvider';
 import { StoreReducersMapObject } from 'app/providers/StoreProvider/schemas';
-import { addCommentaryReducer } from 'features/AddCommentaryForm/model/slice/addCommentarySlice';
-import { postDetailsReducer } from 'entities/Post/model/slice/postDetailsSlice';
-import { blogPageReducer } from 'pages/BlogPage/model/slice/blogPageSlice';
+import { addCommentaryReducer } from 'features/AddCommentaryForm/model/slices/addCommentarySlice';
+import { postDetailsReducer } from 'entities/Post/model/slices/postDetailsSlice';
+import { blogPageReducer } from 'pages/BlogPage/model/slices/blogPageSlice';
 import { scrollKeeperReducer } from 'features/ScrollKeeper';
-import { profileReducer } from 'entities/Profile';
-import postPageReducer from 'pages/PostPage/model/slice/postPageReducer';
+import { profileReducer } from 'features/EditableProfileCard';
+import postPageReducer from 'pages/PostPage/model/slices/postPageReducer';
 
 const initialReducers: DeepPartial<StoreReducersMapObject> = {
   'sign-in_username': signInReducer,
