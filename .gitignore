@@ -24,5 +24,8 @@ node_modules
 # Exclude coverage
 /coverage/
 
+# Exclude reports
+/reports/
+
 # Exclude JSON-SERVER
 /json-server/

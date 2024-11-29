@@ -6,6 +6,18 @@
 import type { Config } from 'jest';
 
 const config: Config = {
+  reporters: [
+    'default',
+    [
+      'jest-html-reporters',
+      {
+        publicPath: '<rootDir>/reports/unit',
+        filename: 'report.html',
+        openReport: true,
+        inlineSource: true,
+      },
+    ],
+  ],
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
   // The test environment that will be used for testing
