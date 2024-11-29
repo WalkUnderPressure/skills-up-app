@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 
-function useInitialEffect(cb: () => void, da: Array<unknown>) {
+function useInitialEffect(callback: () => void, deps: Array<unknown>) {
   useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      cb();
+    if (__PROJECT__ !== 'storybook' && __PROJECT__ !== 'jest') {
+      callback();
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [da]);
+  }, [...deps]);
 }
 
 export default useInitialEffect;

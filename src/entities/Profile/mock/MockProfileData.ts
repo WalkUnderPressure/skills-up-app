@@ -6,6 +6,7 @@ import RomeImg from 'shared/assets/images/rome.jpg';
 
 const MockProfileData: Profile = {
   id: '164',
+  userId: '164',
   username: 'maurice_tucker',
   age: 42,
   city: 'Katwicsa',

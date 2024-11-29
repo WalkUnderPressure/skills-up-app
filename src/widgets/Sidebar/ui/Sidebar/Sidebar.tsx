@@ -15,7 +15,7 @@ import { HStack, VStack } from 'shared/ui/Stack';
 
 type SidebarProps = {
   className?: string;
-} & Partial<SidebarDataTestIdProps>;
+} & SidebarDataTestIdProps;
 
 const Sidebar = memo((props: SidebarProps) => {
   const { className, sidebarDataTestId, switcherDataTestId } = props;

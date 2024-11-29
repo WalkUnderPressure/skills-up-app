@@ -1,8 +1,9 @@
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import { useCallback } from 'react';
 
 import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
+import useInitialEffect from 'shared/lib/hooks/useInitialEffect';
 import { ProfileCard, ProfileKeys } from 'entities/Profile';
 import classNames from 'shared/lib/classNames';
 import { VStack } from 'shared/ui/Stack';
@@ -48,9 +49,9 @@ const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     [dispatch],
   );
 
-  useEffect(() => {
+  useInitialEffect(() => {
     dispatch(fetchProfileData(profileUserId));
-  }, [profileUserId, dispatch]);
+  }, [dispatch, profileUserId]);
 
   return (
     <DynamicReducerProvider reducers={reducers}>

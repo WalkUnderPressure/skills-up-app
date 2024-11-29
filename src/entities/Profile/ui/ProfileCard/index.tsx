@@ -12,6 +12,7 @@ import { Loader } from 'shared/ui/Loader';
 import { Input } from 'shared/ui/Input';
 import { Profile, ProfileKeys } from '../../model/types/ProfileStateSchema';
 import * as cls from './ProfileCard.module.scss';
+import { ProfileCardDataTestIds } from './ProfileCard.test-ids';
 
 type ProfileProps = {
   className?: string;
@@ -115,6 +116,7 @@ const ProfileCard = (props: ProfileProps) => {
               disabled={isDisabled}
               onChange={onChangeHandler('username')}
               errorMessage={getFieldError(validationErrors, 'username', errorsTranslates)}
+              data-testid={ProfileCardDataTestIds.username}
             />
 
             <Input
@@ -124,6 +126,7 @@ const ProfileCard = (props: ProfileProps) => {
               disabled={isDisabled}
               type="number"
               onChange={onChangeHandler('age')}
+              data-testid={ProfileCardDataTestIds.age}
             />
 
             <Input
@@ -133,6 +136,7 @@ const ProfileCard = (props: ProfileProps) => {
               disabled={isDisabled}
               onChange={onChangeHandler('firstName')}
               errorMessage={getFieldError(validationErrors, 'firstName', errorsTranslates)}
+              data-testid={ProfileCardDataTestIds.firstName}
             />
 
             <Input
@@ -142,6 +146,7 @@ const ProfileCard = (props: ProfileProps) => {
               disabled={isDisabled}
               onChange={onChangeHandler('lastName')}
               errorMessage={getFieldError(validationErrors, 'lastName', errorsTranslates)}
+              data-testid={ProfileCardDataTestIds.lastName}
             />
 
             <CountrySelect
@@ -150,6 +155,7 @@ const ProfileCard = (props: ProfileProps) => {
               label={t('country', { defaultValue: 'Country' })}
               disabled={isDisabled}
               readOnly={isReadonly}
+              data-testid={ProfileCardDataTestIds.country}
             />
 
             <Input
@@ -159,6 +165,7 @@ const ProfileCard = (props: ProfileProps) => {
               disabled={isDisabled}
               onChange={onChangeHandler('city')}
               errorMessage={getFieldError(validationErrors, 'city', errorsTranslates)}
+              data-testid={ProfileCardDataTestIds.city}
             />
 
             <CurrencySelect
@@ -167,6 +174,7 @@ const ProfileCard = (props: ProfileProps) => {
               onChange={onChangeHandler('currency')}
               disabled={isDisabled}
               readOnly={isReadonly}
+              data-testid={ProfileCardDataTestIds.currency}
             />
           </div>
         </>

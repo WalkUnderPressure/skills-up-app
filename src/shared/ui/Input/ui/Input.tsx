@@ -3,6 +3,8 @@ import { ChangeEvent, InputHTMLAttributes, memo, useCallback, useId } from 'reac
 import classNames from 'shared/lib/classNames';
 import * as cls from './Input.module.scss';
 
+export const InputErrorDataTestId = 'InputErrorDataTestId';
+
 type HtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
 type InputProps = {
@@ -11,6 +13,7 @@ type InputProps = {
   onChange?: (value: string) => void;
   errorMessage?: string;
   label?: string;
+  'data-testid'?: string;
 } & HtmlInputProps;
 
 const Input = memo((props: InputProps) => {
@@ -21,10 +24,12 @@ const Input = memo((props: InputProps) => {
     value = '',
     onChange,
     type = 'text',
+    'data-testid': dataTestId,
     ...restProps
   } = props;
 
   const inputId = useId();
+  const errorDataTestId = dataTestId + InputErrorDataTestId;
 
   const onChangeHandler = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -51,10 +56,15 @@ const Input = memo((props: InputProps) => {
         value={value}
         onChange={onChangeHandler}
         {...restProps}
+        data-testid={dataTestId}
         className={classNames(cls['input'], { [cls.error]: errorMessage }, [className])}
       />
 
-      {errorMessage && <span className={classNames(cls['error-message'])}>{errorMessage}</span>}
+      {errorMessage && (
+        <span data-testid={errorDataTestId} className={classNames(cls['error-message'])}>
+          {errorMessage}
+        </span>
+      )}
     </div>
   );
 });

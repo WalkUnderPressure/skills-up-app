@@ -1,9 +1,9 @@
-type SidebarDataTestIdProps = {
+type SidebarDataTestIdProps = Partial<{
   switcherDataTestId: string;
   sidebarDataTestId: string;
-};
+}>;
 
-const SidebarDataTestIds: SidebarDataTestIdProps = Object.freeze({
+const SidebarDataTestIds: Required<SidebarDataTestIdProps> = Object.freeze({
   sidebarDataTestId: 'SidebarDataTestId',
   switcherDataTestId: 'SidebarSwitcherDataTestId',
 });

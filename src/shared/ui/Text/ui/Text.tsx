@@ -1,6 +1,7 @@
 import classNames from 'shared/lib/classNames';
-import * as cls from './Text.module.scss';
+import { TextDataTestIdProps } from './Text.test-ids';
 import { TextTheme } from '../types';
+import * as cls from './Text.module.scss';
 
 type HeadingTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
@@ -11,19 +12,28 @@ type TextProps = {
   theme?: TextTheme;
   asTitle?: HeadingTags;
   asText?: 'p' | 'span';
-};
+} & TextDataTestIdProps;
 
 // TODO: Add different sizes for h1, h2, h3 etc.
 const Text = (props: TextProps) => {
   const { className, title, text, theme = TextTheme.NONE, asTitle = 'h1', asText = 'p' } = props;
+  const { titleDataTestId, textDataTestId } = props;
 
   const TitleEl = asTitle;
   const TextEl = asText;
 
   return (
     <div className={classNames(cls[theme], {}, [className])}>
-      {title && <TitleEl className={classNames(cls.title)}>{title}</TitleEl>}
-      {text && <TextEl className={classNames(cls.text)}>{text}</TextEl>}
+      {title && (
+        <TitleEl data-testid={titleDataTestId} className={classNames(cls.title)}>
+          {title}
+        </TitleEl>
+      )}
+      {text && (
+        <TextEl data-testid={textDataTestId} className={classNames(cls.text)}>
+          {text}
+        </TextEl>
+      )}
     </div>
   );
 };

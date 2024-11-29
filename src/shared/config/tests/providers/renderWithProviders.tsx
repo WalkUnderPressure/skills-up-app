@@ -5,7 +5,7 @@ import { RenderWithTranslate, RenderWithTranslateProps } from './RenderWithTrans
 import { RenderWithRouter, RenderWithRouterProps } from './RenderWithRouter';
 import { RenderWithStore, RenderWithStoreProps } from './RenderWithStore';
 
-type ProvidersOptions = {
+export type ProvidersOptions = {
   router?: RenderWithRouterProps;
   translations?: RenderWithTranslateProps;
   store?: RenderWithStoreProps;

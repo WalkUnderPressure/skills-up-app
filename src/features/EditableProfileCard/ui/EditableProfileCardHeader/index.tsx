@@ -8,6 +8,7 @@ import classNames from 'shared/lib/classNames';
 import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
 import getProfileValidationErrors from '../../model/selectors/getProfileValidationErrors';
+import { EditableProfileDataTestIds } from '../EditableProfileCard.test-ids';
 import getProfileIsReadonly from '../../model/selectors/getProfileIsReadonly';
 import { profileActions } from '../../model/slices/editableProfileCardSlice';
 import getProfileErrorData from '../../model/selectors/getProfileErrorData';
@@ -66,6 +67,7 @@ const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
                   rounded={ButtonRounded.S}
                   theme={ButtonTheme.BG_INVERTED}
                   onClick={onEdit}
+                  data-testid={EditableProfileDataTestIds.editBtnDataTestId}
                 >
                   {t('form.edit', { defaultValue: 'Edit' })}
                   <EditIcon className={classNames(cls['btn-icon'])} />
@@ -78,6 +80,7 @@ const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
                     rounded={ButtonRounded.S}
                     theme={ButtonTheme.OUTLINE}
                     onClick={onReset}
+                    data-testid={EditableProfileDataTestIds.resetBtnDataTestId}
                   >
                     {t('form.reset', { defaultValue: 'Reset' })}
 
@@ -94,6 +97,7 @@ const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
                     theme={ButtonTheme.BG_INVERTED}
                     onClick={onSave}
                     disabled={!isValid}
+                    data-testid={EditableProfileDataTestIds.saveBtnDataTestId}
                   >
                     {t('form.save', { defaultValue: 'Save' })}
 

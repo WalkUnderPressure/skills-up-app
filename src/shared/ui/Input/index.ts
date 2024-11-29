@@ -1,3 +1,3 @@
-import Input from './ui/Input';
+import Input, { InputErrorDataTestId } from './ui/Input';
 
-export { Input };
+export { Input, InputErrorDataTestId };
