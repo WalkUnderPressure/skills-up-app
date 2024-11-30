@@ -1,8 +1,7 @@
-import { Profile, ProfileKeys } from 'entities/Profile';
-import { ValidationErrors, ProfileErrorCode } from '../../types/EditableProfileCardStateSchema';
+import { Profile, ProfileErrorCode, ProfileKeys, ProfileValidationErrors } from 'entities/Profile';
 
-function validateProfileData(formData: Partial<Profile>): ValidationErrors {
-  const errors: ValidationErrors = {};
+function validateProfileData(formData: Partial<Profile>): ProfileValidationErrors {
+  const errors: ProfileValidationErrors = {};
 
   Object.entries(formData)
     .filter(([fieldName]) => {
@@ -26,7 +25,7 @@ function validateProfileData(formData: Partial<Profile>): ValidationErrors {
   return errors;
 }
 
-function isValidForm(validationErrors: ValidationErrors) {
+function isValidForm(validationErrors: ProfileValidationErrors) {
   return Boolean(!Object.keys(validationErrors).length);
 }
 

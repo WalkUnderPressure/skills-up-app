@@ -1,5 +1,5 @@
 import { StoreStateSchema } from 'app/providers/StoreProvider';
-import { ProfileErrorCode } from '../../types/EditableProfileCardStateSchema';
+import { ProfileErrorCode } from 'entities/Profile';
 import getProfileErrorData from '.';
 
 describe('getProfileErrorData', () => {

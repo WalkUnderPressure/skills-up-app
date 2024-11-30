@@ -1,6 +1,5 @@
 import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
-import { Profile } from 'entities/Profile';
-import { ProfileErrorCode } from '../../types/EditableProfileCardStateSchema';
+import { Profile, ProfileErrorCode } from 'entities/Profile';
 
 const fetchProfileData = createAppAsyncThunk<
   Profile,

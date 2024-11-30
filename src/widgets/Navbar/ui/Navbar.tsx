@@ -5,14 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { Button, ButtonSize, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { SignInByUsernameModal } from 'features/SignInByUsername';
-import {
-  getIsUserAdmin,
-  getUserAuthData,
-  getUserId,
-  useIsAuthorized,
-  userActions,
-} from 'entities/User';
+import { getIsUserAdmin, getUserAuthData, getUserId, userActions } from 'entities/User';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
+import useIsAuthorized from 'shared/lib/hooks/useIsAuthorized';
 import { APP_NAME } from 'shared/constants/appInfo';
 import { AvatarLetters } from 'shared/ui/Avatar';
 import { Text, TextTheme } from 'shared/ui/Text';

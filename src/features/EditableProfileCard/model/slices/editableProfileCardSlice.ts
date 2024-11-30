@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { Profile } from 'entities/Profile';
-import { ProfileStateSchema } from '../types/EditableProfileCardStateSchema';
+import { EditableProfileStateSchema } from '../types/EditableProfileCardStateSchema';
 import { validateProfileData } from '../services/validateProfileData';
 import { updateProfileData } from '../services/updateProfileData';
 import { fetchProfileData } from '../services/fetchProfileData';
 
-const initialState: ProfileStateSchema = {
+const initialState: EditableProfileStateSchema = {
   data: null,
   form: null,
   isLoading: false,

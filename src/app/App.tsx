@@ -1,9 +1,9 @@
 import { Suspense, useEffect } from 'react';
 
-import { useAppDispatch } from 'app/providers/StoreProvider';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { AppRouter } from 'app/providers/AppRouter';
 import classNames from 'shared/lib/classNames';
-import { userActions, useUserIsInitialized } from 'entities/User';
+import { userActions, getUserIsInitialized } from 'entities/User';
 import { Sidebar } from 'widgets/Sidebar';
 import { Navbar } from 'widgets/Navbar';
 import './styles/index.scss';
@@ -13,7 +13,7 @@ import 'shared/config/i18n';
 const App = () => {
   const dispatch = useAppDispatch();
 
-  const { isUserInitialized } = useUserIsInitialized();
+  const isUserInitialized = useAppSelector(getUserIsInitialized);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());

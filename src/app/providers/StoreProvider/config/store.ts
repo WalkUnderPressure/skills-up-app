@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { scrollKeeperReducer } from 'features/ScrollKeeper';
-import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import rtkApi from 'shared/api/rtkApi';
 import $api from 'shared/api/api';
@@ -19,7 +18,6 @@ type CreateReduxStoreParams = {
 };
 
 const rootReducers = (): StoreReducersMapObject => ({
-  counter: counterReducer,
   user: userReducer,
   scrollKeeper: scrollKeeperReducer,
   [rtkApi.reducerPath]: rtkApi.reducer,

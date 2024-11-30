@@ -1,18 +1,19 @@
 import { MockProfileData } from 'entities/Profile/mock/MockProfileData';
 import { Profile } from 'entities/Profile';
-import { ProfileErrorCode, ProfileStateSchema } from '../types/EditableProfileCardStateSchema';
+import { ProfileErrorCode } from 'entities/Profile';
+import { EditableProfileStateSchema } from '../types/EditableProfileCardStateSchema';
 import { profileReducer, profileActions } from './editableProfileCardSlice';
 import { updateProfileData } from '../services/updateProfileData';
 
 describe('editableProfileCardSlice.test', () => {
   test('setIsReadonly', () => {
     const nextIsReadonly = true;
-    const initState: DeepPartial<ProfileStateSchema> = {
+    const initState: DeepPartial<EditableProfileStateSchema> = {
       isReadonly: false,
     };
 
     const result = profileReducer(
-      initState as ProfileStateSchema,
+      initState as EditableProfileStateSchema,
       profileActions.setIsReadonly(nextIsReadonly),
     );
 
@@ -20,7 +21,7 @@ describe('editableProfileCardSlice.test', () => {
   });
 
   test('resetFormData', () => {
-    const initState: DeepPartial<ProfileStateSchema> = {
+    const initState: DeepPartial<EditableProfileStateSchema> = {
       form: { ...MockProfileData, username: 'NewUser' },
       data: MockProfileData,
       isReadonly: false,
@@ -28,7 +29,7 @@ describe('editableProfileCardSlice.test', () => {
     };
 
     const { form, isReadonly, validationErrors } = profileReducer(
-      initState as ProfileStateSchema,
+      initState as EditableProfileStateSchema,
       profileActions.resetFormData(),
     );
 
@@ -45,7 +46,7 @@ describe('editableProfileCardSlice.test', () => {
       lastName: 'Last',
     };
 
-    const initState: DeepPartial<ProfileStateSchema> = {
+    const initState: DeepPartial<EditableProfileStateSchema> = {
       form: MockProfileData,
       data: MockProfileData,
       validationErrors: {
@@ -54,7 +55,7 @@ describe('editableProfileCardSlice.test', () => {
     };
 
     const { form, validationErrors } = profileReducer(
-      initState as ProfileStateSchema,
+      initState as EditableProfileStateSchema,
       profileActions.updateProfileFormData(dataForUpdate),
     );
 
@@ -67,14 +68,14 @@ describe('editableProfileCardSlice.test', () => {
 
   // Check extra reducers
   test('updateProfileData.pending', () => {
-    const initState: DeepPartial<ProfileStateSchema> = {
+    const initState: DeepPartial<EditableProfileStateSchema> = {
       isSaving: false,
       isFailed: true,
       errorCode: ProfileErrorCode.PROFILE_NOT_FOUND,
     };
 
     const { isSaving, isFailed, errorCode } = profileReducer(
-      initState as ProfileStateSchema,
+      initState as EditableProfileStateSchema,
       updateProfileData.pending('', undefined, null),
     );
 

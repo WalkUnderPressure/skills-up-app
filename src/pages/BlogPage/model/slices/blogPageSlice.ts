@@ -3,29 +3,22 @@ import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolki
 import getSafeLocalStorageValue from 'shared/lib/helpers/getSafeValueFromLS';
 import fetchBlogPosts from '../services/fetchBlogPosts/fetchBlogPosts';
 import { StoreStateSchema } from 'app/providers/StoreProvider';
-import {
-  Post,
-  PostViewMap,
-  PostViewKey,
-  PostSortFieldsMap,
-  PostSortFieldsKey,
-  PostTagsKey,
-  PostTagsMap,
-} from 'entities/Post';
+import { Post, PostViewMap, PostViewKey, PostSortFieldsKey, PostTagsKey } from 'entities/Post';
 import { LS_BLOG_VIEW } from 'shared/constants/localStorage';
+import {
+  DEFAULT_POST_FULL_LIMIT,
+  DEFAULT_POST_SHORT_LIMIT,
+  DEFAULT_POST_VIEW_TYPE,
+  DEFAULT_SEARCH_TAG,
+  DEFAULT_SORT_FIELD,
+  DEFAULT_SORT_ORDER,
+} from '../consts/defaultFilterValues';
 import BlogPageSchema from '../types/BlogPageSchema';
 import { SortOrder } from 'shared/types/SortOrder';
 
 export const blogPostsAdapter = createEntityAdapter({
   selectId: (post: Post) => post.id,
 });
-
-export const DEFAULT_POST_VIEW_TYPE = PostViewMap.SHORT;
-export const DEFAULT_POST_SHORT_LIMIT = 12;
-export const DEFAULT_POST_FULL_LIMIT = 4;
-export const DEFAULT_SORT_FIELD = PostSortFieldsMap.CREATED_AT;
-export const DEFAULT_SORT_ORDER: SortOrder = 'asc';
-export const DEFAULT_SEARCH_TAG: PostTagsKey = PostTagsMap.ALL;
 
 const initialState: BlogPageSchema = {
   ids: [],

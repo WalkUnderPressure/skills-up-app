@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import { ProfileValidationErrors } from 'features/EditableProfileCard';
 import { Button, ButtonRounded, ButtonTheme } from 'shared/ui/Button';
+import { ProfileValidationErrors } from 'entities/Profile';
 import classNames from 'shared/lib/classNames';
 import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';

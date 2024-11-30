@@ -1,14 +1,6 @@
-import { Profile, ProfileKeys } from 'entities/Profile';
+import { Profile, ProfileErrorCode, ProfileValidationErrors } from 'entities/Profile';
 
-enum ProfileErrorCode {
-  REQUIRED = 'REQUIRED',
-  PROFILE_NOT_FOUND = 'PROFILE_NOT_FOUND',
-  CANT_UPDATE_PROFILE = 'CANT_UPDATE_PROFILE',
-}
-
-type ValidationErrors = PartialRecord<ProfileKeys, Array<ProfileErrorCode>>;
-
-interface ProfileStateSchema {
+interface EditableProfileStateSchema {
   data?: Nullable<Profile>;
   form?: Nullable<Profile>;
   isLoading?: boolean;
@@ -16,8 +8,7 @@ interface ProfileStateSchema {
   isFailed: boolean;
   errorCode?: Nullable<ProfileErrorCode>;
   isSaving?: boolean;
-  validationErrors?: ValidationErrors;
+  validationErrors?: ProfileValidationErrors;
 }
 
-export { ProfileErrorCode };
-export type { ValidationErrors, ProfileStateSchema };
+export type { EditableProfileStateSchema };

@@ -1,7 +1,7 @@
 import { StoreStateSchema } from 'app/providers/StoreProvider';
-import { ValidationErrors } from '../../types/EditableProfileCardStateSchema';
+import { ProfileValidationErrors } from 'entities/Profile';
 
-const getProfileValidationErrors = (state: StoreStateSchema): ValidationErrors | null => {
+const getProfileValidationErrors = (state: StoreStateSchema): ProfileValidationErrors | null => {
   return state['profile']?.validationErrors || null;
 };
 

@@ -1,5 +1,5 @@
 import { MockProfileWithAvatar } from 'entities/Profile/mock/MockProfileData';
-import { ProfileErrorCode, ValidationErrors } from '../../types/EditableProfileCardStateSchema';
+import { ProfileErrorCode, ProfileValidationErrors } from 'entities/Profile';
 import { validateProfileData } from '.';
 
 describe('validateProfileData', () => {
@@ -11,7 +11,7 @@ describe('validateProfileData', () => {
   });
 
   test('failed validateProfileData', () => {
-    const expectedResult: ValidationErrors = {
+    const expectedResult: ProfileValidationErrors = {
       username: [ProfileErrorCode.REQUIRED],
       firstName: [ProfileErrorCode.REQUIRED],
     };

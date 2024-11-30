@@ -2,8 +2,7 @@ import { AxiosResponse } from 'axios';
 
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk';
 import { MockProfileWithAvatar } from 'entities/Profile/mock/MockProfileData';
-import { Profile } from 'entities/Profile';
-import { ProfileErrorCode, ValidationErrors } from '../../types/EditableProfileCardStateSchema';
+import { Profile, ProfileErrorCode, ProfileValidationErrors } from 'entities/Profile';
 import { SubmitErrorData, updateProfileData } from '.';
 
 describe('updateProfileData', () => {
@@ -49,7 +48,7 @@ describe('updateProfileData', () => {
   });
 
   test('failed updateProfileData when form invalid', async () => {
-    const validationErrors: ValidationErrors = {
+    const validationErrors: ProfileValidationErrors = {
       username: [ProfileErrorCode.REQUIRED],
       city: [ProfileErrorCode.REQUIRED],
     };

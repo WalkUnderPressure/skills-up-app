@@ -1,9 +1,10 @@
 import { memo, PropsWithChildren, useMemo } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
-import { getUserRoles, useIsAuthorized, UserRoles } from 'entities/User';
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
+import useIsAuthorized from 'shared/lib/hooks/useIsAuthorized';
 import { useAppSelector } from 'app/providers/StoreProvider';
+import { getUserRoles, UserRoles } from 'entities/User';
 
 const DEFAULT_REDIRECT = RouterPaths[AppRoutes.HOME];
 

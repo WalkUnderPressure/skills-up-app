@@ -1,10 +1,10 @@
+import { ProfileErrorCode, ProfileValidationErrors } from 'entities/Profile';
 import { StoreStateSchema } from 'app/providers/StoreProvider';
-import { ProfileErrorCode, ValidationErrors } from '../../types/EditableProfileCardStateSchema';
 import getProfileValidationErrors from '.';
 
 describe('getProfileValidationErrors', () => {
   test('get profile validation errors from filled store', () => {
-    const expectedResult: ValidationErrors = {
+    const expectedResult: ProfileValidationErrors = {
       firstName: [ProfileErrorCode.REQUIRED],
       lastName: [ProfileErrorCode.REQUIRED],
     };

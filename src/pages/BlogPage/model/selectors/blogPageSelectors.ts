@@ -4,7 +4,7 @@ import {
   DEFAULT_SEARCH_TAG,
   DEFAULT_SORT_FIELD,
   DEFAULT_SORT_ORDER,
-} from '../slices/blogPageSlice';
+} from '../consts/defaultFilterValues';
 import { StoreStateSchema } from 'app/providers/StoreProvider';
 
 const getBlogPostViewType = (state: StoreStateSchema) => {

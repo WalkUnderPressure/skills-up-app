@@ -1,5 +1,6 @@
 import { CurrencyMapKey } from 'entities/Currency';
 import { CountryMapKey } from 'entities/Country';
+import ProfileErrorCode from '../consts/ProfileErrorCode';
 
 interface Profile {
   id?: string;
@@ -16,4 +17,6 @@ interface Profile {
 
 type ProfileKeys = keyof Profile;
 
-export type { Profile, ProfileKeys };
+type ProfileValidationErrors = PartialRecord<ProfileKeys, Array<ProfileErrorCode>>;
+
+export type { Profile, ProfileKeys, ProfileValidationErrors };

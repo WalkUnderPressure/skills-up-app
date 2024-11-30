@@ -1,6 +1,6 @@
 import { useAppSelector } from 'app/providers/StoreProvider';
-import { getProfileData } from 'features/EditableProfileCard';
 import { getUserAuthData } from 'entities/User';
+import getProfileData from '../../model/selectors/getProfileData';
 
 function useIsCanEdit() {
   const userAuthData = useAppSelector(getUserAuthData);

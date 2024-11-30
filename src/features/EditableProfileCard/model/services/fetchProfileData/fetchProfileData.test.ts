@@ -2,8 +2,7 @@ import { AxiosResponse } from 'axios';
 
 import { MockProfileData } from 'entities/Profile/mock/MockProfileData';
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk';
-import { Profile } from 'entities/Profile';
-import { ProfileErrorCode } from '../../types/EditableProfileCardStateSchema';
+import { Profile, ProfileErrorCode } from 'entities/Profile';
 import { fetchProfileData } from '.';
 
 describe('fetchProfileData', () => {

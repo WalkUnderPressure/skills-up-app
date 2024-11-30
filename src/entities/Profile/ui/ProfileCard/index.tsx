@@ -1,7 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ProfileErrorCode, ProfileValidationErrors } from 'features/EditableProfileCard';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar';
 import { CurrencySelect } from 'entities/Currency';
 import { HStack, VStack } from 'shared/ui/Stack';
@@ -10,9 +9,14 @@ import { CountrySelect } from 'entities/Country';
 import classNames from 'shared/lib/classNames';
 import { Loader } from 'shared/ui/Loader';
 import { Input } from 'shared/ui/Input';
-import { Profile, ProfileKeys } from '../../model/types/ProfileStateSchema';
-import * as cls from './ProfileCard.module.scss';
+import {
+  Profile,
+  ProfileKeys,
+  ProfileValidationErrors,
+} from '../../model/types/ProfileStateSchema';
+import ProfileErrorCode from '../../model/consts/ProfileErrorCode';
 import { ProfileCardDataTestIds } from './ProfileCard.test-ids';
+import * as cls from './ProfileCard.module.scss';
 
 type ProfileProps = {
   className?: string;

@@ -1,11 +1,10 @@
 import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
-import { Profile } from 'entities/Profile';
-import { ValidationErrors, ProfileErrorCode } from '../../types/EditableProfileCardStateSchema';
+import { Profile, ProfileErrorCode, ProfileValidationErrors } from 'entities/Profile';
 import { isValidForm, validateProfileData } from '../../services/validateProfileData';
 import getProfileFormData from '../../selectors/getProfileFormData';
 
 type SubmitErrorData = {
-  validation?: ValidationErrors;
+  validation?: ProfileValidationErrors;
   error?: ProfileErrorCode;
 };
 
