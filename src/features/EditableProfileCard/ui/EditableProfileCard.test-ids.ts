@@ -10,4 +10,5 @@ const EditableProfileDataTestIds = Object.freeze({
   saveBtnDataTestId: 'EditableProfileCardSaveBtn',
 } satisfies Required<EditableProfileCardDataTestIdProps>);
 
-export { EditableProfileDataTestIds, EditableProfileCardDataTestIdProps };
+export { EditableProfileDataTestIds };
+export type { EditableProfileCardDataTestIdProps };

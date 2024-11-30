@@ -8,4 +8,5 @@ const TextDataTestIds: Required<TextDataTestIdProps> = Object.freeze({
   textDataTestId: 'TextTextDataTestId',
 });
 
-export { TextDataTestIds, TextDataTestIdProps };
+export { TextDataTestIds };
+export type { TextDataTestIdProps };

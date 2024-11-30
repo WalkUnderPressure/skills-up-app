@@ -6,4 +6,5 @@ const CountryMap = Object.freeze({
 
 type CountryMapKey = (typeof CountryMap)[keyof typeof CountryMap];
 
-export { CountryMap, CountryMapKey };
+export { CountryMap };
+export type { CountryMapKey };

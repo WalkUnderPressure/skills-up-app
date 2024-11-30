@@ -6,4 +6,4 @@ type ScrollKeeperSchema = {
   idx?: number;
 };
 
-export { ScrollSchema, ScrollKeeperSchema };
+export type { ScrollSchema, ScrollKeeperSchema };

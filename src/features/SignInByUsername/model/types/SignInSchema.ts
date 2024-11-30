@@ -10,4 +10,5 @@ interface SignInSchema {
   errorCode?: Nullable<SignInErrorCode>;
 }
 
-export { SignInSchema, SignInErrorCode };
+export { SignInErrorCode };
+export type { SignInSchema };

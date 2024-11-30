@@ -8,4 +8,5 @@ const RenderWithStore = (props: RenderWithStoreProps) => {
   return <StoreProvider {...restProps}>{children}</StoreProvider>;
 };
 
-export { RenderWithStore, RenderWithStoreProps };
+export { RenderWithStore };
+export type { RenderWithStoreProps };

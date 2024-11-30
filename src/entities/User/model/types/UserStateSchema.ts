@@ -17,4 +17,5 @@ type UserStateSchema = {
   authData?: Nullable<User>;
 } & IInitialized;
 
-export { UserStateSchema, User, UserRoles };
+export { UserRoles };
+export type { UserStateSchema, User };

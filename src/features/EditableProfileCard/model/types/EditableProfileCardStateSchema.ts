@@ -19,4 +19,5 @@ interface ProfileStateSchema {
   validationErrors?: ValidationErrors;
 }
 
-export { ProfileErrorCode, ValidationErrors, ProfileStateSchema };
+export { ProfileErrorCode };
+export type { ValidationErrors, ProfileStateSchema };

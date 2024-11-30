@@ -6,4 +6,5 @@ const CurrencyMap = Object.freeze({
 
 type CurrencyMapKey = (typeof CurrencyMap)[keyof typeof CurrencyMap];
 
-export { CurrencyMap, CurrencyMapKey };
+export { CurrencyMap };
+export type { CurrencyMapKey };

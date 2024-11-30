@@ -18,4 +18,5 @@ const ProfileCardDataTestIds = Object.freeze({
   currency: 'currency',
 } satisfies Required<ProfileCardDataTestIdProps>);
 
-export { ProfileCardDataTestIds, ProfileCardDataTestIdProps };
+export { ProfileCardDataTestIds };
+export type { ProfileCardDataTestIdProps };

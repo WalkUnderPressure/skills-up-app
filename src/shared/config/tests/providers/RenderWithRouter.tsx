@@ -12,4 +12,5 @@ const RenderWithRouter = (props: RenderWithRouterProps) => {
   );
 };
 
-export { RenderWithRouter, RenderWithRouterProps };
+export { RenderWithRouter };
+export type { RenderWithRouterProps };

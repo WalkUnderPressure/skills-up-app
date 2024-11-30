@@ -16,4 +16,4 @@ interface Profile {
 
 type ProfileKeys = keyof Profile;
 
-export { Profile, ProfileKeys };
+export type { Profile, ProfileKeys };

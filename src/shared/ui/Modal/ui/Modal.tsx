@@ -66,4 +66,4 @@ const Modal = (props: ModalProps) => {
 };
 
 export default Modal;
-export { ModalProps };
+export type { ModalProps };

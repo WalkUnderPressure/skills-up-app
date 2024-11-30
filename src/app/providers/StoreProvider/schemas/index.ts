@@ -64,7 +64,7 @@ type ThunkExtra = {
   api: AxiosInstance;
 };
 
-export {
+export type {
   ThunkExtra,
   StoreStateSchema,
   StoreStateSchemaKeys,

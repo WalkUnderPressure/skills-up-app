@@ -67,9 +67,8 @@ interface Post {
   userId?: string;
 }
 
-export {
-  PostBlockType,
-  PostTagsMap,
+export { PostBlockType, PostTagsMap, PostViewMap, PostSortFieldsMap };
+export type {
   PostTagsKey,
   PostBlockBase,
   PostCodeBlock,
@@ -77,8 +76,6 @@ export {
   PostTextBlock,
   PostBlock,
   Post,
-  PostViewMap,
   PostViewKey,
-  PostSortFieldsMap,
   PostSortFieldsKey,
 };

@@ -8,4 +8,4 @@ type Commentary = {
   userId?: string;
 };
 
-export { Commentary };
+export type { Commentary };

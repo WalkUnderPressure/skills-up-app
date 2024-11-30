@@ -4,4 +4,4 @@ type AddCommentaryFormSchema = {
   isLoading?: boolean;
 };
 
-export { AddCommentaryFormSchema };
+export type { AddCommentaryFormSchema };

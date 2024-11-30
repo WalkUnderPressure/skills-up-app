@@ -8,4 +8,5 @@ const SidebarDataTestIds: Required<SidebarDataTestIdProps> = Object.freeze({
   switcherDataTestId: 'SidebarSwitcherDataTestId',
 });
 
-export { SidebarDataTestIds, SidebarDataTestIdProps };
+export { SidebarDataTestIds };
+export type { SidebarDataTestIdProps };

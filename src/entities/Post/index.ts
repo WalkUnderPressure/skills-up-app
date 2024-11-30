@@ -21,16 +21,12 @@ export {
   PostTagsTabs,
   PostSortSelector,
   PostDetails,
-  PostDetailsSchema,
-  Post,
   fetchPostById,
   getPostDetails,
   VirtPostsList,
   PostsList,
   PostTagsMap,
-  PostTagsKey,
   PostViewMap,
-  PostViewKey,
   PostSortFieldsMap,
-  PostSortFieldsKey,
 };
+export type { PostDetailsSchema, Post, PostTagsKey, PostViewKey, PostSortFieldsKey };

@@ -11,6 +11,7 @@
         // use "import" instead "import * as"
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
+        "isolatedModules": true,
         "baseUrl": ".",
         "paths": {
             "*": ["./src/*"]

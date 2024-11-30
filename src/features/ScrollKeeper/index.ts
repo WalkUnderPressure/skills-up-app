@@ -2,10 +2,5 @@ import { scrollKeeperActions, scrollKeeperReducer } from './model/slices/scrollK
 import { getScrollByPath, getScrollIndex } from './model/selectors/scrollKeeperSelectors';
 import { ScrollKeeperSchema } from './model/types/ScrollKeeperSchema';
 
-export {
-  scrollKeeperActions,
-  scrollKeeperReducer,
-  ScrollKeeperSchema,
-  getScrollByPath,
-  getScrollIndex,
-};
+export { scrollKeeperActions, scrollKeeperReducer, getScrollByPath, getScrollIndex };
+export type { ScrollKeeperSchema };

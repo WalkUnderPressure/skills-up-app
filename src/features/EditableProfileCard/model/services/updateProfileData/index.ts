@@ -50,4 +50,5 @@ const updateProfileData = createAppAsyncThunk<
   }
 });
 
-export { updateProfileData, SubmitErrorData };
+export { updateProfileData };
+export type { SubmitErrorData };

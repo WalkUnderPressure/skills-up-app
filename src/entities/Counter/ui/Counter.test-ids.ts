@@ -10,4 +10,5 @@ const CounterDataTestIds: CounterDataTestIdProps = Object.freeze({
   decrementDataTestId: 'CounterDecrementBtnDataTestId',
 });
 
-export { CounterDataTestIds, CounterDataTestIdProps };
+export { CounterDataTestIds };
+export type { CounterDataTestIdProps };

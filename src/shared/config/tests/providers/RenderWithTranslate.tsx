@@ -26,4 +26,5 @@ const RenderWithTranslate = (props: RenderWithTranslateProps) => {
   return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
 };
 
-export { RenderWithTranslate, RenderWithTranslateProps };
+export { RenderWithTranslate };
+export type { RenderWithTranslateProps };

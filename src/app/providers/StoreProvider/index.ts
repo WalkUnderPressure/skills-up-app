@@ -12,11 +12,10 @@ import useAppStore from './hooks/useAppStore';
 export {
   createReduxStore,
   StoreProvider,
-  StoreStateSchema,
-  StoreProviderProps,
-  AsyncThunkRejectValue,
   createAppAsyncThunk,
   useAppDispatch,
   useAppSelector,
   useAppStore,
 };
+
+export type { StoreStateSchema, StoreProviderProps, AsyncThunkRejectValue };
