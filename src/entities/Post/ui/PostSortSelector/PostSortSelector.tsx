@@ -57,6 +57,7 @@ const PostSortSelector = memo((props: PostSortSelectorProps) => {
         options={sortFieldOptions}
         value={sortField}
         onChange={onChangeSortField}
+        fullH
         className={{
           border: classNames(cls['select-border']),
           wrapper: classNames(cls['select-wrapper']),
@@ -69,6 +70,7 @@ const PostSortSelector = memo((props: PostSortSelectorProps) => {
         options={orderOptions}
         value={sortOrder}
         onChange={onChangeSortOrder}
+        fullH
         className={{
           border: classNames(cls['select-border']),
           wrapper: classNames(cls['select-wrapper']),

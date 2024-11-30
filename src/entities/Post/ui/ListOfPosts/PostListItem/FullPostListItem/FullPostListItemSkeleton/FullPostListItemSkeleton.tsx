@@ -13,7 +13,7 @@ const FullPostListItemSkeleton = (props: FullPostListItemSkeletonProps) => {
   const { className } = props;
 
   return (
-    <div className={classNames(className)}>
+    <div className={classNames(cls.box, {}, [className])}>
       <Card className={classNames(cls['card-wrapper'])}>
         <HStack justify="between" align="center" gap="32">
           <HStack justify="center" align="center" gap="8">

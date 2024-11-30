@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
+import useInitialEffect from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'app/providers/StoreProvider';
 import { blogPageReducer } from '../../model/slices/blogPageSlice';
 import initBlogPageState from '../../model/services/initBlogPageState/initBlogPageState';
@@ -25,9 +25,9 @@ const BlogPage = (props: BlogPageProps) => {
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
 
-  useEffect(() => {
+  useInitialEffect(() => {
     dispatch(initBlogPageState(searchParams));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // IMPORTANT Don't change deps array
   }, [dispatch]);
 
   return (

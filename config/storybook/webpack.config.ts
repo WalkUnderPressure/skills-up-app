@@ -6,6 +6,8 @@ import buildFileLoader from '../build/loaders/buildFileLoader';
 import buildCssLoader from '../build/loaders/buildCssLoader';
 import buildSvgLoader from '../build/loaders/buildSvgLoader';
 
+const API_URL = 'http://localhost:7000';
+
 type StorybookWebpackConfig = {
   config: Configuration;
   mode?: string;
@@ -51,7 +53,7 @@ export default ({ config }: StorybookWebpackConfig) => {
   if (definePlugin) {
     // Run code like in production
     definePlugin.definitions['__IS_DEV__'] = false;
-    definePlugin.definitions['__API_URL__'] = JSON.stringify('');
+    definePlugin.definitions['__API_URL__'] = JSON.stringify(API_URL);
     definePlugin.definitions['__PROJECT__'] = JSON.stringify('storybook');
   }
 

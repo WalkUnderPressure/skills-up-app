@@ -16,7 +16,7 @@ import { LS_BLOG_VIEW } from 'shared/constants/localStorage';
 import BlogPageSchema from '../types/BlogPageSchema';
 import { SortOrder } from 'shared/types/SortOrder';
 
-const blogPostsAdapter = createEntityAdapter({
+export const blogPostsAdapter = createEntityAdapter({
   selectId: (post: Post) => post.id,
 });
 

@@ -21,7 +21,7 @@ const Code = memo((props: CodeProps) => {
   }, [text]);
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative' }} className={cls.box}>
       <Button onClick={onCopy} className={cls['copy-btn']} theme={ButtonTheme.CLEAR}>
         <CopyIcon width={COPY_ICON_SIZE} height={COPY_ICON_SIZE} className={cls['copy-icon']} />
       </Button>

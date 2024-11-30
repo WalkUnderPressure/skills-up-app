@@ -63,10 +63,10 @@ const PostDetails = memo((props: PostDetailsProps) => {
                   className={classNames(cls.avatar)}
                 />
 
-                <VStack gap="16" className={classNames(cls['post-info'])}>
+                <VStack gap="16" fullW className={classNames(cls['post-info'])}>
                   <Text title={postDetails?.title} text={postDetails?.subtitle} />
 
-                  <HStack align="center" gap="24">
+                  <HStack fullW align="center" gap="24">
                     <HStack justify="start" align="center" gap="8">
                       <EyeIcon fill="currentColor" />
                       <Text text={String(postDetails?.views)} />
@@ -80,7 +80,7 @@ const PostDetails = memo((props: PostDetailsProps) => {
                   </HStack>
                 </VStack>
 
-                <VStack gap="24">
+                <VStack fullW gap="24">
                   {postDetails?.blocks.map((block) => (
                     <PostBlocksGenerator key={block.id} block={block} />
                   ))}

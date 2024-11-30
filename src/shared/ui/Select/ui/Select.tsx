@@ -25,6 +25,7 @@ export type SelectProps<T extends string = string> = {
   options: Array<SelectOption<T>>;
   label?: string;
   readOnly?: boolean;
+  fullH?: boolean;
 } & Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange' | 'className'>;
 
 const Select = genericMemo(<T extends string>(props: SelectProps<T>) => {
@@ -36,6 +37,7 @@ const Select = genericMemo(<T extends string>(props: SelectProps<T>) => {
     options = [],
     readOnly,
     disabled,
+    fullH,
     ...restProps
   } = props;
 
@@ -64,10 +66,11 @@ const Select = genericMemo(<T extends string>(props: SelectProps<T>) => {
       <div className={classNames(cls['select-border'], {}, [className?.border])}>
         <select
           id={selectId}
-          className={classNames(cls['select'], { [cls['readonly']]: readOnly }, [
-            className?.select,
-            cls[theme],
-          ])}
+          className={classNames(
+            cls['select'],
+            { [cls['readonly']]: readOnly, [cls['full-h']]: fullH },
+            [className?.select, cls[theme]],
+          )}
           onChange={onChangeHandler}
           disabled={isDisabled}
           {...restProps}

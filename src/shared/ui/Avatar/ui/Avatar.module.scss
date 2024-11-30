@@ -5,6 +5,7 @@
 .avatar {
     width: var(--avatar-size);
     height: var(--avatar-size);
+    min-height: var(--avatar-size);
     border-radius: var(--radius-full);
     object-fit: cover;
 }

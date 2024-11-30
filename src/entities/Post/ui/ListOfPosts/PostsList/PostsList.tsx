@@ -8,7 +8,7 @@ import * as cls from './PostsList.module.scss';
 import PostsSkeletons from './PostsSkeletons';
 import { Text, TextTheme } from 'shared/ui/Text';
 
-type PostsListProps = {
+export type PostsListProps = {
   className?: string;
   posts?: Array<Post>;
   isLoading?: boolean;

@@ -24,6 +24,8 @@ declare const __IS_DEV__: boolean;
 declare const __API_URL__: string;
 declare const __PROJECT__: 'app' | 'jest' | 'storybook';
 
+declare type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD';
+
 declare type DeepPartial<T> = T extends object
   ? {
       [P in keyof T]?: DeepPartial<T[P]>;

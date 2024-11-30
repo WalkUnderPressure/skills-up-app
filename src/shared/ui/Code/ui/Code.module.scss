@@ -1,3 +1,7 @@
+.box {
+    width: calc(100% - 22px);
+}
+
 .code {
     border: 2px solid var(--code-border);
     padding: 20px;

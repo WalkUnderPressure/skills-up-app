@@ -14,10 +14,12 @@ const rtkApi = createApi({
     baseUrl: __API_URL__,
     fetchFn: fetchBaseQueryFetchFn,
     prepareHeaders: (headers) => {
-      const authToken = safeJsonParse<User>(localStorage.getItem(LS_AUTH_USER))?.id || '';
+      if (__PROJECT__ === 'app') {
+        const authToken = safeJsonParse<User>(localStorage.getItem(LS_AUTH_USER))?.id || '';
 
-      if (authToken) {
-        headers.set('Authorization', `Bearer ${authToken}`);
+        if (authToken) {
+          headers.set('Authorization', `Bearer ${authToken}`);
+        }
       }
 
       return headers;

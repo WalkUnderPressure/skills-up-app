@@ -7,7 +7,7 @@ const postRecommendationsApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     getPostRecommendations: build.query<Array<Post>, unknown>({
       query: () => ({
-        url: '/posts',
+        url: '/posts/',
         params: {
           _limit: RECOMMENDATIONS_COUNT,
         },

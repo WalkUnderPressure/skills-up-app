@@ -26,7 +26,7 @@ const CommentaryList = memo((props: CommentaryListProps) => {
       <Text title={title || t('commentaries.title', { defaultValue: 'Commentaries' })} />
 
       {isLoading ? (
-        <VStack gap="8">
+        <VStack gap="8" fullW>
           {LOADING_COMMENTARY_ITEMS.map((index) => (
             <CommentaryCardSkeleton key={index} />
           ))}

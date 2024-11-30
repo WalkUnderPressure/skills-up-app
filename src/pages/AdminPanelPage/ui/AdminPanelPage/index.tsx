@@ -1,6 +1,7 @@
 import { memo } from 'react';
 
 import classNames from 'shared/lib/classNames';
+import { Page } from 'widgets/Page';
 
 import * as cls from './AdminPanelPage.module.scss';
 
@@ -14,9 +15,9 @@ const AdminPanelPage = memo((props: AdminPanelPageProps) => {
   const { className } = props;
 
   return (
-    <div className={classNames(cls['admin-panel-page'], {}, [className])}>
+    <Page className={classNames(cls['admin-panel-page'], {}, [className])}>
       <span>{TITLE}</span>
-    </div>
+    </Page>
   );
 });
 

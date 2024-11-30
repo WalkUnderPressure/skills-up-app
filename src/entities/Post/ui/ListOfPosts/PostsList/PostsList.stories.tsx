@@ -3,7 +3,19 @@ import type { Meta, StoryObj } from '@storybook/react';
 import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
 import { MockPostsListData } from 'entities/Post/mock/MockPostsListData';
 import { PostViewMap } from 'entities/Post/model/types/Post';
-import PostsList from './PostsList';
+import PostsList, { PostsListProps } from './PostsList';
+import { VStack } from 'shared/ui/Stack';
+
+const ItemLoadingRender = (props: PostsListProps) => {
+  const TITLE = 'Scroll down to see loaders';
+
+  return (
+    <VStack fullW gap="32">
+      <h1>{TITLE}</h1>
+      <PostsList {...props} />
+    </VStack>
+  );
+};
 
 const meta = {
   title: 'Entities/Blog/PostsList',
@@ -39,6 +51,7 @@ export const FullItemLoading = {
     isLoading: true,
     viewType: PostViewMap.FULL,
   },
+  render: ItemLoadingRender,
 } satisfies Story;
 
 export const FullItemLoadingDark = withOverriddenThemes<Story>({
@@ -46,6 +59,7 @@ export const FullItemLoadingDark = withOverriddenThemes<Story>({
     isLoading: true,
     viewType: PostViewMap.FULL,
   },
+  render: ItemLoadingRender,
 })() satisfies Story;
 
 export const ShortItemLoading = {
@@ -53,6 +67,7 @@ export const ShortItemLoading = {
     isLoading: true,
     viewType: PostViewMap.SHORT,
   },
+  render: ItemLoadingRender,
 } satisfies Story;
 
 export const ShortItemLoadingDark = withOverriddenThemes<Story>({
@@ -60,4 +75,5 @@ export const ShortItemLoadingDark = withOverriddenThemes<Story>({
     isLoading: true,
     viewType: PostViewMap.SHORT,
   },
+  render: ItemLoadingRender,
 })() satisfies Story;

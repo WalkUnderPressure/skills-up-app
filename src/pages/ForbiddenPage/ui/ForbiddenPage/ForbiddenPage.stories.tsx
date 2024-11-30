@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
-// { ForbiddenPageProps }
+import StoreDecorator from 'shared/config/storybook/decorators/StoreDecorator';
 import ForbiddenPage from '.';
 
 const meta = {
   title: 'Pages/ForbiddenPage',
   component: ForbiddenPage,
-  args: {},
+  decorators: [StoreDecorator()],
 } satisfies Meta<typeof ForbiddenPage>;
 
 export default meta;
