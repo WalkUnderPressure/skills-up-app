@@ -21,7 +21,8 @@
         "home": "Home",
         "about": "About",
         "profile": "Profile",
-        "blog": "Blog"
+        "blog": "Blog",
+        "admin-panel": "Admin panel"
     },
     "create_post": "Create post",
     "loading": "Loading",
@@ -43,6 +44,7 @@
         }
     },
     "page_not_found": "Sorry! Page not found!",
+    "page_forbidden": "You cannot access this page",
     "error_boundary": {
         "title": "Sorry, unexpected error occurred! Try to reload page.",
         "action-btn": "Reload page",

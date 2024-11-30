@@ -5,7 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { Button, ButtonSize, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
 import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { SignInByUsernameModal } from 'features/SignInByUsername';
-import { getUserAuthData, getUserId, useIsAuthorized, userActions } from 'entities/User';
+import {
+  getIsUserAdmin,
+  getUserAuthData,
+  getUserId,
+  useIsAuthorized,
+  userActions,
+} from 'entities/User';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { APP_NAME } from 'shared/constants/appInfo';
 import { AvatarLetters } from 'shared/ui/Avatar';
@@ -29,8 +35,11 @@ const Navbar = (props: NavbarProps) => {
   const navigate = useNavigate();
 
   const userData = useAppSelector(getUserAuthData);
+  const isUserAdmin = useAppSelector(getIsUserAdmin);
   const { isAuthorized } = useIsAuthorized();
   const userId = useAppSelector(getUserId);
+
+  const isAdminPanelAvailable = isUserAdmin;
 
   const {
     isOpen: isSignInModalOpen,
@@ -69,6 +78,15 @@ const Navbar = (props: NavbarProps) => {
               content: t('menu.profile', { defaultValue: 'Profile' }),
               href: `${RouterPaths[AppRoutes.PROFILE]}${userId}`,
             },
+            ...(isAdminPanelAvailable
+              ? [
+                  {
+                    id: 'admin-panel',
+                    content: t('menu.admin-panel', { defaultValue: 'Admin panel' }),
+                    href: RouterPaths[AppRoutes.ADMIN_PANEL],
+                  },
+                ]
+              : []),
             {
               id: 'post',
               content: t('create_post', { defaultValue: 'Create post' }),

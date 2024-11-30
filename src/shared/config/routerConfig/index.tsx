@@ -1,5 +1,7 @@
 import { RouteProps } from 'react-router-dom';
 
+import { AdminPanelPage } from 'pages/AdminPanelPage';
+import { ForbiddenPage } from 'pages/ForbiddenPage';
 import { PostEditPage } from 'pages/PostEditPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
@@ -7,9 +9,11 @@ import { AboutPage } from 'pages/AboutPage';
 import { HomePage } from 'pages/HomePage';
 import { BlogPage } from 'pages/BlogPage';
 import { PostPage } from 'pages/PostPage';
+import { UserRoles } from 'entities/User';
 
 export type AppRouteProps = {
   authOnly?: boolean;
+  roles?: Array<UserRoles>;
 } & RouteProps;
 
 export enum AppRoutes {
@@ -20,6 +24,10 @@ export enum AppRoutes {
   POST = 'post',
   POST_CREATE = 'post_create',
   POST_EDIT = 'post_edit',
+  ADMIN_PANEL = 'admin_panel',
+
+  // when page is forbidden
+  FORBIDDEN = 'forbidden',
 
   // when no route is suitable
   NOT_FOUND = 'not_found',
@@ -33,6 +41,10 @@ export const RouterPaths: Record<AppRoutes, string> = {
   [AppRoutes.POST]: '/posts/', // :id
   [AppRoutes.POST_CREATE]: '/posts/create',
   [AppRoutes.POST_EDIT]: '/posts/:id/edit',
+  [AppRoutes.ADMIN_PANEL]: '/admin-panel',
+
+  // when page is forbidden
+  [AppRoutes.FORBIDDEN]: '/forbidden',
 
   // when no route is suitable
   [AppRoutes.NOT_FOUND]: '*',
@@ -71,6 +83,18 @@ export const routerConfig: Record<AppRoutes, AppRouteProps> = {
     path: RouterPaths[AppRoutes.POST_EDIT],
     element: <PostEditPage />,
     authOnly: true,
+  },
+  [AppRoutes.ADMIN_PANEL]: {
+    path: RouterPaths[AppRoutes.ADMIN_PANEL],
+    element: <AdminPanelPage />,
+    authOnly: true,
+    roles: [UserRoles.ADMIN],
+  },
+
+  // when page is forbidden
+  [AppRoutes.FORBIDDEN]: {
+    path: RouterPaths[AppRoutes.FORBIDDEN],
+    element: <ForbiddenPage />,
   },
 
   // when no route is suitable
