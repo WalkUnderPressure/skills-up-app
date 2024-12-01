@@ -4,14 +4,12 @@ import buildBabelLoader from './loaders/buildBabelLoader';
 import buildFileLoader from './loaders/buildFileLoader';
 import buildCssLoader from './loaders/buildCssLoader';
 import buildSvgLoader from './loaders/buildSvgLoader';
-import buildTsLoader from './loaders/buildTsLoader';
 import { BuildOptions } from './types';
 
 function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
-  const babelLoader = buildBabelLoader(options);
+  const codeBabelLoader = buildBabelLoader(options);
 
-  // If not using TS, need include "babel-loader"
-  const tsLoader = buildTsLoader(options);
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
   const cssLoader = buildCssLoader(options);
 
@@ -20,7 +18,7 @@ function buildLoaders(options: BuildOptions): Array<RuleSetRule> {
   const fileLoader = buildFileLoader();
 
   // Order important
-  return [babelLoader, tsLoader, cssLoader, svgLoader, fileLoader];
+  return [codeBabelLoader, tsxCodeBabelLoader, cssLoader, svgLoader, fileLoader];
 }
 
 export default buildLoaders;

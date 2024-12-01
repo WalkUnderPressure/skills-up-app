@@ -1,15 +1,43 @@
+import { PluginItem } from '@babel/core';
+
+import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin';
 import { BuildOptions } from '../types';
 
-function buildBabelLoader(options: BuildOptions) {
-  const { isDev } = options;
+type CustomPluginType = (...args: Array<unknown>) => PluginItem;
 
-  const babelPlugins = [];
+type BabelPlugin = string | [string, object] | CustomPluginType | [CustomPluginType, object];
+
+type BuildBabelLoaderParams = {
+  isTsx?: boolean;
+} & BuildOptions;
+
+function buildBabelLoader(options: BuildBabelLoaderParams) {
+  const { isDev, isTsx } = options;
+
+  const babelPlugins: Array<BabelPlugin> = [
+    [
+      '@babel/plugin-transform-typescript',
+      {
+        isTsx,
+      },
+    ],
+  ];
+
+  if (isTsx) {
+    babelPlugins.push([
+      babelRemovePropsPlugin,
+      {
+        props: ['data-testid'],
+      },
+    ]);
+  }
+
   if (isDev) {
     babelPlugins.push('react-refresh/babel');
   }
 
   return {
-    test: /\.[jt]sx?$/,
+    test: isTsx ? /\.[jt]sx?$/ : /\.[jt]s?$/,
     exclude: /node_modules/,
     use: [
       {
