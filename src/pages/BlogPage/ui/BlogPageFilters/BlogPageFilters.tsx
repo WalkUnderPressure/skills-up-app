@@ -25,9 +25,7 @@ import { HStack, VStack } from 'shared/ui/Stack';
 
 const FETCH_DELAY = 500;
 
-type BlogPageFiltersProps = {
-  className?: string;
-};
+type BlogPageFiltersProps = PropsWithClassName;
 
 const BlogPageFilters = memo((props: BlogPageFiltersProps) => {
   const { className } = props;

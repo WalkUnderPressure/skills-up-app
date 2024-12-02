@@ -3,9 +3,7 @@ import { memo } from 'react';
 import classNames from 'shared/lib/classNames';
 import * as cls from './[FTName].module.scss';
 
-type [FTName]Props = {
-  className?: string;
-};
+type [FTName]Props = PropsWithClassName;
 
 const [FTName] = memo((props: [FTName]Props) => {
   const { className } = props;

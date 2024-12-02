@@ -7,9 +7,8 @@ import { PostImageBlock } from '../../../../model/types/Post';
 import * as cls from './ImageBlockElement.module.scss';
 
 type ImageBlockProps = {
-  className?: string;
   block: PostImageBlock;
-};
+} & PropsWithClassName;
 
 const ImageBlockElement = memo((props: ImageBlockProps) => {
   const { className, block } = props;

@@ -27,9 +27,8 @@ const reducers: ReducersMap = {
 };
 
 type PostDetailsProps = {
-  className?: string;
   postId?: string;
-};
+} & PropsWithClassName;
 
 const PostDetails = memo((props: PostDetailsProps) => {
   const { className, postId } = props;

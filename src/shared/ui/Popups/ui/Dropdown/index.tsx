@@ -24,11 +24,10 @@ export type DropdownItem = {
 };
 
 export type DropdownProps = {
-  className?: string;
   items: DropdownItem[];
   direction?: PopupDirection;
   trigger: ReactNode;
-};
+} & PropsWithClassName;
 
 const Dropdown = (props: DropdownProps) => {
   const { className, trigger, items, direction = 'bottom-right' } = props;

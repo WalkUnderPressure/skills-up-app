@@ -25,9 +25,8 @@ const reducers: ReducersMap = {
 };
 
 export type SignInFormProps = {
-  className?: string;
   onSuccess: () => void;
-};
+} & PropsWithClassName;
 
 const SignInForm = memo((props: SignInFormProps) => {
   const { className, onSuccess } = props;

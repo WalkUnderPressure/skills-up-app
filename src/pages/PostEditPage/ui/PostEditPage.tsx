@@ -5,9 +5,7 @@ import classNames from 'shared/lib/classNames';
 import { HStack } from 'shared/ui/Stack';
 import { Page } from 'widgets/Page';
 
-export type PostEditPageProps = {
-  className?: string;
-};
+export type PostEditPageProps = PropsWithClassName;
 
 const PostEditPage = (props: PostEditPageProps) => {
   const { className } = props;

@@ -1,9 +1,7 @@
 import { Loader } from 'shared/ui/Loader';
 import { HStack } from 'shared/ui/Stack';
 
-type PageLoaderProps = {
-  className?: string;
-};
+type PageLoaderProps = PropsWithClassName;
 
 const PageLoader = (props: PageLoaderProps) => {
   const { className } = props;

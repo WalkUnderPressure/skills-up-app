@@ -10,11 +10,10 @@ export enum AvatarSize {
 }
 
 type AvatarProps = {
-  className?: string;
   size?: AvatarSize;
   src: string;
   alt?: string;
-};
+} & PropsWithClassName;
 
 const Avatar = (props: AvatarProps) => {
   const { src, alt, className, size = AvatarSize.M } = props;

@@ -5,9 +5,7 @@ import { Page } from 'widgets/Page';
 
 import HtmlImage from 'shared/assets/images/html.png';
 
-export type AboutPageProps = {
-  className?: string;
-};
+export type AboutPageProps = PropsWithClassName;
 
 const AboutPage = (props: AboutPageProps) => {
   const { className } = props;

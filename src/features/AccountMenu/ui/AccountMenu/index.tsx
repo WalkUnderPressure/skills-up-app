@@ -8,9 +8,7 @@ import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
 import { AvatarLetters } from 'shared/ui/Avatar';
 import { Dropdown } from 'shared/ui/Popups';
 
-type AccountMenuProps = {
-  className?: string;
-};
+type AccountMenuProps = PropsWithClassName;
 
 const AccountMenu = memo((props: AccountMenuProps) => {
   const { className } = props;

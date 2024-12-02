@@ -2,11 +2,11 @@ import { ListBox, ListBoxItem, ListBoxProps } from 'shared/ui/Popups';
 import { CountryMap, CountryMapKey } from '../model/types/countries';
 
 type CountrySelectProps = {
-  className?: string;
   value?: string;
   label?: string;
   onChange?: (value: string) => void;
-} & ListBoxProps<CountryMapKey>;
+} & ListBoxProps<CountryMapKey> &
+  PropsWithClassName;
 
 const COUNTRY_OPTIONS: Array<ListBoxItem<CountryMapKey>> = Object.entries(CountryMap).map(
   ([countryName, countryValue]) => ({

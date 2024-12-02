@@ -10,9 +10,8 @@ import { Commentary } from '../../model/types/commentary';
 import * as cls from './CommentaryCard.module.scss';
 
 type CommentaryCardProps = {
-  className?: string;
   commentary?: Commentary;
-};
+} & PropsWithClassName;
 
 const CommentaryCard = memo((props: CommentaryCardProps) => {
   const { className, commentary } = props;

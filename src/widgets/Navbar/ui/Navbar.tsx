@@ -12,9 +12,7 @@ import { HStack } from 'shared/ui/Stack';
 import classNames from 'shared/lib/classNames';
 import * as cls from './Navbar.module.scss';
 
-type NavbarProps = {
-  className?: string;
-};
+type NavbarProps = PropsWithClassName;
 
 const Navbar = (props: NavbarProps) => {
   const { className } = props;

@@ -22,9 +22,7 @@ import EditIcon from 'shared/assets/icons/edit.svg';
 import ResetIcon from 'shared/assets/icons/reset.svg';
 import SaveIcon from 'shared/assets/icons/save.svg';
 
-type EditableProfileCardHeaderProps = {
-  className?: string;
-};
+type EditableProfileCardHeaderProps = PropsWithClassName;
 
 const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
   const { className } = props;

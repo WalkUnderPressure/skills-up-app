@@ -6,14 +6,14 @@ import * as cls from './Text.module.scss';
 type HeadingTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type TextProps = {
-  className?: string;
   title?: string;
   text?: string;
   theme?: TextTheme;
   asTitle?: HeadingTags | 'p';
   asText?: 'p' | 'span';
   fullW?: boolean;
-} & TextDataTestIdProps;
+} & TextDataTestIdProps &
+  PropsWithClassName;
 
 // TODO: Add different sizes for h1, h2, h3 etc.
 const Text = (props: TextProps) => {

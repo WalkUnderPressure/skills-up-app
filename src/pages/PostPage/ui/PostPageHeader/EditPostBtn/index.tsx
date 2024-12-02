@@ -12,9 +12,7 @@ import * as cls from './EditPostBtn.module.scss';
 
 import EditIcon from 'shared/assets/icons/edit.svg';
 
-type EditPostBtnProps = {
-  className?: string;
-};
+type EditPostBtnProps = PropsWithClassName;
 
 const EditPostBtn = (props: EditPostBtnProps) => {
   const { className } = props;

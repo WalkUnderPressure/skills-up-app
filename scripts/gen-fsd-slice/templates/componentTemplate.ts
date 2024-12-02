@@ -8,9 +8,7 @@ import classNames from 'shared/lib/classNames';
 
 import * as cls from './${componentName}.module.scss';
 
-type ${componentName}Props = {
-    className?: string;
-}
+type ${componentName}Props = PropsWithClassName;
 
 const ${componentName} = memo((props: ${componentName}Props) => {
     const { className } = props;

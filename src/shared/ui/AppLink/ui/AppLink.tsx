@@ -6,10 +6,10 @@ import { AppLinkTheme } from '../types';
 import * as cls from './AppLink.module.scss';
 
 type AppLinkProps = {
-  className?: string;
   theme?: AppLinkTheme;
 } & LinkProps &
-  PropsWithChildren;
+  PropsWithChildren &
+  PropsWithClassName;
 
 const AppLink = forwardRef<HTMLAnchorElement, AppLinkProps>((props, ref) => {
   const { className, children, theme = AppLinkTheme.PRIMARY, ...restLinkProps } = props;

@@ -3,10 +3,7 @@ import { HTMLAttributes, memo, PropsWithChildren } from 'react';
 import classNames from 'shared/lib/classNames';
 import * as cls from './Card.module.scss';
 
-type CardProps = {
-  className?: string;
-} & PropsWithChildren &
-  HTMLAttributes<HTMLDivElement>;
+type CardProps = HTMLAttributes<HTMLDivElement> & PropsWithChildren & PropsWithClassName;
 
 const Card = memo((props: CardProps) => {
   const { className, children, ...restProps } = props;

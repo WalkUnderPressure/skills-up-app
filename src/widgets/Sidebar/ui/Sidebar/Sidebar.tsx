@@ -13,9 +13,7 @@ import * as cls from './Sidebar.module.scss';
 import ArrowRightLine from 'shared/assets/icons/arrow-right-line.svg';
 import { HStack, VStack } from 'shared/ui/Stack';
 
-type SidebarProps = {
-  className?: string;
-} & SidebarDataTestIdProps;
+type SidebarProps = SidebarDataTestIdProps & PropsWithClassName;
 
 const Sidebar = memo((props: SidebarProps) => {
   const { className, sidebarDataTestId, switcherDataTestId } = props;

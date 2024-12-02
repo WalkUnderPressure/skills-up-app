@@ -19,9 +19,8 @@ const reducers: ReducersMap = {
 };
 
 export type AddCommentaryFormProps = {
-  className?: string;
   onSendCommentary: (text: string) => void;
-};
+} & PropsWithClassName;
 
 const AddCommentaryForm = memo((props: AddCommentaryFormProps) => {
   const { className, onSendCommentary } = props;

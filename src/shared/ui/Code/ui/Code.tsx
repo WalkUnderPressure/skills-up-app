@@ -6,10 +6,9 @@ import * as cls from './Code.module.scss';
 
 import CopyIcon from 'shared/assets/icons/copy.svg';
 
-interface CodeProps {
-  className?: string;
+type CodeProps = {
   text: string;
-}
+} & PropsWithClassName;
 
 const COPY_ICON_SIZE = 24;
 

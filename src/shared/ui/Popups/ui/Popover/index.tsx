@@ -11,10 +11,10 @@ import { PopupDirection } from '../../types';
 import * as popupCls from '../../styles/popup.module.scss';
 
 export type PopoverProps = {
-  className?: string;
   trigger: ReactNode;
   direction?: PopupDirection;
-} & PropsWithChildren;
+} & PropsWithChildren &
+  PropsWithClassName;
 
 const Popover = memo((props: PopoverProps) => {
   const { trigger, children, className, direction = 'bottom-right' } = props;

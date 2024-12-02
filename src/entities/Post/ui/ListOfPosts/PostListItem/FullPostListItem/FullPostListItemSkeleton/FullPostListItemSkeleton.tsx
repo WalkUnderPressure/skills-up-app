@@ -5,9 +5,7 @@ import { Card } from 'shared/ui/Card';
 
 import * as cls from './FullPostListItemSkeleton.module.scss';
 
-type FullPostListItemSkeletonProps = {
-  className?: string;
-};
+type FullPostListItemSkeletonProps = PropsWithClassName;
 
 const FullPostListItemSkeleton = (props: FullPostListItemSkeletonProps) => {
   const { className } = props;

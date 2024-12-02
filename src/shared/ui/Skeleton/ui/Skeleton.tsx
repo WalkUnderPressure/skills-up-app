@@ -8,12 +8,11 @@ export enum SkeletonThemes {
   CIRCLE = 'circle',
 }
 
-interface SkeletonProps {
-  className?: string;
+type SkeletonProps = {
   height?: string | number;
   width?: string | number;
   theme?: SkeletonThemes;
-}
+} & PropsWithClassName;
 
 const DEFAULT_SIZE = '100px';
 

@@ -4,9 +4,8 @@ import { Code } from 'shared/ui/Code';
 import { PostCodeBlock } from '../../../../model/types/Post';
 
 type CodeBlockElementProps = {
-  className?: string;
   block: PostCodeBlock;
-};
+} & PropsWithClassName;
 
 const CodeBlockElement = memo((props: CodeBlockElementProps) => {
   const { className, block } = props;

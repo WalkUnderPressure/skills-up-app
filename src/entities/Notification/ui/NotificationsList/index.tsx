@@ -9,9 +9,8 @@ import NotificationItem from '../NotificationItem';
 import * as cls from './NotificationsList.module.scss';
 
 export type NotificationsListProps = {
-  className?: string;
   itemsClassName?: string;
-};
+} & PropsWithClassName;
 
 const NotificationsList = (props: NotificationsListProps) => {
   const { className, itemsClassName } = props;

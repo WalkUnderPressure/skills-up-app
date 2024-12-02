@@ -6,8 +6,7 @@ const DEFAULT_POST_FULL_SKELETONS = 4;
 
 type PostsSkeletonsProps = {
   viewType: PostViewKey;
-  className?: string;
-};
+} & PropsWithClassName;
 
 const PostsSkeletons = (props: PostsSkeletonsProps) => {
   const { viewType = PostViewMap.SHORT, className = '' } = props;

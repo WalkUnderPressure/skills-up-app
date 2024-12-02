@@ -4,9 +4,7 @@ import classNames from 'shared/lib/classNames';
 import { Page } from 'widgets/Page';
 import * as cls from './NotFoundPage.module.scss';
 
-type NotFoundPageProps = {
-  className?: string;
-};
+type NotFoundPageProps = PropsWithClassName;
 
 const NotFoundPage = (props: NotFoundPageProps) => {
   const { className } = props;

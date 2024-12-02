@@ -23,7 +23,6 @@ export type ListBoxItem<T = string> = {
 
 export type ListBoxProps<T = string> = {
   items?: Array<ListBoxItem<T>>;
-  className?: string;
   value?: T;
   defaultValue?: T;
   onChange?: (value: T) => void;
@@ -31,7 +30,7 @@ export type ListBoxProps<T = string> = {
   readOnly?: boolean;
   direction?: PopupDirection;
   label?: string;
-};
+} & PropsWithClassName;
 
 const ListBox = <T extends string = string>(props: ListBoxProps<T>) => {
   const { defaultValue, onChange, disabled, readOnly } = props;

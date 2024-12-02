@@ -9,12 +9,11 @@ import PostsSkeletons from './PostsSkeletons';
 import { Text, TextTheme } from 'shared/ui/Text';
 
 export type PostsListProps = {
-  className?: string;
   posts?: Array<Post>;
   isLoading?: boolean;
   viewType?: PostViewKey;
   target?: HTMLAttributeAnchorTarget | undefined;
-};
+} & PropsWithClassName;
 
 const PostsList = memo((props: PostsListProps) => {
   const { className, posts, isLoading = false, viewType = PostViewMap.SHORT, target } = props;

@@ -15,9 +15,7 @@ const reducers: ReducersMap = {
   blogPage: blogPageReducer,
 };
 
-export type BlogPageProps = {
-  className?: string;
-};
+export type BlogPageProps = PropsWithClassName;
 
 const BlogPage = (props: BlogPageProps) => {
   const { className } = props;

@@ -14,8 +14,7 @@ type PostSortSelectorProps = {
   sortOrder: SortOrder;
   onChangeSortField?: (newSort: PostSortFieldsKey) => void;
   onChangeSortOrder?: (newOrder: SortOrder) => void;
-  className?: string;
-};
+} & PropsWithClassName;
 
 const PostSortSelector = memo((props: PostSortSelectorProps) => {
   const { sortField, sortOrder, onChangeSortField, onChangeSortOrder } = props;

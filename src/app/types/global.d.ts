@@ -45,3 +45,7 @@ declare type ErrorData<T> = {
   isFailed?: boolean;
   errorCode?: Nullable<T>;
 };
+
+declare type PropsWithClassName = {
+  className?: string;
+};

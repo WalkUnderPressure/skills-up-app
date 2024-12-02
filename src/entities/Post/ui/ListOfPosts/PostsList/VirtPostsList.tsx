@@ -11,7 +11,6 @@ import PostsSkeletons from './PostsSkeletons';
 import * as cls from './PostsList.module.scss';
 
 type VPostsListProps = {
-  className?: string;
   posts?: Array<Post>;
   isLoading?: boolean;
   viewType?: PostViewKey;
@@ -19,7 +18,7 @@ type VPostsListProps = {
   scrollIndex?: number;
   onLoadNextPart?: () => void;
   handleScrollIndexClick?: (index: number) => void;
-};
+} & PropsWithClassName;
 
 export const VirtPostsList = memo((props: VPostsListProps) => {
   const { viewType = PostViewMap.SHORT, scrollIndex = 0 } = props;

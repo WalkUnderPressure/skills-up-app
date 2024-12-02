@@ -19,7 +19,6 @@ import { ProfileCardDataTestIds } from './ProfileCard.test-ids';
 import * as cls from './ProfileCard.module.scss';
 
 type ProfileProps = {
-  className?: string;
   profile?: Nullable<Profile>;
   validationErrors?: ProfileValidationErrors;
   isLoading?: boolean;
@@ -27,7 +26,7 @@ type ProfileProps = {
   isDisabled?: boolean;
   errorData?: Nullable<ErrorData<ProfileErrorCode>>;
   onChange?: (fieldName: ProfileKeys, value: string) => void;
-};
+} & PropsWithClassName;
 
 type ErrorTranslates = Record<ProfileErrorCode, string>;
 

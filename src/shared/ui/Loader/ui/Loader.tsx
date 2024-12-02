@@ -1,9 +1,7 @@
 import classNames from 'shared/lib/classNames';
 import * as cls from './Loader.module.scss';
 
-type LoaderProps = {
-  className?: string;
-};
+type LoaderProps = PropsWithClassName;
 
 const Loader = (props: LoaderProps) => {
   const { className } = props;

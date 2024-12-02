@@ -5,9 +5,7 @@ import classNames from 'shared/lib/classNames';
 import { Page } from 'widgets/Page';
 import * as cls from './ForbiddenPage.module.scss';
 
-type ForbiddenPageProps = {
-  className?: string;
-};
+type ForbiddenPageProps = PropsWithClassName;
 
 const ForbiddenPage = memo((props: ForbiddenPageProps) => {
   const { className } = props;

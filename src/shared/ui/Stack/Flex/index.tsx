@@ -36,7 +36,6 @@ const gapClasses: Record<FlexGap, string> = {
 };
 
 export type FlexProps<T extends keyof JSX.IntrinsicElements = 'div'> = {
-  className?: string;
   children: React.ReactNode;
   justify?: FlexJustify;
   align?: FlexAlign;
@@ -45,7 +44,8 @@ export type FlexProps<T extends keyof JSX.IntrinsicElements = 'div'> = {
   fullW?: boolean;
   fullH?: boolean;
   as?: T;
-} & HTMLProps<JSX.IntrinsicElements[T]>;
+} & HTMLProps<JSX.IntrinsicElements[T]> &
+  PropsWithClassName;
 
 // TODO: add work with desktop and mobile
 const Flex = <T extends keyof JSX.IntrinsicElements = 'div'>(props: FlexProps<T>) => {

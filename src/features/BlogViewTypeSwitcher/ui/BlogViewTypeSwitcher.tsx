@@ -21,10 +21,9 @@ const ViewTypesList: Record<PostViewKey, { name: PostViewKey; Icon: SvgIconType 
 };
 
 type BlogViewTypeSwitcherProps = {
-  className?: string;
   viewType: PostViewKey;
   onChangeView: (nextView: PostViewKey) => void;
-};
+} & PropsWithClassName;
 
 const BlogViewTypeSwitcher = memo((props: BlogViewTypeSwitcherProps) => {
   const { className, viewType, onChangeView } = props;

@@ -7,10 +7,9 @@ import classNames from 'shared/lib/classNames';
 import { PostTagsMap, PostTagsKey } from '../../model/types/Post';
 
 type PostTagsTabsProps = {
-  className?: string;
   value: PostTagsKey;
   onChangeTab: (type: PostTagsKey) => void;
-};
+} & PropsWithClassName;
 
 export const PostTagsTabs = memo((props: PostTagsTabsProps) => {
   const { className, value, onChangeTab } = props;

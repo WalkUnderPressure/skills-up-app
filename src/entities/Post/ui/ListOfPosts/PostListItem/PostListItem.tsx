@@ -5,12 +5,11 @@ import FullPostListItem from '../PostListItem/FullPostListItem/FullPostListItem'
 import { Post, PostViewKey, PostViewMap } from '../../../model/types/Post';
 
 export type CommonPostListItemProps = {
-  className?: string;
   post?: Post;
   isLoading?: boolean;
   target?: HTMLAttributeAnchorTarget | undefined;
   onItemLinkClick?: () => void;
-};
+} & PropsWithClassName;
 
 type PostListItemProps = {
   viewType?: PostViewKey;

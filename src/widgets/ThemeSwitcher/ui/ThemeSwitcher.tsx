@@ -6,9 +6,7 @@ import classNames from 'shared/lib/classNames';
 
 import ThemeSwitch from 'shared/assets/icons/theme-switch.svg';
 
-type ThemeSwitcherProps = {
-  className?: string;
-};
+type ThemeSwitcherProps = PropsWithClassName;
 
 const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
   const { className } = props;

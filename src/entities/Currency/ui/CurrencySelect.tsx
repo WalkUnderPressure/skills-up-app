@@ -2,11 +2,11 @@ import { ListBox, ListBoxItem, ListBoxProps } from 'shared/ui/Popups';
 import { CurrencyMap, CurrencyMapKey } from '../model/types/currencies';
 
 type CurrencySelectProps = {
-  className?: string;
   value?: CurrencyMapKey;
   label?: string;
   onChange?: (value: string) => void;
-} & ListBoxProps<CurrencyMapKey>;
+} & ListBoxProps<CurrencyMapKey> &
+  PropsWithClassName;
 
 const CURRENCY_OPTIONS: Array<ListBoxItem<CurrencyMapKey>> = Object.entries(CurrencyMap).map(
   ([currencyName, currencyValue]) => ({

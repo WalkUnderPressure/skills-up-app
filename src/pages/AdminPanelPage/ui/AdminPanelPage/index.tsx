@@ -5,9 +5,7 @@ import { Page } from 'widgets/Page';
 
 import * as cls from './AdminPanelPage.module.scss';
 
-type AdminPanelPageProps = {
-  className?: string;
-};
+type AdminPanelPageProps = PropsWithClassName;
 
 const TITLE = 'Admin panel';
 

@@ -3,9 +3,7 @@ import { useTranslation } from 'react-i18next';
 import classNames from 'shared/lib/classNames';
 import { Page } from 'widgets/Page';
 
-export type HomePageProps = {
-  className?: string;
-};
+export type HomePageProps = PropsWithClassName;
 
 const HomePage = (props: HomePageProps) => {
   const { className } = props;

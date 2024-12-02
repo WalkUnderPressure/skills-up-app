@@ -11,9 +11,7 @@ import PostCommentaries from '../PostCommentaries';
 import PostPageHeader from '../PostPageHeader';
 import * as cls from './PostPage.module.scss';
 
-export type PostPageProps = {
-  className?: string;
-};
+export type PostPageProps = PropsWithClassName;
 
 const reducers: ReducersMap = {
   postPage: postPageReducer,

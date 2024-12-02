@@ -5,10 +5,9 @@ import { Modal } from 'shared/ui/Modal';
 import SignInFormAsync from '../SignInForm/SignInForm.async';
 
 type SignInModalProps = {
-  className?: string;
   isOpen?: boolean;
   onClose: () => void;
-};
+} & PropsWithClassName;
 
 const SignInModal = (props: SignInModalProps) => {
   const { className, isOpen, onClose } = props;

@@ -5,13 +5,13 @@ import { ButtonTheme, ButtonSize, ButtonRounded } from '../types';
 import * as cls from './Button.module.scss';
 
 type ButtonProps = {
-  className?: string;
   theme?: ButtonTheme;
   size?: ButtonSize;
   isSquare?: boolean;
   rounded?: ButtonRounded;
-} & PropsWithChildren &
-  ButtonHTMLAttributes<HTMLButtonElement>;
+} & ButtonHTMLAttributes<HTMLButtonElement> &
+  PropsWithChildren &
+  PropsWithChildren;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {

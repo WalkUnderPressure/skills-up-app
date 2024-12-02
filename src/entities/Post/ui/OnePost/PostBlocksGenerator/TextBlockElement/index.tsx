@@ -7,10 +7,9 @@ import { Text } from 'shared/ui/Text';
 import { VStack } from 'shared/ui/Stack';
 
 type TextBlockElementProps = {
-  className?: string;
   block: PostTextBlock;
   hideTitle?: boolean;
-};
+} & PropsWithClassName;
 
 const TextBlockElement = memo((props: TextBlockElementProps) => {
   const { className, block, hideTitle = false } = props;

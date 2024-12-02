@@ -5,9 +5,7 @@ import { Button } from 'shared/ui/Button';
 import * as cls from './PageErrorBanner.module.scss';
 import { VStack } from 'shared/ui/Stack';
 
-type PageErrorBannerProps = {
-  className?: string;
-};
+type PageErrorBannerProps = PropsWithClassName;
 
 const PageErrorBanner = (props: PageErrorBannerProps) => {
   const { className } = props;

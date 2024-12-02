@@ -8,13 +8,13 @@ export const InputErrorDataTestId = 'InputErrorDataTestId';
 type HtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
 type InputProps = {
-  className?: string;
   value?: string;
   onChange?: (value: string) => void;
   errorMessage?: string;
   label?: string;
   'data-testid'?: string;
-} & HtmlInputProps;
+} & HtmlInputProps &
+  PropsWithClassName;
 
 const Input = memo((props: InputProps) => {
   const {

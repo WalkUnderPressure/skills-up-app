@@ -9,9 +9,7 @@ import classNames from 'shared/lib/classNames';
 
 import * as cls from './PostRecommendationsList.module.scss';
 
-type PostRecommendationsListProps = {
-  className?: string;
-};
+type PostRecommendationsListProps = PropsWithClassName;
 
 const PostRecommendationsList = memo((props: PostRecommendationsListProps) => {
   const { className } = props;

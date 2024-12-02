@@ -24,8 +24,7 @@ const reducers: ReducersMap = {
 
 type EditableProfileCardProps = {
   profileUserId: string;
-  className?: string;
-};
+} & PropsWithClassName;
 
 const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const { className, profileUserId } = props;

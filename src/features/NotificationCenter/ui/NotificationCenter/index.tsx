@@ -6,9 +6,7 @@ import { Popover } from 'shared/ui/Popups';
 import BellIcon from 'shared/assets/icons/bell.svg';
 import * as cls from './NotificationCenter.module.scss';
 
-type NotificationCenterProps = {
-  className?: string;
-};
+type NotificationCenterProps = PropsWithClassName;
 
 const NotificationCenter = memo((props: NotificationCenterProps) => {
   const { className } = props;

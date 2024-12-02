@@ -10,11 +10,10 @@ export type TabItem<T extends string = string> = {
 };
 
 type TabsProps<T extends string = string> = {
-  className?: string;
   tabs: Array<TabItem<T>>;
   value: string;
   onTabClick: (tabValue: T) => void;
-};
+} & PropsWithClassName;
 
 const Tabs = genericMemo(<T extends string = string>(props: TabsProps<T>) => {
   const { className, tabs, onTabClick, value } = props;

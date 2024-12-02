@@ -8,9 +8,8 @@ import { Notification } from '../../model/types/NotificationStateSchema';
 import * as cls from './NotificationItem.module.scss';
 
 type NotificationProps = {
-  className?: string;
   notification: Notification;
-};
+} & PropsWithClassName;
 
 const NotificationItem = memo((props: NotificationProps) => {
   const { className, notification } = props;

@@ -23,9 +23,8 @@ const LANGS = [
 ];
 
 type LangSwitcherProps = {
-  className?: string;
   short?: boolean;
-};
+} & PropsWithClassName;
 
 const LangSwitcher = memo((props: LangSwitcherProps) => {
   const { className, short = false } = props;

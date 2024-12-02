@@ -10,11 +10,10 @@ import { Commentary } from '../../model/types/commentary';
 const LOADING_COMMENTARY_ITEMS = Array.from({ length: 3 }, (x, i) => i);
 
 type CommentaryListProps = {
-  className?: string;
   commentaries?: Array<Commentary>;
   isLoading?: boolean;
   title?: string;
-};
+} & PropsWithClassName;
 
 const CommentaryList = memo((props: CommentaryListProps) => {
   const { className, title = '', commentaries = [], isLoading = false } = props;

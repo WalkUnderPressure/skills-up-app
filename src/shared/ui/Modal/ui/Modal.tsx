@@ -6,11 +6,11 @@ import { Portal } from 'shared/ui/Portal';
 import * as cls from './Modal.module.scss';
 
 type ModalProps = {
-  className?: string;
   isOpen?: boolean;
   onClose: () => void;
   lazy?: boolean;
-} & PropsWithChildren;
+} & PropsWithChildren &
+  PropsWithClassName;
 
 const Modal = (props: ModalProps) => {
   const { children, className, isOpen = false, onClose, lazy = true } = props;

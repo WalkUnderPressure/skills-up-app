@@ -11,10 +11,9 @@ import * as cls from './Page.module.scss';
 const SCROLL_SAVE_THROTTLE_DELAY = 300;
 
 type PageProps = {
-  className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
-};
+} & PropsWithClassName;
 
 export const Page = (props: PageProps) => {
   const { className, children, onScrollEnd } = props;
