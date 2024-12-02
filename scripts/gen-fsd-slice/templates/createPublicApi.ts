@@ -11,7 +11,7 @@ const createPublicApi = async (layer: string, sliceName: string) => {
     await fs.writeFile(
       resolveRoot('src', layer, sliceName, 'index.ts'),
       ` export { default as ${componentName} } from './ui/${componentName}';
-        export { ${schemaName} } from './model/types/${schemaName}';
+        export type { ${schemaName} } from './model/types/${schemaName}';
       `,
     );
   } catch (e) {

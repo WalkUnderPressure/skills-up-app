@@ -1,11 +1,12 @@
 import { Fragment, ReactNode } from 'react';
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/react';
 
-import { DropdownDirection } from 'shared/types/ui';
 import classNames from 'shared/lib/classNames';
-import { AppLink } from '../AppLink';
-
+import { AppLink } from 'shared/ui/AppLink';
+import { mapDirectionToClass } from '../../styles/mapDirectionToClass';
+import { PopupDirection } from '../../types';
 import * as cls from './Dropdown.module.scss';
+import * as popupCls from '../../styles/popup.module.scss';
 
 // type from @headlessui/react/dist/components/menu/menu.d.ts
 type ItemRenderPropArg = {
@@ -25,24 +26,17 @@ export type DropdownItem = {
 export type DropdownProps = {
   className?: string;
   items: DropdownItem[];
-  direction?: DropdownDirection;
+  direction?: PopupDirection;
   trigger: ReactNode;
-};
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  'bottom-left': cls['bottom-left'],
-  'bottom-right': cls['bottom-right'],
-  'top-right': cls['top-right'],
-  'top-left': cls['top-left'],
 };
 
 const Dropdown = (props: DropdownProps) => {
   const { className, trigger, items, direction = 'bottom-right' } = props;
 
-  const menuClasses = [mapDirectionClass[direction]];
+  const menuClasses = [mapDirectionToClass[direction], popupCls['popup-content']];
 
   return (
-    <Menu as="div" className={classNames(cls.dropdown, {}, [className])}>
+    <Menu as="div" className={classNames('', {}, [className, popupCls['popup-box']])}>
       <MenuButton className={cls.btn} as="div">
         {trigger}
       </MenuButton>

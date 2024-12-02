@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useGetPostRecommendationsQuery } from '../../api/postRecommendationsApi';
+import { usePostRecommendations } from '../../api/postRecommendationsApi';
 import { PostsList, PostViewMap } from 'entities/Post';
 import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text';
@@ -18,8 +18,7 @@ const PostRecommendationsList = memo((props: PostRecommendationsListProps) => {
 
   const { t } = useTranslation();
 
-  const { isLoading: isRecommendationsLoading, data: recommendations } =
-    useGetPostRecommendationsQuery({});
+  const { isLoading: isRecommendationsLoading, data: recommendations } = usePostRecommendations({});
 
   return (
     <div className={classNames(cls['post-recommendations-list'], {}, [className])}>

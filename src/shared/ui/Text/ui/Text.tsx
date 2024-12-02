@@ -10,7 +10,7 @@ type TextProps = {
   title?: string;
   text?: string;
   theme?: TextTheme;
-  asTitle?: HeadingTags;
+  asTitle?: HeadingTags | 'p';
   asText?: 'p' | 'span';
   fullW?: boolean;
 } & TextDataTestIdProps;

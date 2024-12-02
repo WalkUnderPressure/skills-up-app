@@ -8,7 +8,7 @@ type ${schemaTypeName} = {
   isTmp?: boolean;
 };
 
-export { ${schemaTypeName} };
+export type { ${schemaTypeName} };
 `;
 };
 

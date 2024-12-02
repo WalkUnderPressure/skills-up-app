@@ -1,4 +1,4 @@
-import { memo, PropsWithChildren } from 'react';
+import { forwardRef, PropsWithChildren } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
 import classNames from 'shared/lib/classNames';
@@ -11,11 +11,15 @@ type AppLinkProps = {
 } & LinkProps &
   PropsWithChildren;
 
-const AppLink = memo((props: AppLinkProps) => {
+const AppLink = forwardRef<HTMLAnchorElement, AppLinkProps>((props, ref) => {
   const { className, children, theme = AppLinkTheme.PRIMARY, ...restLinkProps } = props;
 
   return (
-    <Link {...restLinkProps} className={classNames(cls['app-link'], {}, [className, cls[theme]])}>
+    <Link
+      {...restLinkProps}
+      ref={ref}
+      className={classNames(cls['app-link'], {}, [className, cls[theme]])}
+    >
       {children}
     </Link>
   );

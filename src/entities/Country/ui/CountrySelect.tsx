@@ -1,4 +1,4 @@
-import ListBox, { ListBoxItem, ListBoxProps } from 'shared/ui/ListBox';
+import { ListBox, ListBoxItem, ListBoxProps } from 'shared/ui/Popups';
 import { CountryMap, CountryMapKey } from '../model/types/countries';
 
 type CountrySelectProps = {

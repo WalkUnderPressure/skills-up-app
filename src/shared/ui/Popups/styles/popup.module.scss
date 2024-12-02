@@ -1,0 +1,33 @@
+.popup-box {
+    position: relative;
+}
+
+.popup-content {
+    position: absolute;
+    z-index: var(--z-popup);
+    background: var(--listbox-bg);
+    border-radius: var(--radius-m);
+    box-shadow: 4px 4px 8px var(--listbox-bg);
+    border: none;
+    outline: none;
+}
+
+.bottom-left {
+    top: calc(100% + 4px);
+    right: 0;
+}
+
+.bottom-right {
+    top: calc(100% + 4px);
+    left: 0;
+}
+
+.top-right {
+    top: calc(100% + 4px);
+    left: 0;
+}
+
+.top-left {
+    right: 0;
+    bottom: 100%;
+}

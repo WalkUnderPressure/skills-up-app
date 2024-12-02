@@ -27,7 +27,7 @@ const RenderListBox = (props: ListBoxProps) => {
 };
 
 const meta = {
-  title: 'Shared/ListBox',
+  title: 'Shared/Popups/ListBox',
   component: ListBox,
   args: {
     label: 'Select item',

@@ -56,5 +56,8 @@
     },
     "recommendations": {
         "title": "Рекомендації"
+    },
+    "notifications": {
+        "title": "Сповіщення"
     }
 }

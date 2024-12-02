@@ -56,5 +56,8 @@
     },
     "recommendations": {
         "title": "Recommendations"
+    },
+    "notifications": {
+        "title": "Notifications"
     }
 }
