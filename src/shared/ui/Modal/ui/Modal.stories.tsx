@@ -2,14 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
 import Modal, { ModalProps } from './Modal';
-import useModal from '../lib/useModal';
+import useModalState from '../lib/useModalState';
 
 const ESC_CLOSE_TITLE = 'Click "Esc" to close Modal window';
 const OPEN_BTN_TEXT = 'Click to open modal';
 const MODAL_TITLE = 'Modal window body';
 
 const ModalRender = (props: ModalProps) => {
-  const { isOpen, openModal, closeModal } = useModal();
+  const { isOpen, openModal, closeModal } = useModalState();
 
   return (
     <div>

@@ -7,19 +7,9 @@
     transition: var(--transition-default);
 }
 
-.overlay {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--overlay-bg);
-}
-
 .content {
     width: var(--modal-w);
     min-height: var(--modal-min-h);
-    display: flex;
     padding: 24px;
     background-color: var(--bg-color);
     color: var(--warning-color);

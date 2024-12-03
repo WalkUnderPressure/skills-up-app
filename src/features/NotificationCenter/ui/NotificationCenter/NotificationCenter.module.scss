@@ -1,7 +1,12 @@
-.notification-center {
+.notification-popover {
     min-height: 350px;
     max-height: 350px;
     width: 300px;
+}
+
+.notification-drawer {
+    height: 100%;
+    padding: 0;
 }
 
 .notifications {
