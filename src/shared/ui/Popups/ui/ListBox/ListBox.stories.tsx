@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import ListBox, { ListBoxProps, ListBoxItem } from '.';
 
 const ITEMS: Array<ListBoxItem> = [

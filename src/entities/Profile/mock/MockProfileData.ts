@@ -1,8 +1,8 @@
 import { Profile } from '../model/types/ProfileStateSchema';
-import { CurrencyMap } from 'entities/Currency';
-import { CountryMap } from 'entities/Country';
+import { CurrencyMap } from '~/entities/Currency';
+import { CountryMap } from '~/entities/Country';
 
-import RomeImg from 'shared/assets/images/rome.jpg';
+import RomeImg from '~/shared/assets/images/rome.jpg';
 
 const MockProfileData: Profile = {
   id: '164',

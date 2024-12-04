@@ -1,5 +1,5 @@
-import LocalStorageMock from 'shared/config/tests/LocalStorageMock';
-import { LS_AUTH_USER } from 'shared/constants/localStorage';
+import LocalStorageMock from '~/shared/config/tests/LocalStorageMock';
+import { LS_AUTH_USER } from '~/shared/constants/localStorage';
 import { User, UserStateSchema } from '../types/UserStateSchema';
 import { userActions, userReducer } from './userSlice';
 

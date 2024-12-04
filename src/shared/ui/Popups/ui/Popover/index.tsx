@@ -5,7 +5,7 @@ import {
   PopoverPanel as HPopoverPanel,
 } from '@headlessui/react';
 
-import classNames from 'shared/lib/classNames';
+import classNames from '~/shared/lib/classNames';
 import { mapDirectionToClass } from '../../styles/mapDirectionToClass';
 import { PopupDirection } from '../../types';
 import * as popupCls from '../../styles/popup.module.scss';

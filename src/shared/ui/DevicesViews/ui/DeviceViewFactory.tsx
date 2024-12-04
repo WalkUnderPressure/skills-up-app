@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-import useDeviceDetect, { DeviceType } from 'shared/lib/hooks/useDeviceDetect';
+import useDeviceDetect, { DeviceType } from '~/shared/lib/hooks/useDeviceDetect';
 
 export type AdditionalDevicesProps = {
   additional?: Array<DeviceType>;

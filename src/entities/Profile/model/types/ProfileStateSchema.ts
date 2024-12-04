@@ -1,5 +1,5 @@
-import { CurrencyMapKey } from 'entities/Currency';
-import { CountryMapKey } from 'entities/Country';
+import { CurrencyMapKey } from '~/entities/Currency';
+import { CountryMapKey } from '~/entities/Country';
 import ProfileErrorCode from '../consts/ProfileErrorCode';
 
 interface Profile {

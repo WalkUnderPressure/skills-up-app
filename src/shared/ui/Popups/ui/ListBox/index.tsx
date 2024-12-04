@@ -7,11 +7,11 @@ import {
   Label as HListboxLabel,
 } from '@headlessui/react';
 
-import { Button, ButtonRounded } from 'shared/ui/Button';
-import classNames from 'shared/lib/classNames';
+import { Button, ButtonRounded } from '~/shared/ui/Button';
+import classNames from '~/shared/lib/classNames';
 import { mapDirectionToClass } from '../../styles/mapDirectionToClass';
 import { PopupDirection } from '../../types';
-import DoubleArrow from 'shared/assets/icons/double-arrow.svg';
+import DoubleArrow from '~/shared/assets/icons/double-arrow.svg';
 import * as cls from './ListBox.module.scss';
 import * as popupCls from '../../styles/popup.module.scss';
 

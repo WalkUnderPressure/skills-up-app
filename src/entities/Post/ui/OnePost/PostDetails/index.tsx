@@ -1,8 +1,10 @@
 import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
+import DynamicReducerProvider, {
+  ReducersMap,
+} from '~/shared/lib/components/DynamicReducerProvider';
+import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
 import { postDetailsReducer } from '../../../model/slices/postDetailsSlice';
 import { fetchPostById } from '../../../model/services/fetchPostById';
 import {
@@ -11,16 +13,16 @@ import {
   getPostError,
 } from '../../../model/selectors/postDetailsSelectors';
 import PostBlocksGenerator from '../PostBlocksGenerator';
-import { Text, TextTheme } from 'shared/ui/Text';
+import { Text, TextTheme } from '~/shared/ui/Text';
 import PostDetailsSkeleton from '../PostDetailsSkeleton';
-import useDateTransformer from 'shared/lib/hooks/useDateTransformer';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { Avatar, AvatarSize } from 'shared/ui/Avatar';
-import classNames from 'shared/lib/classNames';
+import useDateTransformer from '~/shared/lib/hooks/useDateTransformer';
+import { HStack, VStack } from '~/shared/ui/Stack';
+import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
+import classNames from '~/shared/lib/classNames';
 import * as cls from './PostDetails.module.scss';
 
-import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import EyeIcon from 'shared/assets/icons/eye.svg';
+import CalendarIcon from '~/shared/assets/icons/calendar.svg';
+import EyeIcon from '~/shared/assets/icons/eye.svg';
 
 const reducers: ReducersMap = {
   postDetails: postDetailsReducer,

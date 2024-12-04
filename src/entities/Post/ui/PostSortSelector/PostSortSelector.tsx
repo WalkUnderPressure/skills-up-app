@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import capitalize from 'lodash.capitalize';
 
 import { PostSortFieldsKey, PostSortFieldsMap } from '../../model/types/Post';
-import { Select, SelectOption } from 'shared/ui/Select';
-import { SortOrder } from 'shared/types/SortOrder';
-import classNames from 'shared/lib/classNames';
+import { Select, SelectOption } from '~/shared/ui/Select';
+import { SortOrder } from '~/shared/types/SortOrder';
+import classNames from '~/shared/lib/classNames';
 import * as cls from './PostSortSelector.module.scss';
-import { HStack } from 'shared/ui/Stack';
+import { HStack } from '~/shared/ui/Stack';
 
 type PostSortSelectorProps = {
   sortField: PostSortFieldsKey;

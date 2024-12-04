@@ -1,5 +1,5 @@
-import { PostSortFieldsMap, PostTagsKey, PostTagsMap, PostViewMap } from 'entities/Post';
-import { SortOrder } from 'shared/types/SortOrder';
+import { PostSortFieldsMap, PostTagsKey, PostTagsMap, PostViewMap } from '~/entities/Post';
+import { SortOrder } from '~/shared/types/SortOrder';
 
 export const DEFAULT_POST_VIEW_TYPE = PostViewMap.SHORT;
 export const DEFAULT_POST_SHORT_LIMIT = 12;

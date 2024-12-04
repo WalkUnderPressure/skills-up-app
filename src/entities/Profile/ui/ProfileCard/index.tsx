@@ -1,14 +1,14 @@
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Avatar, AvatarSize } from 'shared/ui/Avatar';
-import { CurrencySelect } from 'entities/Currency';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { Text, TextTheme } from 'shared/ui/Text';
-import { CountrySelect } from 'entities/Country';
-import classNames from 'shared/lib/classNames';
-import { Loader } from 'shared/ui/Loader';
-import { Input } from 'shared/ui/Input';
+import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
+import { CurrencySelect } from '~/entities/Currency';
+import { HStack, VStack } from '~/shared/ui/Stack';
+import { Text, TextTheme } from '~/shared/ui/Text';
+import { CountrySelect } from '~/entities/Country';
+import classNames from '~/shared/lib/classNames';
+import { Loader } from '~/shared/ui/Loader';
+import { Input } from '~/shared/ui/Input';
 import {
   Profile,
   ProfileKeys,

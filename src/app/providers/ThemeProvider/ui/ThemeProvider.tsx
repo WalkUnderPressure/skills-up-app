@@ -1,7 +1,7 @@
 import { PropsWithChildren, useCallback, useMemo, useState } from 'react';
 
-import getSafeLocalStorageValue from 'shared/lib/helpers/getSafeValueFromLS';
-import { LS_THEME_KEY } from 'shared/constants/localStorage';
+import getSafeLocalStorageValue from '~/shared/lib/helpers/getSafeValueFromLS';
+import { LS_THEME_KEY } from '~/shared/constants/localStorage';
 import { ThemesMap, ThemeContext, ThemesMapKey } from '../lib/ThemeContext';
 
 export const DEFAULT_ALT_THEME = ThemesMap.Dark;

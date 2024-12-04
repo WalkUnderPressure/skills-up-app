@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
-import useEventListener from 'shared/lib/hooks/useEventListener';
-import useModalState from 'shared/ui/Modal/lib/useModalState';
+import useEventListener from '~/shared/lib/hooks/useEventListener';
+import useModalState from '~/shared/ui/Modal/lib/useModalState';
 
 function useModal() {
   const { isOpen, openModal, closeModal } = useModalState();

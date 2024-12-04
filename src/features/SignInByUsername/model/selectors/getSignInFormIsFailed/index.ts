@@ -1,4 +1,4 @@
-import { StoreStateSchema } from 'app/providers/StoreProvider';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
 
 const getSignInFormIsFailed = (state: StoreStateSchema) => {
   return state['sign-in_username']?.isFailed || false;

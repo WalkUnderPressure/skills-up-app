@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 
-import { Text, TextTheme } from 'shared/ui/Text';
-import classNames from 'shared/lib/classNames';
-import { HStack } from 'shared/ui/Stack';
-import { Page } from 'widgets/Page';
+import { Text, TextTheme } from '~/shared/ui/Text';
+import classNames from '~/shared/lib/classNames';
+import { HStack } from '~/shared/ui/Stack';
+import { Page } from '~/widgets/Page';
 
 export type PostEditPageProps = PropsWithClassName;
 

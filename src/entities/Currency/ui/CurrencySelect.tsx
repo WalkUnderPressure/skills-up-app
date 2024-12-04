@@ -1,4 +1,4 @@
-import { ListBox, ListBoxItem, ListBoxProps } from 'shared/ui/Popups';
+import { ListBox, ListBoxItem, ListBoxProps } from '~/shared/ui/Popups';
 import { CurrencyMap, CurrencyMapKey } from '../model/types/currencies';
 
 type CurrencySelectProps = {

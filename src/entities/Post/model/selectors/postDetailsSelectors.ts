@@ -1,4 +1,4 @@
-import { StoreStateSchema } from 'app/providers/StoreProvider';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import { Post } from '../types/Post';
 
 const getPostDetails = (state: StoreStateSchema): Nullable<Post> => {

@@ -2,8 +2,8 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import capitalize from 'lodash.capitalize';
 
-import { TabItem, Tabs } from 'shared/ui/Tabs';
-import classNames from 'shared/lib/classNames';
+import { TabItem, Tabs } from '~/shared/ui/Tabs';
+import classNames from '~/shared/lib/classNames';
 import { PostTagsMap, PostTagsKey } from '../../model/types/Post';
 
 type PostTagsTabsProps = {

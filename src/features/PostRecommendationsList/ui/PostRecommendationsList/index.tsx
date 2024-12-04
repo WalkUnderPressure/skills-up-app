@@ -2,10 +2,10 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { usePostRecommendations } from '../../api/postRecommendationsApi';
-import { PostsList, PostViewMap } from 'entities/Post';
-import { VStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text';
-import classNames from 'shared/lib/classNames';
+import { PostsList, PostViewMap } from '~/entities/Post';
+import { VStack } from '~/shared/ui/Stack';
+import { Text } from '~/shared/ui/Text';
+import classNames from '~/shared/lib/classNames';
 
 import * as cls from './PostRecommendationsList.module.scss';
 

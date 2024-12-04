@@ -1,4 +1,4 @@
-import { Profile, ProfileErrorCode, ProfileValidationErrors } from 'entities/Profile';
+import { Profile, ProfileErrorCode, ProfileValidationErrors } from '~/entities/Profile';
 
 interface EditableProfileStateSchema {
   data?: Nullable<Profile>;

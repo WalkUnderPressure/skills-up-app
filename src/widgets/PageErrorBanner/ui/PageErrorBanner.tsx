@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import classNames from 'shared/lib/classNames';
-import { Button } from 'shared/ui/Button';
+import classNames from '~/shared/lib/classNames';
+import { Button } from '~/shared/ui/Button';
 import * as cls from './PageErrorBanner.module.scss';
-import { VStack } from 'shared/ui/Stack';
+import { VStack } from '~/shared/ui/Stack';
 
 type PageErrorBannerProps = PropsWithClassName;
 

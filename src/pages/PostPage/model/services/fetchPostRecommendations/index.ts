@@ -1,5 +1,5 @@
-import { createAppAsyncThunk, AsyncThunkRejectValue } from 'app/providers/StoreProvider';
-import { Post } from 'entities/Post';
+import { createAppAsyncThunk, AsyncThunkRejectValue } from '~/app/providers/StoreProvider';
+import { Post } from '~/entities/Post';
 
 const RECOMMENDATIONS_COUNT = 4;
 

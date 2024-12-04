@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { scrollKeeperReducer } from 'features/ScrollKeeper';
-import { userReducer } from 'entities/User';
-import rtkApi from 'shared/api/rtkApi';
-import $api from 'shared/api/api';
+import { scrollKeeperReducer } from '~/features/ScrollKeeper';
+import { userReducer } from '~/entities/User';
+import rtkApi from '~/shared/api/rtkApi';
+import $api from '~/shared/api/api';
 import {
   StoreStateSchema,
   StoreReducersMapObject,

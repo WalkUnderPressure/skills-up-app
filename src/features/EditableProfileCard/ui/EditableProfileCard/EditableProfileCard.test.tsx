@@ -1,14 +1,14 @@
 import userEvent from '@testing-library/user-event';
 import { screen } from '@testing-library/react';
 
-import { MockProfileData } from 'entities/Profile/mock/MockProfileData';
+import { MockProfileData } from '~/entities/Profile/mock/MockProfileData';
 import {
   ProvidersOptions,
   renderWithProviders,
-} from 'shared/config/tests/providers/renderWithProviders';
-import { ProfileCardDataTestIds } from 'entities/Profile';
-import { InputErrorDataTestId } from 'shared/ui/Input';
-import $api from 'shared/api/api';
+} from '~/shared/config/tests/providers/renderWithProviders';
+import { ProfileCardDataTestIds } from '~/entities/Profile';
+import { InputErrorDataTestId } from '~/shared/ui/Input';
+import $api from '~/shared/api/api';
 import { EditableProfileDataTestIds } from '../EditableProfileCard.test-ids';
 import { profileReducer } from '../../model/slices/editableProfileCardSlice';
 import EditableProfileCard from '.';

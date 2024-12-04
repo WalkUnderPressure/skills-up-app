@@ -1,5 +1,5 @@
-import { MockProfileWithAvatar, MockProfileData } from 'entities/Profile/mock/MockProfileData';
-import { Profile } from 'entities/Profile';
+import { MockProfileWithAvatar, MockProfileData } from '~/entities/Profile/mock/MockProfileData';
+import { Profile } from '~/entities/Profile';
 
 const MockCommentaries = [
   {

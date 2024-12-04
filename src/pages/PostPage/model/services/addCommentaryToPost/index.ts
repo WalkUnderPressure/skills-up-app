@@ -1,7 +1,7 @@
-import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
-import { Commentary } from 'entities/Commentary';
-import { getUserAuthData } from 'entities/User';
-import { getPostDetails } from 'entities/Post';
+import { AsyncThunkRejectValue, createAppAsyncThunk } from '~/app/providers/StoreProvider';
+import { Commentary } from '~/entities/Commentary';
+import { getUserAuthData } from '~/entities/User';
+import { getPostDetails } from '~/entities/Post';
 
 const addCommentaryToPost = createAppAsyncThunk<Commentary, string, AsyncThunkRejectValue<string>>(
   'postDetails/addCommentaryToPost',

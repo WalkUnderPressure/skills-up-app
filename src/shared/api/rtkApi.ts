@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import safeJsonParse from 'shared/lib/helpers/safeJsonParse';
-import { LS_AUTH_USER } from 'shared/constants/localStorage';
-import { User } from 'entities/User';
+import safeJsonParse from '~/shared/lib/helpers/safeJsonParse';
+import { LS_AUTH_USER } from '~/shared/constants/localStorage';
+import { User } from '~/entities/User';
 
 const fetchBaseQueryFetchFn = (...args: Parameters<typeof fetch>): ReturnType<typeof fetch> => {
   return typeof window === 'undefined' ? fetch(...args) : window.fetch(...args);

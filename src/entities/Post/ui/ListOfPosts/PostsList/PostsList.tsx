@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Post, PostViewKey, PostViewMap } from '../../../model/types/Post';
 import PostListItem from '../PostListItem/PostListItem';
-import classNames from 'shared/lib/classNames';
+import classNames from '~/shared/lib/classNames';
 import * as cls from './PostsList.module.scss';
 import PostsSkeletons from './PostsSkeletons';
-import { Text, TextTheme } from 'shared/ui/Text';
+import { Text, TextTheme } from '~/shared/ui/Text';
 
 export type PostsListProps = {
   posts?: Array<Post>;

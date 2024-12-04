@@ -1,11 +1,11 @@
 import { memo } from 'react';
 
-import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
-import { Avatar, AvatarSize } from 'shared/ui/Avatar';
-import { HStack, VStack } from 'shared/ui/Stack';
-import classNames from 'shared/lib/classNames';
-import { AppLink } from 'shared/ui/AppLink';
-import { Text } from 'shared/ui/Text';
+import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
+import { HStack, VStack } from '~/shared/ui/Stack';
+import classNames from '~/shared/lib/classNames';
+import { AppLink } from '~/shared/ui/AppLink';
+import { Text } from '~/shared/ui/Text';
 import { Commentary } from '../../model/types/commentary';
 import * as cls from './CommentaryCard.module.scss';
 

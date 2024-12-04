@@ -1,7 +1,7 @@
 import { forwardRef, PropsWithChildren } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
-import classNames from 'shared/lib/classNames';
+import classNames from '~/shared/lib/classNames';
 import { AppLinkTheme } from '../types';
 import * as cls from './AppLink.module.scss';
 

@@ -2,8 +2,8 @@ import { HTMLAttributeAnchorTarget, memo, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 
-import { Text, TextTheme } from 'shared/ui/Text';
-import classNames from 'shared/lib/classNames';
+import { Text, TextTheme } from '~/shared/ui/Text';
+import classNames from '~/shared/lib/classNames';
 
 import { Post, PostViewKey, PostViewMap } from '../../../model/types/Post';
 import PostListItem from '../PostListItem/PostListItem';

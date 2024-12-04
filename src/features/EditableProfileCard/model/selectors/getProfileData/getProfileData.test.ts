@@ -1,6 +1,6 @@
-import { MockProfileWithAvatar } from 'entities/Profile/mock/MockProfileData';
-import { StoreStateSchema } from 'app/providers/StoreProvider';
-import { Profile } from 'entities/Profile';
+import { MockProfileWithAvatar } from '~/entities/Profile/mock/MockProfileData';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { Profile } from '~/entities/Profile';
 import getProfileData from '.';
 
 describe('getProfileData', () => {

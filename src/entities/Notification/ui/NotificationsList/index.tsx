@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
-import classNames from 'shared/lib/classNames';
-import { VStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text';
+import classNames from '~/shared/lib/classNames';
+import { VStack } from '~/shared/ui/Stack';
+import { Text } from '~/shared/ui/Text';
 import { useNotifications, NOTIFICATIONS_REFRESH_INTERVAL } from '../../api/notificationsApi';
 import NotificationSkeleton from '../NotificationSkeleton';
 import NotificationItem from '../NotificationItem';

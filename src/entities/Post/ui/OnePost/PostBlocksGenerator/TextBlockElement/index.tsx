@@ -1,10 +1,10 @@
 import { memo } from 'react';
 
-import classNames from 'shared/lib/classNames';
+import classNames from '~/shared/lib/classNames';
 import { PostTextBlock } from '../../../../model/types/Post';
 import * as cls from './TextBlockElement.module.scss';
-import { Text } from 'shared/ui/Text';
-import { VStack } from 'shared/ui/Stack';
+import { Text } from '~/shared/ui/Text';
+import { VStack } from '~/shared/ui/Stack';
 
 type TextBlockElementProps = {
   block: PostTextBlock;

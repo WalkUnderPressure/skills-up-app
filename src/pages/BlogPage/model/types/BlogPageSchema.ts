@@ -1,8 +1,8 @@
 import { EntityState } from '@reduxjs/toolkit';
 
-import { Post, PostSortFieldsKey, PostTagsKey, PostViewKey } from 'entities/Post';
-import IInitialized from 'shared/types/IInitialized';
-import { SortOrder } from 'shared/types/SortOrder';
+import { Post, PostSortFieldsKey, PostTagsKey, PostViewKey } from '~/entities/Post';
+import IInitialized from '~/shared/types/IInitialized';
+import { SortOrder } from '~/shared/types/SortOrder';
 
 type BlogPageSchema = {
   isLoading?: boolean;

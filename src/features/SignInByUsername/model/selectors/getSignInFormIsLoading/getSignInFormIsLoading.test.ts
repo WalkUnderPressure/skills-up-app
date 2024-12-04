@@ -1,4 +1,4 @@
-import { StoreStateSchema } from 'app/providers/StoreProvider';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import getSignInFormIsLoading from '.';
 
 describe('getSignInFormIsLoading', () => {

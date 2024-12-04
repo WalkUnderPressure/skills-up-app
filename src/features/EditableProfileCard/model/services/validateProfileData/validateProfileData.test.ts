@@ -1,5 +1,5 @@
-import { MockProfileWithAvatar } from 'entities/Profile/mock/MockProfileData';
-import { ProfileErrorCode, ProfileValidationErrors } from 'entities/Profile';
+import { MockProfileWithAvatar } from '~/entities/Profile/mock/MockProfileData';
+import { ProfileErrorCode, ProfileValidationErrors } from '~/entities/Profile';
 import { validateProfileData } from '.';
 
 describe('validateProfileData', () => {

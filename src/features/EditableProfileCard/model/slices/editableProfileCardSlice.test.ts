@@ -1,6 +1,6 @@
-import { MockProfileData } from 'entities/Profile/mock/MockProfileData';
-import { Profile } from 'entities/Profile';
-import { ProfileErrorCode } from 'entities/Profile';
+import { MockProfileData } from '~/entities/Profile/mock/MockProfileData';
+import { Profile } from '~/entities/Profile';
+import { ProfileErrorCode } from '~/entities/Profile';
 import { EditableProfileStateSchema } from '../types/EditableProfileCardStateSchema';
 import { profileReducer, profileActions } from './editableProfileCardSlice';
 import { updateProfileData } from '../services/updateProfileData';

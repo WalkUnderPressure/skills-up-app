@@ -1,6 +1,6 @@
-import { Skeleton } from 'shared/ui/Skeleton';
-import { HStack } from 'shared/ui/Stack';
-import { Card } from 'shared/ui/Card';
+import { Skeleton } from '~/shared/ui/Skeleton';
+import { HStack } from '~/shared/ui/Stack';
+import { Card } from '~/shared/ui/Card';
 
 import * as cls from './ShortPostListItemSkeleton.module.scss';
 

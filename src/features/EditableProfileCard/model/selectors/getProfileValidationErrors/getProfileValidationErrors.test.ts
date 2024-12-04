@@ -1,5 +1,5 @@
-import { ProfileErrorCode, ProfileValidationErrors } from 'entities/Profile';
-import { StoreStateSchema } from 'app/providers/StoreProvider';
+import { ProfileErrorCode, ProfileValidationErrors } from '~/entities/Profile';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import getProfileValidationErrors from '.';
 
 describe('getProfileValidationErrors', () => {

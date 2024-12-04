@@ -1,14 +1,16 @@
 import { useSearchParams } from 'react-router-dom';
 
-import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
-import useInitialEffect from 'shared/lib/hooks/useInitialEffect';
-import { useAppDispatch } from 'app/providers/StoreProvider';
+import DynamicReducerProvider, {
+  ReducersMap,
+} from '~/shared/lib/components/DynamicReducerProvider';
+import useInitialEffect from '~/shared/lib/hooks/useInitialEffect';
+import { useAppDispatch } from '~/app/providers/StoreProvider';
 import { blogPageReducer } from '../../model/slices/blogPageSlice';
 import initBlogPageState from '../../model/services/initBlogPageState/initBlogPageState';
 import BlogPageFilters from '../BlogPageFilters/BlogPageFilters';
 import BlogInfiniteList from '../BlogInfiniteList';
-import classNames from 'shared/lib/classNames';
-import { Page } from 'widgets/Page';
+import classNames from '~/shared/lib/classNames';
+import { Page } from '~/widgets/Page';
 import * as cls from './BlogPage.module.scss';
 
 const reducers: ReducersMap = {

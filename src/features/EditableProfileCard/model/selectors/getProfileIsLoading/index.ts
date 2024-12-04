@@ -1,4 +1,4 @@
-import { StoreStateSchema } from 'app/providers/StoreProvider';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
 
 const getProfileIsLoading = (state: StoreStateSchema) => {
   return state['profile']?.isLoading || false;

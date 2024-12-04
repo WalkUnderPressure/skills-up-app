@@ -1,18 +1,18 @@
 import { memo } from 'react';
 
-import useDateTransformer from 'shared/lib/hooks/useDateTransformer';
-import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
-import classNames from 'shared/lib/classNames';
-import { AppLink } from 'shared/ui/AppLink';
-import { Card } from 'shared/ui/Card';
-import { Text } from 'shared/ui/Text';
+import useDateTransformer from '~/shared/lib/hooks/useDateTransformer';
+import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import classNames from '~/shared/lib/classNames';
+import { AppLink } from '~/shared/ui/AppLink';
+import { Card } from '~/shared/ui/Card';
+import { Text } from '~/shared/ui/Text';
 import ShortPostListItemSkeleton from './ShortPostListItemSkeleton/ShortPostListItemSkeleton';
 import { CommonPostListItemProps } from '../PostListItem';
 
 import * as cls from './ShortPostListItem.module.scss';
 
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import { HStack } from 'shared/ui/Stack';
+import EyeIcon from '~/shared/assets/icons/eye.svg';
+import { HStack } from '~/shared/ui/Stack';
 
 type PostShortListItemProps = CommonPostListItemProps;
 

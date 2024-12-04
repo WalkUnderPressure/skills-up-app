@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import AppThemeProviderDecorator from 'shared/config/storybook/decorators/AppThemeProviderDecorator';
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
+import AppThemeProviderDecorator from '~/shared/config/storybook/decorators/AppThemeProviderDecorator';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const meta = {

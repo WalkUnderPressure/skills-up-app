@@ -1,4 +1,4 @@
-import { StoreStateSchema } from 'app/providers/StoreProvider';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import getSignInFormIsFailed from '.';
 
 describe('getSignInFormIsFailed', () => {

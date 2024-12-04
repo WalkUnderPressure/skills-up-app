@@ -1,7 +1,7 @@
 import { StoryObj } from '@storybook/react/*';
 
-import { DEFAULT_ALT_THEME } from 'app/providers/ThemeProvider';
-import { ThemesMapKey } from 'app/providers/ThemeProvider';
+import { DEFAULT_ALT_THEME } from '~/app/providers/ThemeProvider';
+import { ThemesMapKey } from '~/app/providers/ThemeProvider';
 import { InvertedThemesMap } from '../decorators/AddonThemesDecorator';
 
 // https://storybook.js.org/addons/@storybook/addon-themes?ref=storybookblog.ghost.io

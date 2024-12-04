@@ -1,10 +1,10 @@
 import { memo, useCallback } from 'react';
 
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import classNames from 'shared/lib/classNames';
+import { Button, ButtonTheme } from '~/shared/ui/Button';
+import classNames from '~/shared/lib/classNames';
 import * as cls from './Code.module.scss';
 
-import CopyIcon from 'shared/assets/icons/copy.svg';
+import CopyIcon from '~/shared/assets/icons/copy.svg';
 
 type CodeProps = {
   text: string;

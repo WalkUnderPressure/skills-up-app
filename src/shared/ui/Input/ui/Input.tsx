@@ -1,6 +1,6 @@
 import { ChangeEvent, InputHTMLAttributes, memo, useCallback, useId } from 'react';
 
-import classNames from 'shared/lib/classNames';
+import classNames from '~/shared/lib/classNames';
 import * as cls from './Input.module.scss';
 
 export const InputErrorDataTestId = 'InputErrorDataTestId';

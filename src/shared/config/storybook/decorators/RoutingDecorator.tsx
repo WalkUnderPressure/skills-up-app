@@ -1,6 +1,6 @@
 import { StoryFn } from '@storybook/react';
 
-import { RoutingProvider } from 'app/providers/RoutingProvider';
+import { RoutingProvider } from '~/app/providers/RoutingProvider';
 
 const RoutingDecorator = (Story: StoryFn) => {
   return (

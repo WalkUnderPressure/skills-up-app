@@ -1,10 +1,10 @@
 import { memo } from 'react';
 
-import { useTheme } from 'app/providers/ThemeProvider';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import classNames from 'shared/lib/classNames';
+import { useTheme } from '~/app/providers/ThemeProvider';
+import { Button, ButtonTheme } from '~/shared/ui/Button';
+import classNames from '~/shared/lib/classNames';
 
-import ThemeSwitch from 'shared/assets/icons/theme-switch.svg';
+import ThemeSwitch from '~/shared/assets/icons/theme-switch.svg';
 
 type ThemeSwitcherProps = PropsWithClassName;
 

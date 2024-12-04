@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
-import { ButtonTheme, ButtonSize, ButtonRounded } from 'shared/ui/Button/types';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
+import { ButtonTheme, ButtonSize, ButtonRounded } from '~/shared/ui/Button/types';
 import Button from './Button';
 
 const meta = {

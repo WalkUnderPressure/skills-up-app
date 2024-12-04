@@ -1,5 +1,5 @@
-import { Loader } from 'shared/ui/Loader';
-import { HStack } from 'shared/ui/Stack';
+import { Loader } from '~/shared/ui/Loader';
+import { HStack } from '~/shared/ui/Stack';
 
 type PageLoaderProps = PropsWithClassName;
 

@@ -1,4 +1,9 @@
-import { Profile, ProfileErrorCode, ProfileKeys, ProfileValidationErrors } from 'entities/Profile';
+import {
+  Profile,
+  ProfileErrorCode,
+  ProfileKeys,
+  ProfileValidationErrors,
+} from '~/entities/Profile';
 
 function validateProfileData(formData: Partial<Profile>): ProfileValidationErrors {
   const errors: ProfileValidationErrors = {};

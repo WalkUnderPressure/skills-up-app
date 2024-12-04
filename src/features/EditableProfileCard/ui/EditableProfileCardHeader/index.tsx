@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import { Button, ButtonRounded, ButtonTheme } from 'shared/ui/Button';
-import { ProfileValidationErrors } from 'entities/Profile';
-import classNames from 'shared/lib/classNames';
-import { HStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text';
+import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
+import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/Button';
+import { ProfileValidationErrors } from '~/entities/Profile';
+import classNames from '~/shared/lib/classNames';
+import { HStack } from '~/shared/ui/Stack';
+import { Text } from '~/shared/ui/Text';
 import getProfileValidationErrors from '../../model/selectors/getProfileValidationErrors';
 import { EditableProfileDataTestIds } from '../EditableProfileCard.test-ids';
 import getProfileIsReadonly from '../../model/selectors/getProfileIsReadonly';
@@ -18,9 +18,9 @@ import useIsCanEdit from './useIsCanEdit';
 
 import * as cls from './EditableProfileCardHeader.module.scss';
 
-import EditIcon from 'shared/assets/icons/edit.svg';
-import ResetIcon from 'shared/assets/icons/reset.svg';
-import SaveIcon from 'shared/assets/icons/save.svg';
+import EditIcon from '~/shared/assets/icons/edit.svg';
+import ResetIcon from '~/shared/assets/icons/reset.svg';
+import SaveIcon from '~/shared/assets/icons/save.svg';
 
 type EditableProfileCardHeaderProps = PropsWithClassName;
 

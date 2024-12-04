@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, forwardRef, PropsWithChildren } from 'react';
 
-import classNames from 'shared/lib/classNames';
+import classNames from '~/shared/lib/classNames';
 import { ButtonTheme, ButtonSize, ButtonRounded } from '../types';
 import * as cls from './Button.module.scss';
 

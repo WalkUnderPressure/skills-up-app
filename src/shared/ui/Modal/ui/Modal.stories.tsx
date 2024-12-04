@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import Modal, { ModalProps } from './Modal';
 import useModalState from '../lib/useModalState';
 

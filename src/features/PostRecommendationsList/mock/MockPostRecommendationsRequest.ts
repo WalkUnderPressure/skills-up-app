@@ -1,9 +1,9 @@
 import {
   getOverriddenRequest,
   OverriddenRequestParams,
-} from 'shared/config/storybook/helpers/withOverriddenRequest';
-import { MockPostsListData } from 'entities/Post/mock/MockPostsListData';
-import { Post } from 'entities/Post';
+} from '~/shared/config/storybook/helpers/withOverriddenRequest';
+import { MockPostsListData } from '~/entities/Post/mock/MockPostsListData';
+import { Post } from '~/entities/Post';
 
 const overriddenRequest: OverriddenRequestParams<Array<Post>> = {
   // Should be like here: postRecommendationsApi.getPostRecommendations

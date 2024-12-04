@@ -1,10 +1,10 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import getSafeLocalStorageValue from 'shared/lib/helpers/getSafeValueFromLS';
+import getSafeLocalStorageValue from '~/shared/lib/helpers/getSafeValueFromLS';
 import fetchBlogPosts from '../services/fetchBlogPosts/fetchBlogPosts';
-import { StoreStateSchema } from 'app/providers/StoreProvider';
-import { Post, PostViewMap, PostViewKey, PostSortFieldsKey, PostTagsKey } from 'entities/Post';
-import { LS_BLOG_VIEW } from 'shared/constants/localStorage';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { Post, PostViewMap, PostViewKey, PostSortFieldsKey, PostTagsKey } from '~/entities/Post';
+import { LS_BLOG_VIEW } from '~/shared/constants/localStorage';
 import {
   DEFAULT_POST_FULL_LIMIT,
   DEFAULT_POST_SHORT_LIMIT,
@@ -14,7 +14,7 @@ import {
   DEFAULT_SORT_ORDER,
 } from '../consts/defaultFilterValues';
 import BlogPageSchema from '../types/BlogPageSchema';
-import { SortOrder } from 'shared/types/SortOrder';
+import { SortOrder } from '~/shared/types/SortOrder';
 
 export const blogPostsAdapter = createEntityAdapter({
   selectId: (post: Post) => post.id,

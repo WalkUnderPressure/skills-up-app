@@ -1,5 +1,5 @@
-import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
-import { Profile, ProfileErrorCode } from 'entities/Profile';
+import { AsyncThunkRejectValue, createAppAsyncThunk } from '~/app/providers/StoreProvider';
+import { Profile, ProfileErrorCode } from '~/entities/Profile';
 
 const fetchProfileData = createAppAsyncThunk<
   Profile,

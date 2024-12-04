@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import Select, { SelectTheme, SelectOption } from './Select';
 
 const SELECT_OPTIONS: Array<SelectOption> = [

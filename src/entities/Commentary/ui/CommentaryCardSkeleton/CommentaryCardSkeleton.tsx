@@ -1,6 +1,6 @@
-import { Skeleton, SkeletonThemes } from 'shared/ui/Skeleton';
-import classNames from 'shared/lib/classNames';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { Skeleton, SkeletonThemes } from '~/shared/ui/Skeleton';
+import classNames from '~/shared/lib/classNames';
+import { HStack, VStack } from '~/shared/ui/Stack';
 
 import * as cls from './CommentaryCardSkeleton.module.scss';
 

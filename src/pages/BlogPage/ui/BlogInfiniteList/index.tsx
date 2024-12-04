@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import { getScrollIndex, scrollKeeperActions } from 'features/ScrollKeeper';
-import { VirtPostsList } from 'entities/Post';
+import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
+import { getScrollIndex, scrollKeeperActions } from '~/features/ScrollKeeper';
+import { VirtPostsList } from '~/entities/Post';
 import fetchNextBlogPostsPage from '../../model/services/fetchNextBlogPostsPage/fetchNextBlogPostsPage';
 import { getBlogPosts } from '../../model/slices/blogPageSlice';
 import {

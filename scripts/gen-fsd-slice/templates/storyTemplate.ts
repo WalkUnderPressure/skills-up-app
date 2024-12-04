@@ -8,7 +8,7 @@ const storyTemplate = (layer: string, component: string) => {
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 // { ${componentName}Props }
 import ${component} from '.';
 

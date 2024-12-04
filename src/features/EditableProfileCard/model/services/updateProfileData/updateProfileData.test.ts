@@ -1,8 +1,8 @@
 import { AxiosResponse } from 'axios';
 
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk';
-import { MockProfileWithAvatar } from 'entities/Profile/mock/MockProfileData';
-import { Profile, ProfileErrorCode, ProfileValidationErrors } from 'entities/Profile';
+import { TestAsyncThunk } from '~/shared/config/tests/TestAsyncThunk';
+import { MockProfileWithAvatar } from '~/entities/Profile/mock/MockProfileData';
+import { Profile, ProfileErrorCode, ProfileValidationErrors } from '~/entities/Profile';
 import { SubmitErrorData, updateProfileData } from '.';
 
 describe('updateProfileData', () => {

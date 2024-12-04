@@ -1,4 +1,4 @@
-import classNames from 'shared/lib/classNames';
+import classNames from '~/shared/lib/classNames';
 import { TextDataTestIdProps } from './Text.test-ids';
 import { TextTheme } from '../types';
 import * as cls from './Text.module.scss';

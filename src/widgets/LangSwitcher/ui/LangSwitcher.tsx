@@ -1,8 +1,8 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import classNames from 'shared/lib/classNames';
+import classNames from '~/shared/lib/classNames';
 
-import { Select, SelectTheme, SelectOption } from 'shared/ui/Select';
+import { Select, SelectTheme, SelectOption } from '~/shared/ui/Select';
 import * as cls from './LangSwitcher.module.scss';
 
 const LANGS = [

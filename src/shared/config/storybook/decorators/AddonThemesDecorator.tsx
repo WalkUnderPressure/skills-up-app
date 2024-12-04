@@ -1,6 +1,6 @@
 import { withThemeByDataAttribute } from '@storybook/addon-themes';
 
-import { DEFAULT_THEME, ThemesMap } from 'app/providers/ThemeProvider';
+import { DEFAULT_THEME, ThemesMap } from '~/app/providers/ThemeProvider';
 
 export const InvertedThemesMap = Object.entries(ThemesMap).reduce(
   (acc, [key, value]) => {

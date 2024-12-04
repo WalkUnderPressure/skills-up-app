@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import MockPostRecommendationsRequest from 'features/PostRecommendationsList/mock/MockPostRecommendationsRequest';
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
-import { MockPostDetailsData } from 'entities/Post/mock/MockPostDetailsData';
-import StoreDecorator from 'shared/config/storybook/decorators/StoreDecorator';
+import MockPostRecommendationsRequest from '~/features/PostRecommendationsList/mock/MockPostRecommendationsRequest';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
+import { MockPostDetailsData } from '~/entities/Post/mock/MockPostDetailsData';
+import StoreDecorator from '~/shared/config/storybook/decorators/StoreDecorator';
 import PostPage from './PostPage';
 
 // TODO: Add tests for selectors, slice, service

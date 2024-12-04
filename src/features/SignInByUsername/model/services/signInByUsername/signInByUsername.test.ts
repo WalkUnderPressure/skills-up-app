@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios';
 
-import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk';
-import { User, userActions } from 'entities/User';
+import { TestAsyncThunk } from '~/shared/config/tests/TestAsyncThunk';
+import { User, userActions } from '~/entities/User';
 import { SignInErrorCode } from '../../types/SignInSchema';
 import { signInByUsername, SignInByUsernameData } from '.';
 

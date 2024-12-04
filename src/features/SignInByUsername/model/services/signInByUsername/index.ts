@@ -1,6 +1,6 @@
-import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
+import { AsyncThunkRejectValue, createAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { SignInErrorCode } from '../../types/SignInSchema';
-import { User, userActions } from 'entities/User';
+import { User, userActions } from '~/entities/User';
 
 export type SignInByUsernameData = {
   username: string;

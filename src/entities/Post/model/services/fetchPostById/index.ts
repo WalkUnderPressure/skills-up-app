@@ -1,4 +1,4 @@
-import { createAppAsyncThunk, AsyncThunkRejectValue } from 'app/providers/StoreProvider';
+import { createAppAsyncThunk, AsyncThunkRejectValue } from '~/app/providers/StoreProvider';
 import { Post } from '../../types/Post';
 
 export const fetchPostById = createAppAsyncThunk<

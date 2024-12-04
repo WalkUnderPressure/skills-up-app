@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { SignInByUsernameSchema, SignInByUsernameErrorCode } from 'features/SignInByUsername';
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
-import StoreDecorator from 'shared/config/storybook/decorators/StoreDecorator';
+import { SignInByUsernameSchema, SignInByUsernameErrorCode } from '~/features/SignInByUsername';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
+import StoreDecorator from '~/shared/config/storybook/decorators/StoreDecorator';
 import SignInForm from './SignInForm';
 
 const USER_DATA = { username: 'admin', password: '12345' };

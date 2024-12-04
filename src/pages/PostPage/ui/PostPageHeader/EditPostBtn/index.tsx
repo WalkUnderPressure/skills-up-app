@@ -2,15 +2,15 @@ import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { getIsUserCanEditPost } from 'pages/PostPage/model/selectors/postSelectors';
-import { Button, ButtonRounded, ButtonSize, ButtonTheme } from 'shared/ui/Button';
-import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
-import { useAppSelector } from 'app/providers/StoreProvider';
-import { getPostDetails } from 'entities/Post';
-import classNames from 'shared/lib/classNames';
+import { getIsUserCanEditPost } from '~/pages/PostPage/model/selectors/postSelectors';
+import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
+import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import { useAppSelector } from '~/app/providers/StoreProvider';
+import { getPostDetails } from '~/entities/Post';
+import classNames from '~/shared/lib/classNames';
 import * as cls from './EditPostBtn.module.scss';
 
-import EditIcon from 'shared/assets/icons/edit.svg';
+import EditIcon from '~/shared/assets/icons/edit.svg';
 
 type EditPostBtnProps = PropsWithClassName;
 

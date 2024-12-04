@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import Avatar, { AvatarSize } from './Avatar';
 
-import RomeImg from 'shared/assets/images/rome.jpg';
+import RomeImg from '~/shared/assets/images/rome.jpg';
 
 const meta = {
   title: 'Shared/Avatar',

@@ -1,11 +1,11 @@
 import { MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { StoreStateSchema, useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import { getScrollByPath, scrollKeeperActions } from 'features/ScrollKeeper';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
-import useThrottle from 'shared/lib/hooks/useThrottle';
-import classNames from 'shared/lib/classNames';
+import { StoreStateSchema, useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
+import { getScrollByPath, scrollKeeperActions } from '~/features/ScrollKeeper';
+import { useInfiniteScroll } from '~/shared/lib/hooks/useInfiniteScroll';
+import useThrottle from '~/shared/lib/hooks/useThrottle';
+import classNames from '~/shared/lib/classNames';
 import * as cls from './Page.module.scss';
 
 const SCROLL_SAVE_THROTTLE_DELAY = 300;

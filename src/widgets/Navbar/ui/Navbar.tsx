@@ -1,15 +1,15 @@
 import { useTranslation } from 'react-i18next';
 
-import { Button, ButtonSize, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
-import { SignInByUsernameModal } from 'features/SignInByUsername';
-import { NotificationCenter } from 'features/NotificationCenter';
-import useIsAuthorized from 'shared/lib/hooks/useIsAuthorized';
-import { APP_NAME } from 'shared/constants/appInfo';
-import { AccountMenu } from 'features/AccountMenu';
-import { Text, TextTheme } from 'shared/ui/Text';
-import { useModal } from 'shared/ui/Modal';
-import { HStack } from 'shared/ui/Stack';
-import classNames from 'shared/lib/classNames';
+import { Button, ButtonSize, ButtonTheme, ButtonRounded } from '~/shared/ui/Button';
+import { SignInByUsernameModal } from '~/features/SignInByUsername';
+import { NotificationCenter } from '~/features/NotificationCenter';
+import useIsAuthorized from '~/shared/lib/hooks/useIsAuthorized';
+import { APP_NAME } from '~/shared/constants/appInfo';
+import { AccountMenu } from '~/features/AccountMenu';
+import { Text, TextTheme } from '~/shared/ui/Text';
+import { useModal } from '~/shared/ui/Modal';
+import { HStack } from '~/shared/ui/Stack';
+import classNames from '~/shared/lib/classNames';
 import * as cls from './Navbar.module.scss';
 
 type NavbarProps = PropsWithClassName;

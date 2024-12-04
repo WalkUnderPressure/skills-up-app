@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import { AddCommentaryForm } from 'features/AddCommentaryForm';
-import { CommentaryList } from 'entities/Commentary';
+import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
+import { AddCommentaryForm } from '~/features/AddCommentaryForm';
+import { CommentaryList } from '~/entities/Commentary';
 import { getPostCommentariesIsLoading } from '../../model/selectors/commentariesSelectors';
 import fetchCommentariesByPostId from '../../model/services/fetchCommentariesByPostId';
 import { addCommentaryToPost } from '../../model/services/addCommentaryToPost';

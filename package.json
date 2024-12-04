@@ -23,7 +23,8 @@
     "report:sshot:json": "npx ts-node scripts/gen-ui-json-report.ts",
     "report:sshot:html": "reg-cli --from .loki/report/report.json --report .loki/report/report.html",
     "prepare": "husky",
-    "fsd:gen:slice": "npx ts-node scripts/gen-fsd-slice/index.ts"
+    "fsd:gen:slice": "npx ts-node scripts/gen-fsd-slice/index.ts",
+    "code:aliases": "npx ts-node scripts/update-import-aliases.ts --"
   },
   "keywords": [],
   "author": "Oleksandr Brynzei",
@@ -102,6 +103,7 @@
     "stylelint": "^16.8.1",
     "stylelint-config-standard-scss": "^13.1.0",
     "ts-loader": "^9.5.1",
+    "ts-morph": "^24.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.18.0",

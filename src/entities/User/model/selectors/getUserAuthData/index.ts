@@ -1,4 +1,4 @@
-import { StoreStateSchema } from 'app/providers/StoreProvider';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
 
 const getUserAuthData = (state: StoreStateSchema) => state.user?.authData || null;
 

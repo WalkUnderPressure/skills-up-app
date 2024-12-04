@@ -13,7 +13,7 @@ const config: Config = {
       {
         publicPath: '<rootDir>/reports/unit',
         filename: 'report.html',
-        openReport: true,
+        openReport: false,
         inlineSource: true,
       },
     ],
@@ -41,6 +41,7 @@ const config: Config = {
     '\\.(css|scss)$': '<rootDir>config/jest/mappers/identity-obj-proxy-esm.js',
     '\\.(svg)$': '<rootDir>config/jest/mappers/jest-empty-component.tsx',
     '\\.(jpg|jpeg|png)$': 'identity-obj-proxy',
+    '~/(.*)': '<rootDir>/src/$1',
   },
   globals: {
     __IS_DEV__: true,

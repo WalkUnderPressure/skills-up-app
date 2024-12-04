@@ -9,15 +9,15 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
-import { AddCommentaryFormSchema } from 'features/AddCommentaryForm';
-import { SignInByUsernameSchema } from 'features/SignInByUsername';
-import { ScrollKeeperSchema } from 'features/ScrollKeeper';
-import { EditableProfileStateSchema } from 'features/EditableProfileCard';
-import { PostDetailsSchema } from 'entities/Post';
-import { UserStateSchema } from 'entities/User';
-import { BlogPageSchema } from 'pages/BlogPage';
-import { PostPageSchema } from 'pages/PostPage';
-import rtkApi from 'shared/api/rtkApi';
+import { AddCommentaryFormSchema } from '~/features/AddCommentaryForm';
+import { SignInByUsernameSchema } from '~/features/SignInByUsername';
+import { ScrollKeeperSchema } from '~/features/ScrollKeeper';
+import { EditableProfileStateSchema } from '~/features/EditableProfileCard';
+import { PostDetailsSchema } from '~/entities/Post';
+import { UserStateSchema } from '~/entities/User';
+import { BlogPageSchema } from '~/pages/BlogPage';
+import { PostPageSchema } from '~/pages/PostPage';
+import rtkApi from '~/shared/api/rtkApi';
 
 type StoreStateSchema = {
   user: UserStateSchema;

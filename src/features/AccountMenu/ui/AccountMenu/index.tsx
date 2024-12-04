@@ -2,11 +2,11 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { getIsUserAdmin, getUserAuthData, getUserId, userActions } from 'entities/User';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
-import { AvatarLetters } from 'shared/ui/Avatar';
-import { Dropdown } from 'shared/ui/Popups';
+import { getIsUserAdmin, getUserAuthData, getUserId, userActions } from '~/entities/User';
+import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
+import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import { AvatarLetters } from '~/shared/ui/Avatar';
+import { Dropdown } from '~/shared/ui/Popups';
 
 type AccountMenuProps = PropsWithClassName;
 

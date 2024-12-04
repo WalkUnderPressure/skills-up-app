@@ -5,7 +5,7 @@ import {
   DEFAULT_SORT_FIELD,
   DEFAULT_SORT_ORDER,
 } from '../consts/defaultFilterValues';
-import { StoreStateSchema } from 'app/providers/StoreProvider';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
 
 const getBlogPostViewType = (state: StoreStateSchema) => {
   return state.blogPage?.viewType || DEFAULT_POST_VIEW_TYPE;

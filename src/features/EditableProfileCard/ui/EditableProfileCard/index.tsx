@@ -1,12 +1,14 @@
 import { memo } from 'react';
 import { useCallback } from 'react';
 
-import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import useInitialEffect from 'shared/lib/hooks/useInitialEffect';
-import { ProfileCard, ProfileKeys, ProfileValidationErrors } from 'entities/Profile';
-import classNames from 'shared/lib/classNames';
-import { VStack } from 'shared/ui/Stack';
+import DynamicReducerProvider, {
+  ReducersMap,
+} from '~/shared/lib/components/DynamicReducerProvider';
+import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
+import useInitialEffect from '~/shared/lib/hooks/useInitialEffect';
+import { ProfileCard, ProfileKeys, ProfileValidationErrors } from '~/entities/Profile';
+import classNames from '~/shared/lib/classNames';
+import { VStack } from '~/shared/ui/Stack';
 import getProfileValidationErrors from '../../model/selectors/getProfileValidationErrors';
 import getProfileIsReadonly from '../../model/selectors/getProfileIsReadonly';
 import { profileActions, profileReducer } from '../../model/slices/editableProfileCardSlice';

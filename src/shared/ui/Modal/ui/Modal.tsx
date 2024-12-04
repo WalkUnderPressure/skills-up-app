@@ -1,9 +1,9 @@
 import { PropsWithChildren, useEffect, useState } from 'react';
 
-import classNames from 'shared/lib/classNames';
-import { Overlay } from 'shared/ui/Overlay';
-import { Portal } from 'shared/ui/Portal';
-import { VStack } from 'shared/ui/Stack';
+import classNames from '~/shared/lib/classNames';
+import { Overlay } from '~/shared/ui/Overlay';
+import { Portal } from '~/shared/ui/Portal';
+import { VStack } from '~/shared/ui/Stack';
 import * as cls from './Modal.module.scss';
 
 type ModalProps = {

@@ -1,14 +1,14 @@
 import { Suspense, useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import { AppRouter } from 'app/providers/AppRouter';
-import classNames from 'shared/lib/classNames';
-import { userActions, getUserIsInitialized } from 'entities/User';
-import { Sidebar } from 'widgets/Sidebar';
-import { Navbar } from 'widgets/Navbar';
+import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
+import { AppRouter } from '~/app/providers/AppRouter';
+import classNames from '~/shared/lib/classNames';
+import { userActions, getUserIsInitialized } from '~/entities/User';
+import { Sidebar } from '~/widgets/Sidebar';
+import { Navbar } from '~/widgets/Navbar';
 import './styles/index.scss';
 
-import 'shared/config/i18n';
+import '~/shared/config/i18n';
 
 const App = () => {
   const dispatch = useAppDispatch();

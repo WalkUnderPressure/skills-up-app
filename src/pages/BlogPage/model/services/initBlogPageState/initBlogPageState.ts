@@ -1,4 +1,4 @@
-import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
+import { AsyncThunkRejectValue, createAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { getBlogPostsPageInitialized } from '../../selectors/blogPageSelectors';
 import fetchBlogPosts from '../../services/fetchBlogPosts/fetchBlogPosts';
 import { blogPageActions } from '../../slices/blogPageSlice';

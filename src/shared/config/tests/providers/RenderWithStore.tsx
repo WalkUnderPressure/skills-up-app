@@ -1,4 +1,4 @@
-import { StoreProvider, StoreProviderProps } from 'app/providers/StoreProvider';
+import { StoreProvider, StoreProviderProps } from '~/app/providers/StoreProvider';
 
 type RenderWithStoreProps = StoreProviderProps;
 

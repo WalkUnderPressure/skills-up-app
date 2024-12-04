@@ -1,4 +1,4 @@
-import { createAppAsyncThunk, AsyncThunkRejectValue } from 'app/providers/StoreProvider';
+import { createAppAsyncThunk, AsyncThunkRejectValue } from '~/app/providers/StoreProvider';
 import {
   getBlogPostsLimit,
   getBlogPostsPage,
@@ -8,8 +8,8 @@ import {
   getBlogPostsSortOrder,
 } from '../../selectors/blogPageSelectors';
 import BlogSearchParamsMap from '../../mappers/BlogSearchParamsMap';
-import { addQueryParams } from 'shared/lib/url/addQueryParams';
-import { Post, PostTagsMap } from 'entities/Post';
+import { addQueryParams } from '~/shared/lib/url/addQueryParams';
+import { Post, PostTagsMap } from '~/entities/Post';
 
 type FetchBlogPostsParams = {
   // page?: number;

@@ -1,5 +1,5 @@
-import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
-import { Profile, ProfileErrorCode, ProfileValidationErrors } from 'entities/Profile';
+import { AsyncThunkRejectValue, createAppAsyncThunk } from '~/app/providers/StoreProvider';
+import { Profile, ProfileErrorCode, ProfileValidationErrors } from '~/entities/Profile';
 import { isValidForm, validateProfileData } from '../../services/validateProfileData';
 import getProfileFormData from '../../selectors/getProfileFormData';
 

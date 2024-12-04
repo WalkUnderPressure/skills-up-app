@@ -1,4 +1,4 @@
-import generateAsyncComponent from 'shared/lib/helpers/generateAsyncComponent';
+import generateAsyncComponent from '~/shared/lib/helpers/generateAsyncComponent';
 import { AddCommentaryFormProps } from './AddCommentaryForm';
 
 const AddCommentaryForm = generateAsyncComponent<AddCommentaryFormProps>(

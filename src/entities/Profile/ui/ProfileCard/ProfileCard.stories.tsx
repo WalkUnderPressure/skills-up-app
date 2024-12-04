@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 
 import { ProfileValidationErrors } from '../../model/types/ProfileStateSchema';
-import { MockProfileWithAvatar } from 'entities/Profile/mock/MockProfileData';
+import { MockProfileWithAvatar } from '~/entities/Profile/mock/MockProfileData';
 import ProfileErrorCode from '../../model/consts/ProfileErrorCode';
 import ProfileCard from '.';
 

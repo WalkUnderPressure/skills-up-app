@@ -1,6 +1,6 @@
 import { StoryContext, StoryFn } from '@storybook/react/*';
 
-import { DEFAULT_THEME, ThemeProvider } from 'app/providers/ThemeProvider';
+import { DEFAULT_THEME, ThemeProvider } from '~/app/providers/ThemeProvider';
 
 const AppThemeProviderDecorator = (Story: StoryFn, ctx: StoryContext) => {
   const theme = ctx.parameters?.themes?.themeOverride || DEFAULT_THEME;

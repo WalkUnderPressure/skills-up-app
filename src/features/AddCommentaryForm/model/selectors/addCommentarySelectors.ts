@@ -1,4 +1,4 @@
-import { StoreStateSchema } from 'app/providers/StoreProvider';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
 
 const getAddCommentaryText = (state: StoreStateSchema) => state?.addCommentaryForm?.text || '';
 const getAddCommentaryIsLoading = (state: StoreStateSchema) =>

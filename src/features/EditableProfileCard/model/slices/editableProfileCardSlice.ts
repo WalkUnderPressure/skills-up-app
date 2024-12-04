@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Profile } from 'entities/Profile';
+import { Profile } from '~/entities/Profile';
 import { EditableProfileStateSchema } from '../types/EditableProfileCardStateSchema';
 import { validateProfileData } from '../services/validateProfileData';
 import { updateProfileData } from '../services/updateProfileData';

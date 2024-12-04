@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
-import { Loader } from 'shared/ui/Loader';
-import { Modal } from 'shared/ui/Modal';
+import { Loader } from '~/shared/ui/Loader';
+import { Modal } from '~/shared/ui/Modal';
 import SignInFormAsync from '../SignInForm/SignInForm.async';
 
 type SignInModalProps = {

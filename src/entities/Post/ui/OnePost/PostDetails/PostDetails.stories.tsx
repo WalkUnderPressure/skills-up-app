@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
-import StoreDecorator from 'shared/config/storybook/decorators/StoreDecorator';
-import { MockPostDetailsData } from 'entities/Post/mock/MockPostDetailsData';
-import { ThemesMap } from 'app/providers/ThemeProvider';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
+import StoreDecorator from '~/shared/config/storybook/decorators/StoreDecorator';
+import { MockPostDetailsData } from '~/entities/Post/mock/MockPostDetailsData';
+import { ThemesMap } from '~/app/providers/ThemeProvider';
 import PostDetails from '.';
 
 const meta = {

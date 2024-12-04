@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import safeJsonParse from 'shared/lib/helpers/safeJsonParse';
-import { LS_AUTH_USER } from 'shared/constants/localStorage';
-import { User } from 'entities/User';
+import safeJsonParse from '~/shared/lib/helpers/safeJsonParse';
+import { LS_AUTH_USER } from '~/shared/constants/localStorage';
+import { User } from '~/entities/User';
 
 const $api = axios.create({
   baseURL: __API_URL__,

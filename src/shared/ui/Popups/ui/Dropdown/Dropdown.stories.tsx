@@ -1,9 +1,9 @@
 /* eslint-disable i18next/no-literal-string */
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import Dropdown, { DropdownItem } from '.';
-import { Button, ButtonRounded, ButtonTheme } from 'shared/ui/Button';
+import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/Button';
 
 const fn = (index: number | string) => () => console.log(`click on: ${index}`);
 

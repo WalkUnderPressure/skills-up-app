@@ -1,5 +1,5 @@
-import rtkApi from 'shared/api/rtkApi';
-import { Post } from 'entities/Post';
+import rtkApi from '~/shared/api/rtkApi';
+import { Post } from '~/entities/Post';
 
 const RECOMMENDATIONS_COUNT = 4;
 

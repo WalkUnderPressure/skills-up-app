@@ -1,7 +1,7 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 
-import { StoreStateSchema } from 'app/providers/StoreProvider';
-import { Post } from 'entities/Post';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { Post } from '~/entities/Post';
 import fetchPostRecommendations from '../services/fetchPostRecommendations';
 import PostRecommendationsSchema from '../types/PostRecommendationsSchema';
 

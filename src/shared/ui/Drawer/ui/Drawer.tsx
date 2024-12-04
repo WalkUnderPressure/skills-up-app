@@ -3,11 +3,11 @@ import { memo, PropsWithChildren, useCallback, useEffect } from 'react';
 import {
   useAnimationLibs,
   withAnimationLibsProvider,
-} from 'shared/lib/components/AnimationLibsProvider';
-import classNames, { Mods } from 'shared/lib/classNames';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { Overlay } from 'shared/ui/Overlay';
-import { Portal } from 'shared/ui/Portal';
+} from '~/shared/lib/components/AnimationLibsProvider';
+import classNames, { Mods } from '~/shared/lib/classNames';
+import { useTheme } from '~/app/providers/ThemeProvider';
+import { Overlay } from '~/shared/ui/Overlay';
+import { Portal } from '~/shared/ui/Portal';
 import * as cls from './Drawer.module.scss';
 
 const WINDOW_HEIGHT = window.innerHeight;

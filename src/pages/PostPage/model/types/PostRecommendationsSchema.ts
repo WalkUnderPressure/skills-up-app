@@ -1,6 +1,6 @@
 import { EntityState } from '@reduxjs/toolkit';
 
-import { Post } from 'entities/Post';
+import { Post } from '~/entities/Post';
 
 type PostRecommendationsSchema = {
   isLoading?: boolean;

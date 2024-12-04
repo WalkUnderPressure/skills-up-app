@@ -1,5 +1,5 @@
-import { createAppAsyncThunk, AsyncThunkRejectValue } from 'app/providers/StoreProvider';
-import { Commentary } from 'entities/Commentary';
+import { createAppAsyncThunk, AsyncThunkRejectValue } from '~/app/providers/StoreProvider';
+import { Commentary } from '~/entities/Commentary';
 
 const fetchCommentariesByPostId = createAppAsyncThunk<
   Array<Commentary>,

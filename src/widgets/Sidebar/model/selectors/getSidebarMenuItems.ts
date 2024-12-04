@@ -1,13 +1,13 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
-import { getUserAuthData } from 'entities/User';
+import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import { getUserAuthData } from '~/entities/User';
 import { SidebarItemType } from '../types/SidebarItemType';
 
-import ProfilePageIcon from 'shared/assets/icons/profile.svg';
-import BlogPageIcon from 'shared/assets/icons/article.svg';
-import AboutPageIcon from 'shared/assets/icons/about.svg';
-import HomePageIcon from 'shared/assets/icons/home.svg';
+import ProfilePageIcon from '~/shared/assets/icons/profile.svg';
+import BlogPageIcon from '~/shared/assets/icons/article.svg';
+import AboutPageIcon from '~/shared/assets/icons/about.svg';
+import HomePageIcon from '~/shared/assets/icons/home.svg';
 
 const getSidebarMenuItems = createSelector(getUserAuthData, (userAuthData) => {
   const menuItems: Array<SidebarItemType> = [

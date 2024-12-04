@@ -1,7 +1,7 @@
 import { ReactNode, useCallback } from 'react';
 
-import genericMemo from 'shared/lib/genericMemo';
-import classNames from 'shared/lib/classNames';
+import genericMemo from '~/shared/lib/genericMemo';
+import classNames from '~/shared/lib/classNames';
 import * as cls from './Tabs.module.scss';
 
 export type TabItem<T extends string = string> = {

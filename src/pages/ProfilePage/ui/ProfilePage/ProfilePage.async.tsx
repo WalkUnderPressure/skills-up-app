@@ -1,4 +1,4 @@
-import generateAsyncComponent from 'shared/lib/helpers/generateAsyncComponent';
+import generateAsyncComponent from '~/shared/lib/helpers/generateAsyncComponent';
 
 const ProfilePageAsync = generateAsyncComponent(import('./ProfilePage'));
 

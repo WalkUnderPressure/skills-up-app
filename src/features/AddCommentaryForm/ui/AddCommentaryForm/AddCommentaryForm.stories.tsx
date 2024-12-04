@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
-import StoreDecorator from 'shared/config/storybook/decorators/StoreDecorator';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
+import StoreDecorator from '~/shared/config/storybook/decorators/StoreDecorator';
 import AddCommentaryForm from './AddCommentaryForm';
 
 const meta = {

@@ -1,6 +1,6 @@
 import { Component, ErrorInfo, ReactNode, Suspense } from 'react';
 
-import { PageErrorBanner } from 'widgets/PageErrorBanner';
+import { PageErrorBanner } from '~/widgets/PageErrorBanner';
 
 type ErrorBoundaryProps = {
   children: ReactNode;

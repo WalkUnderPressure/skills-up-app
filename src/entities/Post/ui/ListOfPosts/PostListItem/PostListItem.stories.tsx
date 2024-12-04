@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
-import { MockPostDetailsData } from 'entities/Post/mock/MockPostDetailsData';
-import { PostViewMap } from 'entities/Post/model/types/Post';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
+import { MockPostDetailsData } from '~/entities/Post/mock/MockPostDetailsData';
+import { PostViewMap } from '~/entities/Post/model/types/Post';
 import PostListItem from './PostListItem';
 
 const meta = {

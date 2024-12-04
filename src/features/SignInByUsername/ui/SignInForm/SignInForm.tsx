@@ -2,13 +2,15 @@ import { useTranslation } from 'react-i18next';
 import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import { SignInByUsernameErrorCode } from 'features/SignInByUsername';
-import DynamicReducerProvider, { ReducersMap } from 'shared/lib/components/DynamicReducerProvider';
-import { Button, ButtonTheme, ButtonRounded } from 'shared/ui/Button';
-import { Text, TextTheme } from 'shared/ui/Text';
-import classNames from 'shared/lib/classNames';
-import { Input } from 'shared/ui/Input';
+import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
+import { SignInByUsernameErrorCode } from '~/features/SignInByUsername';
+import DynamicReducerProvider, {
+  ReducersMap,
+} from '~/shared/lib/components/DynamicReducerProvider';
+import { Button, ButtonTheme, ButtonRounded } from '~/shared/ui/Button';
+import { Text, TextTheme } from '~/shared/ui/Text';
+import classNames from '~/shared/lib/classNames';
+import { Input } from '~/shared/ui/Input';
 import getSignInFormIsLoading from '../../model/selectors/getSignInFormIsLoading';
 import getSignInFormErrorCode from '../../model/selectors/getSignInFormErrorCode';
 import getSignInFormUsername from '../../model/selectors/getSignInFormUsername';
@@ -16,8 +18,8 @@ import getSignInFormPassword from '../../model/selectors/getSignInFormPassword';
 import getSignInFormIsFailed from '../../model/selectors/getSignInFormIsFailed';
 import { signInActions, signInReducer } from '../../model/slices/signInSlice';
 import { signInByUsername } from '../../model/services/signInByUsername';
-import { AppRoutes, RouterPaths } from 'shared/config/routerConfig';
-import { User } from 'entities/User';
+import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import { User } from '~/entities/User';
 import * as cls from './SignInForm.module.scss';
 
 const reducers: ReducersMap = {

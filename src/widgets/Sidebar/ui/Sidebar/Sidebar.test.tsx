@@ -1,6 +1,6 @@
 import { fireEvent, screen } from '@testing-library/react';
 
-import { renderWithProviders } from 'shared/config/tests/providers/renderWithProviders';
+import { renderWithProviders } from '~/shared/config/tests/providers/renderWithProviders';
 import { SidebarDataTestIds } from './Sidebar.test-ids';
 import Sidebar from './Sidebar';
 

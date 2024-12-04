@@ -1,7 +1,7 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { StoreStateSchema } from 'app/providers/StoreProvider';
-import { Commentary } from 'entities/Commentary';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { Commentary } from '~/entities/Commentary';
 import fetchCommentariesByPostId from '../services/fetchCommentariesByPostId';
 import PostCommentarySchema from '../types/PostCommentarySchema';
 import { addCommentaryToPost } from '../services/addCommentaryToPost';

@@ -1,4 +1,4 @@
-import { MockProfileWithAvatar } from 'entities/Profile/mock/MockProfileData';
+import { MockProfileWithAvatar } from '~/entities/Profile/mock/MockProfileData';
 import { MockPostDetailsData } from './MockPostDetailsData';
 import { Post } from '../model/types/Post';
 

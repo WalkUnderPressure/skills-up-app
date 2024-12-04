@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import withOverriddenThemes from 'shared/config/storybook/helpers/withOverriddenThemes';
-import { MockPostsListData } from 'entities/Post/mock/MockPostsListData';
-import { PostViewMap } from 'entities/Post/model/types/Post';
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
+import { MockPostsListData } from '~/entities/Post/mock/MockPostsListData';
+import { PostViewMap } from '~/entities/Post/model/types/Post';
 import PostsList, { PostsListProps } from './PostsList';
-import { VStack } from 'shared/ui/Stack';
+import { VStack } from '~/shared/ui/Stack';
 
 const ItemLoadingRender = (props: PostsListProps) => {
   const TITLE = 'Scroll down to see loaders';

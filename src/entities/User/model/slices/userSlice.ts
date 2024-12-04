@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import safeJsonParse from 'shared/lib/helpers/safeJsonParse';
-import { LS_AUTH_USER } from 'shared/constants/localStorage';
+import safeJsonParse from '~/shared/lib/helpers/safeJsonParse';
+import { LS_AUTH_USER } from '~/shared/constants/localStorage';
 import { UserStateSchema, User } from '../types/UserStateSchema';
 
 const initialState: UserStateSchema = {

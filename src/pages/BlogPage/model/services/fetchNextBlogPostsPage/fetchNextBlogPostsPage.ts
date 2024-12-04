@@ -1,4 +1,4 @@
-import { AsyncThunkRejectValue, createAppAsyncThunk } from 'app/providers/StoreProvider';
+import { AsyncThunkRejectValue, createAppAsyncThunk } from '~/app/providers/StoreProvider';
 import {
   getBlogPostsHasMore,
   getBlogPostsIsLoading,
