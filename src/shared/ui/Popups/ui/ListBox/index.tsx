@@ -12,8 +12,8 @@ import classNames from '~/shared/lib/classNames';
 import { mapDirectionToClass } from '../../styles/mapDirectionToClass';
 import { PopupDirection } from '../../types';
 import DoubleArrow from '~/shared/assets/icons/double-arrow.svg';
-import * as cls from './ListBox.module.scss';
-import * as popupCls from '../../styles/popup.module.scss';
+import cls from './ListBox.module.scss';
+import popupCls from '../../styles/popup.module.scss';
 
 export type ListBoxItem<T = string> = {
   value: T;

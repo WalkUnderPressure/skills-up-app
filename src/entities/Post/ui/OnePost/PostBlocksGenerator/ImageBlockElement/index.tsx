@@ -4,7 +4,7 @@ import classNames from '~/shared/lib/classNames';
 import { VStack } from '~/shared/ui/Stack';
 import { Text } from '~/shared/ui/Text';
 import { PostImageBlock } from '../../../../model/types/Post';
-import * as cls from './ImageBlockElement.module.scss';
+import cls from './ImageBlockElement.module.scss';
 
 type ImageBlockProps = {
   block: PostImageBlock;

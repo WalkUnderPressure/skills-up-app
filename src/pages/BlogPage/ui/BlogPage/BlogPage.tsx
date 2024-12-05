@@ -11,7 +11,7 @@ import BlogPageFilters from '../BlogPageFilters/BlogPageFilters';
 import BlogInfiniteList from '../BlogInfiniteList';
 import classNames from '~/shared/lib/classNames';
 import { Page } from '~/widgets/Page';
-import * as cls from './BlogPage.module.scss';
+import cls from './BlogPage.module.scss';
 
 const reducers: ReducersMap = {
   blogPage: blogPageReducer,

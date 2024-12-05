@@ -6,7 +6,7 @@ import { PostSortFieldsKey, PostSortFieldsMap } from '../../model/types/Post';
 import { Select, SelectOption } from '~/shared/ui/Select';
 import { SortOrder } from '~/shared/types/SortOrder';
 import classNames from '~/shared/lib/classNames';
-import * as cls from './PostSortSelector.module.scss';
+import cls from './PostSortSelector.module.scss';
 import { HStack } from '~/shared/ui/Stack';
 
 type PostSortSelectorProps = {

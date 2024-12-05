@@ -1,6 +1,6 @@
 import { Skeleton, SkeletonThemes } from '~/shared/ui/Skeleton';
 import { VStack } from '~/shared/ui/Stack';
-import * as cls from './PostDetailsSkeleton.module.scss';
+import cls from './PostDetailsSkeleton.module.scss';
 
 const AVATAR_SIZE = 240;
 

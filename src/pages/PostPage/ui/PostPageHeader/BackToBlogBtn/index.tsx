@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
 import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
 import { AppLink } from '~/shared/ui/AppLink';
-import * as cls from './BackToBlogBtn.module.scss';
+import cls from './BackToBlogBtn.module.scss';
 
 const BackToBlogBtn = () => {
   const { t } = useTranslation('pages.blog');

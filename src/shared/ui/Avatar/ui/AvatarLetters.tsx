@@ -1,5 +1,5 @@
 import classNames from '~/shared/lib/classNames';
-import * as cls from './Avatar.module.scss';
+import cls from './Avatar.module.scss';
 
 export enum AvatarSize {
   XS = 'size-xs',

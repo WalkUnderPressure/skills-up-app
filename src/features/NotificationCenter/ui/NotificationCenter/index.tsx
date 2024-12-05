@@ -7,7 +7,7 @@ import { Popover } from '~/shared/ui/Popups';
 import BellIcon from '~/shared/assets/icons/bell.svg';
 import { useModal } from '~/shared/ui/Modal';
 import { Drawer } from '~/shared/ui/Drawer';
-import * as cls from './NotificationCenter.module.scss';
+import cls from './NotificationCenter.module.scss';
 
 type NotificationCenterProps = PropsWithClassName;
 

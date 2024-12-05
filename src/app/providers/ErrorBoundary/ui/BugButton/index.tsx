@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '~/shared/ui/Button';
-import * as cls from './BugButton.module.scss';
+import cls from './BugButton.module.scss';
 
 // Component for testing ErrorBoundary
 const BugButton = () => {

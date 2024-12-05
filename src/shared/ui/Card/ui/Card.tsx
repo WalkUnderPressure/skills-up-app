@@ -1,7 +1,7 @@
 import { HTMLAttributes, memo, PropsWithChildren } from 'react';
 
 import classNames from '~/shared/lib/classNames';
-import * as cls from './Card.module.scss';
+import cls from './Card.module.scss';
 
 type CardProps = HTMLAttributes<HTMLDivElement> & PropsWithChildren & PropsWithClassName;
 

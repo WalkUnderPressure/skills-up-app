@@ -1,5 +1,5 @@
 import classNames from '~/shared/lib/classNames';
-import * as cls from './Loader.module.scss';
+import cls from './Loader.module.scss';
 
 type LoaderProps = PropsWithClassName;
 

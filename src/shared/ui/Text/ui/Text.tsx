@@ -1,7 +1,7 @@
 import classNames from '~/shared/lib/classNames';
 import { TextDataTestIdProps } from './Text.test-ids';
 import { TextTheme } from '../types';
-import * as cls from './Text.module.scss';
+import cls from './Text.module.scss';
 
 type HeadingTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 

@@ -20,7 +20,7 @@ import { signInActions, signInReducer } from '../../model/slices/signInSlice';
 import { signInByUsername } from '../../model/services/signInByUsername';
 import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
 import { User } from '~/entities/User';
-import * as cls from './SignInForm.module.scss';
+import cls from './SignInForm.module.scss';
 
 const reducers: ReducersMap = {
   'sign-in_username': signInReducer,

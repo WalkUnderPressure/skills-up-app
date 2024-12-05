@@ -5,7 +5,7 @@ import { AppLink } from '~/shared/ui/AppLink';
 import { Card } from '~/shared/ui/Card';
 import { Text } from '~/shared/ui/Text';
 import { Notification } from '../../model/types/NotificationStateSchema';
-import * as cls from './NotificationItem.module.scss';
+import cls from './NotificationItem.module.scss';
 
 type NotificationProps = {
   notification: Notification;

@@ -19,7 +19,7 @@ import useDateTransformer from '~/shared/lib/hooks/useDateTransformer';
 import { HStack, VStack } from '~/shared/ui/Stack';
 import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
 import classNames from '~/shared/lib/classNames';
-import * as cls from './PostDetails.module.scss';
+import cls from './PostDetails.module.scss';
 
 import CalendarIcon from '~/shared/assets/icons/calendar.svg';
 import EyeIcon from '~/shared/assets/icons/eye.svg';

@@ -8,7 +8,7 @@ import {
 import classNames from '~/shared/lib/classNames';
 import { mapDirectionToClass } from '../../styles/mapDirectionToClass';
 import { PopupDirection } from '../../types';
-import * as popupCls from '../../styles/popup.module.scss';
+import popupCls from '../../styles/popup.module.scss';
 
 export type PopoverProps = {
   trigger: ReactNode;

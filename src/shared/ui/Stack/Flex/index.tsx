@@ -1,7 +1,7 @@
 import React, { HTMLProps } from 'react';
 
 import classNames, { Mods } from '~/shared/lib/classNames';
-import * as cls from './Flex.module.scss';
+import cls from './Flex.module.scss';
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';

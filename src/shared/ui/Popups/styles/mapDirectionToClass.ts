@@ -1,6 +1,6 @@
 import { PopupDirection } from '../types';
 
-import * as cls from './popup.module.scss';
+import cls from './popup.module.scss';
 
 const mapDirectionToClass: Record<PopupDirection, string> = Object.freeze({
   'bottom-left': cls['bottom-left'],

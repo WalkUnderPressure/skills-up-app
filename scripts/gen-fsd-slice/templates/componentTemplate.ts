@@ -6,7 +6,7 @@ import { memo } from 'react';
 
 import classNames from '~/shared/lib/classNames';
 
-import * as cls from './${componentName}.module.scss';
+import cls from './${componentName}.module.scss';
 
 type ${componentName}Props = PropsWithClassName;
 

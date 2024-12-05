@@ -2,7 +2,7 @@ import { Skeleton } from '~/shared/ui/Skeleton';
 import { HStack } from '~/shared/ui/Stack';
 import { Card } from '~/shared/ui/Card';
 
-import * as cls from './ShortPostListItemSkeleton.module.scss';
+import cls from './ShortPostListItemSkeleton.module.scss';
 
 const ShortPostListItemSkeleton = () => {
   return (

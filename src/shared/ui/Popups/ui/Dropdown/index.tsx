@@ -5,8 +5,8 @@ import classNames from '~/shared/lib/classNames';
 import { AppLink } from '~/shared/ui/AppLink';
 import { mapDirectionToClass } from '../../styles/mapDirectionToClass';
 import { PopupDirection } from '../../types';
-import * as cls from './Dropdown.module.scss';
-import * as popupCls from '../../styles/popup.module.scss';
+import cls from './Dropdown.module.scss';
+import popupCls from '../../styles/popup.module.scss';
 
 // type from @headlessui/react/dist/components/menu/menu.d.ts
 type ItemRenderPropArg = {

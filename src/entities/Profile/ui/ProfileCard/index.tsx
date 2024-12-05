@@ -16,7 +16,7 @@ import {
 } from '../../model/types/ProfileStateSchema';
 import ProfileErrorCode from '../../model/consts/ProfileErrorCode';
 import { ProfileCardDataTestIds } from './ProfileCard.test-ids';
-import * as cls from './ProfileCard.module.scss';
+import cls from './ProfileCard.module.scss';
 
 type ProfileProps = {
   profile?: Nullable<Profile>;

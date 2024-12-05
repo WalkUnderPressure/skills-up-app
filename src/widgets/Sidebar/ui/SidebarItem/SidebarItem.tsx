@@ -5,7 +5,7 @@ import { AppLink, AppLinkTheme } from '~/shared/ui/AppLink';
 import { HStack } from '~/shared/ui/Stack';
 import classNames from '~/shared/lib/classNames';
 import { SidebarItemType } from '../../model/types/SidebarItemType';
-import * as cls from './SidebarItem.module.scss';
+import cls from './SidebarItem.module.scss';
 
 type SidebarItemProps = {
   item: SidebarItemType;

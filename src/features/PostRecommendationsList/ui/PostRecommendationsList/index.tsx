@@ -7,7 +7,7 @@ import { VStack } from '~/shared/ui/Stack';
 import { Text } from '~/shared/ui/Text';
 import classNames from '~/shared/lib/classNames';
 
-import * as cls from './PostRecommendationsList.module.scss';
+import cls from './PostRecommendationsList.module.scss';
 
 type PostRecommendationsListProps = PropsWithClassName;
 

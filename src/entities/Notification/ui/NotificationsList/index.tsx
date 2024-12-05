@@ -6,7 +6,7 @@ import { Text } from '~/shared/ui/Text';
 import { useNotifications, NOTIFICATIONS_REFRESH_INTERVAL } from '../../api/notificationsApi';
 import NotificationSkeleton from '../NotificationSkeleton';
 import NotificationItem from '../NotificationItem';
-import * as cls from './NotificationsList.module.scss';
+import cls from './NotificationsList.module.scss';
 
 export type NotificationsListProps = {
   itemsClassName?: string;

@@ -25,7 +25,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   componentDidCatch(error: Error, info: ErrorInfo) {
     // TODO: Send errors to error logger service or similar
     if (__IS_DEV__) {
-      console.log('ErrorBoundary: ', { error, info });
+      console.error('ErrorBoundary: ', { error, info });
     }
   }
 

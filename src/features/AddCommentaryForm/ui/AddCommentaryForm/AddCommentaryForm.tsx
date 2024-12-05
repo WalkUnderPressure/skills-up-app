@@ -13,7 +13,7 @@ import {
   getAddCommentaryIsLoading,
   getAddCommentaryText,
 } from '../../model/selectors/addCommentarySelectors';
-import * as cls from './AddCommentaryForm.module.scss';
+import cls from './AddCommentaryForm.module.scss';
 import { HStack } from '~/shared/ui/Stack';
 
 const reducers: ReducersMap = {

@@ -11,7 +11,7 @@ import { Page } from '~/widgets/Page';
 import postPageReducer from '../../model/slices/postPageReducer';
 import PostCommentaries from '../PostCommentaries';
 import PostPageHeader from '../PostPageHeader';
-import * as cls from './PostPage.module.scss';
+import cls from './PostPage.module.scss';
 
 export type PostPageProps = PropsWithClassName;
 

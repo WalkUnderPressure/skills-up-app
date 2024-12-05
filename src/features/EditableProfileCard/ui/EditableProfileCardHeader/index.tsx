@@ -16,7 +16,7 @@ import { updateProfileData } from '../../model/services/updateProfileData';
 import { isValidForm } from '../../model/services/validateProfileData';
 import useIsCanEdit from './useIsCanEdit';
 
-import * as cls from './EditableProfileCardHeader.module.scss';
+import cls from './EditableProfileCardHeader.module.scss';
 
 import EditIcon from '~/shared/assets/icons/edit.svg';
 import ResetIcon from '~/shared/assets/icons/reset.svg';

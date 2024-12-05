@@ -18,7 +18,7 @@ import getProfileIsSaving from '../../model/selectors/getProfileIsSaving';
 import getProfileFormData from '../../model/selectors/getProfileFormData';
 import { fetchProfileData } from '../../model/services/fetchProfileData';
 import EditableProfileCardHeader from '../EditableProfileCardHeader';
-import * as cls from './EditableProfileCard.module.scss';
+import cls from './EditableProfileCard.module.scss';
 
 const reducers: ReducersMap = {
   profile: profileReducer,

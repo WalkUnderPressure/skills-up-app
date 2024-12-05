@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import classNames from '~/shared/lib/classNames';
 import { Page } from '~/widgets/Page';
-import * as cls from './ForbiddenPage.module.scss';
+import cls from './ForbiddenPage.module.scss';
 
 type ForbiddenPageProps = PropsWithClassName;
 

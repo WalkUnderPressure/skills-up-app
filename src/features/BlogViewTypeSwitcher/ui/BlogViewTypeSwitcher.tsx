@@ -1,13 +1,12 @@
 import { memo, useCallback } from 'react';
 
-import { Button, ButtonTheme } from '~/shared/ui/Button';
-import classNames from '~/shared/lib/classNames';
 import { PostViewMap, PostViewKey } from '~/entities/Post';
-import * as cls from './BlogViewTypeSwitcher.module.scss';
-
 import ListedIcon from '~/shared/assets/icons/listed.svg';
+import { Button, ButtonTheme } from '~/shared/ui/Button';
 import TiledIcon from '~/shared/assets/icons/tiled.svg';
+import classNames from '~/shared/lib/classNames';
 import { HStack } from '~/shared/ui/Stack';
+import cls from './BlogViewTypeSwitcher.module.scss';
 
 const ViewTypesList: Record<PostViewKey, { name: PostViewKey; Icon: SvgIconType }> = {
   [PostViewMap.FULL]: {

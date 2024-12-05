@@ -9,6 +9,8 @@ export type BuildPaths = {
   buildLocales: string;
 };
 
+export type ProjectType = 'app' | 'jest' | 'storybook';
+
 export type BuildOptions = {
   mode: BuildMode;
   isDev: boolean;
@@ -16,7 +18,7 @@ export type BuildOptions = {
   paths: BuildPaths;
   port: number;
   withAnalyze: boolean;
-  project: 'app' | 'jest' | 'storybook';
+  project: ProjectType;
 };
 
 export type BuildEnv = {

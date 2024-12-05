@@ -6,7 +6,7 @@ import { getScrollByPath, scrollKeeperActions } from '~/features/ScrollKeeper';
 import { useInfiniteScroll } from '~/shared/lib/hooks/useInfiniteScroll';
 import useThrottle from '~/shared/lib/hooks/useThrottle';
 import classNames from '~/shared/lib/classNames';
-import * as cls from './Page.module.scss';
+import cls from './Page.module.scss';
 
 const SCROLL_SAVE_THROTTLE_DELAY = 300;
 

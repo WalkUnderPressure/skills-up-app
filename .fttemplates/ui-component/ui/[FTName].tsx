@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import classNames from '~/shared/lib/classNames';
-import * as cls from './[FTName].module.scss';
+import cls from './[FTName].module.scss';
 
 type [FTName]Props = PropsWithClassName;
 

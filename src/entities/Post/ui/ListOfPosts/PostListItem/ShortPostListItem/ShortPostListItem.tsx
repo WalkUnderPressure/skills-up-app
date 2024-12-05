@@ -9,7 +9,7 @@ import { Text } from '~/shared/ui/Text';
 import ShortPostListItemSkeleton from './ShortPostListItemSkeleton/ShortPostListItemSkeleton';
 import { CommonPostListItemProps } from '../PostListItem';
 
-import * as cls from './ShortPostListItem.module.scss';
+import cls from './ShortPostListItem.module.scss';
 
 import EyeIcon from '~/shared/assets/icons/eye.svg';
 import { HStack } from '~/shared/ui/Stack';

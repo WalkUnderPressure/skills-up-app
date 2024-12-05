@@ -38,7 +38,10 @@ const config: Config = {
   watchPathIgnorePatterns: ['/node_modules/'],
   setupFilesAfterEnv: ['<rootDir>config/jest/jest-setup.ts'],
   moduleNameMapper: {
-    '\\.(css|scss)$': '<rootDir>config/jest/mappers/identity-obj-proxy-esm.js',
+    // used for styles: "import * as cls from 'path/to/file'"
+    // '\\.(css|scss)$': '<rootDir>config/jest/mappers/identity-obj-proxy-esm.js',
+    // used for styles: "import cls from 'path/to/file'"
+    '\\.(css|scss)$': 'identity-obj-proxy',
     '\\.(svg)$': '<rootDir>config/jest/mappers/jest-empty-component.tsx',
     '\\.(jpg|jpeg|png)$': 'identity-obj-proxy',
     '~/(.*)': '<rootDir>/src/$1',

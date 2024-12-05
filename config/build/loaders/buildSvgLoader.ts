@@ -1,15 +1,17 @@
 import { RuleSetRule } from 'webpack';
 import { PluginConfig } from 'svgo';
 
-function buildSvgLoader(): RuleSetRule {
-  const svgoConfigPlugins: Array<PluginConfig> = [
-    {
-      name: 'removeAttrs',
-      params: {
-        attrs: '(stroke|fill)',
-      },
+export const svgrRemoveSvgStrokeAndFillPlugin = (): PluginConfig => {
+  return {
+    name: 'removeAttrs',
+    params: {
+      attrs: '(stroke|fill)',
     },
-  ];
+  };
+};
+
+function buildSvgLoader(): RuleSetRule {
+  const svgoConfigPlugins: Array<PluginConfig> = [svgrRemoveSvgStrokeAndFillPlugin()];
 
   return {
     test: /\.svg$/i,

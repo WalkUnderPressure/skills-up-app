@@ -8,7 +8,7 @@ import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
 import { useAppSelector } from '~/app/providers/StoreProvider';
 import { getPostDetails } from '~/entities/Post';
 import classNames from '~/shared/lib/classNames';
-import * as cls from './EditPostBtn.module.scss';
+import cls from './EditPostBtn.module.scss';
 
 import EditIcon from '~/shared/assets/icons/edit.svg';
 

@@ -5,13 +5,13 @@ import { Button, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
 import { useAppSelector } from '~/app/providers/StoreProvider';
 import { ThemeSwitcher } from '~/widgets/ThemeSwitcher';
 import { LangSwitcher } from '~/widgets/LangSwitcher';
+import { HStack, VStack } from '~/shared/ui/Stack';
 import classNames from '~/shared/lib/classNames';
 import { SidebarDataTestIdProps } from './Sidebar.test-ids';
 import getSidebarMenuItems from '../../model/selectors/getSidebarMenuItems';
-import * as cls from './Sidebar.module.scss';
+import cls from './Sidebar.module.scss';
 
 import ArrowRightLine from '~/shared/assets/icons/arrow-right-line.svg';
-import { HStack, VStack } from '~/shared/ui/Stack';
 
 type SidebarProps = SidebarDataTestIdProps & PropsWithClassName;
 

@@ -8,7 +8,7 @@ import classNames from '~/shared/lib/classNames';
 import { Post, PostViewKey, PostViewMap } from '../../../model/types/Post';
 import PostListItem from '../PostListItem/PostListItem';
 import PostsSkeletons from './PostsSkeletons';
-import * as cls from './PostsList.module.scss';
+import cls from './PostsList.module.scss';
 
 type VPostsListProps = {
   posts?: Array<Post>;

@@ -10,7 +10,7 @@ import { Text, TextTheme } from '~/shared/ui/Text';
 import { useModal } from '~/shared/ui/Modal';
 import { HStack } from '~/shared/ui/Stack';
 import classNames from '~/shared/lib/classNames';
-import * as cls from './Navbar.module.scss';
+import cls from './Navbar.module.scss';
 
 type NavbarProps = PropsWithClassName;
 

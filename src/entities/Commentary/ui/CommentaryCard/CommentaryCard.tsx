@@ -7,7 +7,7 @@ import classNames from '~/shared/lib/classNames';
 import { AppLink } from '~/shared/ui/AppLink';
 import { Text } from '~/shared/ui/Text';
 import { Commentary } from '../../model/types/commentary';
-import * as cls from './CommentaryCard.module.scss';
+import cls from './CommentaryCard.module.scss';
 
 type CommentaryCardProps = {
   commentary?: Commentary;
