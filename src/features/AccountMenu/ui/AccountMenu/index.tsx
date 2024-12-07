@@ -4,7 +4,12 @@ import { useNavigate } from 'react-router-dom';
 
 import { getIsUserAdmin, getUserAuthData, getUserId, userActions } from '~/entities/User';
 import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
-import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
+import {
+  getRouteAdminPanel,
+  getRouteHome,
+  getRoutePostCreate,
+  getRouteProfile,
+} from '~/shared/constants/appRoutes';
 import { AvatarLetters, AvatarSize } from '~/shared/ui/Avatar';
 import { Dropdown } from '~/shared/ui/Popups';
 
@@ -26,11 +31,11 @@ const AccountMenu = memo((props: AccountMenuProps) => {
   const onClickSignOut = useCallback(() => {
     dispatch(userActions.signOut());
 
-    navigate(RouterPaths[AppRoutes.HOME]);
+    navigate(getRouteHome());
   }, [dispatch, navigate]);
 
   const onClickCreatePost = useCallback(() => {
-    navigate(RouterPaths[AppRoutes.POST_CREATE]);
+    navigate(getRoutePostCreate());
   }, [navigate]);
 
   if (!userData || !userId) {
@@ -45,14 +50,14 @@ const AccountMenu = memo((props: AccountMenuProps) => {
         {
           id: 'profile',
           content: t('menu.profile', { defaultValue: 'Profile' }),
-          href: `${RouterPaths[AppRoutes.PROFILE]}${userId}`,
+          href: getRouteProfile(userId),
         },
         ...(isAdminPanelAvailable
           ? [
               {
                 id: 'admin-panel',
                 content: t('menu.admin-panel', { defaultValue: 'Admin panel' }),
-                href: RouterPaths[AppRoutes.ADMIN_PANEL],
+                href: getRouteAdminPanel(),
               },
             ]
           : []),

@@ -1,12 +1,13 @@
 import { memo, PropsWithChildren, useMemo } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
-import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
+import { getRouteForbidden, getRouteHome } from '~/shared/constants/appRoutes';
 import useIsAuthorized from '~/shared/lib/hooks/useIsAuthorized';
 import { useAppSelector } from '~/app/providers/StoreProvider';
 import { getUserRoles, UserRoles } from '~/entities/User';
 
-const DEFAULT_REDIRECT = RouterPaths[AppRoutes.HOME];
+const DEFAULT_REDIRECT = getRouteHome();
+const FORBIDDEN_REDIRECT = getRouteForbidden();
 
 type RequireAuthProps = {
   to?: string;
@@ -36,9 +37,7 @@ const RequireAuth = memo((props: RequireAuthProps) => {
   }
 
   if (!isRouteAvailable) {
-    return (
-      <Navigate to={to ?? RouterPaths[AppRoutes.FORBIDDEN]} state={{ from: location }} replace />
-    );
+    return <Navigate to={to ?? FORBIDDEN_REDIRECT} state={{ from: location }} replace />;
   }
 
   return children;

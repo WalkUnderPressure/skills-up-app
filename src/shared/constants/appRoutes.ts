@@ -15,19 +15,15 @@ export enum AppRoutes {
   NOT_FOUND = 'not_found',
 }
 
-export const RouterPaths: Record<AppRoutes, string> = {
-  [AppRoutes.HOME]: '/',
-  [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.PROFILE]: '/profile/', // :id
-  [AppRoutes.BLOG]: '/blog',
-  [AppRoutes.POST]: '/posts/', // :id
-  [AppRoutes.POST_CREATE]: '/posts/create',
-  [AppRoutes.POST_EDIT]: '/posts/:id/edit',
-  [AppRoutes.ADMIN_PANEL]: '/admin-panel',
-
-  // when page is forbidden
-  [AppRoutes.FORBIDDEN]: '/forbidden',
-
-  // when no route is suitable
-  [AppRoutes.NOT_FOUND]: '*',
-};
+export const getRouteHome = () => '/';
+export const getRouteAbout = () => '/about';
+export const getRouteProfile = (id: string) => `/profile/${id}`;
+export const getRouteBlog = () => '/blog';
+export const getRoutePost = (id: string) => `/posts/${id}`;
+export const getRoutePostCreate = () => '/posts/create';
+export const getRoutePostEdit = (id: string) => `/posts/${id}/edit`;
+export const getRouteAdminPanel = () => '/admin-panel';
+// when page is forbidden
+export const getRouteForbidden = () => '/forbidden';
+// when no route is suitable
+export const getRouteNotFound = () => '*';

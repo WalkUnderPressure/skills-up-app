@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
-import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
+import { getRouteBlog } from '~/shared/constants/appRoutes';
 import { AppLink } from '~/shared/ui/AppLink';
 import cls from './BackToBlogBtn.module.scss';
 
@@ -15,7 +15,7 @@ const BackToBlogBtn = () => {
       size={ButtonSize.L}
       className={cls['back-btn']}
     >
-      <AppLink to={RouterPaths[AppRoutes.BLOG]}>
+      <AppLink to={getRouteBlog()}>
         {'<< ' + t('back-to-blog', { defaultValue: 'Back to blog' })}
       </AppLink>
     </Button>

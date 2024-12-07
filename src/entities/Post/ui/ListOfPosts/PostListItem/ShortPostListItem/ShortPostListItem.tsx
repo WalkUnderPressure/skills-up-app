@@ -1,18 +1,16 @@
 import { memo } from 'react';
 
 import useDateTransformer from '~/shared/lib/hooks/useDateTransformer';
-import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
+import { getRoutePost } from '~/shared/constants/appRoutes';
 import classNames from '~/shared/lib/classNames';
 import { AppLink } from '~/shared/ui/AppLink';
 import { Card } from '~/shared/ui/Card';
 import { Text } from '~/shared/ui/Text';
 import ShortPostListItemSkeleton from './ShortPostListItemSkeleton/ShortPostListItemSkeleton';
 import { CommonPostListItemProps } from '../PostListItem';
-
-import cls from './ShortPostListItem.module.scss';
-
-import EyeIcon from '~/shared/assets/icons/eye.svg';
 import { HStack } from '~/shared/ui/Stack';
+import EyeIcon from '~/shared/assets/icons/eye.svg';
+import cls from './ShortPostListItem.module.scss';
 
 type PostShortListItemProps = CommonPostListItemProps;
 
@@ -34,7 +32,7 @@ const ShortPostListItem = memo((props: PostShortListItemProps) => {
   return (
     <AppLink
       target={target}
-      to={`${RouterPaths[AppRoutes.POST]}${postId}`}
+      to={getRoutePost(postId)}
       className={classNames(cls.link, {}, [className])}
     >
       <Card className={cls.card} onClick={onItemLinkClick}>

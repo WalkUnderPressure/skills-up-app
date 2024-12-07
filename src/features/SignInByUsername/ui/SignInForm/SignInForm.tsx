@@ -18,7 +18,7 @@ import getSignInFormPassword from '../../model/selectors/getSignInFormPassword';
 import getSignInFormIsFailed from '../../model/selectors/getSignInFormIsFailed';
 import { signInActions, signInReducer } from '../../model/slices/signInSlice';
 import { signInByUsername } from '../../model/services/signInByUsername';
-import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
+import { getRouteProfile } from '~/shared/constants/appRoutes';
 import { User } from '~/entities/User';
 import cls from './SignInForm.module.scss';
 
@@ -53,9 +53,10 @@ const SignInForm = memo((props: SignInFormProps) => {
 
       if (isSuccess) {
         const authorizedUser = result.payload as User;
+        const userId = authorizedUser.id;
 
         if (authorizedUser?.id) {
-          navigate(`${RouterPaths[AppRoutes.PROFILE]}${authorizedUser.id}`);
+          navigate(getRouteProfile(userId));
         }
 
         onSuccess();

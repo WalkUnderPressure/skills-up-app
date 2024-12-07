@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
+import { getRouteProfile } from '~/shared/constants/appRoutes';
 import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
 import { HStack, VStack } from '~/shared/ui/Stack';
 import classNames from '~/shared/lib/classNames';
@@ -21,7 +21,7 @@ const CommentaryCard = memo((props: CommentaryCardProps) => {
 
   return (
     <VStack gap="8" fullW className={classNames(cls['commentary-card'], {}, [className])}>
-      <AppLink to={`${RouterPaths[AppRoutes.PROFILE]}${authorUserId}`}>
+      <AppLink to={getRouteProfile(authorUserId)}>
         <HStack justify="start" align="center" gap="8">
           {Boolean(userAvatarSrc) && <Avatar size={AvatarSize.XS} src={userAvatarSrc} />}
 

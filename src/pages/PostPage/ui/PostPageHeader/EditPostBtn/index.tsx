@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { getIsUserCanEditPost } from '~/pages/PostPage/model/selectors/postSelectors';
 import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
-import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
+import { getRoutePostEdit } from '~/shared/constants/appRoutes';
 import { useAppSelector } from '~/app/providers/StoreProvider';
 import { getPostDetails } from '~/entities/Post';
 import classNames from '~/shared/lib/classNames';
@@ -27,7 +27,7 @@ const EditPostBtn = (props: EditPostBtnProps) => {
     let postEditUrl = '';
 
     if (postData?.id) {
-      postEditUrl = `${RouterPaths[AppRoutes.POST_EDIT].replace(':id', postData.id)}`;
+      postEditUrl = getRoutePostEdit(postData.id);
     }
 
     if (postEditUrl) {

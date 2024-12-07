@@ -1,6 +1,12 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
+import {
+  AppRoutes,
+  getRouteAbout,
+  getRouteBlog,
+  getRouteHome,
+  getRouteProfile,
+} from '~/shared/constants/appRoutes';
 import { getUserAuthData } from '~/entities/User';
 import { SidebarItemType } from '../types/SidebarItemType';
 
@@ -13,14 +19,14 @@ const getSidebarMenuItems = createSelector(getUserAuthData, (userAuthData) => {
   const menuItems: Array<SidebarItemType> = [
     {
       id: AppRoutes.HOME,
-      to: RouterPaths[AppRoutes.HOME],
+      to: getRouteHome(),
       title: 'Home',
       titleKey: 'menu.home',
       icon: HomePageIcon,
     },
     {
       id: AppRoutes.ABOUT,
-      to: RouterPaths[AppRoutes.ABOUT],
+      to: getRouteAbout(),
       title: 'About',
       titleKey: 'menu.about',
       icon: AboutPageIcon,
@@ -35,7 +41,7 @@ const getSidebarMenuItems = createSelector(getUserAuthData, (userAuthData) => {
     if (userId) {
       menuItems.push({
         id: AppRoutes.PROFILE,
-        to: `${RouterPaths[AppRoutes.PROFILE]}${userId}`,
+        to: getRouteProfile(userId),
         title: 'Profile',
         titleKey: 'menu.profile',
         icon: ProfilePageIcon,
@@ -44,7 +50,7 @@ const getSidebarMenuItems = createSelector(getUserAuthData, (userAuthData) => {
 
     menuItems.push({
       id: AppRoutes.BLOG,
-      to: RouterPaths[AppRoutes.BLOG],
+      to: getRouteBlog(),
       title: 'Blog',
       titleKey: 'menu.blog',
       icon: BlogPageIcon,

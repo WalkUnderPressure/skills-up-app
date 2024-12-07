@@ -1,4 +1,16 @@
-import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
+import {
+  AppRoutes,
+  getRouteAbout,
+  getRouteAdminPanel,
+  getRouteBlog,
+  getRouteForbidden,
+  getRouteHome,
+  getRouteNotFound,
+  getRoutePost,
+  getRoutePostCreate,
+  getRoutePostEdit,
+  getRouteProfile,
+} from '~/shared/constants/appRoutes';
 import { AdminPanelPage } from '~/pages/AdminPanelPage';
 import { ForbiddenPage } from '~/pages/ForbiddenPage';
 import { PostEditPage } from '~/pages/PostEditPage';
@@ -10,42 +22,42 @@ import { BlogPage } from '~/pages/BlogPage';
 import { PostPage } from '~/pages/PostPage';
 import { AppRouteProps } from '../types/router';
 
-const routerConfig: Record<AppRoutes, AppRouteProps> = {
+export const routerConfig: Record<AppRoutes, AppRouteProps> = {
   [AppRoutes.HOME]: {
-    path: RouterPaths[AppRoutes.HOME],
+    path: getRouteHome(),
     element: <HomePage />,
   },
   [AppRoutes.ABOUT]: {
-    path: RouterPaths[AppRoutes.ABOUT],
+    path: getRouteAbout(),
     element: <AboutPage />,
   },
   [AppRoutes.PROFILE]: {
-    path: `${RouterPaths[AppRoutes.PROFILE]}:id`,
+    path: getRouteProfile(':id'),
     element: <ProfilePage />,
     authOnly: true,
   },
   [AppRoutes.BLOG]: {
-    path: RouterPaths[AppRoutes.BLOG],
+    path: getRouteBlog(),
     element: <BlogPage />,
     authOnly: true,
   },
   [AppRoutes.POST]: {
-    path: `${RouterPaths[AppRoutes.POST]}:id`,
+    path: getRoutePost(':id'),
     element: <PostPage />,
     authOnly: true,
   },
   [AppRoutes.POST_CREATE]: {
-    path: RouterPaths[AppRoutes.POST_CREATE],
+    path: getRoutePostCreate(),
     element: <PostEditPage />,
     authOnly: true,
   },
   [AppRoutes.POST_EDIT]: {
-    path: RouterPaths[AppRoutes.POST_EDIT],
+    path: getRoutePostEdit(':id'),
     element: <PostEditPage />,
     authOnly: true,
   },
   [AppRoutes.ADMIN_PANEL]: {
-    path: RouterPaths[AppRoutes.ADMIN_PANEL],
+    path: getRouteAdminPanel(),
     element: <AdminPanelPage />,
     authOnly: true,
     roles: ['ADMIN'],
@@ -53,15 +65,13 @@ const routerConfig: Record<AppRoutes, AppRouteProps> = {
 
   // when page is forbidden
   [AppRoutes.FORBIDDEN]: {
-    path: RouterPaths[AppRoutes.FORBIDDEN],
+    path: getRouteForbidden(),
     element: <ForbiddenPage />,
   },
 
   // when no route is suitable
   [AppRoutes.NOT_FOUND]: {
-    path: RouterPaths[AppRoutes.NOT_FOUND],
+    path: getRouteNotFound(),
     element: <NotFoundPage />,
   },
 };
-
-export { routerConfig };
