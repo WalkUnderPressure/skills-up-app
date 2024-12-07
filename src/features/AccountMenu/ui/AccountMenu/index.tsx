@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { getIsUserAdmin, getUserAuthData, getUserId, userActions } from '~/entities/User';
 import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
 import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
-import { AvatarLetters } from '~/shared/ui/Avatar';
+import { AvatarLetters, AvatarSize } from '~/shared/ui/Avatar';
 import { Dropdown } from '~/shared/ui/Popups';
 
-type AccountMenuProps = PropsWithClassName;
+export type AccountMenuProps = PropsWithClassName;
 
 const AccountMenu = memo((props: AccountMenuProps) => {
   const { className } = props;
@@ -40,7 +40,7 @@ const AccountMenu = memo((props: AccountMenuProps) => {
   return (
     <Dropdown
       direction="bottom-left"
-      trigger={<AvatarLetters username={userData?.username} />}
+      trigger={<AvatarLetters username={userData?.username} size={AvatarSize.XS} />}
       items={[
         {
           id: 'profile',

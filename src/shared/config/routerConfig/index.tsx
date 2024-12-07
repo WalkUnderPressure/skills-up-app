@@ -88,7 +88,7 @@ export const routerConfig: Record<AppRoutes, AppRouteProps> = {
     path: RouterPaths[AppRoutes.ADMIN_PANEL],
     element: <AdminPanelPage />,
     authOnly: true,
-    roles: [UserRoles.ADMIN],
+    roles: ['ADMIN'],
   },
 
   // when page is forbidden

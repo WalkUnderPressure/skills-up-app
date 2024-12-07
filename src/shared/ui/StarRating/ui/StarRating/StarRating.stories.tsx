@@ -14,3 +14,9 @@ type Story = StoryObj<typeof meta>;
 export const Default = {} satisfies Story;
 
 export const DefaultDark = withOverriddenThemes<Story>({})() satisfies Story;
+
+export const WithRating = {
+  args: {
+    rating: 3,
+  },
+} satisfies Story;

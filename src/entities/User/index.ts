@@ -8,11 +8,10 @@ import getUserId from './model/selectors/getUserId';
 export {
   userActions,
   userReducer,
-  UserRoles,
   getUserAuthData,
   getUserId,
   getUserRoles,
   getIsUserAdmin,
   getUserIsInitialized,
 };
-export type { UserStateSchema, User };
+export type { UserStateSchema, User, UserRoles };

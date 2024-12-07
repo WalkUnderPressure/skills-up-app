@@ -1,11 +1,7 @@
 import IInitialized from '~/shared/types/IInitialized';
 
 // TODO: Need add system like here: https://github.com/WebDevSimplified/permission-system/tree/main
-enum UserRoles {
-  GUEST = 'GUEST',
-  USER = 'USER',
-  ADMIN = 'ADMIN',
-}
+type UserRoles = 'GUEST' | 'USER' | 'ADMIN';
 
 type User = {
   id: string;
@@ -17,5 +13,4 @@ type UserStateSchema = {
   authData?: Nullable<User>;
 } & IInitialized;
 
-export { UserRoles };
-export type { UserStateSchema, User };
+export type { UserStateSchema, User, UserRoles };
