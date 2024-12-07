@@ -1,7 +1,11 @@
-import React, { PropsWithChildren } from 'react';
+import { CSSProperties, PropsWithChildren } from 'react';
 
-const ComponentBackground = (props: PropsWithChildren) => {
-  const { children } = props;
+type ComponentBackgroundProps = {
+  style?: CSSProperties;
+} & PropsWithChildren;
+
+const ComponentBackground = (props: ComponentBackgroundProps) => {
+  const { children, style } = props;
 
   return (
     <div
@@ -12,6 +16,8 @@ const ComponentBackground = (props: PropsWithChildren) => {
         alignItems: 'center',
         justifyContent: 'center',
         background: 'rgb(93 109 119)',
+        borderRadius: '12px',
+        ...style,
       }}
     >
       {children}

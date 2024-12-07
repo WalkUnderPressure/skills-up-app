@@ -14,7 +14,7 @@ const meta = {
   decorators: [StoreDecorator({})],
   render: () => {
     return (
-      <ComponentBackground>
+      <ComponentBackground style={{ marginBottom: 'auto' }}>
         <NotificationCenter />
       </ComponentBackground>
     );

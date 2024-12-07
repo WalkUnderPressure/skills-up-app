@@ -7,7 +7,7 @@ import StyleDecorator from '~/shared/config/storybook/decorators/StyleDecorator'
 // Additional setup in preview-head.html
 const preview: Preview = {
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
     controls: {
       matchers: {
         color: /(background|color)$/i,
