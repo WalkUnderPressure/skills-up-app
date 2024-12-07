@@ -1,13 +1,7 @@
 import { useCallback, memo } from 'react';
 
 import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
-import {
-  PostSortFieldsKey,
-  PostSortSelector,
-  PostViewKey,
-  PostTagsTabs,
-  PostTagsKey,
-} from '~/entities/Post';
+import { PostSortFieldsKey, PostViewKey, PostTagsKey } from '~/entities/Post';
 import {
   getBlogPostsSearch,
   getBlogPostsSearchTag,
@@ -20,7 +14,9 @@ import { blogPageActions } from '../../model/slices/blogPageSlice';
 import { Input } from '~/shared/ui/Input';
 import { SortOrder } from '~/shared/types/SortOrder';
 import fetchBlogPosts from '../../model/services/fetchBlogPosts/fetchBlogPosts';
+import { PostSortSelector } from '~/features/PostSortSelector';
 import { useDebounce } from '~/shared/lib/hooks/useDebounce';
+import { PostTagsTabs } from '~/features/PostTagsTabs';
 import { HStack, VStack } from '~/shared/ui/Stack';
 
 const FETCH_DELAY = 500;

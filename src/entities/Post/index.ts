@@ -14,12 +14,8 @@ import {
   PostTagsMap,
   PostTagsKey,
 } from './model/types/Post';
-import PostSortSelector from './ui/PostSortSelector/PostSortSelector';
-import { PostTagsTabs } from './ui/PostTagsTabs';
 
 export {
-  PostTagsTabs,
-  PostSortSelector,
   PostDetails,
   fetchPostById,
   getPostDetails,

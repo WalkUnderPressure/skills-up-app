@@ -4,14 +4,14 @@ import capitalize from 'lodash.capitalize';
 
 import { TabItem, Tabs } from '~/shared/ui/Tabs';
 import classNames from '~/shared/lib/classNames';
-import { PostTagsMap, PostTagsKey } from '../../model/types/Post';
+import { PostTagsMap, PostTagsKey } from '~/entities/Post';
 
 type PostTagsTabsProps = {
   value: PostTagsKey;
   onChangeTab: (type: PostTagsKey) => void;
 } & PropsWithClassName;
 
-export const PostTagsTabs = memo((props: PostTagsTabsProps) => {
+const PostTagsTabs = memo((props: PostTagsTabsProps) => {
   const { className, value, onChangeTab } = props;
 
   const { t } = useTranslation('pages.blog');
@@ -38,3 +38,5 @@ export const PostTagsTabs = memo((props: PostTagsTabsProps) => {
     />
   );
 });
+
+export default PostTagsTabs;

@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import capitalize from 'lodash.capitalize';
 
-import { PostSortFieldsKey, PostSortFieldsMap } from '../../model/types/Post';
+import { PostSortFieldsKey, PostSortFieldsMap } from '~/entities/Post';
 import { Select, SelectOption } from '~/shared/ui/Select';
 import { SortOrder } from '~/shared/types/SortOrder';
 import classNames from '~/shared/lib/classNames';
