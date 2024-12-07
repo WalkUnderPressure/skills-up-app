@@ -9,6 +9,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintI18nextPlugin from 'eslint-plugin-i18next';
 import eslintStorybookPlugin from 'eslint-plugin-storybook';
 import { fixupPluginRules } from '@eslint/compat';
+import unusedImports from 'eslint-plugin-unused-imports';
 import eslintFsd from 'eslint-plugin-wup-fsd';
 
 /** @type {Array<import('eslint').Linter.Config>} */
@@ -23,6 +24,7 @@ export default tseslint.config(
       i18next: eslintI18nextPlugin,
       storybook: eslintStorybookPlugin,
       'wup-fsd': eslintFsd,
+      'unused-imports': unusedImports,
     },
     settings: {
       react: {
@@ -80,6 +82,17 @@ export default tseslint.config(
       'eol-last': ['error', 'always'],
       'i18next/no-literal-string': 'error',
       ...eslintPluginReactHooks.configs.recommended.rules,
+      '@typescript-eslint/no-unused-vars': 'off',
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'error',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+        },
+      ],
     },
   },
   {
