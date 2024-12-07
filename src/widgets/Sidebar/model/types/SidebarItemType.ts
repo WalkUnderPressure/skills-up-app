@@ -1,4 +1,4 @@
-import { AppRoutes } from '~/shared/config/routerConfig';
+import { AppRoutes } from '~/shared/constants/appRoutes';
 
 export type SidebarItemType = {
   id: AppRoutes;

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { getIsUserAdmin, getUserAuthData, getUserId, userActions } from '~/entities/User';
 import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
-import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
 import { AvatarLetters, AvatarSize } from '~/shared/ui/Avatar';
 import { Dropdown } from '~/shared/ui/Popups';
 

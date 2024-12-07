@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import useDateTransformer from '~/shared/lib/hooks/useDateTransformer';
-import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
 import classNames from '~/shared/lib/classNames';
 import { AppLink } from '~/shared/ui/AppLink';
 import { Card } from '~/shared/ui/Card';

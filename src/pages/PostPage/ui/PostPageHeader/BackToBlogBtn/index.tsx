@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
-import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
 import { AppLink } from '~/shared/ui/AppLink';
 import cls from './BackToBlogBtn.module.scss';
 

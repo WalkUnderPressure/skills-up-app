@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
 import useDateTransformer from '~/shared/lib/hooks/useDateTransformer';
-import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
 import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
 import classNames from '~/shared/lib/classNames';
 import { AppLink } from '~/shared/ui/AppLink';

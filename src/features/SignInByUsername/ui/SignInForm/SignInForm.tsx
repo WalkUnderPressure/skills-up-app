@@ -18,7 +18,7 @@ import getSignInFormPassword from '../../model/selectors/getSignInFormPassword';
 import getSignInFormIsFailed from '../../model/selectors/getSignInFormIsFailed';
 import { signInActions, signInReducer } from '../../model/slices/signInSlice';
 import { signInByUsername } from '../../model/services/signInByUsername';
-import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
 import { User } from '~/entities/User';
 import cls from './SignInForm.module.scss';
 

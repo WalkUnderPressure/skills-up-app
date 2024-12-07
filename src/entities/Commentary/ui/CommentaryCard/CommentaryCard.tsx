@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { AppRoutes, RouterPaths } from '~/shared/config/routerConfig';
+import { AppRoutes, RouterPaths } from '~/shared/constants/appRoutes';
 import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
 import { HStack, VStack } from '~/shared/ui/Stack';
 import classNames from '~/shared/lib/classNames';
