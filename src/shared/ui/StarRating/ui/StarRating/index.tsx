@@ -17,7 +17,8 @@ const StarRating = memo((props: StarRatingProps) => {
   const { className, rating = 0, onSelect } = props;
 
   const [hoveredStar, setHoveredStar] = useState(rating);
-  const [isRatingSelected, setIsRatingSelected] = useState(Boolean(rating));
+
+  const isRatingSelected = Boolean(rating);
 
   const onHoverStar = (starValue: number) => () => {
     if (!isRatingSelected) {
@@ -35,7 +36,6 @@ const StarRating = memo((props: StarRatingProps) => {
     if (!isRatingSelected) {
       onSelect?.(starValue);
       setHoveredStar(starValue);
-      setIsRatingSelected(true);
     }
   };
 
@@ -48,7 +48,7 @@ const StarRating = memo((props: StarRatingProps) => {
       onMouseLeave={onLeaveStar}
     >
       {STARS_LIST.map((starValue) => {
-        const isStarHovered = starValue <= hoveredStar;
+        const isStarHovered = starValue <= (rating || hoveredStar);
 
         return (
           <StarIcon

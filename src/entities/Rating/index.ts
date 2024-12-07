@@ -1,2 +1,2 @@
 export { default as RatingCard } from './ui/RatingCard';
-export type { RatingStateSchema } from './model/types/RatingStateSchema';
+export type { Rating } from './model/types/RatingStateSchema';

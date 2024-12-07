@@ -1,5 +1,4 @@
-type RatingStateSchema = {
-  isTmp?: boolean;
+export type Rating = {
+  rating: number;
+  feedback?: string;
 };
-
-export type { RatingStateSchema };
