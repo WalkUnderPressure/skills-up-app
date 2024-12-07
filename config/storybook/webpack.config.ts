@@ -21,6 +21,14 @@ export default ({ config }: StorybookWebpackConfig) => {
   config.resolve?.modules?.push(srcPath);
   config.resolve?.extensions?.push('.tsx', '.ts');
 
+  // Setup aliases
+  if (config.resolve?.alias) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '~': srcPath,
+    };
+  }
+
   // Setup for using css files
   const cssLoader = buildCssLoader({ isDev });
   config.module?.rules?.push(cssLoader);

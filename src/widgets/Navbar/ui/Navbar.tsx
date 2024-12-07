@@ -7,7 +7,7 @@ import useIsAuthorized from '~/shared/lib/hooks/useIsAuthorized';
 import { APP_NAME } from '~/shared/constants/appInfo';
 import { AccountMenu } from '~/features/AccountMenu';
 import { Text, TextTheme } from '~/shared/ui/Text';
-import { useModal } from '~/shared/ui/Modal';
+import { useModalState } from '~/shared/ui/Modal';
 import { HStack } from '~/shared/ui/Stack';
 import classNames from '~/shared/lib/classNames';
 import cls from './Navbar.module.scss';
@@ -25,7 +25,7 @@ const Navbar = (props: NavbarProps) => {
     isOpen: isSignInModalOpen,
     openModal: openSignInModal,
     closeModal: closeSignInModal,
-  } = useModal();
+  } = useModalState();
 
   return (
     <HStack

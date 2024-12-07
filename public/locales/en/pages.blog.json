@@ -15,5 +15,10 @@
         "it": "IT",
         "science": "Science",
         "economics": "Economics"
+    },
+    "post": {
+        "unrated": "Please rate this post!",
+        "rated": "Thanks You have already rated this post!",
+        "feedback": "Write your feedback about the post here"
     }
 }

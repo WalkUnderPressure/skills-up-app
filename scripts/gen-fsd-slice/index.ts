@@ -27,4 +27,5 @@ createTemplate(layer, sliceName).then(() => {
   execSync(`npm run lint:code:fix src/${layer}/${sliceName}/**`);
 
   console.info(`Finish creating ${layer}/${sliceName}`);
+  console.info(`Open public API: ${layer}/${sliceName}/index.ts`);
 });

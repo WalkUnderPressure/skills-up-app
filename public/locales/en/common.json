@@ -59,5 +59,9 @@
     },
     "notifications": {
         "title": "Notifications"
+    },
+    "actions": {
+        "send": "Send",
+        "cancel": "Cancel"
     }
 }

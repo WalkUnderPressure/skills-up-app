@@ -1,9 +1,10 @@
-import { PropsWithChildren, useEffect, useState } from 'react';
+import { PropsWithChildren } from 'react';
 
 import classNames from '~/shared/lib/classNames';
 import { Overlay } from '~/shared/ui/Overlay';
 import { Portal } from '~/shared/ui/Portal';
 import { VStack } from '~/shared/ui/Stack';
+import useModal from '../lib/useModal';
 import cls from './Modal.module.scss';
 
 type ModalProps = {
@@ -16,19 +17,13 @@ type ModalProps = {
 const Modal = (props: ModalProps) => {
   const { children, className, isOpen = false, onClose, lazy = true } = props;
 
-  const mods = { [cls.open]: isOpen };
+  const { isMounted } = useModal({ isOpen, onClose });
 
-  const [isNeedShow, setIsNeedShow] = useState(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsNeedShow(true);
-    }
-  }, [isOpen]);
-
-  if (lazy && !isNeedShow) {
+  if (lazy && !isMounted) {
     return null;
   }
+
+  const mods = { [cls.open]: isOpen };
 
   return (
     <Portal>

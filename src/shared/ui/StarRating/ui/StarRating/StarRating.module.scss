@@ -1,0 +1,18 @@
+.box {
+    width: fit-content;
+    cursor: default;
+}
+
+.star {
+    fill: transparent;
+    stroke: var(--warning-color);
+}
+
+.hovered {
+    fill: var(--warning-color);
+    stroke: var(--warning-color);
+}
+
+.unrated {
+    cursor: pointer;
+}

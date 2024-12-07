@@ -1,25 +1,37 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import useEventListener from '~/shared/lib/hooks/useEventListener';
-import useModalState from '~/shared/ui/Modal/lib/useModalState';
 
-function useModal() {
-  const { isOpen, openModal, closeModal } = useModalState();
+type UseModalProps = {
+  isOpen?: boolean;
+  onClose?: () => void;
+};
+
+function useModal(props: UseModalProps) {
+  const { isOpen, onClose } = props;
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
   const escClickHandler = useCallback(
     (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        closeModal();
+      if (event.key === 'Escape' && onClose) {
+        onClose();
       }
     },
-    [closeModal],
+    [onClose],
   );
 
   useEventListener('keydown', escClickHandler, {
     isNeedAddHandler: isOpen,
   });
 
-  return { isOpen, openModal, closeModal };
+  return { isMounted };
 }
 
 export default useModal;

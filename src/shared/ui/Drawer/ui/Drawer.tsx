@@ -7,6 +7,7 @@ import {
 import classNames, { Mods } from '~/shared/lib/classNames';
 import { useTheme } from '~/app/providers/ThemeProvider';
 import { Overlay } from '~/shared/ui/Overlay';
+import { useModal } from '~/shared/ui/Modal';
 import { Portal } from '~/shared/ui/Portal';
 import cls from './Drawer.module.scss';
 
@@ -16,18 +17,19 @@ const CLOSE_OFFSET = 70;
 export type DrawerProps = {
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 } & PropsWithChildren &
   PropsWithClassName;
 
 const Drawer = memo((props: DrawerProps) => {
-  const { className, children, onClose, isOpen } = props;
+  const { className, children, onClose, isOpen, lazy = true } = props;
 
   const { theme } = useTheme();
   const { Spring, Gesture } = useAnimationLibs();
 
   const mods: Mods = { [cls.open]: isOpen };
 
-  useEffect(() => onClose, [onClose]);
+  const { isMounted } = useModal({ isOpen, onClose });
 
   // Animations
   const [{ y }, api] = Spring.useSpring(() => ({ y: WINDOW_HEIGHT }));
@@ -36,7 +38,7 @@ const Drawer = memo((props: DrawerProps) => {
     api.start({ y: 0, immediate: false });
   }, [api]);
 
-  const close = useCallback(
+  const closeDrawer = useCallback(
     (velocity = 0) => {
       api.start({
         y: WINDOW_HEIGHT,
@@ -52,9 +54,9 @@ const Drawer = memo((props: DrawerProps) => {
     if (isOpen) {
       openDrawer();
     } else {
-      close();
+      closeDrawer();
     }
-  }, [isOpen, openDrawer, close]);
+  }, [isOpen, openDrawer, closeDrawer]);
 
   const bind = Gesture.useDrag(
     ({ last, velocity: [, vy], direction: [, dy], movement: [, my], cancel }) => {
@@ -65,7 +67,7 @@ const Drawer = memo((props: DrawerProps) => {
 
       if (last) {
         if (my > WINDOW_HEIGHT * 0.5 || (vy > 0.5 && dy > 0)) {
-          close();
+          closeDrawer();
         } else {
           openDrawer();
         }
@@ -82,6 +84,10 @@ const Drawer = memo((props: DrawerProps) => {
   );
 
   const display = y.to((py) => (py < WINDOW_HEIGHT ? 'block' : 'none'));
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
