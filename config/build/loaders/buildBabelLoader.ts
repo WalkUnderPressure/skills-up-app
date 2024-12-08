@@ -23,7 +23,8 @@ function buildBabelLoader(options: BuildBabelLoaderParams) {
     ],
   ];
 
-  if (isTsx) {
+  // Remove attributes only in production
+  if (isTsx && !isDev) {
     babelPlugins.push([
       babelRemovePropsPlugin,
       {
@@ -43,6 +44,7 @@ function buildBabelLoader(options: BuildBabelLoaderParams) {
       {
         loader: 'babel-loader',
         options: {
+          cacheDirectory: true,
           plugins: babelPlugins,
         },
       },

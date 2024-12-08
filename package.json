@@ -23,16 +23,25 @@
     "report:sshot:gen": "npm run report:sshot:json && npm run report:sshot:html",
     "report:sshot:json": "npx ts-node scripts/gen-ui-json-report.ts",
     "report:sshot:html": "reg-cli --from .loki/report/report.json --report .loki/report/report.html",
-    "prepare": "husky",
     "fsd:gen:slice": "npx ts-node scripts/gen-fsd-slice/index.ts",
-    "code:aliases": "npx ts-node scripts/update-import-aliases.ts --"
+    "code:aliases": "npx ts-node scripts/update-import-aliases.ts --",
+    "prepare": "husky",
+    "postinstall": "npx ts-node scripts/clear-cache.ts"
   },
   "keywords": [],
   "author": "Oleksandr Brynzei",
   "license": "ISC",
-  "browserslist": [
-    "defaults"
-  ],
+  "browserslist": {
+    "production": [
+      "> 1%",
+      "not dead"
+    ],
+    "development": [
+      "last 2 chrome version",
+      "last 2 firefox version",
+      "last 2 safari version"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/plugin-transform-runtime": "^7.25.9",
@@ -103,6 +112,7 @@
     "mini-css-extract-plugin": "^2.9.0",
     "react-refresh": "^0.14.2",
     "reg-cli": "^0.18.6",
+    "rimraf": "^6.0.1",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.0",
     "storybook": "^8.4.5",

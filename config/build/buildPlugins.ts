@@ -28,7 +28,6 @@ function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance> {
     new HtmlWebpackPlugin({
       template: html,
     }),
-    buildMiniCssExtractPlugin(),
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API_URL__: JSON.stringify(apiUrl),
@@ -72,6 +71,9 @@ function buildPlugins(options: BuildOptions): Array<WebpackPluginInstance> {
         patterns: [{ from: locales, to: buildLocales }],
       }),
     );
+
+    // Add MiniCssExtractPlugin to plugins if it's production
+    plugins.push(buildMiniCssExtractPlugin());
   }
 
   return plugins;

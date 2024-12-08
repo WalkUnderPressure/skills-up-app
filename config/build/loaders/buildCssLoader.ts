@@ -9,6 +9,7 @@ function buildCssLoader(options: BuildCssLoaderOptions) {
 
   return {
     test: /\.s[ac]ss$/i,
+    exclude: /node_modules/,
     use: [
       // !IMPORTANT: Order of loaders matters
       isDev
