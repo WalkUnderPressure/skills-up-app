@@ -1,8 +1,8 @@
 # App production build
 npm run build:prod
 
-# Run linter for ESlint
-npm run lint:code
+# Run ESlint linter only for files with changes 
+npx lint-staged
 
 # Run linter for TS
 npm run lint:ts

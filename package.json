@@ -2,6 +2,9 @@
   "name": "app",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "author": "Oleksandr Brynzei",
+  "license": "ISC",
   "scripts": {
     "start:front": "webpack serve",
     "start:dev": "concurrently -n front \"npm run start:front\"",
@@ -28,9 +31,9 @@
     "prepare": "husky",
     "postinstall": "npx ts-node scripts/clear-cache.ts"
   },
-  "keywords": [],
-  "author": "Oleksandr Brynzei",
-  "license": "ISC",
+  "lint-staged": {
+    "**/*.{ts,tsx}": "npm run lint:code"
+  },
   "browserslist": {
     "production": [
       "> 1%",
@@ -141,6 +144,7 @@
     "i18next": "^23.12.2",
     "i18next-browser-languagedetector": "^8.0.0",
     "i18next-http-backend": "^2.5.2",
+    "lint-staged": "^15.2.11",
     "lodash.camelcase": "^4.3.0",
     "lodash.capitalize": "^4.2.1",
     "lodash.kebabcase": "^4.1.1",
