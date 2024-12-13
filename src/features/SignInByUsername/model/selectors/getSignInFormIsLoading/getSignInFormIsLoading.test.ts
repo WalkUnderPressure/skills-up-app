@@ -1,5 +1,5 @@
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
-import getSignInFormIsLoading from '.';
+import { getSignInFormIsLoading } from '.';
 
 describe('getSignInFormIsLoading', () => {
   test('get sign-in form isLoading for positive default value', () => {

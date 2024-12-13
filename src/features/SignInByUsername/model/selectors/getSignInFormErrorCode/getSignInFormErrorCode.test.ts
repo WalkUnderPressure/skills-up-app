@@ -1,6 +1,6 @@
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import { SignInErrorCode } from '../../types/SignInSchema';
-import getSignInFormErrorCode from '.';
+import { getSignInFormErrorCode } from '.';
 
 describe('getSignInFormErrorCode', () => {
   test('get sign-in form errorCode from filled store', () => {

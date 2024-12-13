@@ -2,13 +2,12 @@ import { memo, useCallback, useState } from 'react';
 
 import SidebarItem from '~/widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import { Button, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
-import { useAppSelector } from '~/app/providers/StoreProvider';
 import { ThemeSwitcher } from '~/widgets/ThemeSwitcher';
 import { LangSwitcher } from '~/widgets/LangSwitcher';
 import { HStack, VStack } from '~/shared/ui/Stack';
 import classNames from '~/shared/lib/classNames';
 import { SidebarDataTestIdProps } from './Sidebar.test-ids';
-import getSidebarMenuItems from '../../model/selectors/getSidebarMenuItems';
+import { useSidebarMenuItems } from '../../model/selectors/getSidebarMenuItems';
 import cls from './Sidebar.module.scss';
 
 import ArrowRightLine from '~/shared/assets/icons/arrow-right-line.svg';
@@ -24,7 +23,7 @@ const Sidebar = memo((props: SidebarProps) => {
     setIsCollapsed((prevCollapsed) => !prevCollapsed);
   }, []);
 
-  const sidebarItems = useAppSelector(getSidebarMenuItems);
+  const sidebarItems = useSidebarMenuItems();
 
   return (
     <VStack

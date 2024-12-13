@@ -2,8 +2,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { getIsUserAdmin, getUserAuthData, getUserId, userActions } from '~/entities/User';
-import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
+import { useIsUserAdmin, useUserAuthData, useUserId, useUserActions } from '~/entities/User';
 import {
   getRouteAdminPanel,
   getRouteHome,
@@ -19,20 +18,21 @@ const AccountMenu = memo((props: AccountMenuProps) => {
   const { className } = props;
 
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const isUserAdmin = useAppSelector(getIsUserAdmin);
-  const userData = useAppSelector(getUserAuthData);
-  const userId = useAppSelector(getUserId);
+  const isUserAdmin = useIsUserAdmin();
+  const userData = useUserAuthData();
+  const userId = useUserId();
 
   const isAdminPanelAvailable = isUserAdmin;
 
+  const { signOut } = useUserActions();
+
   const onClickSignOut = useCallback(() => {
-    dispatch(userActions.signOut());
+    signOut();
 
     navigate(getRouteHome());
-  }, [dispatch, navigate]);
+  }, [signOut, navigate]);
 
   const onClickCreatePost = useCallback(() => {
     navigate(getRoutePostCreate());

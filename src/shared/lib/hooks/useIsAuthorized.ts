@@ -1,8 +1,7 @@
-import { useAppSelector } from '~/app/providers/StoreProvider';
-import { getUserAuthData } from '~/entities/User';
+import { useUserAuthData } from '~/entities/User';
 
 function useIsAuthorized() {
-  const isAuthorized = useAppSelector(getUserAuthData);
+  const isAuthorized = useUserAuthData();
 
   return { isAuthorized };
 }

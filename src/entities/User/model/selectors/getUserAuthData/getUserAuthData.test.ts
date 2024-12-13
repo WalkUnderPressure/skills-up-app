@@ -1,6 +1,6 @@
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import { User } from '../../types/UserStateSchema';
-import getUserAuthData from '.';
+import { getUserAuthData } from '.';
 
 describe('getUserAuthData', () => {
   test('get user auth data from filled store', () => {

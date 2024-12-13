@@ -1,4 +1,3 @@
-import { createAppAsyncThunk, AsyncThunkRejectValue } from '~/app/providers/StoreProvider';
 import {
   getBlogPostsLimit,
   getBlogPostsPage,
@@ -8,6 +7,7 @@ import {
   getBlogPostsSortOrder,
 } from '../../selectors/blogPageSelectors';
 import BlogSearchParamsMap from '../../mappers/BlogSearchParamsMap';
+import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { addQueryParams } from '~/shared/lib/url/addQueryParams';
 import { Post, PostTagsMap } from '~/entities/Post';
 
@@ -16,10 +16,10 @@ type FetchBlogPostsParams = {
   replace?: boolean;
 };
 
-const fetchBlogPosts = createAppAsyncThunk<
+export const [fetchBlogPosts, useFetchBlogPosts] = buildAppAsyncThunk<
   Array<Post>,
   FetchBlogPostsParams | undefined,
-  AsyncThunkRejectValue<string>
+  string
 >('blogPage/fetchBlogPosts', async (_, thunkApi) => {
   const { extra, rejectWithValue, getState } = thunkApi;
 
@@ -63,5 +63,3 @@ const fetchBlogPosts = createAppAsyncThunk<
     return rejectWithValue('error');
   }
 });
-
-export default fetchBlogPosts;

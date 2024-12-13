@@ -1,6 +1,6 @@
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import { ProfileErrorCode } from '~/entities/Profile';
-import getProfileErrorData from '.';
+import { getProfileErrorData } from '.';
 
 describe('getProfileErrorData', () => {
   test('get profile error data from filled store', () => {

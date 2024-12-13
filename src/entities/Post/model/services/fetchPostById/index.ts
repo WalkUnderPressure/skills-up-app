@@ -1,10 +1,12 @@
-import { createAppAsyncThunk, AsyncThunkRejectValue } from '~/app/providers/StoreProvider';
+import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { Post } from '../../types/Post';
 
-export const fetchPostById = createAppAsyncThunk<
+export const [fetchPostById, useFetchPostById] = buildAppAsyncThunk<
   Post,
-  string | undefined,
-  AsyncThunkRejectValue<string>
+  {
+    postId: string | undefined;
+  },
+  string
 >('postDetails/fetchPostById', async (postId, thunkApi) => {
   const { extra, rejectWithValue } = thunkApi;
 

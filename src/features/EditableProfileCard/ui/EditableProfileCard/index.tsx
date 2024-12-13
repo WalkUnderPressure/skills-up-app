@@ -4,19 +4,20 @@ import { useCallback } from 'react';
 import DynamicReducerProvider, {
   ReducersMap,
 } from '~/shared/lib/components/DynamicReducerProvider';
-import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
 import useInitialEffect from '~/shared/lib/hooks/useInitialEffect';
 import { ProfileCard, ProfileKeys, ProfileValidationErrors } from '~/entities/Profile';
 import classNames from '~/shared/lib/classNames';
 import { VStack } from '~/shared/ui/Stack';
-import getProfileValidationErrors from '../../model/selectors/getProfileValidationErrors';
-import getProfileIsReadonly from '../../model/selectors/getProfileIsReadonly';
-import { profileActions, profileReducer } from '../../model/slices/editableProfileCardSlice';
-import getProfileIsLoading from '../../model/selectors/getProfileIsLoading';
-import getProfileErrorData from '../../model/selectors/getProfileErrorData';
-import getProfileIsSaving from '../../model/selectors/getProfileIsSaving';
-import getProfileFormData from '../../model/selectors/getProfileFormData';
-import { fetchProfileData } from '../../model/services/fetchProfileData';
+import {
+  useProfileValidationErrors,
+  useProfileIsReadonly,
+  useProfileIsLoading,
+  useProfileErrorData,
+  useProfileIsSaving,
+  useProfileFormData,
+} from '../../model/selectors';
+import { profileReducer, useProfileActions } from '../../model/slices/editableProfileCardSlice';
+import { useFetchProfileData } from '../../model/services/fetchProfileData';
 import EditableProfileCardHeader from '../EditableProfileCardHeader';
 import cls from './EditableProfileCard.module.scss';
 
@@ -31,27 +32,27 @@ type EditableProfileCardProps = {
 const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const { className, profileUserId } = props;
 
-  const dispatch = useAppDispatch();
+  const isLoading = useProfileIsLoading();
+  const isSaving = useProfileIsSaving();
+  const profile = useProfileFormData();
 
-  const isLoading = useAppSelector(getProfileIsLoading);
-  const isSaving = useAppSelector(getProfileIsSaving);
-  const profile = useAppSelector(getProfileFormData);
+  const validationErrors: ProfileValidationErrors = useProfileValidationErrors() || {};
+  const isReadonly = useProfileIsReadonly();
+  const errorData = useProfileErrorData();
 
-  const validationErrors: ProfileValidationErrors =
-    useAppSelector(getProfileValidationErrors) || {};
-  const isReadonly = useAppSelector(getProfileIsReadonly);
-  const errorData = useAppSelector(getProfileErrorData);
+  const { updateProfileFormData } = useProfileActions();
+  const fetchProfileData = useFetchProfileData();
 
   const onChangeInputValue = useCallback(
     (fieldName: ProfileKeys, value: string) => {
-      dispatch(profileActions.updateProfileFormData({ [fieldName]: value }));
+      updateProfileFormData({ [fieldName]: value });
     },
-    [dispatch],
+    [updateProfileFormData],
   );
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData(profileUserId));
-  }, [dispatch, profileUserId]);
+    fetchProfileData(profileUserId);
+  }, [fetchProfileData, profileUserId]);
 
   return (
     <DynamicReducerProvider reducers={reducers}>

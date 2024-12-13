@@ -1,4 +1,4 @@
-export { default as getProfileData } from './model/selectors/getProfileData';
+export { getProfileData, useProfileData } from './model/selectors/getProfileData';
 export { default as EditableProfileCard } from './ui/EditableProfileCard';
 
 export type { EditableProfileStateSchema } from './model/types/EditableProfileCardStateSchema';

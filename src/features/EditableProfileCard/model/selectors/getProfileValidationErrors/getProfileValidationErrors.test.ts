@@ -1,6 +1,6 @@
 import { ProfileErrorCode, ProfileValidationErrors } from '~/entities/Profile';
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
-import getProfileValidationErrors from '.';
+import { getProfileValidationErrors } from '.';
 
 describe('getProfileValidationErrors', () => {
   test('get profile validation errors from filled store', () => {

@@ -1,7 +1,5 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getProfileIsLoading = (state: StoreStateSchema) => {
+export const [useProfileIsLoading, getProfileIsLoading] = buildAppSelector((state) => {
   return state['profile']?.isLoading || false;
-};
-
-export default getProfileIsLoading;
+});

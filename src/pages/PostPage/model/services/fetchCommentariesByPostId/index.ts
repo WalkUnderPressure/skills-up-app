@@ -1,10 +1,12 @@
-import { createAppAsyncThunk, AsyncThunkRejectValue } from '~/app/providers/StoreProvider';
+import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { Commentary } from '~/entities/Commentary';
 
-const fetchCommentariesByPostId = createAppAsyncThunk<
+export const [fetchCommentariesByPostId, useFetchCommentariesByPostId] = buildAppAsyncThunk<
   Array<Commentary>,
-  string | undefined,
-  AsyncThunkRejectValue<string>
+  {
+    postId: string | undefined;
+  },
+  string
 >('postCommentaries/fetchCommentariesByPostId', async (postId, thunkApi) => {
   const { extra, rejectWithValue } = thunkApi;
 
@@ -28,5 +30,3 @@ const fetchCommentariesByPostId = createAppAsyncThunk<
     return rejectWithValue('error');
   }
 });
-
-export default fetchCommentariesByPostId;

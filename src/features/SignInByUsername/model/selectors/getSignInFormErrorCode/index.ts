@@ -1,7 +1,7 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getSignInFormErrorCode = (state: StoreStateSchema) => {
+export const [useSignInFormErrorCode, getSignInFormErrorCode] = buildAppSelector((state) => {
   return state['sign-in_username']?.errorCode || null;
-};
+});
 
 export default getSignInFormErrorCode;

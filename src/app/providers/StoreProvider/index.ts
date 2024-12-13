@@ -4,7 +4,7 @@ import createReduxStore from './config/store';
 import { StoreStateSchema } from './schemas';
 
 // typed app hooks
-import createAppAsyncThunk, { AsyncThunkRejectValue } from './hooks/createAppAsyncThunk';
+import buildAppAsyncThunk from './hooks/buildAppAsyncThunk';
 import useAppDispatch from './hooks/useAppDispatch';
 import useAppSelector from './hooks/useAppSelector';
 import useAppStore from './hooks/useAppStore';
@@ -12,10 +12,10 @@ import useAppStore from './hooks/useAppStore';
 export {
   createReduxStore,
   StoreProvider,
-  createAppAsyncThunk,
+  buildAppAsyncThunk,
   useAppDispatch,
   useAppSelector,
   useAppStore,
 };
 
-export type { StoreStateSchema, StoreProviderProps, AsyncThunkRejectValue };
+export type { StoreStateSchema, StoreProviderProps };

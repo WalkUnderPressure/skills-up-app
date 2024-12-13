@@ -1,19 +1,18 @@
 import { useCallback, memo } from 'react';
 
-import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
 import { PostSortFieldsKey, PostViewKey, PostTagsKey } from '~/entities/Post';
 import {
-  getBlogPostsSearch,
-  getBlogPostsSearchTag,
-  getBlogPostsSortField,
-  getBlogPostsSortOrder,
-  getBlogPostViewType,
+  useBlogPostsSearch,
+  useBlogPostsSearchTag,
+  useBlogPostsSortField,
+  useBlogPostsSortOrder,
+  useBlogPostViewType,
 } from '../../model/selectors/blogPageSelectors';
 import { BlogViewTypeSwitcher } from '~/features/BlogViewTypeSwitcher';
-import { blogPageActions } from '../../model/slices/blogPageSlice';
+import { useBlogPageActions } from '../../model/slices/blogPageSlice';
 import { Input } from '~/shared/ui/Input';
 import { SortOrder } from '~/shared/types/SortOrder';
-import fetchBlogPosts from '../../model/services/fetchBlogPosts/fetchBlogPosts';
+import { fetchBlogPosts } from '../../model/services/fetchBlogPosts/fetchBlogPosts';
 import { PostSortSelector } from '~/features/PostSortSelector';
 import { useDebounce } from '~/shared/lib/hooks/useDebounce';
 import { PostTagsTabs } from '~/features/PostTagsTabs';
@@ -26,58 +25,59 @@ type BlogPageFiltersProps = PropsWithClassName;
 const BlogPageFilters = memo((props: BlogPageFiltersProps) => {
   const { className } = props;
 
-  const dispatch = useAppDispatch();
+  const postViewType = useBlogPostViewType();
+  const postSortFiled = useBlogPostsSortField();
+  const postSortOrder = useBlogPostsSortOrder();
+  const postSearch = useBlogPostsSearch();
+  const postSearchTag = useBlogPostsSearchTag();
 
-  const postViewType = useAppSelector(getBlogPostViewType);
-  const postSortFiled = useAppSelector(getBlogPostsSortField);
-  const postSortOrder = useAppSelector(getBlogPostsSortOrder);
-  const postSearch = useAppSelector(getBlogPostsSearch);
-  const postSearchTag = useAppSelector(getBlogPostsSearchTag);
+  const { setPage, setViewType, setSortField, setSortOrder, setSearchTag, setSearch } =
+    useBlogPageActions();
 
   const fetchData = useCallback(() => {
-    dispatch(blogPageActions.setPage(1));
-    dispatch(fetchBlogPosts({ replace: true }));
-  }, [dispatch]);
+    setPage(1);
+    fetchBlogPosts({ replace: true });
+  }, [setPage]);
 
   const debouncedFetchData = useDebounce(fetchData, FETCH_DELAY);
 
   const changeViewType = useCallback(
     (nextViewType: PostViewKey) => {
-      dispatch(blogPageActions.setViewType(nextViewType));
+      setViewType(nextViewType);
     },
-    [dispatch],
+    [setViewType],
   );
 
   const changeSortField = useCallback(
     (nextSortField: PostSortFieldsKey) => {
-      dispatch(blogPageActions.setSortField(nextSortField));
+      setSortField(nextSortField);
       fetchData();
     },
-    [dispatch, fetchData],
+    [fetchData, setSortField],
   );
 
   const changeSortOrder = useCallback(
     (nextSortOrder: SortOrder) => {
-      dispatch(blogPageActions.setSortOrder(nextSortOrder));
+      setSortOrder(nextSortOrder);
       fetchData();
     },
-    [dispatch, fetchData],
+    [fetchData, setSortOrder],
   );
 
   const changeSearchTag = useCallback(
     (nextSearchTag: PostTagsKey) => {
-      dispatch(blogPageActions.setSearchTag(nextSearchTag));
+      setSearchTag(nextSearchTag);
       fetchData();
     },
-    [dispatch, fetchData],
+    [setSearchTag, fetchData],
   );
 
   const changeSearch = useCallback(
     (nextSearch: string) => {
-      dispatch(blogPageActions.setSearch(nextSearch));
+      setSearch(nextSearch);
       debouncedFetchData();
     },
-    [dispatch, debouncedFetchData],
+    [setSearch, debouncedFetchData],
   );
 
   return (

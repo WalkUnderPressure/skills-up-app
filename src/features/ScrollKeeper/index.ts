@@ -1,6 +1,11 @@
-import { scrollKeeperActions, scrollKeeperReducer } from './model/slices/scrollKeeperSlice';
-import { getScrollByPath, getScrollIndex } from './model/selectors/scrollKeeperSelectors';
-import { ScrollKeeperSchema } from './model/types/ScrollKeeperSchema';
-
-export { scrollKeeperActions, scrollKeeperReducer, getScrollByPath, getScrollIndex };
-export type { ScrollKeeperSchema };
+export {
+  scrollKeeperActions,
+  scrollKeeperReducer,
+  useScrollKeeperActions,
+} from './model/slices/scrollKeeperSlice';
+export {
+  getScrollByPath,
+  getScrollIndex,
+  useScrollIndex,
+} from './model/selectors/scrollKeeperSelectors';
+export type { ScrollKeeperSchema } from './model/types/ScrollKeeperSchema';

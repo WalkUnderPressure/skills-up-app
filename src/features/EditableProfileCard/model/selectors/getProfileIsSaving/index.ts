@@ -1,7 +1,5 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getProfileIsSaving = (state: StoreStateSchema) => {
+export const [useProfileIsSaving, getProfileIsSaving] = buildAppSelector((state) => {
   return state['profile']?.isSaving || false;
-};
-
-export default getProfileIsSaving;
+});

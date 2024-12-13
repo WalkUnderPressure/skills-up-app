@@ -1,7 +1,9 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getAddCommentaryText = (state: StoreStateSchema) => state?.addCommentaryForm?.text || '';
-const getAddCommentaryIsLoading = (state: StoreStateSchema) =>
-  state?.addCommentaryForm?.isLoading || false;
+export const [useAddCommentaryText, getAddCommentaryText] = buildAppSelector(
+  (state) => state?.addCommentaryForm?.text || '',
+);
 
-export { getAddCommentaryText, getAddCommentaryIsLoading };
+export const [useAddCommentaryIsLoading, getAddCommentaryIsLoading] = buildAppSelector(
+  (state) => state?.addCommentaryForm?.isLoading || false,
+);

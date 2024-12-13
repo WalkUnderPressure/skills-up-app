@@ -2,11 +2,10 @@ import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { getIsUserCanEditPost } from '~/pages/PostPage/model/selectors/postSelectors';
+import { useIsUserCanEditPost } from '../../../model/selectors/postSelectors';
 import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
 import { getRoutePostEdit } from '~/shared/constants/appRoutes';
-import { useAppSelector } from '~/app/providers/StoreProvider';
-import { getPostDetails } from '~/entities/Post';
+import { usePostDetails } from '~/entities/Post';
 import classNames from '~/shared/lib/classNames';
 import cls from './EditPostBtn.module.scss';
 
@@ -20,8 +19,8 @@ const EditPostBtn = (props: EditPostBtnProps) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const isUserCanEditPost = useAppSelector(getIsUserCanEditPost);
-  const postData = useAppSelector(getPostDetails);
+  const isUserCanEditPost = useIsUserCanEditPost();
+  const postData = usePostDetails();
 
   const onEditClick = useCallback(() => {
     let postEditUrl = '';
@@ -47,7 +46,7 @@ const EditPostBtn = (props: EditPostBtnProps) => {
         >
           <EditIcon />
 
-          {t('edit', { defaultValue: 'Edit' })}
+          {t('form.edit', { defaultValue: 'Edit' })}
         </Button>
       )}
     </>

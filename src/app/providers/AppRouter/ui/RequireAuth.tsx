@@ -3,8 +3,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 
 import { getRouteForbidden, getRouteHome } from '~/shared/constants/appRoutes';
 import useIsAuthorized from '~/shared/lib/hooks/useIsAuthorized';
-import { useAppSelector } from '~/app/providers/StoreProvider';
-import { getUserRoles, UserRoles } from '~/entities/User';
+import { useUserRoles, UserRoles } from '~/entities/User';
 
 const DEFAULT_REDIRECT = getRouteHome();
 const FORBIDDEN_REDIRECT = getRouteForbidden();
@@ -20,7 +19,7 @@ const RequireAuth = memo((props: RequireAuthProps) => {
   const location = useLocation();
 
   const { isAuthorized } = useIsAuthorized();
-  const userRoles = useAppSelector(getUserRoles);
+  const userRoles = useUserRoles();
 
   const isRouteAvailable = useMemo(() => {
     let isAvailable = true;

@@ -1,4 +1,4 @@
-import { AsyncThunkRejectValue, createAppAsyncThunk } from '~/app/providers/StoreProvider';
+import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { SignInErrorCode } from '../../types/SignInSchema';
 import { User, userActions } from '~/entities/User';
 
@@ -7,10 +7,10 @@ export type SignInByUsernameData = {
   password: string;
 };
 
-const signInByUsername = createAppAsyncThunk<
+export const [signInByUsername, useSignInByUsername] = buildAppAsyncThunk<
   User,
   SignInByUsernameData,
-  AsyncThunkRejectValue<SignInErrorCode>
+  SignInErrorCode
 >('sign-in/signInByUsername', async (signInData, thunkAPI) => {
   const {
     dispatch,
@@ -33,5 +33,3 @@ const signInByUsername = createAppAsyncThunk<
     return rejectWithValue(SignInErrorCode.INCORRECT_DATA);
   }
 });
-
-export { signInByUsername };

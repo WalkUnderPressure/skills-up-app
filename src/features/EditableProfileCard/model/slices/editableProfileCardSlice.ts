@@ -1,10 +1,11 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 import { Profile } from '~/entities/Profile';
 import { EditableProfileStateSchema } from '../types/EditableProfileCardStateSchema';
 import { validateProfileData } from '../services/validateProfileData';
 import { updateProfileData } from '../services/updateProfileData';
 import { fetchProfileData } from '../services/fetchProfileData';
+import { buildAppSlice } from '~/shared/lib/store';
 
 const initialState: EditableProfileStateSchema = {
   data: null,
@@ -17,7 +18,7 @@ const initialState: EditableProfileStateSchema = {
   validationErrors: {},
 };
 
-export const profileSlice = createSlice({
+export const profileSlice = buildAppSlice({
   name: 'profile',
   initialState,
   reducers: {
@@ -98,5 +99,8 @@ export const profileSlice = createSlice({
   },
 });
 
-export const { actions: profileActions } = profileSlice;
-export const { reducer: profileReducer } = profileSlice;
+export const {
+  actions: profileActions,
+  reducer: profileReducer,
+  useActions: useProfileActions,
+} = profileSlice;

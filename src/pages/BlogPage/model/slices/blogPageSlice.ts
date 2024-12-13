@@ -1,9 +1,9 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createEntityAdapter, PayloadAction } from '@reduxjs/toolkit';
 
-import getSafeLocalStorageValue from '~/shared/lib/helpers/getSafeValueFromLS';
-import fetchBlogPosts from '../services/fetchBlogPosts/fetchBlogPosts';
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import { Post, PostViewMap, PostViewKey, PostSortFieldsKey, PostTagsKey } from '~/entities/Post';
+import getSafeLocalStorageValue from '~/shared/lib/helpers/getSafeValueFromLS';
+import { fetchBlogPosts } from '../services/fetchBlogPosts/fetchBlogPosts';
+import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import { LS_BLOG_VIEW } from '~/shared/constants/localStorage';
 import {
   DEFAULT_POST_FULL_LIMIT,
@@ -15,6 +15,7 @@ import {
 } from '../consts/defaultFilterValues';
 import BlogPageSchema from '../types/BlogPageSchema';
 import { SortOrder } from '~/shared/types/SortOrder';
+import { buildAppSelector, buildAppSlice } from '~/shared/lib/store';
 
 export const blogPostsAdapter = createEntityAdapter({
   selectId: (post: Post) => post.id,
@@ -36,11 +37,15 @@ const initialState: BlogPageSchema = {
   searchTag: DEFAULT_SEARCH_TAG,
 };
 
-export const getBlogPosts = blogPostsAdapter.getSelectors<StoreStateSchema>((state) => {
+export const blogPostsSelectors = blogPostsAdapter.getSelectors<StoreStateSchema>((state) => {
   return state?.blogPage || initialState;
 });
 
-const blogPageSlice = createSlice({
+export const [useBlogPostsSelectAll, getBlogPostsSelectAll] = buildAppSelector(
+  blogPostsSelectors.selectAll,
+);
+
+const blogPageSlice = buildAppSlice({
   name: 'blogPageSlice',
   initialState: blogPostsAdapter.getInitialState(initialState),
   reducers: {
@@ -111,4 +116,8 @@ const blogPageSlice = createSlice({
   },
 });
 
-export const { reducer: blogPageReducer, actions: blogPageActions } = blogPageSlice;
+export const {
+  reducer: blogPageReducer,
+  actions: blogPageActions,
+  useActions: useBlogPageActions,
+} = blogPageSlice;

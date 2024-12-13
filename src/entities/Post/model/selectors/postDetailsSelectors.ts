@@ -1,16 +1,14 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 import { Post } from '../types/Post';
 
-const getPostDetails = (state: StoreStateSchema): Nullable<Post> => {
+export const [usePostDetails, getPostDetails] = buildAppSelector((state): Nullable<Post> => {
   return state.postDetails?.data;
-};
+});
 
-const getPostIsLoading = (state: StoreStateSchema): boolean => {
+export const [usePostIsLoading, getPostIsLoading] = buildAppSelector((state): boolean => {
   return state.postDetails?.isLoading || false;
-};
+});
 
-const getPostError = (state: StoreStateSchema) => {
+export const [usePostError, getPostError] = buildAppSelector((state) => {
   return state.postDetails?.error;
-};
-
-export { getPostDetails, getPostIsLoading, getPostError };
+});

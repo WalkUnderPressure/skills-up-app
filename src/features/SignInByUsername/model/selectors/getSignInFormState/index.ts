@@ -1,5 +1,5 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getSignInFormState = (state: StoreStateSchema) => state['sign-in_username'] || {};
-
-export default getSignInFormState;
+export const [useSignInFormState, getSignInFormState] = buildAppSelector(
+  (state) => state['sign-in_username'] || {},
+);

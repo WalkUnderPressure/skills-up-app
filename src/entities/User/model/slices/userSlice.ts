@@ -1,15 +1,16 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 import safeJsonParse from '~/shared/lib/helpers/safeJsonParse';
 import { LS_AUTH_USER } from '~/shared/constants/localStorage';
 import { UserStateSchema, User } from '../types/UserStateSchema';
+import { buildAppSlice } from '~/shared/lib/store';
 
 const initialState: UserStateSchema = {
   authData: null,
   isInitialized: false,
 };
 
-export const userSlice = createSlice({
+export const userSlice = buildAppSlice({
   name: 'user',
   initialState,
   reducers: {
@@ -35,5 +36,4 @@ export const userSlice = createSlice({
   },
 });
 
-export const { actions: userActions } = userSlice;
-export const { reducer: userReducer } = userSlice;
+export const { actions: userActions, reducer: userReducer, useActions: useUserActions } = userSlice;

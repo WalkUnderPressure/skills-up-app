@@ -1,5 +1,5 @@
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
-import getSignInFormIsFailed from '.';
+import { getSignInFormIsFailed } from '.';
 
 describe('getSignInFormIsFailed', () => {
   test('get sign-in form isFailed for positive default value', () => {

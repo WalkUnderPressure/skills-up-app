@@ -1,7 +1,7 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getPostCommentariesIsLoading = (state: StoreStateSchema) => {
-  return state?.postPage?.postCommentaries?.isLoading || false;
-};
-
-export { getPostCommentariesIsLoading };
+export const [usePostCommentariesIsLoading, getPostCommentariesIsLoading] = buildAppSelector(
+  (state) => {
+    return state?.postPage?.postCommentaries?.isLoading || false;
+  },
+);

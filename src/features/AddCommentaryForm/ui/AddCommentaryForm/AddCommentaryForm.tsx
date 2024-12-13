@@ -4,14 +4,16 @@ import { useTranslation } from 'react-i18next';
 import DynamicReducerProvider, {
   ReducersMap,
 } from '~/shared/lib/components/DynamicReducerProvider';
-import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
 import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/Button';
 import classNames from '~/shared/lib/classNames';
 import { Input } from '~/shared/ui/Input';
-import { addCommentaryActions, addCommentaryReducer } from '../../model/slices/addCommentarySlice';
 import {
-  getAddCommentaryIsLoading,
-  getAddCommentaryText,
+  useAddCommentaryActions,
+  addCommentaryReducer,
+} from '../../model/slices/addCommentarySlice';
+import {
+  useAddCommentaryIsLoading,
+  useAddCommentaryText,
 } from '../../model/selectors/addCommentarySelectors';
 import cls from './AddCommentaryForm.module.scss';
 import { HStack } from '~/shared/ui/Stack';
@@ -27,17 +29,18 @@ export type AddCommentaryFormProps = {
 const AddCommentaryForm = memo((props: AddCommentaryFormProps) => {
   const { className, onSendCommentary } = props;
 
-  const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
-  const isLoading = useAppSelector(getAddCommentaryIsLoading);
-  const text = useAppSelector(getAddCommentaryText);
+  const isLoading = useAddCommentaryIsLoading();
+  const text = useAddCommentaryText();
+
+  const { updateText } = useAddCommentaryActions();
 
   const onChangeCommentaryText = useCallback(
     (newText: string) => {
-      dispatch(addCommentaryActions.updateText(newText));
+      updateText(newText);
     },
-    [dispatch],
+    [updateText],
   );
 
   const onSend = useCallback(() => {

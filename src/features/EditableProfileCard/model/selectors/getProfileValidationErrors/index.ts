@@ -1,8 +1,8 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import { ProfileValidationErrors } from '~/entities/Profile';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getProfileValidationErrors = (state: StoreStateSchema): ProfileValidationErrors | null => {
-  return state['profile']?.validationErrors || null;
-};
-
-export default getProfileValidationErrors;
+export const [useProfileValidationErrors, getProfileValidationErrors] = buildAppSelector(
+  (state): ProfileValidationErrors | null => {
+    return state['profile']?.validationErrors || null;
+  },
+);

@@ -1,12 +1,11 @@
 import { useCallback, useEffect } from 'react';
 
-import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
 import { AddCommentaryForm } from '~/features/AddCommentaryForm';
 import { CommentaryList } from '~/entities/Commentary';
-import { getPostCommentariesIsLoading } from '../../model/selectors/commentariesSelectors';
-import fetchCommentariesByPostId from '../../model/services/fetchCommentariesByPostId';
-import { addCommentaryToPost } from '../../model/services/addCommentaryToPost';
-import { getPostCommentaries } from '../../model/slices/postCommentariesSlice';
+import { usePostCommentariesIsLoading } from '../../model/selectors/commentariesSelectors';
+import { usePostCommentariesSelectAll } from '../../model/slices/postCommentariesSlice';
+import { useFetchCommentariesByPostId } from '../../model/services/fetchCommentariesByPostId';
+import { useAddCommentaryToPost } from '../../model/services/addCommentaryToPost';
 
 type PostCommentariesProps = {
   postId?: string;
@@ -15,21 +14,22 @@ type PostCommentariesProps = {
 const PostCommentaries = (props: PostCommentariesProps) => {
   const { postId } = props;
 
-  const dispatch = useAppDispatch();
+  const isCommentariesLoading = usePostCommentariesIsLoading();
+  const commentaries = usePostCommentariesSelectAll();
 
-  const isCommentariesLoading = useAppSelector(getPostCommentariesIsLoading);
-  const commentaries = useAppSelector(getPostCommentaries.selectAll);
+  const fetchCommentariesByPostId = useFetchCommentariesByPostId();
+  const addCommentaryToPost = useAddCommentaryToPost();
 
   const onSendCommentary = useCallback(
     (text: string) => {
-      dispatch(addCommentaryToPost(text));
+      addCommentaryToPost(text);
     },
-    [dispatch],
+    [addCommentaryToPost],
   );
 
   useEffect(() => {
-    dispatch(fetchCommentariesByPostId(postId));
-  }, [dispatch, postId]);
+    fetchCommentariesByPostId({ postId });
+  }, [fetchCommentariesByPostId, postId]);
 
   return (
     <>

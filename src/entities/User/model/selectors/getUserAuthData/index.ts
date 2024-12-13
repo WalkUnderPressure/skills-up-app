@@ -1,5 +1,5 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getUserAuthData = (state: StoreStateSchema) => state.user?.authData || null;
-
-export default getUserAuthData;
+export const [useUserAuthData, getUserAuthData] = buildAppSelector(
+  (state) => state.user?.authData || null,
+);

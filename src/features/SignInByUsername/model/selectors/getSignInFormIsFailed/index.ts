@@ -1,7 +1,7 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getSignInFormIsFailed = (state: StoreStateSchema) => {
+export const [useSignInFormIsFailed, getSignInFormIsFailed] = buildAppSelector((state) => {
   return state['sign-in_username']?.isFailed || false;
-};
+});
 
 export default getSignInFormIsFailed;

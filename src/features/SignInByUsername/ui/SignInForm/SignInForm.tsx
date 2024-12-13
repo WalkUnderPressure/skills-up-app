@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
 import { SignInByUsernameErrorCode } from '~/features/SignInByUsername';
 import DynamicReducerProvider, {
   ReducersMap,
@@ -11,13 +10,15 @@ import { Button, ButtonTheme, ButtonRounded } from '~/shared/ui/Button';
 import { Text, TextTheme } from '~/shared/ui/Text';
 import classNames from '~/shared/lib/classNames';
 import { Input } from '~/shared/ui/Input';
-import getSignInFormIsLoading from '../../model/selectors/getSignInFormIsLoading';
-import getSignInFormErrorCode from '../../model/selectors/getSignInFormErrorCode';
-import getSignInFormUsername from '../../model/selectors/getSignInFormUsername';
-import getSignInFormPassword from '../../model/selectors/getSignInFormPassword';
-import getSignInFormIsFailed from '../../model/selectors/getSignInFormIsFailed';
-import { signInActions, signInReducer } from '../../model/slices/signInSlice';
-import { signInByUsername } from '../../model/services/signInByUsername';
+import {
+  useSignInFormIsLoading,
+  useSignInFormErrorCode,
+  useSignInFormUsername,
+  useSignInFormPassword,
+  useSignInFormIsFailed,
+} from '../../model/selectors';
+import { signInReducer, useSignInActions } from '../../model/slices/signInSlice';
+import { useSignInByUsername } from '../../model/services/signInByUsername';
 import { getRouteProfile } from '~/shared/constants/appRoutes';
 import { User } from '~/entities/User';
 import cls from './SignInForm.module.scss';
@@ -34,21 +35,23 @@ const SignInForm = memo((props: SignInFormProps) => {
   const { className, onSuccess } = props;
 
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
+
   const navigate = useNavigate();
 
-  const username = useAppSelector(getSignInFormUsername);
-  const password = useAppSelector(getSignInFormPassword);
-  const isLoading = useAppSelector(getSignInFormIsLoading);
-  const isFailed = useAppSelector(getSignInFormIsFailed);
-  const errorCode = useAppSelector(getSignInFormErrorCode);
+  const username = useSignInFormUsername();
+  const password = useSignInFormPassword();
+  const isLoading = useSignInFormIsLoading();
+  const isFailed = useSignInFormIsFailed();
+  const errorCode = useSignInFormErrorCode();
+
+  const { updateUsername, updatePassword } = useSignInActions();
+  const signInByUsername = useSignInByUsername();
 
   const onSubmitHandler = useCallback(
     async (event: ChangeEvent<HTMLFormElement>) => {
       event.preventDefault();
 
-      const result = await dispatch(signInByUsername({ username, password }));
-
+      const result = await signInByUsername({ username, password });
       const isSuccess = result.meta.requestStatus === 'fulfilled';
 
       if (isSuccess) {
@@ -62,21 +65,21 @@ const SignInForm = memo((props: SignInFormProps) => {
         onSuccess();
       }
     },
-    [dispatch, password, username, onSuccess, navigate],
+    [signInByUsername, username, password, onSuccess, navigate],
   );
 
   const onChangeUsername = useCallback(
     (newUsername: string) => {
-      dispatch(signInActions.updateUsername(newUsername));
+      updateUsername(newUsername);
     },
-    [dispatch],
+    [updateUsername],
   );
 
   const onChangePassword = useCallback(
     (newPassword: string) => {
-      dispatch(signInActions.updatePassword(newPassword));
+      updatePassword(newPassword);
     },
-    [dispatch],
+    [updatePassword],
   );
 
   const errorMessage = useMemo(() => {

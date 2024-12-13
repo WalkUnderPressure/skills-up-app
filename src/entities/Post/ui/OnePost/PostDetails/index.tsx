@@ -4,13 +4,12 @@ import { useTranslation } from 'react-i18next';
 import DynamicReducerProvider, {
   ReducersMap,
 } from '~/shared/lib/components/DynamicReducerProvider';
-import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
 import { postDetailsReducer } from '../../../model/slices/postDetailsSlice';
-import { fetchPostById } from '../../../model/services/fetchPostById';
+import { useFetchPostById } from '../../../model/services/fetchPostById';
 import {
-  getPostDetails,
-  getPostIsLoading,
-  getPostError,
+  usePostDetails,
+  usePostIsLoading,
+  usePostError,
 } from '../../../model/selectors/postDetailsSelectors';
 import PostBlocksGenerator from '../PostBlocksGenerator';
 import { Text, TextTheme } from '~/shared/ui/Text';
@@ -35,16 +34,17 @@ type PostDetailsProps = {
 const PostDetails = memo((props: PostDetailsProps) => {
   const { className, postId } = props;
 
-  const dispatch = useAppDispatch();
   const { t } = useTranslation('pages.blog');
 
-  const isPostLoading = useAppSelector(getPostIsLoading);
-  const postDetails = useAppSelector(getPostDetails);
-  const postError = useAppSelector(getPostError);
+  const isPostLoading = usePostIsLoading();
+  const postDetails = usePostDetails();
+  const postError = usePostError();
+
+  const fetchPostById = useFetchPostById();
 
   useEffect(() => {
-    dispatch(fetchPostById(postId));
-  }, [dispatch, postId]);
+    fetchPostById({ postId });
+  }, [fetchPostById, postId]);
 
   const createdAt = useDateTransformer(Number(postDetails?.createdAt));
 

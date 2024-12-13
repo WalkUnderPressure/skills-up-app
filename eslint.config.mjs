@@ -98,7 +98,9 @@ export default tseslint.config(
   {
     files: ['**/*.{ts,tsx}'],
     ignores: [
-      '**/*/createAppAsyncThunk.ts',
+      '**/*/buildAppAsyncThunk.ts',
+      '**/*/buildAppSelector.ts',
+      '**/*/buildAppSlice.ts',
       '**/*/useAppDispatch.ts',
       '**/*/useAppSelector.ts',
       '**/*/useAppStore.ts',

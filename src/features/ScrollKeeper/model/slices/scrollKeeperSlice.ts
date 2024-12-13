@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 import { ScrollKeeperSchema } from '../types/ScrollKeeperSchema';
+import { buildAppSlice } from '~/shared/lib/store';
 
 type SetScrollPositionPayload = {
   path: string;
@@ -13,7 +14,7 @@ const initialState: ScrollKeeperSchema = {
   idx: 0,
 };
 
-export const scrollKeeperSlice = createSlice({
+export const scrollKeeperSlice = buildAppSlice({
   name: 'scrollKeeperSlice',
   initialState,
   reducers: {
@@ -27,5 +28,8 @@ export const scrollKeeperSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { actions: scrollKeeperActions } = scrollKeeperSlice;
-export const { reducer: scrollKeeperReducer } = scrollKeeperSlice;
+export const {
+  actions: scrollKeeperActions,
+  reducer: scrollKeeperReducer,
+  useActions: useScrollKeeperActions,
+} = scrollKeeperSlice;

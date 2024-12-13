@@ -1,6 +1,6 @@
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import { SignInSchema } from '../../types/SignInSchema';
-import getSignInFormState from '.';
+import { getSignInFormState } from '.';
 
 describe('getSignInFormState', () => {
   test('get sign-in form state from filled store', () => {

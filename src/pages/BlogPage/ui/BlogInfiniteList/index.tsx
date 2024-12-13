@@ -1,33 +1,34 @@
 import { useCallback } from 'react';
 
-import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
-import { getScrollIndex, scrollKeeperActions } from '~/features/ScrollKeeper';
+import { useScrollIndex, useScrollKeeperActions } from '~/features/ScrollKeeper';
 import { VirtPostsList } from '~/entities/Post';
-import fetchNextBlogPostsPage from '../../model/services/fetchNextBlogPostsPage/fetchNextBlogPostsPage';
-import { getBlogPosts } from '../../model/slices/blogPageSlice';
+import { useFetchNextBlogPostsPage } from '../../model/services/fetchNextBlogPostsPage/fetchNextBlogPostsPage';
+import { useBlogPostsSelectAll } from '../../model/slices/blogPageSlice';
 import {
-  getBlogPostsIsLoading,
-  getBlogPostViewType,
+  useBlogPostsIsLoading,
+  useBlogPostViewType,
 } from '../../model/selectors/blogPageSelectors';
 
 const BlogInfiniteList = () => {
-  const dispatch = useAppDispatch();
+  const postsIsLoading = useBlogPostsIsLoading();
+  const postViewType = useBlogPostViewType();
+  const posts = useBlogPostsSelectAll();
 
-  const postsIsLoading = useAppSelector(getBlogPostsIsLoading);
-  const postViewType = useAppSelector(getBlogPostViewType);
-  const posts = useAppSelector(getBlogPosts.selectAll);
-  const scrollIndex = useAppSelector(getScrollIndex);
+  const scrollIndex = useScrollIndex();
+
+  const fetchNextBlogPostsPage = useFetchNextBlogPostsPage();
+  const { setScrollIndex } = useScrollKeeperActions();
 
   const handleScrollIndexClick = useCallback(
     (index: number) => {
-      dispatch(scrollKeeperActions.setScrollIndex(index));
+      setScrollIndex(index);
     },
-    [dispatch],
+    [setScrollIndex],
   );
 
   const onLoadNextPart = useCallback(() => {
-    dispatch(fetchNextBlogPostsPage());
-  }, [dispatch]);
+    fetchNextBlogPostsPage();
+  }, [fetchNextBlogPostsPage]);
 
   return (
     <VirtPostsList

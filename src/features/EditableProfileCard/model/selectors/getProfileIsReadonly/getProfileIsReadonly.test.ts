@@ -1,5 +1,5 @@
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
-import getProfileIsReadonly from '.';
+import { getProfileIsReadonly } from '.';
 
 describe('getProfileIsReadonly', () => {
   test('get profile isReadonly from filled store', () => {

@@ -1,5 +1,5 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getUserIsInitialized = (state: StoreStateSchema) => state.user?.isInitialized || false;
-
-export default getUserIsInitialized;
+export const [useUserIsInitialized, getUserIsInitialized] = buildAppSelector(
+  (state) => state.user?.isInitialized || false,
+);

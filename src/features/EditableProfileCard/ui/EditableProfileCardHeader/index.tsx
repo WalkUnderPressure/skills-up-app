@@ -1,18 +1,17 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
 import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/Button';
 import { ProfileValidationErrors } from '~/entities/Profile';
 import classNames from '~/shared/lib/classNames';
 import { HStack } from '~/shared/ui/Stack';
 import { Text } from '~/shared/ui/Text';
-import getProfileValidationErrors from '../../model/selectors/getProfileValidationErrors';
+import { useProfileValidationErrors } from '../../model/selectors/getProfileValidationErrors';
+import { useProfileIsReadonly } from '../../model/selectors/getProfileIsReadonly';
+import { useProfileErrorData } from '../../model/selectors/getProfileErrorData';
 import { EditableProfileDataTestIds } from '../EditableProfileCard.test-ids';
-import getProfileIsReadonly from '../../model/selectors/getProfileIsReadonly';
-import { profileActions } from '../../model/slices/editableProfileCardSlice';
-import getProfileErrorData from '../../model/selectors/getProfileErrorData';
-import { updateProfileData } from '../../model/services/updateProfileData';
+import { useProfileActions } from '../../model/slices/editableProfileCardSlice';
+import { useUpdateProfileData } from '../../model/services/updateProfileData';
 import { isValidForm } from '../../model/services/validateProfileData';
 import useIsCanEdit from './useIsCanEdit';
 
@@ -27,28 +26,29 @@ type EditableProfileCardHeaderProps = PropsWithClassName;
 const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
   const { className } = props;
 
-  const dispatch = useAppDispatch();
   const { t } = useTranslation('pages.profile');
   const isCanEdit = useIsCanEdit();
 
-  const validationErrors: ProfileValidationErrors =
-    useAppSelector(getProfileValidationErrors) || {};
-  const errorData = useAppSelector(getProfileErrorData);
-  const isReadonly = useAppSelector(getProfileIsReadonly);
+  const validationErrors: ProfileValidationErrors = useProfileValidationErrors() || {};
+  const errorData = useProfileErrorData();
+  const isReadonly = useProfileIsReadonly();
 
   const isValid = isValidForm(validationErrors);
 
+  const { setIsReadonly, resetFormData } = useProfileActions();
+  const updateProfileData = useUpdateProfileData();
+
   const onEdit = useCallback(() => {
-    dispatch(profileActions.setIsReadonly(false));
-  }, [dispatch]);
+    setIsReadonly(false);
+  }, [setIsReadonly]);
 
   const onReset = useCallback(() => {
-    dispatch(profileActions.resetFormData());
-  }, [dispatch]);
+    resetFormData();
+  }, [resetFormData]);
 
   const onSave = useCallback(() => {
-    dispatch(updateProfileData());
-  }, [dispatch]);
+    updateProfileData();
+  }, [updateProfileData]);
 
   return (
     <HStack className={classNames(className)} fullW justify="between" align="center" gap="24">

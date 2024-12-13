@@ -1,5 +1,5 @@
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
-import getUserId from '.';
+import { getUserId } from '.';
 
 describe('getUserId', () => {
   test('get user id from filled store', () => {

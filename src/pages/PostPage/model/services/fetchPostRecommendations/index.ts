@@ -1,12 +1,12 @@
-import { createAppAsyncThunk, AsyncThunkRejectValue } from '~/app/providers/StoreProvider';
+import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { Post } from '~/entities/Post';
 
 const RECOMMENDATIONS_COUNT = 4;
 
-const fetchPostRecommendations = createAppAsyncThunk<
+export const [fetchPostRecommendations, useFetchPostRecommendations] = buildAppAsyncThunk<
   Array<Post>,
   void,
-  AsyncThunkRejectValue<string>
+  string
 >('postRecommendations/fetchPostRecommendations', async (_, thunkApi) => {
   const { extra, rejectWithValue } = thunkApi;
 
@@ -26,5 +26,3 @@ const fetchPostRecommendations = createAppAsyncThunk<
     return rejectWithValue('error');
   }
 });
-
-export default fetchPostRecommendations;

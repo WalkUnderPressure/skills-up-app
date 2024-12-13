@@ -1,17 +1,17 @@
-import { AsyncThunkRejectValue, createAppAsyncThunk } from '~/app/providers/StoreProvider';
+import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { Profile, ProfileErrorCode, ProfileValidationErrors } from '~/entities/Profile';
 import { isValidForm, validateProfileData } from '../../services/validateProfileData';
-import getProfileFormData from '../../selectors/getProfileFormData';
+import { getProfileFormData } from '../../selectors/getProfileFormData';
 
-type SubmitErrorData = {
+export type SubmitErrorData = {
   validation?: ProfileValidationErrors;
   error?: ProfileErrorCode;
 };
 
-const updateProfileData = createAppAsyncThunk<
+export const [updateProfileData, useUpdateProfileData] = buildAppAsyncThunk<
   Profile,
   void,
-  AsyncThunkRejectValue<SubmitErrorData>
+  SubmitErrorData
 >('profile/updateProfileData', async (_, thunkAPI) => {
   const {
     getState,
@@ -48,6 +48,3 @@ const updateProfileData = createAppAsyncThunk<
     return rejectWithValue(errorData);
   }
 });
-
-export { updateProfileData };
-export type { SubmitErrorData };

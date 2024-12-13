@@ -1,8 +1,8 @@
 import { MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { StoreStateSchema, useAppDispatch, useAppSelector } from '~/app/providers/StoreProvider';
-import { getScrollByPath, scrollKeeperActions } from '~/features/ScrollKeeper';
+import { useAppSelector } from '~/app/providers/StoreProvider';
+import { getScrollByPath, useScrollKeeperActions } from '~/features/ScrollKeeper';
 import { useInfiniteScroll } from '~/shared/lib/hooks/useInfiniteScroll';
 import useThrottle from '~/shared/lib/hooks/useThrottle';
 import classNames from '~/shared/lib/classNames';
@@ -22,9 +22,10 @@ export const Page = (props: PageProps) => {
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
   const { pathname } = useLocation();
-  const dispatch = useAppDispatch();
 
-  const scrollPosition = useAppSelector((state: StoreStateSchema) => {
+  const { setScrollPosition } = useScrollKeeperActions();
+
+  const scrollPosition = useAppSelector((state) => {
     return getScrollByPath(state, pathname);
   });
 
@@ -33,12 +34,10 @@ export const Page = (props: PageProps) => {
   }, [scrollPosition]);
 
   const onScroll = useThrottle((event: UIEvent<HTMLDivElement>) => {
-    dispatch(
-      scrollKeeperActions.setScrollPosition({
-        position: event.currentTarget.scrollTop,
-        path: pathname,
-      }),
-    );
+    setScrollPosition({
+      position: event.currentTarget.scrollTop,
+      path: pathname,
+    });
   }, SCROLL_SAVE_THROTTLE_DELAY);
 
   useInfiniteScroll({

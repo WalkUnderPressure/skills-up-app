@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 import { AddCommentaryFormSchema } from '../types/AddCommentaryFormSchema';
+import { buildAppSlice } from '~/shared/lib/store';
 
 const initialState: AddCommentaryFormSchema = {
   isLoading: false,
@@ -8,7 +9,7 @@ const initialState: AddCommentaryFormSchema = {
   text: '',
 };
 
-export const addCommentarySlice = createSlice({
+export const addCommentarySlice = buildAppSlice({
   name: 'addCommentary',
   initialState,
   reducers: {
@@ -18,5 +19,8 @@ export const addCommentarySlice = createSlice({
   },
 });
 
-export const { actions: addCommentaryActions } = addCommentarySlice;
-export const { reducer: addCommentaryReducer } = addCommentarySlice;
+export const {
+  actions: addCommentaryActions,
+  reducer: addCommentaryReducer,
+  useActions: useAddCommentaryActions,
+} = addCommentarySlice;

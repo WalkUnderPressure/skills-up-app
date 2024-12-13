@@ -1,5 +1,5 @@
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
-import getSignInFormPassword from '.';
+import { getSignInFormPassword } from '.';
 
 describe('getSignInFormPassword', () => {
   test('get sign-in form password from filled store', () => {

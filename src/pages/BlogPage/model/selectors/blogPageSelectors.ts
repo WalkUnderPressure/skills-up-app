@@ -1,3 +1,4 @@
+import { buildAppSelector } from '~/shared/lib/store';
 import {
   DEFAULT_POST_SHORT_LIMIT,
   DEFAULT_POST_VIEW_TYPE,
@@ -5,58 +6,46 @@ import {
   DEFAULT_SORT_FIELD,
   DEFAULT_SORT_ORDER,
 } from '../consts/defaultFilterValues';
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
 
-const getBlogPostViewType = (state: StoreStateSchema) => {
+export const [useBlogPostViewType, getBlogPostViewType] = buildAppSelector((state) => {
   return state.blogPage?.viewType || DEFAULT_POST_VIEW_TYPE;
-};
+});
 
-const getBlogPostsIsLoading = (state: StoreStateSchema) => {
+export const [useBlogPostsIsLoading, getBlogPostsIsLoading] = buildAppSelector((state) => {
   return state.blogPage?.isLoading || false;
-};
+});
 
-const getBlogPostsLimit = (state: StoreStateSchema) => {
+export const [useBlogPostsLimit, getBlogPostsLimit] = buildAppSelector((state) => {
   return state.blogPage?.limit || DEFAULT_POST_SHORT_LIMIT;
-};
+});
 
-const getBlogPostsHasMore = (state: StoreStateSchema) => {
+export const [useBlogPostsHasMore, getBlogPostsHasMore] = buildAppSelector((state) => {
   return state.blogPage?.hasMore ?? true;
-};
+});
 
-const getBlogPostsPage = (state: StoreStateSchema) => {
+export const [useBlogPostsPage, getBlogPostsPage] = buildAppSelector((state) => {
   return state.blogPage?.page || 1;
-};
+});
 
-const getBlogPostsPageInitialized = (state: StoreStateSchema) => {
-  return state.blogPage?.isInitialized ?? false;
-};
+export const [useBlogPostsPageInitialized, getBlogPostsPageInitialized] = buildAppSelector(
+  (state) => {
+    return state.blogPage?.isInitialized ?? false;
+  },
+);
 
 // filters
-const getBlogPostsSortOrder = (state: StoreStateSchema) => {
+export const [useBlogPostsSortOrder, getBlogPostsSortOrder] = buildAppSelector((state) => {
   return state.blogPage?.sortOrder || DEFAULT_SORT_ORDER;
-};
+});
 
-const getBlogPostsSortField = (state: StoreStateSchema) => {
+export const [useBlogPostsSortField, getBlogPostsSortField] = buildAppSelector((state) => {
   return state.blogPage?.sortField || DEFAULT_SORT_FIELD;
-};
+});
 
-const getBlogPostsSearch = (state: StoreStateSchema) => {
+export const [useBlogPostsSearch, getBlogPostsSearch] = buildAppSelector((state) => {
   return state.blogPage?.search ?? '';
-};
+});
 
-const getBlogPostsSearchTag = (state: StoreStateSchema) => {
+export const [useBlogPostsSearchTag, getBlogPostsSearchTag] = buildAppSelector((state) => {
   return state.blogPage?.searchTag ?? DEFAULT_SEARCH_TAG;
-};
-
-export {
-  getBlogPostViewType,
-  getBlogPostsIsLoading,
-  getBlogPostsLimit,
-  getBlogPostsHasMore,
-  getBlogPostsPage,
-  getBlogPostsPageInitialized,
-  getBlogPostsSortOrder,
-  getBlogPostsSortField,
-  getBlogPostsSearch,
-  getBlogPostsSearchTag,
-};
+});

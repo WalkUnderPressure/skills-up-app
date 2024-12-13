@@ -1,7 +1,7 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getPostRecommendationsIsLoading = (state: StoreStateSchema) => {
-  return state.postPage?.postRecommendations?.isLoading || false;
-};
-
-export { getPostRecommendationsIsLoading };
+export const [usePostRecommendationsIsLoading, getPostRecommendationsIsLoading] = buildAppSelector(
+  (state) => {
+    return state.postPage?.postRecommendations?.isLoading || false;
+  },
+);

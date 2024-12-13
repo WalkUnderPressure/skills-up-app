@@ -1,8 +1,6 @@
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 import { Profile } from '~/entities/Profile';
 
-const getProfileData = (state: StoreStateSchema): Nullable<Profile> => {
+export const [useProfileData, getProfileData] = buildAppSelector((state): Nullable<Profile> => {
   return state['profile']?.data || null;
-};
-
-export default getProfileData;
+});

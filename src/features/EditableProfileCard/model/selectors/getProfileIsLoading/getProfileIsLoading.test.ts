@@ -1,5 +1,5 @@
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
-import getProfileIsLoading from '.';
+import { getProfileIsLoading } from '.';
 
 describe('getProfileIsLoading', () => {
   test('get profile isLoading from filled store', () => {

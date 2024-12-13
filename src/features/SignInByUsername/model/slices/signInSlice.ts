@@ -1,7 +1,8 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 import { signInByUsername } from '../services/signInByUsername';
 import { SignInSchema } from '../types/SignInSchema';
+import { buildAppSlice } from '~/shared/lib/store';
 
 const initialState: SignInSchema = {
   username: '',
@@ -11,7 +12,7 @@ const initialState: SignInSchema = {
   errorCode: null,
 };
 
-export const signInSlice = createSlice({
+export const signInSlice = buildAppSlice({
   name: 'sign-in',
   initialState,
   reducers: {
@@ -42,5 +43,8 @@ export const signInSlice = createSlice({
   },
 });
 
-export const { actions: signInActions } = signInSlice;
-export const { reducer: signInReducer } = signInSlice;
+export const {
+  actions: signInActions,
+  reducer: signInReducer,
+  useActions: useSignInActions,
+} = signInSlice;

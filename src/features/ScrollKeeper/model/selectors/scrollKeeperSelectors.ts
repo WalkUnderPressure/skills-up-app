@@ -1,15 +1,16 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { StoreStateSchema } from '~/app/providers/StoreProvider';
+import { buildAppSelector } from '~/shared/lib/store';
 
-const getScrollKeeperState = (state: StoreStateSchema) => state.scrollKeeper.scroll;
+export const [useScrollKeeperState, getScrollKeeperState] = buildAppSelector(
+  (state) => state.scrollKeeper.scroll,
+);
 
-const getScrollByPath = createSelector(
-  getScrollKeeperState,
-  (state: StoreStateSchema, path: string) => path,
+export const getScrollByPath = createSelector(
+  [getScrollKeeperState, (state, path) => path],
   (scroll, path) => scroll[path] || 0,
 );
 
-const getScrollIndex = (state: StoreStateSchema) => state.scrollKeeper?.idx ?? 0;
-
-export { getScrollKeeperState, getScrollByPath, getScrollIndex };
+export const [useScrollIndex, getScrollIndex] = buildAppSelector(
+  (state) => state.scrollKeeper?.idx ?? 0,
+);

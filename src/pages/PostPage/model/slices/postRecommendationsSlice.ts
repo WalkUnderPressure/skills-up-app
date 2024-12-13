@@ -1,9 +1,10 @@
-import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { createEntityAdapter } from '@reduxjs/toolkit';
 
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import { Post } from '~/entities/Post';
-import fetchPostRecommendations from '../services/fetchPostRecommendations';
+import { fetchPostRecommendations } from '../services/fetchPostRecommendations';
 import PostRecommendationsSchema from '../types/PostRecommendationsSchema';
+import { buildAppSlice } from '~/shared/lib/store';
 
 const recommendationsAdapter = createEntityAdapter({
   selectId: (post: Post) => post.id,
@@ -22,7 +23,7 @@ export const getPostRecommendations = recommendationsAdapter.getSelectors<StoreS
   },
 );
 
-const postRecommendationsSlice = createSlice({
+const postRecommendationsSlice = buildAppSlice({
   name: 'postRecommendationsSlice',
   initialState: recommendationsAdapter.getInitialState(initialState),
   reducers: {},
@@ -47,4 +48,8 @@ const postRecommendationsSlice = createSlice({
   },
 });
 
-export const { reducer: postRecommendationsReducer } = postRecommendationsSlice;
+export const {
+  reducer: postRecommendationsReducer,
+  actions: postRecommendationsActions,
+  useActions: usePostRecommendationsActions,
+} = postRecommendationsSlice;

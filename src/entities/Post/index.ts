@@ -2,7 +2,7 @@ import VirtPostsList from './ui/ListOfPosts/PostsList/VirtPostsList';
 import PostsList from './ui/ListOfPosts/PostsList/PostsList';
 import PostDetails from './ui/OnePost/PostDetails';
 
-import { getPostDetails } from './model/selectors/postDetailsSelectors';
+import { getPostDetails, usePostDetails } from './model/selectors/postDetailsSelectors';
 import { PostDetailsSchema } from './model/types/PostDetailsSchema';
 import { fetchPostById } from './model/services/fetchPostById';
 import {
@@ -19,6 +19,7 @@ export {
   PostDetails,
   fetchPostById,
   getPostDetails,
+  usePostDetails,
   VirtPostsList,
   PostsList,
   PostTagsMap,

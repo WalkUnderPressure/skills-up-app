@@ -1,8 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 import { PostDetailsSchema } from '../types/PostDetailsSchema';
 import { fetchPostById } from '../services/fetchPostById';
 import { Post } from '../types/Post';
+import { buildAppSlice } from '~/shared/lib/store';
 
 const initialState: PostDetailsSchema = {
   isLoading: false,
@@ -10,7 +11,7 @@ const initialState: PostDetailsSchema = {
   data: undefined,
 };
 
-export const postDetailsSlice = createSlice({
+export const postDetailsSlice = buildAppSlice({
   name: 'postDetails',
   initialState,
   reducers: {},
@@ -31,5 +32,8 @@ export const postDetailsSlice = createSlice({
   },
 });
 
-export const { actions: postDetailsActions } = postDetailsSlice;
-export const { reducer: postDetailsReducer } = postDetailsSlice;
+export const {
+  actions: postDetailsActions,
+  reducer: postDetailsReducer,
+  useActions: usePostDetailsActions,
+} = postDetailsSlice;

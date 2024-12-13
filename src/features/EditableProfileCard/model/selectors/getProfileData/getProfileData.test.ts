@@ -1,7 +1,7 @@
 import { MockProfileWithAvatar } from '~/entities/Profile/mock/MockProfileData';
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import { Profile } from '~/entities/Profile';
-import getProfileData from '.';
+import { getProfileData } from '.';
 
 describe('getProfileData', () => {
   test('get profile data from filled store', () => {

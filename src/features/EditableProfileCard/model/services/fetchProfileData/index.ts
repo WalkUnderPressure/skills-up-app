@@ -1,10 +1,10 @@
-import { AsyncThunkRejectValue, createAppAsyncThunk } from '~/app/providers/StoreProvider';
+import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { Profile, ProfileErrorCode } from '~/entities/Profile';
 
-const fetchProfileData = createAppAsyncThunk<
+export const [fetchProfileData, useFetchProfileData] = buildAppAsyncThunk<
   Profile,
   string | undefined,
-  AsyncThunkRejectValue<ProfileErrorCode>
+  ProfileErrorCode
 >('profile/fetchProfileData', async (userId, thunkAPI) => {
   const {
     rejectWithValue,
@@ -28,5 +28,3 @@ const fetchProfileData = createAppAsyncThunk<
     return rejectWithValue(ProfileErrorCode.PROFILE_NOT_FOUND);
   }
 });
-
-export { fetchProfileData };

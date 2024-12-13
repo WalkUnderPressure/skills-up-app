@@ -1,10 +1,11 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createEntityAdapter, PayloadAction } from '@reduxjs/toolkit';
 
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
 import { Commentary } from '~/entities/Commentary';
-import fetchCommentariesByPostId from '../services/fetchCommentariesByPostId';
+import { fetchCommentariesByPostId } from '../services/fetchCommentariesByPostId';
 import PostCommentarySchema from '../types/PostCommentarySchema';
 import { addCommentaryToPost } from '../services/addCommentaryToPost';
+import { buildAppSelector, buildAppSlice } from '~/shared/lib/store';
 
 const commentariesAdapter = createEntityAdapter({
   selectId: (commentary: Commentary) => commentary.id,
@@ -19,11 +20,17 @@ const initialState: PostCommentarySchema = {
   isLoading: false,
 };
 
-export const getPostCommentaries = commentariesAdapter.getSelectors<StoreStateSchema>((state) => {
-  return state?.postPage?.postCommentaries || initialState;
-});
+export const postCommentariesSelectors = commentariesAdapter.getSelectors<StoreStateSchema>(
+  (state) => {
+    return state?.postPage?.postCommentaries || initialState;
+  },
+);
 
-const postCommentariesSlice = createSlice({
+export const [usePostCommentariesSelectAll, getPostCommentariesSelectAll] = buildAppSelector(
+  postCommentariesSelectors.selectAll,
+);
+
+const postCommentariesSlice = buildAppSlice({
   name: 'commentaries',
   initialState: commentariesAdapter.getInitialState(initialState),
   reducers: {},
@@ -56,5 +63,8 @@ const postCommentariesSlice = createSlice({
   },
 });
 
-export const { reducer: postCommentariesReducer, actions: postCommentariesActions } =
-  postCommentariesSlice;
+export const {
+  reducer: postCommentariesReducer,
+  actions: postCommentariesActions,
+  useActions: usePostCommentariesActions,
+} = postCommentariesSlice;
