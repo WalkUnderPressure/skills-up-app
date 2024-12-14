@@ -6,7 +6,8 @@ type CurrencySelectProps = {
   label?: string;
   onChange?: (value: string) => void;
 } & ListBoxProps<CurrencyMapKey> &
-  PropsWithClassName;
+  PropsWithClassName &
+  PropsWithDataTestId;
 
 const CURRENCY_OPTIONS: Array<ListBoxItem<CurrencyMapKey>> = Object.entries(CurrencyMap).map(
   ([currencyName, currencyValue]) => ({

@@ -1,9 +1,10 @@
 import { useUserAuthData } from '~/entities/User';
 
 function useIsAuthorized() {
-  const isAuthorized = useUserAuthData();
+  const userAuthData = useUserAuthData();
+  const isAuthorized = Boolean(userAuthData?.id);
 
-  return { isAuthorized };
+  return isAuthorized;
 }
 
 export default useIsAuthorized;

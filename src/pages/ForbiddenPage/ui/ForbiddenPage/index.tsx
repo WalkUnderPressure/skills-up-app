@@ -5,6 +5,8 @@ import classNames from '~/shared/lib/classNames';
 import { Page } from '~/widgets/Page';
 import cls from './ForbiddenPage.module.scss';
 
+export const ForbiddenPageDataTestId = 'ForbiddenPageDataTestId';
+
 type ForbiddenPageProps = PropsWithClassName;
 
 const ForbiddenPage = memo((props: ForbiddenPageProps) => {
@@ -13,7 +15,10 @@ const ForbiddenPage = memo((props: ForbiddenPageProps) => {
   const { t } = useTranslation();
 
   return (
-    <Page className={classNames(cls['forbidden-page'], {}, [className])}>
+    <Page
+      className={classNames(cls['forbidden-page'], {}, [className])}
+      data-testid={ForbiddenPageDataTestId}
+    >
       <h2>{t('page_forbidden', { defaultValue: 'You cannot access this page' })}</h2>
     </Page>
   );

@@ -11,7 +11,7 @@ type ButtonProps = {
   rounded?: ButtonRounded;
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   PropsWithChildren &
-  PropsWithChildren;
+  PropsWithDataTestId;
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {

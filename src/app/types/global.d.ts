@@ -49,3 +49,7 @@ declare type ErrorData<T> = {
 declare type PropsWithClassName = {
   className?: string;
 };
+
+declare type PropsWithDataTestId = {
+  'data-testid'?: string;
+};

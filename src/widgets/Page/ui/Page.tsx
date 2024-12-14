@@ -13,10 +13,11 @@ const SCROLL_SAVE_THROTTLE_DELAY = 300;
 type PageProps = {
   children: ReactNode;
   onScrollEnd?: () => void;
-} & PropsWithClassName;
+} & PropsWithClassName &
+  PropsWithDataTestId;
 
 export const Page = (props: PageProps) => {
-  const { className, children, onScrollEnd } = props;
+  const { className, children, onScrollEnd, 'data-testid': dataTestId = 'Page' } = props;
 
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -51,6 +52,7 @@ export const Page = (props: PageProps) => {
       ref={wrapperRef}
       onScroll={onScroll}
       className={classNames(cls['page-wrapper'], {}, [className])}
+      data-testid={dataTestId}
     >
       {children}
 

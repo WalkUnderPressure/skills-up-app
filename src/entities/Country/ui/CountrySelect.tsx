@@ -6,7 +6,8 @@ type CountrySelectProps = {
   label?: string;
   onChange?: (value: string) => void;
 } & ListBoxProps<CountryMapKey> &
-  PropsWithClassName;
+  PropsWithClassName &
+  PropsWithDataTestId;
 
 const COUNTRY_OPTIONS: Array<ListBoxItem<CountryMapKey>> = Object.entries(CountryMap).map(
   ([countryName, countryValue]) => ({

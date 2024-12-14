@@ -45,7 +45,8 @@ export type FlexProps<T extends keyof JSX.IntrinsicElements = 'div'> = {
   fullH?: boolean;
   as?: T;
 } & HTMLProps<JSX.IntrinsicElements[T]> &
-  PropsWithClassName;
+  PropsWithClassName &
+  PropsWithDataTestId;
 
 // TODO: add work with desktop and mobile
 const Flex = <T extends keyof JSX.IntrinsicElements = 'div'>(props: FlexProps<T>) => {

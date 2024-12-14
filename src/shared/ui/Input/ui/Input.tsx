@@ -12,9 +12,9 @@ type InputProps = {
   onChange?: (value: string) => void;
   errorMessage?: string;
   label?: string;
-  'data-testid'?: string;
 } & HtmlInputProps &
-  PropsWithClassName;
+  PropsWithClassName &
+  PropsWithDataTestId;
 
 const Input = memo((props: InputProps) => {
   const {

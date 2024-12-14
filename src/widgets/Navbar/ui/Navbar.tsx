@@ -19,7 +19,7 @@ const Navbar = (props: NavbarProps) => {
 
   const { t } = useTranslation();
 
-  const { isAuthorized } = useIsAuthorized();
+  const isAuthorized = useIsAuthorized();
 
   const {
     isOpen: isSignInModalOpen,

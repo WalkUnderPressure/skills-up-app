@@ -18,7 +18,7 @@ const RequireAuth = memo((props: RequireAuthProps) => {
 
   const location = useLocation();
 
-  const { isAuthorized } = useIsAuthorized();
+  const isAuthorized = useIsAuthorized();
   const userRoles = useUserRoles();
 
   const isRouteAvailable = useMemo(() => {

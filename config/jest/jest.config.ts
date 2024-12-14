@@ -43,7 +43,7 @@ const config: Config = {
     // used for styles: "import cls from 'path/to/file'"
     '\\.(css|scss)$': 'identity-obj-proxy',
     '\\.(svg)$': '<rootDir>config/jest/mappers/jest-empty-component.tsx',
-    '\\.(jpg|jpeg|png)$': 'identity-obj-proxy',
+    '\\.(jpg|jpeg|png)$': '<rootDir>config/jest/mappers/file-mock.ts',
     '~/(.*)': '<rootDir>/src/$1',
   },
   globals: {

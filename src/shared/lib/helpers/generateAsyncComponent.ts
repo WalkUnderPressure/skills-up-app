@@ -8,7 +8,7 @@ export function generateAsyncComponent<T>(factory: Promise<{ default: ComponentT
     let result = factory;
 
     // Use only in development
-    if (__IS_DEV__) {
+    if (__IS_DEV__ && __PROJECT__ === 'app') {
       result = new Promise((resolve) => {
         setTimeout(() => resolve(factory), PAGE_LOAD_DELAY);
       });
