@@ -1,18 +1,20 @@
 import { Skeleton, SkeletonThemes } from '~/shared/ui/Skeleton';
 import { VStack } from '~/shared/ui/Stack';
 import cls from './PostDetailsSkeleton.module.scss';
+import classNames from '~/shared/lib/classNames';
 
-const AVATAR_SIZE = 240;
+const BANNER_SIZE = 160;
 
 const PostDetailsSkeleton = () => {
   return (
     <VStack fullW fullH gap="24">
       <Skeleton
-        className={cls.avatar}
-        height={AVATAR_SIZE}
-        width={AVATAR_SIZE}
+        className={classNames(cls.banner, {}, [cls['banner-box']])}
+        height={BANNER_SIZE}
+        width={BANNER_SIZE}
         theme={SkeletonThemes.CIRCLE}
       />
+
       <Skeleton height={50} width="100%" />
       <Skeleton height={50} width="70%" />
 

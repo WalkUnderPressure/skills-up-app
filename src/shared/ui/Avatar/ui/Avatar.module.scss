@@ -23,6 +23,14 @@
     padding: 4px;
 }
 
+.avatar-fallback {
+    color: var(--bg-color);
+}
+
+.avatar-inverted {
+    color: var(--inverted-bg-color);
+}
+
 .size-xs {
     --avatar-size: 32px;
 }

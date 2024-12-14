@@ -7,8 +7,9 @@ export const [fetchCommentariesByPostId, useFetchCommentariesByPostId] = buildAp
     postId: string | undefined;
   },
   string
->('postCommentaries/fetchCommentariesByPostId', async (postId, thunkApi) => {
+>('postCommentaries/fetchCommentariesByPostId', async (params, thunkApi) => {
   const { extra, rejectWithValue } = thunkApi;
+  const { postId } = params;
 
   try {
     if (!postId) {

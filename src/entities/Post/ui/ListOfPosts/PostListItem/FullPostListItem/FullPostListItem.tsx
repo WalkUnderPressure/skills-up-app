@@ -13,11 +13,11 @@ import FullPostListItemSkeleton from './FullPostListItemSkeleton/FullPostListIte
 import TextBlockElement from '../../../OnePost/PostBlocksGenerator/TextBlockElement';
 import { PostBlockType, PostTextBlock } from '../../../../model/types/Post';
 import { CommonPostListItemProps } from '../PostListItem';
+import PostImagePreview from '../PostImagePreview';
+import { HStack } from '~/shared/ui/Stack';
 
 import cls from './FullPostListItem.module.scss';
-
 import EyeIcon from '~/shared/assets/icons/eye.svg';
-import { HStack } from '~/shared/ui/Stack';
 
 type PostFullListItemProps = CommonPostListItemProps;
 
@@ -62,7 +62,7 @@ const FullPostListItem = memo((props: PostFullListItemProps) => {
           <span>{post.tags.map((tag) => `#${tag}`).join(', ')}</span>
         </HStack>
 
-        <img className={cls.poster} src={post.img} alt={post.subtitle} />
+        <PostImagePreview src={post.img} alt={post.subtitle} className={cls.poster} />
 
         <TextBlockElement className={cls.text} block={textBlock} hideTitle={true} />
 

@@ -1,5 +1,9 @@
+import { Skeleton, SkeletonThemes } from '~/shared/ui/Skeleton';
 import classNames from '~/shared/lib/classNames';
+import { AppImage } from '~/shared/ui/AppImage';
 import cls from './Avatar.module.scss';
+
+import AvatarFallback from '~/shared/assets/icons/avatar-fallback.svg';
 
 export enum AvatarSize {
   XS = 'size-xs',
@@ -13,16 +17,37 @@ type AvatarProps = {
   size?: AvatarSize;
   src: string;
   alt?: string;
+  isInverted?: boolean;
 } & PropsWithClassName;
 
 const Avatar = (props: AvatarProps) => {
-  const { src, alt, className, size = AvatarSize.M } = props;
+  const { src, alt, className, size = AvatarSize.M, isInverted = false } = props;
+
+  const avatarWithSizeClass = classNames(cls.avatar, {}, [cls[size]]);
+
+  const Fallback = (
+    <Skeleton withSize={false} theme={SkeletonThemes.CIRCLE} className={avatarWithSizeClass} />
+  );
+
+  const ErrorFallback = (
+    <AvatarFallback
+      className={classNames(
+        avatarWithSizeClass,
+        {
+          [cls['avatar-inverted']]: isInverted,
+        },
+        [cls['avatar-fallback']],
+      )}
+    />
+  );
 
   return (
-    <img
+    <AppImage
+      Fallback={Fallback}
+      ErrorFallback={ErrorFallback}
       src={src}
-      alt={alt || 'Avatar'}
-      className={classNames(cls['avatar'], {}, [className, cls[size]])}
+      alt={alt}
+      className={classNames(avatarWithSizeClass, {}, [className])}
     />
   );
 };

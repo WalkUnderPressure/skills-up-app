@@ -17,6 +17,7 @@
 
 .poster {
     max-height: calc(var(--card-w) / 2);
+    height: calc(var(--card-w) / 2);
     width: 100%;
     object-fit: contain;
 }

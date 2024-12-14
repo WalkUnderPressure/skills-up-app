@@ -1,5 +1,7 @@
-.avatar {
-  margin: 0 auto;
+.banner {
+  height: 160px;
+  min-height: 160px;
+  border-radius: var(--radius-full);
 }
 
 .post-info {

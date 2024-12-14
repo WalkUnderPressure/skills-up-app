@@ -99,12 +99,15 @@ const ProfileCard = (props: ProfileProps) => {
       {!isLoading && !errorData?.isFailed && (
         <>
           {avatar && (
-            <Avatar
-              src={avatar}
-              alt="ProfileUserAvatar"
-              size={AvatarSize.L}
-              className={classNames(cls.avatar)}
-            />
+            <HStack fullW align="center" justify="center">
+              <Avatar
+                src={avatar}
+                alt="ProfileUserAvatar"
+                size={AvatarSize.L}
+                className={classNames(cls.avatar)}
+                isInverted={true}
+              />
+            </HStack>
           )}
 
           <div

@@ -7,6 +7,7 @@ type User = {
   id: string;
   username: string;
   roles?: Array<UserRoles>;
+  avatar?: string;
 };
 
 type UserStateSchema = {

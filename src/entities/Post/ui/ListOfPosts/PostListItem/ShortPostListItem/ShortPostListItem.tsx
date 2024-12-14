@@ -8,6 +8,7 @@ import { Card } from '~/shared/ui/Card';
 import { Text } from '~/shared/ui/Text';
 import ShortPostListItemSkeleton from './ShortPostListItemSkeleton/ShortPostListItemSkeleton';
 import { CommonPostListItemProps } from '../PostListItem';
+import PostImagePreview from '../PostImagePreview';
 import { HStack } from '~/shared/ui/Stack';
 import EyeIcon from '~/shared/assets/icons/eye.svg';
 import cls from './ShortPostListItem.module.scss';
@@ -38,7 +39,8 @@ const ShortPostListItem = memo((props: PostShortListItemProps) => {
       <Card className={cls.card} onClick={onItemLinkClick}>
         <div className={classNames(cls['img-wrapper'])}>
           <Text className={classNames(cls['img-date'])} text={createdAt} />
-          <img src={post.img} alt={post.subtitle} className={classNames(cls['image'])} />
+
+          <PostImagePreview src={post.img} alt={post.subtitle} className={cls['image']} />
         </div>
 
         <HStack justify="between" align="center" gap="24">

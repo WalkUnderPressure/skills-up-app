@@ -16,12 +16,12 @@ import { Text, TextTheme } from '~/shared/ui/Text';
 import PostDetailsSkeleton from '../PostDetailsSkeleton';
 import useDateTransformer from '~/shared/lib/hooks/useDateTransformer';
 import { HStack, VStack } from '~/shared/ui/Stack';
-import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
 import classNames from '~/shared/lib/classNames';
 import cls from './PostDetails.module.scss';
 
 import CalendarIcon from '~/shared/assets/icons/calendar.svg';
 import EyeIcon from '~/shared/assets/icons/eye.svg';
+import { AppImage } from '~/shared/ui/AppImage';
 
 const reducers: ReducersMap = {
   postDetails: postDetailsReducer,
@@ -57,12 +57,13 @@ const PostDetails = memo((props: PostDetailsProps) => {
 
             {!isPostLoading && (
               <VStack fullW fullH>
-                <Avatar
-                  size={AvatarSize.L}
-                  src={postDetails?.img || ''}
-                  alt="PostAvatar"
-                  className={classNames(cls.avatar)}
-                />
+                <HStack fullW align="center" justify="center">
+                  <AppImage
+                    src={postDetails?.img || ''}
+                    alt={postDetails?.title}
+                    className={cls.banner}
+                  />
+                </HStack>
 
                 <VStack gap="16" fullW className={classNames(cls['post-info'])}>
                   <Text title={postDetails?.title} text={postDetails?.subtitle} />

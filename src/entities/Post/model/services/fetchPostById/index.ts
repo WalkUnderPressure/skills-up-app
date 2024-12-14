@@ -7,8 +7,9 @@ export const [fetchPostById, useFetchPostById] = buildAppAsyncThunk<
     postId: string | undefined;
   },
   string
->('postDetails/fetchPostById', async (postId, thunkApi) => {
+>('postDetails/fetchPostById', async (params, thunkApi) => {
   const { extra, rejectWithValue } = thunkApi;
+  const { postId } = params;
 
   try {
     if (!postId) {

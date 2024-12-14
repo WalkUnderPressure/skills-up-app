@@ -9,7 +9,7 @@ import {
   getRoutePostCreate,
   getRouteProfile,
 } from '~/shared/constants/appRoutes';
-import { AvatarLetters, AvatarSize } from '~/shared/ui/Avatar';
+import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
 import { Dropdown } from '~/shared/ui/Popups';
 
 export type AccountMenuProps = PropsWithClassName;
@@ -45,7 +45,7 @@ const AccountMenu = memo((props: AccountMenuProps) => {
   return (
     <Dropdown
       direction="bottom-left"
-      trigger={<AvatarLetters username={userData?.username} size={AvatarSize.XS} />}
+      trigger={<Avatar src={userData?.avatar ?? ''} size={AvatarSize.XS} />}
       items={[
         {
           id: 'profile',

@@ -1,4 +1,4 @@
-import { CSSProperties, memo } from 'react';
+import { CSSProperties, memo, useMemo } from 'react';
 
 import classNames from '~/shared/lib/classNames';
 import cls from './Skeleton.module.scss';
@@ -12,6 +12,7 @@ type SkeletonProps = {
   height?: string | number;
   width?: string | number;
   theme?: SkeletonThemes;
+  withSize?: boolean;
 } & PropsWithClassName;
 
 const DEFAULT_SIZE = '100px';
@@ -21,15 +22,22 @@ const Skeleton = memo((props: SkeletonProps) => {
     className,
     height = DEFAULT_SIZE,
     width = DEFAULT_SIZE,
+    withSize = true,
     theme = SkeletonThemes.RECT,
   } = props;
 
-  const styles: CSSProperties = {
-    width,
-    height,
-    minHeight: height,
-    minWidth: width,
-  };
+  const styles: CSSProperties = useMemo(
+    () =>
+      withSize
+        ? {
+            width,
+            height,
+            minHeight: height,
+            minWidth: width,
+          }
+        : {},
+    [height, width, withSize],
+  );
 
   return <div className={classNames(cls.skeleton, {}, [className, cls[theme]])} style={styles} />;
 });

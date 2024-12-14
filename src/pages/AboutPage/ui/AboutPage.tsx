@@ -4,6 +4,7 @@ import classNames from '~/shared/lib/classNames';
 import { Page } from '~/widgets/Page';
 
 import HtmlImage from '~/shared/assets/images/html.png';
+import { AppImage } from '~/shared/ui/AppImage';
 
 export type AboutPageProps = PropsWithClassName;
 
@@ -16,7 +17,7 @@ const AboutPage = (props: AboutPageProps) => {
     <Page className={classNames(className)}>
       <h3>{t('title', { defaultValue: 'About page' })}</h3>
 
-      <img src={HtmlImage} />
+      <AppImage src={HtmlImage} />
     </Page>
   );
 };

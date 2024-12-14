@@ -1,6 +1,7 @@
 import { memo } from 'react';
 
 import classNames from '~/shared/lib/classNames';
+import { AppImage } from '~/shared/ui/AppImage';
 import { VStack } from '~/shared/ui/Stack';
 import { Text } from '~/shared/ui/Text';
 import { PostImageBlock } from '../../../../model/types/Post';
@@ -16,7 +17,13 @@ const ImageBlockElement = memo((props: ImageBlockProps) => {
   return (
     <VStack gap="8" className={className}>
       <div className={classNames(cls['image-wrapper'])}>
-        <img className={classNames(cls.image)} src={block?.src} alt={block?.title} />
+        <AppImage
+          src={block?.src}
+          alt={block?.title}
+          Fallback={<></>}
+          ErrorFallback={<></>}
+          className={cls.image}
+        />
       </div>
 
       {Boolean(block?.title) && <Text className={classNames(cls.title)} text={block?.title} />}
