@@ -6,6 +6,7 @@ node_modules
 
 # Exclude editor folders
 .vscode
+.idea
 
 # Exclude Storybook files and folders
 *storybook.log

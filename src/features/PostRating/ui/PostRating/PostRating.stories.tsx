@@ -1,15 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
+import { withOverriddenRequest } from '~/shared/config/storybook/helpers/withOverriddenRequest';
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import StoreDecorator from '~/shared/config/storybook/decorators/StoreDecorator';
-import { withOverriddenRequest } from '~/shared/config/storybook/helpers/withOverriddenRequest';
 import { Rating } from '~/entities/Rating';
+
 import PostRating from '.';
+
+const POST_ID = '1';
 
 const meta = {
   title: 'Features/PostRating',
   component: PostRating,
-  args: {},
+  args: {
+    postId: POST_ID,
+  },
   decorators: [StoreDecorator()],
 } satisfies Meta<typeof PostRating>;
 
@@ -20,17 +25,21 @@ export const Light = {} satisfies Story;
 
 export const Dark = withOverriddenThemes({})() satisfies Story;
 
-const POST_ID = '1';
-
-export const WithRating = withOverriddenRequest<Story, Rating>({
-  args: {
-    postId: POST_ID,
+export const WithRating = withOverriddenRequest<Story, Rating>({})({
+  method: 'GET',
+  url: `/post-rating/${POST_ID}`,
+  status: 200,
+  response: {
+    rating: 4,
+    feedback: '',
   },
-})({
+}) satisfies Story;
+
+export const NoRating = withOverriddenRequest<Story, Rating>({})({
   method: 'GET',
   url: `/post-rating/${POST_ID}`,
   response: {
-    rating: 5,
+    rating: 0,
     feedback: '',
   },
 }) satisfies Story;
