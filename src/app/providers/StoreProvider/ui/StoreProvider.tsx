@@ -5,16 +5,16 @@ import { StoreReducersMapObject, StoreStateSchema } from '../schemas';
 import createReduxStore from '../config/store';
 
 export type StoreProviderProps = {
-  initialState?: DeepPartial<StoreStateSchema>;
-  initialReducers?: DeepPartial<StoreReducersMapObject>;
+  initialState?: StoreStateSchema;
+  initialReducers?: StoreReducersMapObject;
 } & PropsWithChildren;
 
 const StoreProvider = (props: StoreProviderProps) => {
   const { children, initialState, initialReducers } = props;
 
   const store = createReduxStore({
-    initialState: initialState as StoreStateSchema,
-    initialReducers: initialReducers as StoreReducersMapObject,
+    initialState,
+    initialReducers,
   });
 
   return <ReduxProvider store={store}>{children}</ReduxProvider>;

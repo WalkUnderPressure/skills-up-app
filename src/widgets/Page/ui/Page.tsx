@@ -1,9 +1,9 @@
 import { MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { useAppSelector } from '~/app/providers/StoreProvider';
-import { getScrollByPath, useScrollKeeperActions } from '~/features/ScrollKeeper';
+import { useScrollKeeperActions } from '~/features/ScrollKeeper';
 import { useInfiniteScroll } from '~/shared/lib/hooks/useInfiniteScroll';
+import { useGetScrollByPath } from '~/features/ScrollKeeper';
 import useThrottle from '~/shared/lib/hooks/useThrottle';
 import classNames from '~/shared/lib/classNames';
 import cls from './Page.module.scss';
@@ -26,9 +26,7 @@ export const Page = (props: PageProps) => {
 
   const { setScrollPosition } = useScrollKeeperActions();
 
-  const scrollPosition = useAppSelector((state) => {
-    return getScrollByPath(state, pathname);
-  });
+  const scrollPosition = useGetScrollByPath(pathname);
 
   useEffect(() => {
     wrapperRef.current.scrollTop = scrollPosition;

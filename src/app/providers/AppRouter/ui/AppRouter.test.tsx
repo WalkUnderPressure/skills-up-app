@@ -85,7 +85,10 @@ describe('app/providers/AppRouter', () => {
       },
       store: {
         initialState: {
-          user: { isInitialized: true, authData: { id: '1', roles: ['ADMIN'] } },
+          user: {
+            isInitialized: true,
+            authData: { id: '1', roles: ['ADMIN'] },
+          },
         },
       },
     });

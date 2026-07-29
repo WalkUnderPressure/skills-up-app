@@ -30,3 +30,6 @@ node_modules
 
 # Exclude JSON-SERVER
 /json-server/
+
+# notes
+/notes/

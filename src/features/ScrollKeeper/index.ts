@@ -7,5 +7,6 @@ export {
   getScrollByPath,
   getScrollIndex,
   useScrollIndex,
+  useGetScrollByPath,
 } from './model/selectors/scrollKeeperSelectors';
 export type { ScrollKeeperSchema } from './model/types/ScrollKeeperSchema';

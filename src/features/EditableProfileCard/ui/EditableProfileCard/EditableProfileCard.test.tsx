@@ -82,7 +82,8 @@ describe('Features/EditableProfileCard', () => {
   });
 
   test('When validation error are empty PUT request should send to server', async () => {
-    const mockPatchReq = jest.spyOn($api, 'patch');
+    // Add "mockRejectedValue" to prevent print error to log
+    const mockPatchReq = jest.spyOn($api, 'patch').mockRejectedValue(() => {});
 
     renderWithProviders(<EditableProfileCard profileUserId={USER_ID} />, options);
 
@@ -91,7 +92,6 @@ describe('Features/EditableProfileCard', () => {
     await userEvent.type(screen.getByTestId(ProfileCardDataTestIds.firstName), 'user');
 
     await userEvent.click(screen.getByTestId(EditableProfileDataTestIds.saveBtnDataTestId));
-
     expect(mockPatchReq).toHaveBeenCalled();
   });
 });

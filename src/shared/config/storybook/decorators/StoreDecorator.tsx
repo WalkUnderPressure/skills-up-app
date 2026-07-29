@@ -1,16 +1,25 @@
 import { StoryFn } from '@storybook/react';
 
-import { signInReducer } from '~/features/SignInByUsername/model/slices/signInSlice';
-import { StoreProvider, StoreStateSchema } from '~/app/providers/StoreProvider';
-import { StoreReducersMapObject } from '~/app/providers/StoreProvider/schemas';
+import {
+  StoreReducersMapObject,
+  StoreStateSchemaKeys,
+} from '~/app/providers/StoreProvider/schemas';
 import { addCommentaryReducer } from '~/features/AddCommentaryForm/model/slices/addCommentarySlice';
+import { signInReducer } from '~/features/SignInByUsername/model/slices/signInSlice';
 import { postDetailsReducer } from '~/entities/Post/model/slices/postDetailsSlice';
+import { StoreProvider, StoreStateSchema } from '~/app/providers/StoreProvider';
 import { blogPageReducer } from '~/pages/BlogPage/model/slices/blogPageSlice';
-import { scrollKeeperReducer } from '~/features/ScrollKeeper';
-import { profileReducer } from '~/features/EditableProfileCard';
+import { ReducersMap } from '~/shared/lib/components/DynamicReducerProvider';
 import postPageReducer from '~/pages/PostPage/model/slices/postPageReducer';
+import { profileReducer } from '~/features/EditableProfileCard';
+import { scrollKeeperReducer } from '~/features/ScrollKeeper';
 
-const initialReducers: DeepPartial<StoreReducersMapObject> = {
+export type TestStoreInitialReducers = Partial<ReducersMap>;
+export type TestStoreInitialState = {
+  [name in StoreStateSchemaKeys]?: DeepPartial<StoreStateSchema[name]>;
+};
+
+const initialReducers: TestStoreInitialReducers = {
   'sign-in_username': signInReducer,
   profile: profileReducer,
   postDetails: postDetailsReducer,
@@ -20,10 +29,13 @@ const initialReducers: DeepPartial<StoreReducersMapObject> = {
   postPage: postPageReducer,
 };
 
-const StoreDecorator = (initialState: DeepPartial<StoreStateSchema> = {}) => {
+const StoreDecorator = (initialState: TestStoreInitialState = {}) => {
   return function StoreDecoratorWrapper(Story: StoryFn) {
     return (
-      <StoreProvider initialState={initialState} initialReducers={initialReducers}>
+      <StoreProvider
+        initialState={initialState as StoreStateSchema}
+        initialReducers={initialReducers as StoreReducersMapObject}
+      >
         <Story />
       </StoreProvider>
     );

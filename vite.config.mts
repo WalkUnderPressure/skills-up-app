@@ -8,7 +8,10 @@ import { BuildMode, ProjectType } from './config/build/types';
 
 const PORT = Number(process.env.port ?? 3000);
 const BUILD_MODE: BuildMode = 'development';
+
+// TODO: Add server address to env
 const API_URL: string = 'http://localhost:7000';
+
 const PROJECT_TYPE: ProjectType = 'app';
 const IS_DEV: boolean = BUILD_MODE === 'development';
 
