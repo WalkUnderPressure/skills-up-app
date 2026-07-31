@@ -11,6 +11,7 @@ import eslintStorybookPlugin from 'eslint-plugin-storybook';
 import { fixupPluginRules } from '@eslint/compat';
 import unusedImports from 'eslint-plugin-unused-imports';
 import eslintFsd from 'eslint-plugin-wup-fsd';
+// import pluginCypress from 'eslint-plugin-cypress'
 
 /** @type {Array<import('eslint').Linter.Config>} */
 export default tseslint.config(
@@ -23,6 +24,7 @@ export default tseslint.config(
       prettier: prettierPlugin,
       i18next: eslintI18nextPlugin,
       storybook: eslintStorybookPlugin,
+      // cypress: pluginCypress,
       'wup-fsd': eslintFsd,
       'unused-imports': unusedImports,
     },
@@ -39,6 +41,8 @@ export default tseslint.config(
       'node_modules',
       'coverage',
       'eslint.config.mjs',
+      '**/identity-obj-proxy-esm.js',
+      'loki.config.js',
       '.fttemplates',
     ],
   },
@@ -52,7 +56,7 @@ export default tseslint.config(
         ...globals.es2020,
       },
       parserOptions: {
-        project: ['./tsconfig.json', './cypress/tsconfig.json'],
+        project: ['tsconfig.json', './cypress/tsconfig.json'],
       },
     },
   },
@@ -137,9 +141,13 @@ export default tseslint.config(
   },
   // TODO: Add plugin eslint-plugin-cypress
   {
-    files: ['cypress/**/*.ts', 'cypress.config.ts'],
+    files: ['cypress/**/*.ts'],
     rules: {
       '@typescript-eslint/no-namespace': ['error', { allowDeclarations: true }],
     },
   },
+  // {
+  //   files: ['cypress/**/*.ts'],
+  //   extends: [pluginCypress.configs.recommended],
+  // },
 );
