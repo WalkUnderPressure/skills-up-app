@@ -3,11 +3,11 @@ import { screen } from '@testing-library/react';
 import { getRouteAbout, getRouteAdminPanel, getRouteProfile } from '~/shared/constants/appRoutes';
 import { renderWithProviders } from '~/shared/config/tests/providers/renderWithProviders';
 import { AboutPageDataTestId } from '~/pages/AboutPage/ui/AboutPage';
-import { ProfilePageDataTestId } from '~/pages/ProfilePage/ui/ProfilePage/ProfilePage';
+import { ProfilePageDataTestId } from '~/pages/ProfilePage/constants';
 import { AdminPanelPageDataTestId } from '~/pages/AdminPanelPage/ui/AdminPanelPage';
 import { ForbiddenPageDataTestId } from '~/pages/ForbiddenPage/ui/ForbiddenPage';
 import { NotFoundPageDataTestId } from '~/pages/NotFoundPage/ui/NotFoundPage';
-import { HomePageDataTestId } from '~/pages/HomePage/ui/HomePage';
+import { HomePageDataTestId } from '~/pages/HomePage/constants';
 import AppRouter from './AppRouter';
 
 describe('app/providers/AppRouter', () => {

@@ -52,7 +52,7 @@ export default tseslint.config(
         ...globals.es2020,
       },
       parserOptions: {
-        project: ['tsconfig.json'],
+        project: ['./tsconfig.json', './cypress/tsconfig.json'],
       },
     },
   },
@@ -133,6 +133,13 @@ export default tseslint.config(
     files: ['**/*.stories.{ts,tsx}'],
     rules: {
       'max-lines': 'off',
+    },
+  },
+  // TODO: Add plugin eslint-plugin-cypress
+  {
+    files: ['cypress/**/*.ts', 'cypress.config.ts'],
+    rules: {
+      '@typescript-eslint/no-namespace': ['error', { allowDeclarations: true }],
     },
   },
 );

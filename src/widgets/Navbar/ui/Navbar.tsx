@@ -7,6 +7,7 @@ import useIsAuthorized from '~/shared/lib/hooks/useIsAuthorized';
 import { APP_NAME } from '~/shared/constants/appInfo';
 import { AccountMenu } from '~/features/AccountMenu';
 import { Text, TextTheme } from '~/shared/ui/Text';
+import { SignInBtnDataTestId } from '../constants';
 import { useModalState } from '~/shared/ui/Modal';
 import { HStack } from '~/shared/ui/Stack';
 import classNames from '~/shared/lib/classNames';
@@ -51,6 +52,7 @@ const Navbar = (props: NavbarProps) => {
             theme={ButtonTheme.OUTLINE_INVERTED}
             size={ButtonSize.L}
             onClick={openSignInModal}
+            data-testid={SignInBtnDataTestId}
           >
             {t('sign_in.action', { defaultValue: 'Sign in' })}
           </Button>

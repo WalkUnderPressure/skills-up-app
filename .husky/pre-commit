@@ -1,7 +1,4 @@
-# App production build
-npm run build:prod
-
-# Run ESlint linter only for files with changes 
+# Run ESlint linter only for files with changes
 npx lint-staged
 
 # Run linter for TS
@@ -12,6 +9,9 @@ npm run lint:scss
 
 # Run unit tests
 npm run test:unit
+
+# App production build
+npm run build:prod
 
 # ScreenShot testing (Disable when add remote CI)
 # Build Storybook

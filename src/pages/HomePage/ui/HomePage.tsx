@@ -1,9 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
+import { HomePageDataTestId } from '../constants';
 import classNames from '~/shared/lib/classNames';
 import { Page } from '~/widgets/Page';
-
-export const HomePageDataTestId = 'HomePageDataTestId';
 
 export type HomePageProps = PropsWithClassName;
 

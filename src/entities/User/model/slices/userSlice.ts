@@ -25,7 +25,7 @@ export const userSlice = buildAppSlice({
       localStorage.removeItem(LS_AUTH_USER);
     },
     initAuthData(state) {
-      const initUserData = safeJsonParse(localStorage.getItem(LS_AUTH_USER));
+      const initUserData = safeJsonParse<User>(localStorage.getItem(LS_AUTH_USER));
 
       if (initUserData) {
         state.authData = initUserData;

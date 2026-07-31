@@ -1,6 +1,7 @@
 import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { SignInErrorCode } from '../../types/SignInSchema';
 import { User, userActions } from '~/entities/User';
+import { authApiRoutes } from '~/features/SignInByUsername/api/authApiRoutes';
 
 export type SignInByUsernameData = {
   username: string;
@@ -19,7 +20,7 @@ export const [signInByUsername, useSignInByUsername] = buildAppAsyncThunk<
   } = thunkAPI;
 
   try {
-    const response = await api.post<User>('/auth/sign-in/', signInData);
+    const response = await api.post<User>(authApiRoutes.signIn, signInData);
     const authorizedUser = response.data;
 
     if (!authorizedUser) {
