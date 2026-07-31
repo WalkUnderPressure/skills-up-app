@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import StoreDecorator from '~/shared/config/storybook/decorators/StoreDecorator';
-import MockPostRecommendationsRequest from '../../mock/MockPostRecommendationsRequest';
+import { getMockPostRecommendationsRequest } from '../../mock/MockPostRecommendationsRequest';
 import PostRecommendationsList from '.';
 
 const meta = {
@@ -11,7 +11,7 @@ const meta = {
   args: {},
   decorators: [StoreDecorator({})],
   parameters: {
-    ...MockPostRecommendationsRequest,
+    ...getMockPostRecommendationsRequest(),
   },
 } satisfies Meta<typeof PostRecommendationsList>;
 

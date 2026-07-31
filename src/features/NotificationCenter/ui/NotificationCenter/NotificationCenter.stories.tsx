@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 
 import { getOverriddenRequest } from '~/shared/config/storybook/helpers/withOverriddenRequest';
+import { notificationsApiRoutes } from '~/entities/Notification/api/notificationsApiRoutes';
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import ComponentBackground from '~/shared/config/storybook/ui/ComponentBackground';
 import StoreDecorator from '~/shared/config/storybook/decorators/StoreDecorator';
@@ -21,9 +22,9 @@ const meta = {
   },
   parameters: {
     ...getOverriddenRequest({
-      method: 'GET',
-      // like here: useNotifications
-      url: '/notifications/?_limit=10',
+      url: notificationsApiRoutes.filter({
+        _limit: 10,
+      }),
       response: MockNotifications,
     }),
   },

@@ -1,6 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 import { TextTheme } from '../types';
 import Text from './Text';
 

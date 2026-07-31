@@ -1,3 +1,4 @@
+import { postsApiRoutes } from '~/entities/Post/api/postsApiRoutes';
 import rtkApi from '~/shared/api/rtkApi';
 import { Post } from '~/entities/Post';
 
@@ -7,10 +8,9 @@ const postRecommendationsApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     getPostRecommendations: build.query<Array<Post>, unknown>({
       query: () => ({
-        url: '/posts/',
-        params: {
+        url: postsApiRoutes.filter({
           _limit: RECOMMENDATIONS_COUNT,
-        },
+        }),
       }),
     }),
   }),

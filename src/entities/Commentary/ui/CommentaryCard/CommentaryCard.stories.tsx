@@ -1,8 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
-import CommentaryCard from './CommentaryCard';
 import MockCommentaries from '~/entities/Commentary/mock/MockCommentaries';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
+import CommentaryCard from './CommentaryCard';
 
 const meta = {
   title: 'Entities/Commentary/CommentaryCard',

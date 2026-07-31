@@ -49,7 +49,7 @@ export const Page = (props: PageProps) => {
     <section
       ref={wrapperRef}
       onScroll={onScroll}
-      className={classNames(cls['page-wrapper'], {}, [className])}
+      className={classNames(cls['page-wrapper'], {}, [className, 'page-wrapper'])}
       data-testid={dataTestId}
     >
       {children}

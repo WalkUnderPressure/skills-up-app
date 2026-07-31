@@ -3,14 +3,10 @@ module.exports = {
   configurations: {
     'chrome.laptop': {
       target: 'chrome.docker',
-      width: 1366,
-      height: 768,
+      width: 1920,
+      height: 1080,
       deviceScaleFactor: 1,
       mobile: false,
-    },
-    'chrome.iphone7': {
-      target: 'chrome.docker',
-      preset: 'iPhone 7',
     },
   },
 };

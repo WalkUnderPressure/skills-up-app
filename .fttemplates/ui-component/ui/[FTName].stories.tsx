@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
+
 
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import [FTName] from './[FTName]';

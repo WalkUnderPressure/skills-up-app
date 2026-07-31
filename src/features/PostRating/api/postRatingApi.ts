@@ -1,5 +1,6 @@
 import rtkApi from '~/shared/api/rtkApi';
 import { Rating } from '~/entities/Rating';
+import { postRatingApiRoutes } from '~/features/PostRating/api/postRatingApiRoutes';
 
 type GetPostRatingParams = {
   postId?: string;
@@ -15,12 +16,12 @@ const postRatingApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     getPostRating: build.query<Rating, GetPostRatingParams>({
       query: ({ postId }) => ({
-        url: `/post-rating/${postId}`,
+        url: postRatingApiRoutes.byPostId(postId),
       }),
     }),
     setPostRating: build.mutation<Rating, SetPostRatingParams>({
       query: ({ postId, rating, feedback }) => ({
-        url: `/post-rating/${postId}`,
+        url: postRatingApiRoutes.byPostId(postId),
         method: 'POST',
         body: {
           rating,

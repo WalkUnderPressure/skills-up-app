@@ -1,9 +1,8 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryObj } from '@storybook/react';
-
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
-import StoreDecorator from '~/shared/config/storybook/decorators/StoreDecorator';
 import ComponentBackground from '~/shared/config/storybook/ui/ComponentBackground';
+import StoreDecorator from '~/shared/config/storybook/decorators/StoreDecorator';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 import AccountMenu, { AccountMenuProps } from '.';
 
 const meta = {

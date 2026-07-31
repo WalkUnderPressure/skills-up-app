@@ -1,5 +1,6 @@
 import rtkApi from '~/shared/api/rtkApi';
 import { Notification } from '../model/types/NotificationStateSchema';
+import { notificationsApiRoutes } from '~/entities/Notification/api/notificationsApiRoutes';
 
 // const NOTIFICATIONS_REFRESH_INTERVAL = 10_000;
 const NOTIFICATIONS_REFRESH_INTERVAL = 60_000;
@@ -9,10 +10,9 @@ const notificationsApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     getNotifications: build.query<Array<Notification>, unknown>({
       query: () => ({
-        url: '/notifications/',
-        params: {
+        url: notificationsApiRoutes.filter({
           _limit: NOTIFICATIONS_COUNT,
-        },
+        }),
       }),
     }),
   }),

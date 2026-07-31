@@ -1,5 +1,5 @@
 import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
-import { Post } from '~/entities/Post';
+import { Post, postsApiRoutes } from '~/entities/Post';
 
 const RECOMMENDATIONS_COUNT = 4;
 
@@ -11,18 +11,19 @@ export const [fetchPostRecommendations, useFetchPostRecommendations] = buildAppA
   const { extra, rejectWithValue } = thunkApi;
 
   try {
-    const response = await extra.api.get<Array<Post>>(`/posts/`, {
-      params: {
+    const response = await extra.api.get<Array<Post>>(
+      postsApiRoutes.filter({
         _limit: RECOMMENDATIONS_COUNT,
-      },
-    });
+      }),
+    );
 
     if (!response.data) {
-      throw new Error();
+      throw new Error("Can't get posts!");
     }
 
     return response.data;
-  } catch (e) {
-    return rejectWithValue('error');
+  } catch (error) {
+    // TODO: Check another buildAppAsyncThunk for error handling
+    return rejectWithValue(String(error ?? ''));
   }
 });

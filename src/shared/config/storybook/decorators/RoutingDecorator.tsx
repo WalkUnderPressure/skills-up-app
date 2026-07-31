@@ -1,13 +1,22 @@
-import { StoryFn } from '@storybook/react';
+import { createMemoryRouter, RouterProvider } from 'react-router-dom';
+import type { StoryFn, StoryContext } from '@storybook/react';
 
-import { RoutingProvider } from '~/app/providers/RoutingProvider';
+const RoutingDecorator = (Story: StoryFn, context: StoryContext) => {
+  const { parameters } = context;
 
-const RoutingDecorator = (Story: StoryFn) => {
-  return (
-    <RoutingProvider>
-      <Story />
-    </RoutingProvider>
+  const { initialEntries = ['/'], path = '/' } = parameters.routing ?? {};
+
+  const router = createMemoryRouter(
+    [
+      {
+        path,
+        element: <Story />,
+      },
+    ],
+    { initialEntries },
   );
+
+  return <RouterProvider router={router} />;
 };
 
 export default RoutingDecorator;

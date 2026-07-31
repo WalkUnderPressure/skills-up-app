@@ -10,6 +10,7 @@ import BlogSearchParamsMap from '../../mappers/BlogSearchParamsMap';
 import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { addQueryParams } from '~/shared/lib/url/addQueryParams';
 import { Post, PostTagsMap } from '~/entities/Post';
+import { postsApiRoutes } from '~/entities/Post';
 
 type FetchBlogPostsParams = {
   // page?: number;
@@ -43,16 +44,17 @@ export const [fetchBlogPosts, useFetchBlogPosts] = buildAppAsyncThunk<
       [BlogSearchParamsMap.tag.name]: searchTag,
     });
 
-    const response = await extra.api.get<Array<Post>>(`/posts/`, {
-      params: {
+    // TODO: Think how to be with query params
+    const response = await extra.api.get<Array<Post>>(
+      postsApiRoutes.filter({
         _limit: limit,
         _page: page,
         _sort: sortField,
         _order: sortOrder,
         tags: searchTag === PostTagsMap.ALL ? undefined : searchTag,
         q: search,
-      },
-    });
+      }),
+    );
 
     if (!response.data) {
       throw new Error();

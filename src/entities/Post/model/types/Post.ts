@@ -1,3 +1,4 @@
+import { SearchAndFiltering } from '~/entities/SearchAndFiltering/types';
 import { Profile } from '~/entities/Profile';
 
 enum PostBlockType {
@@ -67,8 +68,13 @@ interface Post {
   userId?: string;
 }
 
+type PostSearchAndFiltering = SearchAndFiltering & {
+  tags?: string;
+};
+
 export { PostBlockType, PostTagsMap, PostViewMap, PostSortFieldsMap };
 export type {
+  PostSearchAndFiltering,
   PostTagsKey,
   PostBlockBase,
   PostCodeBlock,

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import ListBox, { ListBoxProps, ListBoxItem } from '.';

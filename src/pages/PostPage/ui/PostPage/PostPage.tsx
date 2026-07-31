@@ -10,7 +10,7 @@ import { PostDetails } from '~/entities/Post';
 import { VStack } from '~/shared/ui/Stack';
 import { Page } from '~/widgets/Page';
 import postPageReducer from '../../model/slices/postPageReducer';
-import PostCommentaries from '../PostCommentaries';
+import { PostCommentaries } from '~/features/PostCommentaries';
 import PostPageHeader from '../PostPageHeader';
 import cls from './PostPage.module.scss';
 
@@ -24,6 +24,8 @@ const PostPage = (props: PostPageProps) => {
   const { className } = props;
 
   const { id: postId } = useParams();
+
+  console.log('postId', postId);
 
   return (
     <DynamicReducerProvider reducers={reducers}>

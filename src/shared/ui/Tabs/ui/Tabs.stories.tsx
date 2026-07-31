@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 import Tabs from './Tabs';
 
 const meta = {

@@ -1,8 +1,8 @@
 import PostRecommendationsSchema from './PostRecommendationsSchema';
-import PostCommentarySchema from './PostCommentarySchema';
+import { PostCommentariesSchema } from '~/features/PostCommentaries';
 
 type PostPageSchema = {
-  postCommentaries: PostCommentarySchema;
+  postCommentaries: PostCommentariesSchema;
   postRecommendations: PostRecommendationsSchema;
 };
 

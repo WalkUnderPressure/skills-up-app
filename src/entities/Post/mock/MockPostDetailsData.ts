@@ -5,7 +5,7 @@ const MockPostDetailsData: Post = {
   userId: '1',
   title: 'Javascript news',
   subtitle: "What's new in JS for 2024?",
-  img: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+  img: '/mock/JavaScript-logo.png',
   views: 681,
   createdAt: 1724270894246,
   tags: [PostTagsMap.IT],
@@ -37,7 +37,7 @@ const MockPostDetailsData: Post = {
     {
       id: '4',
       type: PostBlockType.IMAGE,
-      src: 'https://wavelop.com/static/528bbb228615a3160dcbe094c6fe905e/ba228/js-pipe-function.png',
+      src: '/mock/js-pipe-function.png',
       title:
         'A pipe function is a function that accepts a series of functions, which process an input parameter and return a output which will be the input for the next function.',
     },
@@ -69,7 +69,7 @@ const MockPostDetailsDataTwo: Post = {
   userId: '2',
   title: 'What is Science?',
   subtitle: 'Short info about science',
-  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/MANNapoli_124545_plato%27s_academy_mosaic.jpg/920px-MANNapoli_124545_plato%27s_academy_mosaic.jpg',
+  img: '/mock/science.avif',
   views: 991,
   createdAt: 1724548384024,
   tags: [PostTagsMap.SCIENCE],
@@ -85,7 +85,7 @@ const MockPostDetailsDataTwo: Post = {
     {
       id: '2',
       type: PostBlockType.IMAGE,
-      src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Plimpton_322.jpg/1920px-Plimpton_322.jpg',
+      src: '/mock/Plimpton.jpg',
       title: 'Babylonian tablet listing pythagorean triples',
     },
     {

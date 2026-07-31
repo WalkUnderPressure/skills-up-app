@@ -1,18 +1,31 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
-import MockPostRecommendationsRequest from '~/features/PostRecommendationsList/mock/MockPostRecommendationsRequest';
+import { getMockPostRecommendationsRequest } from '~/features/PostRecommendationsList/mock/MockPostRecommendationsRequest';
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
-import { MockPostDetailsData } from '~/entities/Post/mock/MockPostDetailsData';
+import { getMockPostCommentariesRequest } from '~/features/PostCommentaries/mock';
 import StoreDecorator from '~/shared/config/storybook/decorators/StoreDecorator';
+import { getMockPostRequest } from '~/pages/PostPage/mock/MockPostRequest';
+import { getMockPostRatingRequest } from '~/features/PostRating/mock';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
+import { getRoutePost } from '~/shared/constants/appRoutes';
 import PostPage from './PostPage';
+
+const POST_ID = `1`;
+
+const PostRecommendationsReq = getMockPostRecommendationsRequest().mockData[0];
+const PostCommentsReq = getMockPostCommentariesRequest(POST_ID).mockData[0];
+const PostRatingReq = getMockPostRatingRequest(POST_ID).mockData[0];
+const PostReq = getMockPostRequest(POST_ID).mockData[0];
 
 // TODO: Add tests for selectors, slice, service
 const meta = {
   title: 'Pages/PostPage',
   component: PostPage,
-  decorators: [StoreDecorator({ postDetails: { data: MockPostDetailsData } })],
+  decorators: [StoreDecorator()],
   parameters: {
-    ...MockPostRecommendationsRequest,
+    mockData: [PostRecommendationsReq, PostCommentsReq, PostRatingReq, PostReq],
+    routing: {
+      path: getRoutePost(':id'),
+      initialEntries: [getRoutePost(POST_ID)],
+    },
   },
 } satisfies Meta<typeof PostPage>;
 

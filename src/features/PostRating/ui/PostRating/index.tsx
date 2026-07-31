@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { usePostRating, useSetPostRating } from '../../api/postRatingApi';
 import { Skeleton } from '~/shared/ui/Skeleton';
 import { RatingCard } from '~/entities/Rating';
-import { usePostRating, useSetPostRating } from '../../api/postRatingApi';
 
 type PostRatingProps = {
   postId?: string;
@@ -44,6 +44,10 @@ const PostRating = memo((props: PostRatingProps) => {
 
   if (isPostRatingLoading) {
     return <Skeleton width="100%" height="104px" />;
+  }
+
+  if (!postId) {
+    return null;
   }
 
   return (

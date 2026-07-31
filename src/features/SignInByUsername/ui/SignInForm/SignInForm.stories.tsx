@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 
 import { SignInByUsernameSchema, SignInByUsernameErrorCode } from '~/features/SignInByUsername';
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';

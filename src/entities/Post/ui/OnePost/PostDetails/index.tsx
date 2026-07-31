@@ -7,9 +7,9 @@ import DynamicReducerProvider, {
 import { postDetailsReducer } from '../../../model/slices/postDetailsSlice';
 import { useFetchPostById } from '../../../model/services/fetchPostById';
 import {
-  usePostDetails,
   usePostIsLoading,
   usePostError,
+  usePostDetails,
 } from '../../../model/selectors/postDetailsSelectors';
 import PostBlocksGenerator from '../PostBlocksGenerator';
 import { Text, TextTheme } from '~/shared/ui/Text';
@@ -43,7 +43,9 @@ const PostDetails = memo((props: PostDetailsProps) => {
   const fetchPostById = useFetchPostById();
 
   useEffect(() => {
-    fetchPostById({ postId });
+    if (postId) {
+      fetchPostById({ postId });
+    }
   }, [fetchPostById, postId]);
 
   const createdAt = useDateTransformer(Number(postDetails?.createdAt));

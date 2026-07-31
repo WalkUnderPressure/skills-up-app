@@ -1,3 +1,4 @@
+import { postsApiRoutes } from '~/entities/Post/api/postsApiRoutes';
 import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { Post } from '../../types/Post';
 
@@ -13,17 +14,17 @@ export const [fetchPostById, useFetchPostById] = buildAppAsyncThunk<
 
   try {
     if (!postId) {
-      throw new Error();
+      throw new Error('Post id not provided!');
     }
 
-    const response = await extra.api.get<Post>(`/posts/${postId}`);
+    const response = await extra.api.get<Post>(postsApiRoutes.byPostId(postId));
 
     if (!response.data) {
-      throw new Error();
+      throw new Error('Post data not exist!');
     }
 
     return response.data;
-  } catch (e) {
-    return rejectWithValue('error');
+  } catch (error) {
+    return rejectWithValue(String(error ?? ''));
   }
 });

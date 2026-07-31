@@ -1,5 +1,5 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 
 import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
 import Popover from '.';

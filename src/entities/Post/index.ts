@@ -27,3 +27,4 @@ export {
   PostSortFieldsMap,
 };
 export type { PostDetailsSchema, Post, PostTagsKey, PostViewKey, PostSortFieldsKey };
+export { postsApiRoutes } from './api/postsApiRoutes';

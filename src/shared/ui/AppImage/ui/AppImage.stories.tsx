@@ -1,5 +1,5 @@
 /* eslint-disable i18next/no-literal-string */
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 
 import AppImage from '.';
 
@@ -17,3 +17,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default = {} satisfies Story;
+
+export const ImageWithSrc = {
+  args: {
+    src: '/mock/science.avif',
+  },
+} satisfies Story;

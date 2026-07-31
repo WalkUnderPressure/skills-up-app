@@ -1,7 +1,7 @@
 import { combineReducers, ReducersMapObject } from '@reduxjs/toolkit';
 
 import { postRecommendationsReducer } from './postRecommendationsSlice';
-import { postCommentariesReducer } from './postCommentariesSlice';
+import { postCommentariesReducer } from '~/features/PostCommentaries';
 import PostPageSchema from '../types/PostPageSchema';
 
 const postPageReducer = combineReducers<ReducersMapObject<PostPageSchema>>({

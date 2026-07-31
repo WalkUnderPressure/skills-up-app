@@ -1,19 +1,24 @@
 <script>
-    // Add class 'app' to html for using theme bg
-    // document.documentElement.classList.add('app');
+  // Add class 'app' to html for using theme bg
+  // document.documentElement.classList.add('app');
 </script>
 
 <!-- Alternative way to centered layout with theme -->
 <style>
-    #storybook-root {
-        font: var(--font-m);
-        min-height: calc(100vh);
-        min-width: calc(100vw);
-        background-color: var(--bg-color);
-        color: var(--primary-color);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem;
-    }
+  #storybook-root {
+    font: var(--font-m);
+    height: 100vh;
+    overflow-y: auto;
+    min-width: 100%;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .page-wrapper {
+    height: 100% !important;
+  }
 </style>

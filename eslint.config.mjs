@@ -104,6 +104,7 @@ export default tseslint.config(
       '**/*/useAppDispatch.ts',
       '**/*/useAppSelector.ts',
       '**/*/useAppStore.ts',
+      '**/*/appStorybook.ts',
     ],
     rules: {
       'no-restricted-imports': 'off',
@@ -119,6 +120,11 @@ export default tseslint.config(
           name: '@reduxjs/toolkit',
           importNames: ['createAsyncThunk'],
           message: 'Use typed hooks `createAppAsyncThunk` instead.',
+        },
+        {
+          name: '@storybook/react',
+          importNames: ['Meta', 'StoryObj'],
+          message: "Import from '~/shared/lib/storybook/types' instead.",
         },
       ],
     },
