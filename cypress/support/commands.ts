@@ -1,13 +1,9 @@
-import loginCmd, { UserAuthData } from './commands/loginCmd';
+import { login as loginCmd } from './commands/login';
+import * as ElementsCmds from './commands/elements';
+import * as ProfileCmds from './commands/profile';
 
+Cypress.Commands.addAll(ElementsCmds);
 Cypress.Commands.add('login', loginCmd);
-
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      login(authData?: UserAuthData): Chainable<void>;
-    }
-  }
-}
+Cypress.Commands.addAll(ProfileCmds);
 
 export {};

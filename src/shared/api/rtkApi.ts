@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import safeJsonParse from '~/shared/lib/helpers/safeJsonParse';
 import { LS_AUTH_USER } from '~/shared/constants/localStorage';
 import { User } from '~/entities/User';
+import { createAuthHeader } from '~/shared/api/common';
 
 const fetchBaseQueryFetchFn = (...args: Parameters<typeof fetch>): ReturnType<typeof fetch> => {
   return typeof window === 'undefined' ? fetch(...args) : window.fetch(...args);
@@ -18,7 +19,8 @@ const rtkApi = createApi({
         const authToken = safeJsonParse<User>(localStorage.getItem(LS_AUTH_USER))?.id || '';
 
         if (authToken) {
-          headers.set('Authorization', `Bearer ${authToken}`);
+          const authHeader = createAuthHeader(authToken);
+          headers.set('Authorization', authHeader.Authorization);
         }
       }
 

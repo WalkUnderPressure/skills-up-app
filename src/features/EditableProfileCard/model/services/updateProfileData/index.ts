@@ -2,6 +2,7 @@ import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { Profile, ProfileErrorCode, ProfileValidationErrors } from '~/entities/Profile';
 import { isValidForm, validateProfileData } from '../../services/validateProfileData';
 import { getProfileFormData } from '../../selectors/getProfileFormData';
+import { profilesApiRoutes } from '~/entities/Profile/api/profilesApiRoutes';
 
 export type SubmitErrorData = {
   validation?: ProfileValidationErrors;
@@ -22,14 +23,17 @@ export const [updateProfileData, useUpdateProfileData] = buildAppAsyncThunk<
   const state = getState();
   const profileFormData = getProfileFormData(state);
   const validationErrors = validateProfileData(profileFormData ?? {});
-  const profileId = state?.profile?.data?.id || '';
+  const userId = state?.profile?.data?.userId || '';
   const isValid = isValidForm(validationErrors);
 
   try {
     let profileData = null;
 
-    if (profileId && profileFormData && isValid) {
-      const response = await api.patch<Profile>(`/profiles/${profileId}`, profileFormData);
+    if (userId && profileFormData && isValid) {
+      const response = await api.patch<Profile>(
+        profilesApiRoutes.byUserId(userId),
+        profileFormData,
+      );
       profileData = response.data;
     }
 

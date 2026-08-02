@@ -1,5 +1,6 @@
 import { buildAppAsyncThunk } from '~/app/providers/StoreProvider';
 import { Profile, ProfileErrorCode } from '~/entities/Profile';
+import { profilesApiRoutes } from '~/entities/Profile/api/profilesApiRoutes';
 
 export const [fetchProfileData, useFetchProfileData] = buildAppAsyncThunk<
   Profile,
@@ -15,7 +16,7 @@ export const [fetchProfileData, useFetchProfileData] = buildAppAsyncThunk<
     let userProfileData = null;
 
     if (userId) {
-      const response = await api.get<Profile>(`/profiles/${userId}`);
+      const response = await api.get<Profile>(profilesApiRoutes.byUserId(userId));
       userProfileData = response.data;
     }
 

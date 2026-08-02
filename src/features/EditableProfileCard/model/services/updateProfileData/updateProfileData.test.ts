@@ -10,7 +10,7 @@ describe('updateProfileData', () => {
     const newProfileData = { ...MockProfileWithAvatar, username: 'NewUser' };
 
     const thunk = new TestAsyncThunk(updateProfileData, {
-      profile: { data: { id: '1' }, form: newProfileData },
+      profile: { data: { userId: '1' }, form: newProfileData },
     });
 
     thunk.api.patch.mockReturnValue(
@@ -29,7 +29,7 @@ describe('updateProfileData', () => {
 
   test('failed updateProfileData when data exist', async () => {
     const thunk = new TestAsyncThunk(updateProfileData, {
-      profile: { data: { id: '1' }, form: MockProfileWithAvatar },
+      profile: { data: { userId: '1' }, form: MockProfileWithAvatar },
     });
 
     thunk.api.patch.mockReturnValue(
@@ -55,7 +55,7 @@ describe('updateProfileData', () => {
 
     const thunk = new TestAsyncThunk(updateProfileData, {
       profile: {
-        data: { id: '1' },
+        data: { userId: '1' },
         form: {
           ...MockProfileWithAvatar,
           username: undefined,
