@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { usePostRating, useSetPostRating } from '../../api/postRatingApi';
 import { Skeleton } from '~/shared/ui/Skeleton';
 import { RatingCard } from '~/entities/Rating';
+import { PostRatingDataTestIds } from '~/features/PostRating/constants';
 
 type PostRatingProps = {
   postId?: string;
@@ -64,6 +65,7 @@ const PostRating = memo((props: PostRatingProps) => {
       onAccept={sendPostRating}
       onCancel={sendPostRating}
       className={className}
+      dataTestIds={PostRatingDataTestIds.RatingCard}
     />
   );
 });

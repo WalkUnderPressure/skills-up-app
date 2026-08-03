@@ -5,6 +5,7 @@ import capitalize from 'lodash.capitalize';
 import { TabItem, Tabs } from '~/shared/ui/Tabs';
 import classNames from '~/shared/lib/classNames';
 import { PostTagsMap, PostTagsKey } from '~/entities/Post';
+import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 
 type PostTagsTabsProps = {
   value: PostTagsKey;
@@ -35,6 +36,7 @@ const PostTagsTabs = memo((props: PostTagsTabsProps) => {
       value={value}
       onTabClick={onChangeTab}
       className={classNames('', {}, [className])}
+      data-testid={BlogPageDataTestIds.SearchAndFilters.TagTabs}
     />
   );
 });

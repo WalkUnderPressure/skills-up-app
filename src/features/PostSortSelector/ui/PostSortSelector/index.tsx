@@ -8,6 +8,7 @@ import { SortOrder } from '~/shared/types/SortOrder';
 import classNames from '~/shared/lib/classNames';
 import cls from './PostSortSelector.module.scss';
 import { HStack } from '~/shared/ui/Stack';
+import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 
 type PostSortSelectorProps = {
   sortField: PostSortFieldsKey;
@@ -62,6 +63,7 @@ const PostSortSelector = memo((props: PostSortSelectorProps) => {
           wrapper: classNames(cls['select-wrapper']),
           select: classNames(cls['select']),
         }}
+        data-testid={BlogPageDataTestIds.SearchAndFilters.SortField}
       />
 
       <Select<SortOrder>
@@ -75,6 +77,7 @@ const PostSortSelector = memo((props: PostSortSelectorProps) => {
           wrapper: classNames(cls['select-wrapper']),
           select: classNames(cls['select']),
         }}
+        data-testid={BlogPageDataTestIds.SearchAndFilters.SortOrder}
       />
     </HStack>
   );

@@ -8,6 +8,7 @@ import { AppLink } from '~/shared/ui/AppLink';
 import { Text } from '~/shared/ui/Text';
 import { Commentary } from '../../model/types/commentary';
 import cls from './CommentaryCard.module.scss';
+import { CommentaryCardDataTestIds } from '~/entities/Commentary/constants';
 
 type CommentaryCardProps = {
   commentary?: Commentary;
@@ -20,7 +21,12 @@ const CommentaryCard = memo((props: CommentaryCardProps) => {
   const authorUserId = commentary?.profile.userId || '';
 
   return (
-    <VStack gap="8" fullW className={classNames(cls['commentary-card'], {}, [className])}>
+    <VStack
+      gap="8"
+      fullW
+      className={classNames(cls['commentary-card'], {}, [className])}
+      data-testid={CommentaryCardDataTestIds.Item}
+    >
       <AppLink to={getRouteProfile(authorUserId)}>
         <HStack justify="start" align="center" gap="8">
           {Boolean(userAvatarSrc) && <Avatar size={AvatarSize.XS} src={userAvatarSrc} />}

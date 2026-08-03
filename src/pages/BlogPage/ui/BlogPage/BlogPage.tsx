@@ -11,6 +11,7 @@ import BlogInfiniteList from '../BlogInfiniteList';
 import classNames from '~/shared/lib/classNames';
 import { Page } from '~/widgets/Page';
 import cls from './BlogPage.module.scss';
+import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 
 const reducers: ReducersMap = {
   blogPage: blogPageReducer,
@@ -31,7 +32,10 @@ const BlogPage = (props: BlogPageProps) => {
 
   return (
     <DynamicReducerProvider reducers={reducers} removeAfterUnmount={false}>
-      <Page className={classNames(cls['blog-page'], {}, [className])}>
+      <Page
+        className={classNames(cls['blog-page'], {}, [className])}
+        data-testid={BlogPageDataTestIds.Page}
+      >
         <BlogPageFilters />
 
         <BlogInfiniteList />

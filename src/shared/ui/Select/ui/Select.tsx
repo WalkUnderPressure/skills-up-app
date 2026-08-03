@@ -26,7 +26,8 @@ export type SelectProps<T extends string = string> = {
   label?: string;
   readOnly?: boolean;
   fullH?: boolean;
-} & Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange' | 'className'>;
+} & Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange' | 'className'> &
+  PropsWithDataTestId;
 
 const Select = genericMemo(<T extends string>(props: SelectProps<T>) => {
   const {

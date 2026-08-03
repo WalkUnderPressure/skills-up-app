@@ -7,8 +7,10 @@ const API_URL: string = 'http://localhost:7000';
 
 export default defineConfig({
   allowCypressEnv: false,
-  env: {
+  expose: {
     API_URL,
+  },
+  env: {
     auth: {
       username: 'user',
       password: 'user',

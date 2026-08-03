@@ -17,6 +17,7 @@ import {
 } from '../../model/selectors/addCommentarySelectors';
 import cls from './AddCommentaryForm.module.scss';
 import { HStack } from '~/shared/ui/Stack';
+import { AddCommentaryFormDataTestIds } from '~/features/AddCommentaryForm/constants';
 
 const reducers: ReducersMap = {
   addCommentaryForm: addCommentaryReducer,
@@ -56,15 +57,22 @@ const AddCommentaryForm = memo((props: AddCommentaryFormProps) => {
         gap="24"
         fullW
         className={classNames(cls['add-commentary-form'], {}, [className])}
+        data-testid={AddCommentaryFormDataTestIds.Form}
       >
         <Input
           name="commentary"
           onChange={onChangeCommentaryText}
           value={text}
           disabled={isLoading}
+          data-testid={AddCommentaryFormDataTestIds.Input}
         />
 
-        <Button rounded={ButtonRounded.M} theme={ButtonTheme.BG} onClick={onSend}>
+        <Button
+          rounded={ButtonRounded.M}
+          theme={ButtonTheme.BG}
+          onClick={onSend}
+          data-testid={AddCommentaryFormDataTestIds.Button}
+        >
           {t('form.send', { defaultValue: 'Send' })}
         </Button>
       </HStack>

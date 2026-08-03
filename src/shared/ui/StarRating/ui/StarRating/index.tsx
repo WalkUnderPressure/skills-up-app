@@ -4,6 +4,7 @@ import classNames from '~/shared/lib/classNames';
 import { HStack } from '~/shared/ui/Stack';
 import StarIcon from '~/shared/assets/icons/star.svg';
 import cls from './StarRating.module.scss';
+import { StarRatingDataTestIds } from '~/shared/ui/StarRating/constants';
 
 export type StarRatingProps = {
   rating?: number;
@@ -46,6 +47,7 @@ const StarRating = memo((props: StarRatingProps) => {
       gap="8"
       className={classNames(cls.box, {}, [className])}
       onMouseLeave={onLeaveStar}
+      data-testid={StarRatingDataTestIds.Section}
     >
       {STARS_LIST.map((starValue) => {
         const isStarHovered = starValue <= (rating || hoveredStar);
@@ -61,6 +63,8 @@ const StarRating = memo((props: StarRatingProps) => {
             })}
             onMouseEnter={onHoverStar(starValue)}
             onClick={onSelectHandler(starValue)}
+            data-testid={StarRatingDataTestIds.getByStarValue(starValue)}
+            data-selected={isStarHovered}
           />
         );
       })}

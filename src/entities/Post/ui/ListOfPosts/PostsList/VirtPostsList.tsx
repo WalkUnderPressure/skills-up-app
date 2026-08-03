@@ -18,12 +18,13 @@ type VPostsListProps = {
   scrollIndex?: number;
   onLoadNextPart?: () => void;
   handleScrollIndexClick?: (index: number) => void;
-} & PropsWithClassName;
+} & PropsWithClassName &
+  PropsWithDataTestId;
 
 export const VirtPostsList = memo((props: VPostsListProps) => {
   const { viewType = PostViewMap.SHORT, scrollIndex = 0 } = props;
   const { className, posts = [], isLoading, target } = props;
-  const { onLoadNextPart, handleScrollIndexClick } = props;
+  const { onLoadNextPart, handleScrollIndexClick, 'data-testid': dataTestId } = props;
 
   const { t } = useTranslation();
 
@@ -83,7 +84,11 @@ export const VirtPostsList = memo((props: VPostsListProps) => {
   }
 
   return (
-    <div className={classNames(cls[viewType], {}, [className])} style={{ height: '100%' }}>
+    <div
+      className={classNames(cls[viewType], {}, [className])}
+      style={{ height: '100%' }}
+      data-testid={dataTestId}
+    >
       {viewType === PostViewMap.FULL ? (
         <Virtuoso
           // for use window scroll (filter block scroll with posts)

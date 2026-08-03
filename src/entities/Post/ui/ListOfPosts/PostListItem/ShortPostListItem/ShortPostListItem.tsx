@@ -12,6 +12,7 @@ import PostImagePreview from '../PostImagePreview';
 import { HStack } from '~/shared/ui/Stack';
 import EyeIcon from '~/shared/assets/icons/eye.svg';
 import cls from './ShortPostListItem.module.scss';
+import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 
 type PostShortListItemProps = CommonPostListItemProps;
 
@@ -54,7 +55,11 @@ const ShortPostListItem = memo((props: PostShortListItemProps) => {
           </HStack>
         </HStack>
 
-        <Text title={post.title} className={classNames(cls['title'])} />
+        <Text
+          title={post.title}
+          className={classNames(cls['title'])}
+          titleDataTestId={BlogPageDataTestIds.ShortPostListItemTitle}
+        />
       </Card>
     </AppLink>
   );

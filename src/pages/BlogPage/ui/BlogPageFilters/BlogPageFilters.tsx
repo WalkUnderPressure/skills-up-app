@@ -12,11 +12,12 @@ import { BlogViewTypeSwitcher } from '~/features/BlogViewTypeSwitcher';
 import { useBlogPageActions } from '../../model/slices/blogPageSlice';
 import { Input } from '~/shared/ui/Input';
 import { SortOrder } from '~/shared/types/SortOrder';
-import { fetchBlogPosts } from '../../model/services/fetchBlogPosts/fetchBlogPosts';
 import { PostSortSelector } from '~/features/PostSortSelector';
 import { useDebounce } from '~/shared/lib/hooks/useDebounce';
 import { PostTagsTabs } from '~/features/PostTagsTabs';
 import { HStack, VStack } from '~/shared/ui/Stack';
+import { useFetchBlogPosts } from '~/pages/BlogPage/model/services/fetchBlogPosts/fetchBlogPosts';
+import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 
 const FETCH_DELAY = 500;
 
@@ -34,10 +35,12 @@ const BlogPageFilters = memo((props: BlogPageFiltersProps) => {
   const { setPage, setViewType, setSortField, setSortOrder, setSearchTag, setSearch } =
     useBlogPageActions();
 
+  const fetchBlogPosts = useFetchBlogPosts();
+
   const fetchData = useCallback(() => {
     setPage(1);
     fetchBlogPosts({ replace: true });
-  }, [setPage]);
+  }, [fetchBlogPosts, setPage]);
 
   const debouncedFetchData = useDebounce(fetchData, FETCH_DELAY);
 
@@ -93,7 +96,11 @@ const BlogPageFilters = memo((props: BlogPageFiltersProps) => {
         <BlogViewTypeSwitcher viewType={postViewType} onChangeView={changeViewType} />
       </HStack>
 
-      <Input value={postSearch} onChange={changeSearch} />
+      <Input
+        value={postSearch}
+        onChange={changeSearch}
+        data-testid={BlogPageDataTestIds.SearchAndFilters.Input}
+      />
 
       <PostTagsTabs value={postSearchTag} onChangeTab={changeSearchTag} />
     </VStack>

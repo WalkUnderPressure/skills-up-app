@@ -1,9 +1,19 @@
 import { login as loginCmd } from './commands/login';
-import * as ElementsCmds from './commands/elements';
-import * as ProfileCmds from './commands/profile';
+import * as elementsCmds from './commands/elements';
+import * as profileCmds from './commands/profile';
+import * as postCmds from './commands/post';
+import * as commentaryCmds from './commands/commentary';
+import * as ratingCmds from './commands/rating';
+import * as apiCmds from './commands/api';
 
-Cypress.Commands.addAll(ElementsCmds);
-Cypress.Commands.add('login', loginCmd);
-Cypress.Commands.addAll(ProfileCmds);
+Cypress.Commands.addAll({
+  ...apiCmds,
+  ...elementsCmds,
+  login: loginCmd,
+  ...postCmds,
+  ...profileCmds,
+  ...commentaryCmds,
+  ...ratingCmds,
+});
 
 export {};

@@ -11,7 +11,7 @@ declare module '*.scss' {
 declare type SvgIconType = import('react').FunctionComponent<
   import('react').SVGProps<SVGSVGElement> & {
     title?: string;
-  }
+  } & PropsWithDataTestId
 >;
 
 declare module '*.svg' {

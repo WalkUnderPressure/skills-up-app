@@ -13,10 +13,11 @@ type TabsProps<T extends string = string> = {
   tabs: Array<TabItem<T>>;
   value: string;
   onTabClick: (tabValue: T) => void;
-} & PropsWithClassName;
+} & PropsWithClassName &
+  PropsWithDataTestId;
 
 const Tabs = genericMemo(<T extends string = string>(props: TabsProps<T>) => {
-  const { className, tabs, onTabClick, value } = props;
+  const { className, tabs, onTabClick, value, 'data-testid': dataTestId } = props;
 
   const clickHandle = useCallback(
     (tabValue: T) => () => {
@@ -26,7 +27,7 @@ const Tabs = genericMemo(<T extends string = string>(props: TabsProps<T>) => {
   );
 
   return (
-    <div className={classNames(cls.tabs, {}, [className])}>
+    <div className={classNames(cls.tabs, {}, [className])} data-testid={dataTestId}>
       {tabs.map((tab) => {
         const isActive = tab.value === value;
 

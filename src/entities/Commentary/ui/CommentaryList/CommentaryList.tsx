@@ -34,9 +34,9 @@ const CommentaryList = memo((props: CommentaryListProps) => {
         <>
           {commentaries?.length ? (
             <VStack gap="8" fullW>
-              {commentaries.map((commentary) => {
-                return <CommentaryCard key={commentary.id} commentary={commentary} />;
-              })}
+              {commentaries.map((commentary) => (
+                <CommentaryCard key={commentary.id} commentary={commentary} />
+              ))}
             </VStack>
           ) : (
             <Text

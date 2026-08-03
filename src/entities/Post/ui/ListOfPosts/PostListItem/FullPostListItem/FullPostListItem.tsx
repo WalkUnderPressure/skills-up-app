@@ -18,6 +18,7 @@ import { HStack } from '~/shared/ui/Stack';
 
 import cls from './FullPostListItem.module.scss';
 import EyeIcon from '~/shared/assets/icons/eye.svg';
+import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 
 type PostFullListItemProps = CommonPostListItemProps;
 
@@ -58,7 +59,7 @@ const FullPostListItem = memo((props: PostFullListItemProps) => {
         </HStack>
 
         <HStack justify="between" align="center" gap="32">
-          <Text title={post.title} />
+          <Text title={post.title} titleDataTestId={BlogPageDataTestIds.FullPostListItemTitle} />
           <span>{post.tags.map((tag) => `#${tag}`).join(', ')}</span>
         </HStack>
 

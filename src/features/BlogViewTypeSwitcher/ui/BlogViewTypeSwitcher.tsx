@@ -7,6 +7,7 @@ import TiledIcon from '~/shared/assets/icons/tiled.svg';
 import classNames from '~/shared/lib/classNames';
 import { HStack } from '~/shared/ui/Stack';
 import cls from './BlogViewTypeSwitcher.module.scss';
+import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 
 const ViewTypesList: Record<PostViewKey, { name: PostViewKey; Icon: SvgIconType }> = {
   [PostViewMap.FULL]: {
@@ -40,6 +41,7 @@ const BlogViewTypeSwitcher = memo((props: BlogViewTypeSwitcherProps) => {
       justify="center"
       align="center"
       className={classNames(cls['switcher'], {}, [className])}
+      data-testid={BlogPageDataTestIds.SearchAndFilters.ViewType}
     >
       {Object.values(ViewTypesList).map((viewInfo) => {
         const { name, Icon } = viewInfo;

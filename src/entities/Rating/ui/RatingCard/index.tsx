@@ -19,10 +19,14 @@ type RatingCardProps = {
   rating?: number;
   onCancel?: (rating: number) => void;
   onAccept?: (rating: number, feedback: string) => void;
+  dataTestIds?: {
+    SubmitBtn: string;
+    CancelBtn: string;
+  };
 } & PropsWithClassName;
 
 const RatingCard = memo((props: RatingCardProps) => {
-  const { className, title, feedbackTitle, rating = 0, onAccept, onCancel } = props;
+  const { className, title, feedbackTitle, rating = 0, onAccept, onCancel, dataTestIds } = props;
 
   const { t } = useTranslation();
   const { isOpen, openModal, closeModal } = useModalState();
@@ -65,11 +69,21 @@ const RatingCard = memo((props: RatingCardProps) => {
       <Input name="feedback" autoFocus={true} value={feedback} onChange={setFeedback} />
 
       <HStack fullW gap="24" align="center" justify="end">
-        <Button rounded={ButtonRounded.M} theme={ButtonTheme.BG_INVERTED} onClick={saveHandler}>
+        <Button
+          rounded={ButtonRounded.M}
+          theme={ButtonTheme.BG_INVERTED}
+          onClick={saveHandler}
+          data-testid={dataTestIds?.SubmitBtn}
+        >
           {t('actions.send', { defaultValue: 'Send' })}
         </Button>
 
-        <Button rounded={ButtonRounded.M} theme={ButtonTheme.OUTLINE} onClick={cancelHandler}>
+        <Button
+          rounded={ButtonRounded.M}
+          theme={ButtonTheme.OUTLINE}
+          onClick={cancelHandler}
+          data-testid={dataTestIds?.CancelBtn}
+        >
           {t('actions.cancel', { defaultValue: 'Cancel' })}
         </Button>
       </HStack>

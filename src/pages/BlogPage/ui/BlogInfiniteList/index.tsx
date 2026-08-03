@@ -8,6 +8,7 @@ import {
   useBlogPostsIsLoading,
   useBlogPostViewType,
 } from '../../model/selectors/blogPageSelectors';
+import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 
 const BlogInfiniteList = () => {
   const postsIsLoading = useBlogPostsIsLoading();
@@ -38,6 +39,7 @@ const BlogInfiniteList = () => {
       onLoadNextPart={onLoadNextPart}
       scrollIndex={scrollIndex}
       handleScrollIndexClick={handleScrollIndexClick}
+      data-testid={BlogPageDataTestIds.List}
     />
   );
 };

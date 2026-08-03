@@ -8,7 +8,9 @@ type UserAuthData = {
 };
 
 const login = (authData?: UserAuthData) => {
-  cy.env(['API_URL', 'auth']).then(({ API_URL, auth }) => {
+  const API_URL = Cypress.expose('API_URL');
+
+  cy.env(['auth']).then(({ auth }) => {
     const username = authData?.username ?? auth.username;
     const password = authData?.password ?? auth.password;
 

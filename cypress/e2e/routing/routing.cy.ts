@@ -1,8 +1,9 @@
 import { HomePageDataTestId } from '~/pages/HomePage/constants';
 import { SignInBtnDataTestId } from '~/widgets/Navbar/constants';
 import { ProfilePageDataTestId } from '~/pages/ProfilePage/constants';
-import { getRouteHome, getRouteProfile } from '~/shared/constants/appRoutes';
+import { getRouteBlog, getRouteHome, getRouteProfile } from '~/shared/constants/appRoutes';
 import { getUserDataFromLS } from 'cypress/common/getUserDataFromLS';
+import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 
 describe('Routing', () => {
   describe('User NOT Authorized', () => {
@@ -27,6 +28,11 @@ describe('Routing', () => {
 
       cy.visit(getRouteProfile(userData.id));
       cy.getByDataTestId(ProfilePageDataTestId).should('exist');
+    });
+
+    it('Open blog page', () => {
+      cy.visit(getRouteBlog());
+      cy.getByDataTestId(BlogPageDataTestIds.Page).should('exist');
     });
   });
 });

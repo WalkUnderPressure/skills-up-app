@@ -35,6 +35,7 @@ describe('Profile', () => {
     cy.updateProfile(newUserProfileData);
 
     cy.reload();
+
     visitProfilePage().then(() => {
       cy.getByDataTestId('username').should('have.value', newUserProfileData.username);
     });
