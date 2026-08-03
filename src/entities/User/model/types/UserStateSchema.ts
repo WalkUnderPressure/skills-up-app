@@ -1,3 +1,4 @@
+import { FeaturesStateSchema } from '~/entities/Features';
 import IInitialized from '~/shared/types/IInitialized';
 
 // TODO: Need add system like here: https://github.com/WebDevSimplified/permission-system/tree/main
@@ -8,6 +9,7 @@ type User = {
   username: string;
   roles?: Array<UserRoles>;
   avatar?: string;
+  features?: FeaturesStateSchema;
 };
 
 type UserStateSchema = {

@@ -12,6 +12,7 @@ import { useModalState } from '~/shared/ui/Modal';
 import { HStack } from '~/shared/ui/Stack';
 import classNames from '~/shared/lib/classNames';
 import cls from './Navbar.module.scss';
+import { useUserFeatures } from '~/entities/Features';
 
 type NavbarProps = PropsWithClassName;
 
@@ -28,6 +29,8 @@ const Navbar = (props: NavbarProps) => {
     closeModal: closeSignInModal,
   } = useModalState();
 
+  const userFeatures = useUserFeatures();
+
   return (
     <HStack
       as="header"
@@ -41,7 +44,7 @@ const Navbar = (props: NavbarProps) => {
 
       {isAuthorized ? (
         <HStack gap="16">
-          <NotificationCenter />
+          {userFeatures.notifications && <NotificationCenter />}
 
           <AccountMenu />
         </HStack>
