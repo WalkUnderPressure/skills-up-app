@@ -1,0 +1,48 @@
+[
+  {
+    "userId": "6a6f42dcc5ca1f28a8d0938f",
+    "title": "What is Science?",
+    "subtitle": "Short info about science",
+    "img": "/mock/Plimpton.jpg",
+    "views": 991,
+    "createdAt": 1724548384024,
+    "tags": ["SCIENCE"],
+    "blocks": [
+      {
+        "id": "1",
+        "type": "TEXT",
+        "title": "Etymology",
+        "paragraphs": [
+          "The word science has been used in Middle English since the 14th century in the sense of \"the state of knowing\". The word was borrowed from the Anglo-Norman language as the suffix -cience, which was borrowed from the Latin word scientia, meaning \"knowledge, awareness, understanding\". It is a noun derivative of the Latin sciens meaning \"knowing\", and undisputedly derived from the Latin sciō, the present participle scīre, meaning \"to know\"."
+        ]
+      },
+      {
+        "id": "2",
+        "type": "IMAGE",
+        "src": "/mock/js-pipe-function.png",
+        "title": "Babylonian tablet listing pythagorean triples"
+      },
+      {
+        "id": "3",
+        "type": "TEXT",
+        "title": "History",
+        "paragraphs": [
+          "Science has no single origin. Rather, systematic methods emerged gradually over the course of tens of thousands of years, taking different forms around the world, and few details are known about the very earliest developments. Women likely played a central role in prehistoric science, as did religious rituals. Some scholars use the term \"protoscience\" to label activities in the past that resemble modern science in some but not all features; however, this label has also been criticised as denigrating, or too suggestive of presentism, thinking about those activities only in relation to modern categories."
+        ]
+      }
+    ],
+    "profile": {
+      "userId": "6a6f42dcc5ca1f28a8d0938f",
+      "firstName": "Vincent",
+      "lastName": "Roberts",
+      "age": 22,
+      "currency": "EUR",
+      "country": "Germany",
+      "city": "Frankfurt",
+      "username": "user",
+      "avatar": "/mock/js-pipe-function.png",
+      "id": "6a6f42dcc5ca1f28a8d09392"
+    },
+    "id": "6a6f430c134f52784679d955"
+  }
+]

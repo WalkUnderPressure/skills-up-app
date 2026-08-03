@@ -5,6 +5,7 @@ import * as postCmds from './commands/post';
 import * as commentaryCmds from './commands/commentary';
 import * as ratingCmds from './commands/rating';
 import * as apiCmds from './commands/api';
+import { interceptFixture } from './commands/interceptFixture';
 
 Cypress.Commands.addAll({
   ...apiCmds,
@@ -14,6 +15,7 @@ Cypress.Commands.addAll({
   ...profileCmds,
   ...commentaryCmds,
   ...ratingCmds,
+  interceptFixture,
 });
 
 export {};

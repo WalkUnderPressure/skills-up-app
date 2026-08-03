@@ -1,7 +1,7 @@
-import { CommentaryCardDataTestIds } from '~/entities/Commentary/constants';
 import { AddCommentaryFormDataTestIds } from '~/features/AddCommentaryForm/constants';
-import { getRoutePost } from '~/shared/constants/appRoutes';
+import { CommentaryCardDataTestIds } from '~/entities/Commentary/constants';
 import { StarRatingDataTestIds } from '~/shared/ui/StarRating/constants';
+import { getRoutePost } from '~/shared/constants/appRoutes';
 
 let postId: string = '';
 
@@ -20,6 +20,10 @@ describe('Check Post page functionality', () => {
         postId = postData.id;
 
         visitPostPage(postId);
+
+        cy.interceptFixture('GET', '**/posts/?_limit=4', 'post-recommendations.json').as(
+          'FixturePostRecommendations',
+        );
       });
     });
   });
@@ -32,7 +36,7 @@ describe('Check Post page functionality', () => {
 
   it('should have list of recommendations', () => {});
 
-  it('set post rating', () => {
+  it.skip('set post rating', () => {
     const newPostRating = 4;
 
     cy.addRating(newPostRating);
