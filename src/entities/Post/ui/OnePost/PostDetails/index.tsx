@@ -64,6 +64,7 @@ const PostDetails = memo((props: PostDetailsProps) => {
                     src={postDetails?.img || ''}
                     alt={postDetails?.title}
                     className={cls.banner}
+                    ErrorFallback={null}
                   />
                 </HStack>
 

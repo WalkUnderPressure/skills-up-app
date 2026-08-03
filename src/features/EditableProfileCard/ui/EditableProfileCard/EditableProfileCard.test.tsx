@@ -2,10 +2,8 @@ import userEvent from '@testing-library/user-event';
 import { screen } from '@testing-library/react';
 
 import { MockProfileData } from '~/entities/Profile/mock/MockProfileData';
-import {
-  ProvidersOptions,
-  renderWithProviders,
-} from '~/shared/config/tests/providers/renderWithProviders';
+import { renderWithProviders } from '~/shared/config/tests/providers/renderWithProviders';
+import { ProvidersOptions } from '~/shared/config/tests/providers/TestProvidersWrapper';
 import { ProfileCardDataTestIds } from '~/entities/Profile';
 import { InputErrorDataTestId } from '~/shared/ui/Input';
 import $api from '~/shared/api/api';

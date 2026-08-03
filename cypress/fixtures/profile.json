@@ -1,0 +1,12 @@
+{
+  "userId": "1",
+  "firstName": "Vincent",
+  "lastName": "Roberts",
+  "age": 22,
+  "currency": "EUR",
+  "country": "Germany",
+  "city": "Frankfurt",
+  "username": "user",
+  "avatar": "/mock/js-pipe-function.png",
+  "id": "1"
+}

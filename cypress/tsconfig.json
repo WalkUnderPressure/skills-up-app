@@ -9,5 +9,5 @@
     "isolatedModules": false,
     "noEmit": true
   },
-  "include": ["**/*.ts", "../src/app/types/global.d.ts", "types/**/*.d.ts"]
+  "include": ["**/*.ts", "**/*.tsx", "../src/app/types/global.d.ts", "types/**/*.d.ts"]
 }

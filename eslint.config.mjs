@@ -141,7 +141,7 @@ export default tseslint.config(
   },
   // TODO: Add plugin eslint-plugin-cypress
   {
-    files: ['cypress/**/*.ts'],
+    files: ['cypress/**/*.ts', 'cypress/**/*.tsx'],
     rules: {
       '@typescript-eslint/no-namespace': ['error', { allowDeclarations: true }],
     },

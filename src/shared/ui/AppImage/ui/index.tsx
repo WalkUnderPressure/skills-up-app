@@ -3,7 +3,7 @@ import { ImgHTMLAttributes, memo, ReactElement, useLayoutEffect, useState } from
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   Fallback?: ReactElement;
-  ErrorFallback?: ReactElement;
+  ErrorFallback?: Nullable<ReactElement>;
 }
 
 const AppImage = memo((props: AppImageProps) => {
@@ -31,7 +31,7 @@ const AppImage = memo((props: AppImageProps) => {
     return Fallback;
   }
 
-  if (hasError && ErrorFallback) {
+  if (hasError && ErrorFallback !== undefined) {
     return ErrorFallback;
   }
 

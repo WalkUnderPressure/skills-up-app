@@ -1,4 +1,4 @@
-import { getUserDataFromLS } from '../../common/getUserDataFromLS';
+import { getUserDataFromLS } from '../../../common/getUserDataFromLS';
 import { createAuthHeader } from '~/shared/api/common';
 
 type RequestWithAuthParams<TData = unknown> = {

@@ -1,11 +1,15 @@
 .banner {
-  height: 160px;
-  min-height: 160px;
+  --size: 320px;
+
+  height: var(--size);
+  min-height: var(--size);
+  width: var(--size);
   border-radius: var(--radius-full);
+  margin-bottom: 24px;
 }
 
 .post-info {
-  margin: 24px 0;
+  margin-bottom: 24px;
 }
 
 .error-block {
