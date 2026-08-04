@@ -1,11 +1,11 @@
-import { FeaturesStateSchema } from '../../../model/types/FeaturesStateSchema';
+import { FeatureFlags } from '../../types/FeatureFlagsSchema';
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
-import { DEFAULT_FEATURES } from '../../../constants';
-import { getUserFeatures } from '.';
+import { DEFAULT_FEATURE_FLAGS } from '../../../constants';
+import { getFeatureFlags } from '.';
 
 describe('getUserFeatures', () => {
   test('get user features from filled store', () => {
-    const features: FeaturesStateSchema = {
+    const features: FeatureFlags = {
       notifications: false,
       post_rating: true,
     };
@@ -20,7 +20,7 @@ describe('getUserFeatures', () => {
       },
     };
 
-    const actualResult = getUserFeatures(state as StoreStateSchema);
+    const actualResult = getFeatureFlags(state as StoreStateSchema);
 
     expect(actualResult).toEqual(features);
   });
@@ -28,9 +28,9 @@ describe('getUserFeatures', () => {
   test('get default features when user is missing', () => {
     const state: DeepPartial<StoreStateSchema> = {};
 
-    const actualResult = getUserFeatures(state as StoreStateSchema);
+    const actualResult = getFeatureFlags(state as StoreStateSchema);
 
-    expect(actualResult).toEqual(DEFAULT_FEATURES);
+    expect(actualResult).toEqual(DEFAULT_FEATURE_FLAGS);
   });
 
   test('get default features when authData is missing', () => {
@@ -38,9 +38,9 @@ describe('getUserFeatures', () => {
       user: {},
     };
 
-    const actualResult = getUserFeatures(state as StoreStateSchema);
+    const actualResult = getFeatureFlags(state as StoreStateSchema);
 
-    expect(actualResult).toEqual(DEFAULT_FEATURES);
+    expect(actualResult).toEqual(DEFAULT_FEATURE_FLAGS);
   });
 
   test('get default features when features is missing', () => {
@@ -53,8 +53,8 @@ describe('getUserFeatures', () => {
       },
     };
 
-    const actualResult = getUserFeatures(state as StoreStateSchema);
+    const actualResult = getFeatureFlags(state as StoreStateSchema);
 
-    expect(actualResult).toEqual(DEFAULT_FEATURES);
+    expect(actualResult).toEqual(DEFAULT_FEATURE_FLAGS);
   });
 });

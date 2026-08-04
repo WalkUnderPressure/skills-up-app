@@ -4,6 +4,7 @@ import { Button, ButtonSize, ButtonTheme, ButtonRounded } from '~/shared/ui/Butt
 import { SignInByUsernameModal } from '~/features/SignInByUsername';
 import { NotificationCenter } from '~/features/NotificationCenter';
 import useIsAuthorized from '~/shared/lib/hooks/useIsAuthorized';
+import { useToggleFeatures } from '~/entities/FeatureFlags';
 import { APP_NAME } from '~/shared/constants/appInfo';
 import { AccountMenu } from '~/features/AccountMenu';
 import { Text, TextTheme } from '~/shared/ui/Text';
@@ -12,7 +13,6 @@ import { useModalState } from '~/shared/ui/Modal';
 import { HStack } from '~/shared/ui/Stack';
 import classNames from '~/shared/lib/classNames';
 import cls from './Navbar.module.scss';
-import { useUserFeatures } from '~/entities/Features';
 
 type NavbarProps = PropsWithClassName;
 
@@ -29,7 +29,11 @@ const Navbar = (props: NavbarProps) => {
     closeModal: closeSignInModal,
   } = useModalState();
 
-  const userFeatures = useUserFeatures();
+  const NotificationCenterEl = useToggleFeatures({
+    name: 'notifications',
+    on: () => <NotificationCenter />,
+    off: () => null,
+  });
 
   return (
     <HStack
@@ -44,7 +48,7 @@ const Navbar = (props: NavbarProps) => {
 
       {isAuthorized ? (
         <HStack gap="16">
-          {userFeatures.notifications && <NotificationCenter />}
+          {NotificationCenterEl}
 
           <AccountMenu />
         </HStack>

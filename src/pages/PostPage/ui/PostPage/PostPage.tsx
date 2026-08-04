@@ -13,7 +13,7 @@ import postPageReducer from '../../model/slices/postPageReducer';
 import { PostCommentaries } from '~/features/PostCommentaries';
 import PostPageHeader from '../PostPageHeader';
 import cls from './PostPage.module.scss';
-import { useUserFeatures } from '~/entities/Features';
+import { useToggleFeatures } from '~/entities/FeatureFlags';
 
 export type PostPageProps = PropsWithClassName;
 
@@ -26,7 +26,11 @@ const PostPage = (props: PostPageProps) => {
 
   const { id: postId } = useParams();
 
-  const userFeatures = useUserFeatures();
+  const PostRatingEl = useToggleFeatures({
+    name: 'post_rating',
+    on: () => <PostRating postId={postId} />,
+    off: () => null,
+  });
 
   return (
     <DynamicReducerProvider reducers={reducers}>
@@ -36,7 +40,7 @@ const PostPage = (props: PostPageProps) => {
         <VStack gap="48" fullW className={classNames(cls['post-page'], {}, [className])}>
           <PostDetails postId={postId} />
 
-          {userFeatures.post_rating && <PostRating postId={postId} />}
+          {PostRatingEl}
 
           <PostRecommendationsList />
 
