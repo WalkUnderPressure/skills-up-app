@@ -5,7 +5,7 @@ import { MockProfileData } from '~/entities/Profile/mock/MockProfileData';
 import { renderWithProviders } from '~/shared/config/tests/providers/renderWithProviders';
 import { ProvidersOptions } from '~/shared/config/tests/providers/TestProvidersWrapper';
 import { ProfileCardDataTestIds } from '~/entities/Profile';
-import { InputErrorDataTestId } from '~/shared/ui/Input';
+import { InputErrorDataTestId } from '~/shared/ui/deprecated/Input';
 import $api from '~/shared/api/api';
 import { EditableProfileDataTestIds } from '../EditableProfileCard.test-ids';
 import { profileReducer } from '../../model/slices/editableProfileCardSlice';

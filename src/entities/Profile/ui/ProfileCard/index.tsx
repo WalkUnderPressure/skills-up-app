@@ -1,14 +1,14 @@
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
+import { Avatar, AvatarSize } from '~/shared/ui/deprecated/Avatar';
 import { CurrencySelect } from '~/entities/Currency';
-import { HStack, VStack } from '~/shared/ui/Stack';
-import { Text, TextTheme } from '~/shared/ui/Text';
+import { HStack, VStack } from '~/shared/ui/deprecated/Stack';
+import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 import { CountrySelect } from '~/entities/Country';
 import classNames from '~/shared/lib/classNames';
-import { Loader } from '~/shared/ui/Loader';
-import { Input } from '~/shared/ui/Input';
+import { Loader } from '~/shared/ui/deprecated/Loader';
+import { Input } from '~/shared/ui/deprecated/Input';
 import {
   Profile,
   ProfileKeys,

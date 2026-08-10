@@ -1,16 +1,16 @@
 import { useTranslation } from 'react-i18next';
 
-import { Button, ButtonSize, ButtonTheme, ButtonRounded } from '~/shared/ui/Button';
+import { Button, ButtonSize, ButtonTheme, ButtonRounded } from '~/shared/ui/deprecated/Button';
 import { SignInByUsernameModal } from '~/features/SignInByUsername';
 import { NotificationCenter } from '~/features/NotificationCenter';
 import useIsAuthorized from '~/shared/lib/hooks/useIsAuthorized';
 import { useToggleFeatures } from '~/entities/FeatureFlags';
 import { APP_NAME } from '~/shared/constants/appInfo';
 import { AccountMenu } from '~/features/AccountMenu';
-import { Text, TextTheme } from '~/shared/ui/Text';
+import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 import { SignInBtnDataTestId } from '../constants';
-import { useModalState } from '~/shared/ui/Modal';
-import { HStack } from '~/shared/ui/Stack';
+import { useModalState } from '~/shared/ui/deprecated/Modal';
+import { HStack } from '~/shared/ui/deprecated/Stack';
 import classNames from '~/shared/lib/classNames';
 import cls from './Navbar.module.scss';
 

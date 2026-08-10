@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/Button';
+import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import { ProfileValidationErrors } from '~/entities/Profile';
 import classNames from '~/shared/lib/classNames';
-import { HStack } from '~/shared/ui/Stack';
-import { Text } from '~/shared/ui/Text';
+import { HStack } from '~/shared/ui/deprecated/Stack';
+import { Text } from '~/shared/ui/deprecated/Text';
 import { useProfileValidationErrors } from '../../model/selectors/getProfileValidationErrors';
 import { useProfileIsReadonly } from '../../model/selectors/getProfileIsReadonly';
 import { useProfileErrorData } from '../../model/selectors/getProfileErrorData';

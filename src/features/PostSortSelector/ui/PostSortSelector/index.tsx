@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import capitalize from 'lodash.capitalize';
 
 import { PostSortFieldsKey, PostSortFieldsMap } from '~/entities/Post';
-import { Select, SelectOption } from '~/shared/ui/Select';
+import { Select, SelectOption } from '~/shared/ui/deprecated/Select';
 import { SortOrder } from '~/shared/types/SortOrder';
 import classNames from '~/shared/lib/classNames';
 import cls from './PostSortSelector.module.scss';
-import { HStack } from '~/shared/ui/Stack';
+import { HStack } from '~/shared/ui/deprecated/Stack';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 
 type PostSortSelectorProps = {

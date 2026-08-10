@@ -1,6 +1,6 @@
-import { Skeleton, SkeletonThemes } from '~/shared/ui/Skeleton';
+import { Skeleton, SkeletonThemes } from '~/shared/ui/deprecated/Skeleton';
 import classNames from '~/shared/lib/classNames';
-import { HStack, VStack } from '~/shared/ui/Stack';
+import { HStack, VStack } from '~/shared/ui/deprecated/Stack';
 
 import cls from './CommentaryCardSkeleton.module.scss';
 

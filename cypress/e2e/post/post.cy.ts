@@ -1,6 +1,6 @@
 import { AddCommentaryFormDataTestIds } from '~/features/AddCommentaryForm/constants';
 import { CommentaryCardDataTestIds } from '~/entities/Commentary/constants';
-import { StarRatingDataTestIds } from '~/shared/ui/StarRating/constants';
+import { StarRatingDataTestIds } from '~/shared/ui/deprecated/StarRating/constants';
 import { getRoutePost } from '~/shared/constants/appRoutes';
 
 let postId: string = '';

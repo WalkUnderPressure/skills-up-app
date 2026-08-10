@@ -12,16 +12,16 @@ import {
   usePostDetails,
 } from '../../../model/selectors/postDetailsSelectors';
 import PostBlocksGenerator from '../PostBlocksGenerator';
-import { Text, TextTheme } from '~/shared/ui/Text';
+import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 import PostDetailsSkeleton from '../PostDetailsSkeleton';
 import useDateTransformer from '~/shared/lib/hooks/useDateTransformer';
-import { HStack, VStack } from '~/shared/ui/Stack';
+import { HStack, VStack } from '~/shared/ui/deprecated/Stack';
 import classNames from '~/shared/lib/classNames';
 import cls from './PostDetails.module.scss';
 
 import CalendarIcon from '~/shared/assets/icons/calendar.svg';
 import EyeIcon from '~/shared/assets/icons/eye.svg';
-import { AppImage } from '~/shared/ui/AppImage';
+import { AppImage } from '~/shared/ui/deprecated/AppImage';
 
 const reducers: ReducersMap = {
   postDetails: postDetailsReducer,

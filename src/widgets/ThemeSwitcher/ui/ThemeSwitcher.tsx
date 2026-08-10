@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import { useTheme } from '~/app/providers/ThemeProvider';
-import { Button, ButtonTheme } from '~/shared/ui/Button';
+import { Button, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import classNames from '~/shared/lib/classNames';
 
 import ThemeSwitch from '~/shared/assets/icons/theme-switch.svg';

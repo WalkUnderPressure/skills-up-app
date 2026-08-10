@@ -2,10 +2,10 @@ import { memo, useCallback } from 'react';
 
 import { PostViewMap, PostViewKey } from '~/entities/Post';
 import ListedIcon from '~/shared/assets/icons/listed.svg';
-import { Button, ButtonTheme } from '~/shared/ui/Button';
+import { Button, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import TiledIcon from '~/shared/assets/icons/tiled.svg';
 import classNames from '~/shared/lib/classNames';
-import { HStack } from '~/shared/ui/Stack';
+import { HStack } from '~/shared/ui/deprecated/Stack';
 import cls from './BlogViewTypeSwitcher.module.scss';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 

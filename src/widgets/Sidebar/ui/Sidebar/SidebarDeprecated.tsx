@@ -1,13 +1,13 @@
 import { memo, useCallback, useState } from 'react';
 
 import SidebarItem from '~/widgets/Sidebar/ui/SidebarItem/SidebarItem';
-import { HStack, VStack } from '~/shared/ui/Stack';
+import { HStack, VStack } from '~/shared/ui/deprecated/Stack';
 import classNames from '~/shared/lib/classNames';
 import { SidebarDataTestIdProps } from './Sidebar.test-ids';
 import { useSidebarMenuItems } from '../../model/selectors/getSidebarMenuItems';
 import cls from './Sidebar.module.scss';
 
-import { Button, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
+import { Button, ButtonSize, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import { useToggleFeatures } from '~/entities/FeatureFlags';
 import ArrowRightLine from '~/shared/assets/icons/arrow-right-line.svg';
 import { LangSwitcher } from '~/widgets/LangSwitcher';

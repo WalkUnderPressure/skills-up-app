@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import capitalize from 'lodash.capitalize';
 
-import { TabItem, Tabs } from '~/shared/ui/Tabs';
+import { TabItem, Tabs } from '~/shared/ui/deprecated/Tabs';
 import classNames from '~/shared/lib/classNames';
 import { PostTagsMap, PostTagsKey } from '~/entities/Post';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';

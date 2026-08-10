@@ -6,10 +6,10 @@ import { SignInByUsernameErrorCode } from '~/features/SignInByUsername';
 import DynamicReducerProvider, {
   ReducersMap,
 } from '~/shared/lib/components/DynamicReducerProvider';
-import { Button, ButtonTheme, ButtonRounded } from '~/shared/ui/Button';
-import { Text, TextTheme } from '~/shared/ui/Text';
+import { Button, ButtonTheme, ButtonRounded } from '~/shared/ui/deprecated/Button';
+import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 import classNames from '~/shared/lib/classNames';
-import { Input } from '~/shared/ui/Input';
+import { Input } from '~/shared/ui/deprecated/Input';
 import {
   useSignInFormIsLoading,
   useSignInFormErrorCode,

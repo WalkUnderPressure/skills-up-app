@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import SidebarItem from '~/widgets/Sidebar/ui/SidebarItem/SidebarItem';
-import { VStack } from '~/shared/ui/Stack';
+import { VStack } from '~/shared/ui/deprecated/Stack';
 import classNames from '~/shared/lib/classNames';
 import { useSidebarMenuItems } from '../../model/selectors/getSidebarMenuItems';
 import cls from './Sidebar.module.scss';

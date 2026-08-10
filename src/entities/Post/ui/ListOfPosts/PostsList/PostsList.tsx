@@ -6,7 +6,7 @@ import PostListItem from '../PostListItem/PostListItem';
 import classNames from '~/shared/lib/classNames';
 import cls from './PostsList.module.scss';
 import PostsSkeletons from './PostsSkeletons';
-import { Text, TextTheme } from '~/shared/ui/Text';
+import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 
 export type PostsListProps = {
   posts?: Array<Post>;

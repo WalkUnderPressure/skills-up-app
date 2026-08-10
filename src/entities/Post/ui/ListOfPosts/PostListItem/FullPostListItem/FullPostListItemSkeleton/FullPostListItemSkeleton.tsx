@@ -1,7 +1,7 @@
-import { Skeleton, SkeletonThemes } from '~/shared/ui/Skeleton';
+import { Skeleton, SkeletonThemes } from '~/shared/ui/deprecated/Skeleton';
 import classNames from '~/shared/lib/classNames';
-import { HStack } from '~/shared/ui/Stack';
-import { Card } from '~/shared/ui/Card';
+import { HStack } from '~/shared/ui/deprecated/Stack';
+import { Card } from '~/shared/ui/deprecated/Card';
 
 import cls from './FullPostListItemSkeleton.module.scss';
 

@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { usePostRating, useSetPostRating } from '../../api/postRatingApi';
-import { Skeleton } from '~/shared/ui/Skeleton';
+import { Skeleton } from '~/shared/ui/deprecated/Skeleton';
 import { RatingCard } from '~/entities/Rating';
 import { PostRatingDataTestIds } from '~/features/PostRating/constants';
 

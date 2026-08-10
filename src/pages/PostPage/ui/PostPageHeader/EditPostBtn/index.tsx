@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { useIsUserCanEditPost } from '../../../model/selectors/postSelectors';
-import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
+import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import { getRoutePostEdit } from '~/shared/constants/appRoutes';
 import { usePostDetails } from '~/entities/Post';
 import classNames from '~/shared/lib/classNames';

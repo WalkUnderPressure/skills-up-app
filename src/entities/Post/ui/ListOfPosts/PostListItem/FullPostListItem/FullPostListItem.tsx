@@ -1,20 +1,20 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
+import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import useDateTransformer from '~/shared/lib/hooks/useDateTransformer';
 import { getRoutePost } from '~/shared/constants/appRoutes';
-import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
+import { Avatar, AvatarSize } from '~/shared/ui/deprecated/Avatar';
 import classNames from '~/shared/lib/classNames';
-import { AppLink } from '~/shared/ui/AppLink';
-import { Text } from '~/shared/ui/Text';
-import { Card } from '~/shared/ui/Card';
+import { AppLink } from '~/shared/ui/deprecated/AppLink';
+import { Text } from '~/shared/ui/deprecated/Text';
+import { Card } from '~/shared/ui/deprecated/Card';
 import FullPostListItemSkeleton from './FullPostListItemSkeleton/FullPostListItemSkeleton';
 import TextBlockElement from '../../../OnePost/PostBlocksGenerator/TextBlockElement';
 import { PostBlockType, PostTextBlock } from '../../../../model/types/Post';
 import { CommonPostListItemProps } from '../PostListItem';
 import PostImagePreview from '../PostImagePreview';
-import { HStack } from '~/shared/ui/Stack';
+import { HStack } from '~/shared/ui/deprecated/Stack';
 
 import cls from './FullPostListItem.module.scss';
 import EyeIcon from '~/shared/assets/icons/eye.svg';

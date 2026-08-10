@@ -1,5 +1,5 @@
-import { Skeleton, SkeletonThemes } from '~/shared/ui/Skeleton';
-import { VStack } from '~/shared/ui/Stack';
+import { Skeleton, SkeletonThemes } from '~/shared/ui/deprecated/Skeleton';
+import { VStack } from '~/shared/ui/deprecated/Stack';
 import cls from './PostDetailsSkeleton.module.scss';
 import classNames from '~/shared/lib/classNames';
 

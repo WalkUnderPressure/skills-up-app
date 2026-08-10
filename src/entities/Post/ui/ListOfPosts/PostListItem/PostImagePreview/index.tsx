@@ -1,5 +1,5 @@
-import { Skeleton, SkeletonThemes } from '~/shared/ui/Skeleton';
-import { AppImage } from '~/shared/ui/AppImage';
+import { Skeleton, SkeletonThemes } from '~/shared/ui/deprecated/Skeleton';
+import { AppImage } from '~/shared/ui/deprecated/AppImage';
 import PostFallback from '~/shared/assets/icons/post-fallback.svg';
 
 type PostImagePreviewProps = {

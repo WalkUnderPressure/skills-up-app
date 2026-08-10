@@ -1,11 +1,11 @@
 import { forwardRef, memo } from 'react';
 
-import { DesktopView, MobileView } from '~/shared/ui/DevicesViews';
+import { DesktopView, MobileView } from '~/shared/ui/deprecated/DevicesViews';
 import { NotificationsList } from '~/entities/Notification';
-import { Button, ButtonTheme } from '~/shared/ui/Button';
-import { useModalState } from '~/shared/ui/Modal';
-import { Popover } from '~/shared/ui/Popups';
-import { Drawer } from '~/shared/ui/Drawer';
+import { Button, ButtonTheme } from '~/shared/ui/deprecated/Button';
+import { useModalState } from '~/shared/ui/deprecated/Modal';
+import { Popover } from '~/shared/ui/deprecated/Popups';
+import { Drawer } from '~/shared/ui/deprecated/Drawer';
 import BellIcon from '~/shared/assets/icons/bell.svg';
 import cls from './NotificationCenter.module.scss';
 import { useToggleFeatures } from '~/entities/FeatureFlags';

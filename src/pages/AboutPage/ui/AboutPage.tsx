@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { AppImage } from '~/shared/ui/AppImage';
+import { AppImage } from '~/shared/ui/deprecated/AppImage';
 import { Page } from '~/widgets/Page';
 import HtmlImage from '~/shared/assets/images/html.png';
 

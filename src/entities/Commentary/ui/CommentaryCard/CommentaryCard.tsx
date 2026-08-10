@@ -1,11 +1,11 @@
 import { memo } from 'react';
 
 import { getRouteProfile } from '~/shared/constants/appRoutes';
-import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
-import { HStack, VStack } from '~/shared/ui/Stack';
+import { Avatar, AvatarSize } from '~/shared/ui/deprecated/Avatar';
+import { HStack, VStack } from '~/shared/ui/deprecated/Stack';
 import classNames from '~/shared/lib/classNames';
-import { AppLink } from '~/shared/ui/AppLink';
-import { Text } from '~/shared/ui/Text';
+import { AppLink } from '~/shared/ui/deprecated/AppLink';
+import { Text } from '~/shared/ui/deprecated/Text';
 import { Commentary } from '../../model/types/commentary';
 import cls from './CommentaryCard.module.scss';
 import { CommentaryCardDataTestIds } from '~/entities/Commentary/constants';

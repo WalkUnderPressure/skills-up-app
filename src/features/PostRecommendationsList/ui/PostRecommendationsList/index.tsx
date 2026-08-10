@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { usePostRecommendations } from '../../api/postRecommendationsApi';
 import { PostsList, PostViewMap } from '~/entities/Post';
-import { VStack } from '~/shared/ui/Stack';
-import { Text } from '~/shared/ui/Text';
+import { VStack } from '~/shared/ui/deprecated/Stack';
+import { Text } from '~/shared/ui/deprecated/Text';
 import classNames from '~/shared/lib/classNames';
 
 import cls from './PostRecommendationsList.module.scss';

@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
-import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/Button';
+import { Button, ButtonRounded, ButtonSize, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import { getRouteBlog } from '~/shared/constants/appRoutes';
-import { AppLink } from '~/shared/ui/AppLink';
+import { AppLink } from '~/shared/ui/deprecated/AppLink';
 import cls from './BackToBlogBtn.module.scss';
 
 const BackToBlogBtn = () => {

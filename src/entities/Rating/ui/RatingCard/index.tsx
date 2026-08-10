@@ -1,16 +1,16 @@
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/Button';
-import { DesktopView, MobileView } from '~/shared/ui/DevicesViews';
-import { Modal, useModalState } from '~/shared/ui/Modal';
-import { StarRating } from '~/shared/ui/StarRating';
-import { HStack, VStack } from '~/shared/ui/Stack';
+import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/deprecated/Button';
+import { DesktopView, MobileView } from '~/shared/ui/deprecated/DevicesViews';
+import { Modal, useModalState } from '~/shared/ui/deprecated/Modal';
+import { StarRating } from '~/shared/ui/deprecated/StarRating';
+import { HStack, VStack } from '~/shared/ui/deprecated/Stack';
 import classNames from '~/shared/lib/classNames';
-import { Input } from '~/shared/ui/Input';
-import { Card } from '~/shared/ui/Card';
-import { Text } from '~/shared/ui/Text';
-import { Drawer } from '~/shared/ui/Drawer';
+import { Input } from '~/shared/ui/deprecated/Input';
+import { Card } from '~/shared/ui/deprecated/Card';
+import { Text } from '~/shared/ui/deprecated/Text';
+import { Drawer } from '~/shared/ui/deprecated/Drawer';
 import cls from './RatingCard.module.scss';
 
 type RatingCardProps = {

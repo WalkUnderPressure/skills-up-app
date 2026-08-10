@@ -7,7 +7,7 @@ import DynamicReducerProvider, {
 import useInitialEffect from '~/shared/lib/hooks/useInitialEffect';
 import { ProfileCard, ProfileKeys, ProfileValidationErrors } from '~/entities/Profile';
 import classNames from '~/shared/lib/classNames';
-import { VStack } from '~/shared/ui/Stack';
+import { VStack } from '~/shared/ui/deprecated/Stack';
 import {
   useProfileValidationErrors,
   useProfileIsReadonly,

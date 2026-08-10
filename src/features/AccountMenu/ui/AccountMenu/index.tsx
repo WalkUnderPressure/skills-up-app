@@ -9,8 +9,8 @@ import {
   getRoutePostCreate,
   getRouteProfile,
 } from '~/shared/constants/appRoutes';
-import { Avatar, AvatarSize } from '~/shared/ui/Avatar';
-import { Dropdown } from '~/shared/ui/Popups';
+import { Avatar, AvatarSize } from '~/shared/ui/deprecated/Avatar';
+import { Dropdown } from '~/shared/ui/deprecated/Popups';
 
 export type AccountMenuProps = PropsWithClassName;
 

@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import DynamicReducerProvider, {
   ReducersMap,
 } from '~/shared/lib/components/DynamicReducerProvider';
-import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/Button';
+import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import classNames from '~/shared/lib/classNames';
-import { Input } from '~/shared/ui/Input';
+import { Input } from '~/shared/ui/deprecated/Input';
 import {
   useAddCommentaryActions,
   addCommentaryReducer,
@@ -16,7 +16,7 @@ import {
   useAddCommentaryText,
 } from '../../model/selectors/addCommentarySelectors';
 import cls from './AddCommentaryForm.module.scss';
-import { HStack } from '~/shared/ui/Stack';
+import { HStack } from '~/shared/ui/deprecated/Stack';
 import { AddCommentaryFormDataTestIds } from '~/features/AddCommentaryForm/constants';
 
 const reducers: ReducersMap = {
