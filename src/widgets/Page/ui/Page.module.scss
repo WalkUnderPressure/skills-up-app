@@ -6,6 +6,13 @@
     flex-shrink: 100;
 }
 
+.page-wrapper-redesigned {
+    flex-grow: 1;
+    height: 100%;
+    overflow-y: auto;
+    flex-shrink: 100;
+}
+
 .trigger {
     height: 16px;
     background-color: transparent;

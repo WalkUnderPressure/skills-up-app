@@ -8,13 +8,20 @@ import { Popover } from '~/shared/ui/Popups';
 import { Drawer } from '~/shared/ui/Drawer';
 import BellIcon from '~/shared/assets/icons/bell.svg';
 import cls from './NotificationCenter.module.scss';
+import { useToggleFeatures } from '~/entities/FeatureFlags';
 
 const TriggerButton = forwardRef<HTMLButtonElement, { onClick?: () => void }>((props, ref) => {
   const { onClick } = props;
 
+  const iconFill = useToggleFeatures({
+    feature: 'redesign',
+    on: () => 'var(--inverted-bg-color)',
+    off: () => 'var(--bg-color)',
+  });
+
   return (
     <Button ref={ref} theme={ButtonTheme.CLEAR} onClick={onClick}>
-      <BellIcon width={26} height={32} fill="var(--bg-color)" />
+      <BellIcon width={26} height={32} fill={iconFill} />
     </Button>
   );
 });

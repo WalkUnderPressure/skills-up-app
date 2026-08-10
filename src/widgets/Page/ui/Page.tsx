@@ -7,6 +7,7 @@ import { useGetScrollByPath } from '~/features/ScrollKeeper';
 import useThrottle from '~/shared/lib/hooks/useThrottle';
 import classNames from '~/shared/lib/classNames';
 import cls from './Page.module.scss';
+import { useToggleFeatures } from '~/entities/FeatureFlags';
 
 const SCROLL_SAVE_THROTTLE_DELAY = 300;
 
@@ -45,11 +46,17 @@ export const Page = (props: PageProps) => {
     callback: onScrollEnd,
   });
 
+  const pageCls = useToggleFeatures({
+    feature: 'redesign',
+    on: () => cls['page-wrapper-redesigned'],
+    off: () => cls['page-wrapper'],
+  });
+
   return (
     <section
       ref={wrapperRef}
       onScroll={onScroll}
-      className={classNames(cls['page-wrapper'], {}, [className, 'page-wrapper'])}
+      className={classNames(pageCls, {}, [className, 'page-wrapper'])}
       data-testid={dataTestId}
     >
       {children}
