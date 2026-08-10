@@ -4,9 +4,9 @@ import { useUserActions } from '~/entities/User';
 import './styles/index.scss';
 
 import '~/shared/config/i18n';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
 import DeprecatedApp from './components/DeprecatedApp';
 import RedesignedApp from './components/RedesignedApp';
+import { ToggleFeatures } from '~/entities/FeatureFlags';
 
 const App = () => {
   const { initAuthData } = useUserActions();
@@ -15,14 +15,7 @@ const App = () => {
     initAuthData();
   }, [initAuthData]);
 
-  // TODO: Create ToggleFeatures components to cases like this
-  const AppEl = useToggleFeatures({
-    feature: 'redesign',
-    on: () => <RedesignedApp />,
-    off: () => <DeprecatedApp />,
-  });
-
-  return AppEl;
+  return <ToggleFeatures feature="redesign" on={<RedesignedApp />} off={<DeprecatedApp />} />;
 };
 
 export default App;
