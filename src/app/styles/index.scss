@@ -4,6 +4,7 @@
 @import './themes/light';
 @import './themes/dark';
 @import './themes/lime';
+@import './fonts';
 
 .app {
     font: var(--font-m);
@@ -11,6 +12,14 @@
     min-width: 100vw;
     background-color: var(--bg-color);
     color: var(--primary-color);
+}
+
+.app-redesigned {
+    font: var(--redesigned-font-m);
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: var(--redesigned-bg-color);
+    color: var(--redesigned-primary-color);
 }
 
 .page-layout {

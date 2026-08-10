@@ -30,7 +30,7 @@ const Navbar = (props: NavbarProps) => {
   } = useModalState();
 
   const NotificationCenterEl = useToggleFeatures({
-    name: 'notifications',
+    feature: 'notifications',
     on: () => <NotificationCenter />,
     off: () => null,
   });

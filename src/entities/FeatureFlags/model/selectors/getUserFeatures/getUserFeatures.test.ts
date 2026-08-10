@@ -8,6 +8,7 @@ describe('getUserFeatures', () => {
     const features: FeatureFlags = {
       notifications: false,
       post_rating: true,
+      redesign: false,
     };
 
     const state: DeepPartial<StoreStateSchema> = {

@@ -27,7 +27,7 @@ const PostPage = (props: PostPageProps) => {
   const { id: postId } = useParams();
 
   const PostRatingEl = useToggleFeatures({
-    name: 'post_rating',
+    feature: 'post_rating',
     on: () => <PostRating postId={postId} />,
     off: () => null,
   });

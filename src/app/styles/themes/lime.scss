@@ -42,4 +42,50 @@
     // scrollbar
     --scrollbar-bg: #208754;
     --scrollbar-thumb: #F4FBF7;
+
+    // !REDESIGNED
+
+    // backgrounds
+    --redesigned-bg-color: #f3faf5;
+    --redesigned-inverted-bg-color: #2e7d4f;
+
+    // fonts
+    --redesigned-primary-color: #14231a;
+    --redesigned-secondary-color: #4d5c53;
+    --redesigned-warning-color: #6fa842;
+    --redesigned-inverted-primary-color: #f8fbf9;
+    --redesigned-inverted-secondary-color: #b8c9bd;
+
+    // input
+    --redesigned-input-border: rgb(163 175 165);
+    --redesigned-input-border-focus: rgb(108 99 255);
+    --redesigned-input-border-error: rgb(196 45 45);
+    --redesigned-input-font-color: rgb(20 35 26);
+    --redesigned-input-label-color: rgb(58 122 74);
+    --redesigned-input-bg: rgb(255 255 255);
+
+    // text
+    --redesigned-error-color: rgb(214 48 48);
+
+    // theme
+    --redesigned-theme-switch-bg: hsl(140deg 38% 45%);
+
+    // skeleton
+    --redesigned-skeleton-bg: #c9a86ba3;
+    --redesigned-skeleton-color: #8fbf7d8a;
+    --redesigned-skeleton-shadow: #b5540ea6;
+
+    // listbox
+    --redesigned-listbox-bg: #f2e8cf;
+    --redesigned-listbox-focus: #fff;
+    --redesigned-listbox-selected: #e0d0a3;
+
+    // code
+    --redesigned-code-bg: #f2e8cf;
+    --redesigned-code-color: #4a2e73;
+    --redesigned-code-border: rgb(163 175 165);
+
+    // scrollbar
+    --redesigned-scrollbar-bg: #2e7d4f;
+    --redesigned-scrollbar-thumb: #f3faf5;
 }

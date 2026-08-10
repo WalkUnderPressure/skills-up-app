@@ -2,17 +2,17 @@ import { useFeatureFlags } from '~/entities/FeatureFlags/model/selectors/getUser
 import { FeatureFlags } from '../types/FeatureFlagsSchema';
 
 interface ToggleFeaturesParams<T> {
-  name: keyof FeatureFlags;
+  feature: keyof FeatureFlags;
   on: () => T;
   off: () => T;
 }
 
 function useToggleFeatures<T>(params: ToggleFeaturesParams<T>): T {
-  const { off, on, name } = params;
+  const { off, on, feature } = params;
 
   const featureFlags = useFeatureFlags();
 
-  const isFeatureEnabled = featureFlags[name];
+  const isFeatureEnabled = featureFlags[feature];
 
   if (isFeatureEnabled) {
     return on();

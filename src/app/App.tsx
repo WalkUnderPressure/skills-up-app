@@ -1,38 +1,28 @@
-import { Suspense, useEffect } from 'react';
+import { useEffect } from 'react';
 
-import { useUserActions, useUserIsInitialized } from '~/entities/User';
-import { AppRouter } from '~/app/providers/AppRouter';
-import classNames from '~/shared/lib/classNames';
-import { Sidebar } from '~/widgets/Sidebar';
-import { Navbar } from '~/widgets/Navbar';
+import { useUserActions } from '~/entities/User';
 import './styles/index.scss';
 
 import '~/shared/config/i18n';
+import { useToggleFeatures } from '~/entities/FeatureFlags';
+import DeprecatedApp from './components/DeprecatedApp';
+import RedesignedApp from './components/RedesignedApp';
 
 const App = () => {
-  const isUserInitialized = useUserIsInitialized();
-
   const { initAuthData } = useUserActions();
 
   useEffect(() => {
     initAuthData();
   }, [initAuthData]);
 
-  return (
-    <main className={classNames('app')}>
-      {/* Empty fallback="" need for smooth render */}
-      <Suspense fallback="">
-        <Navbar />
+  // TODO: Create ToggleFeatures components to cases like this
+  const AppEl = useToggleFeatures({
+    feature: 'redesign',
+    on: () => <RedesignedApp />,
+    off: () => <DeprecatedApp />,
+  });
 
-        <div className="page-layout">
-          <Sidebar />
-
-          {/* Maybe in future wrap all App */}
-          {isUserInitialized && <AppRouter />}
-        </div>
-      </Suspense>
-    </main>
-  );
+  return AppEl;
 };
 
 export default App;
