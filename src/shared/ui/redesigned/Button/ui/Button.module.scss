@@ -1,0 +1,36 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 16px;
+    border-radius: var(--radius-m);
+    height: var(--font-line-m);
+    font: var(--redesigned-font-m);
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.clear {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.outline {
+    border: 1px solid var(--redesigned-accent);
+    color: var(--redesigned-accent);
+}
+
+.fill {
+    background-color: var(--redesigned-bg);
+    color: var(--redesigned-text);
+}

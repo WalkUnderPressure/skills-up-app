@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 import Input from './Input';
 
 const meta = {
-  title: 'Shared/Input',
+  title: 'Shared/Deprecated/Input',
   component: Input,
 } satisfies Meta<typeof Input>;
 

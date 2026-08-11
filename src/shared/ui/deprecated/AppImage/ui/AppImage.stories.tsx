@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 import AppImage from '.';
 
 const meta = {
-  title: 'Shared/AppImage',
+  title: 'Shared/Deprecated/AppImage',
   component: AppImage,
   args: {
     src: '',

@@ -15,7 +15,7 @@ import { SortOrder } from '~/shared/types/SortOrder';
 import { PostSortSelector } from '~/features/PostSortSelector';
 import { useDebounce } from '~/shared/lib/hooks/useDebounce';
 import { PostTagsTabs } from '~/features/PostTagsTabs';
-import { HStack, VStack } from '~/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '~/shared/ui/redesigned/Stack';
 import { useFetchBlogPosts } from '~/pages/BlogPage/model/services/fetchBlogPosts/fetchBlogPosts';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 

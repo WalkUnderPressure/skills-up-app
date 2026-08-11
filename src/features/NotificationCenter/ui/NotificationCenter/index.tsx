@@ -1,6 +1,6 @@
 import { forwardRef, memo } from 'react';
 
-import { DesktopView, MobileView } from '~/shared/ui/deprecated/DevicesViews';
+import { DesktopView, MobileView } from '~/shared/ui/redesigned/DevicesViews';
 import { NotificationsList } from '~/entities/Notification';
 import { Button, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import { useModalState } from '~/shared/ui/deprecated/Modal';
@@ -15,7 +15,7 @@ const TriggerButton = forwardRef<HTMLButtonElement, { onClick?: () => void }>((p
 
   const iconFill = useToggleFeatures({
     feature: 'redesign',
-    on: () => 'var(--inverted-bg-color)',
+    on: () => 'var(--redesigned-text)',
     off: () => 'var(--bg-color)',
   });
 

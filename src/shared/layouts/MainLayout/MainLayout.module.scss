@@ -1,19 +1,22 @@
 .main-layout {
+    --layout-p: 24px;
+
     min-height: 100dvh;
     min-width: 100dvw;
     display: grid;
     grid-template-areas: "sidebar content rightbar";
-    grid-template-columns: 300px 1fr 176px;
+    grid-template-columns: min-content 1fr 96px;
 }
 
 .sidebar {
     grid-area: sidebar;
-    padding: 32px;
+    padding: var(--layout-p);
+    max-width: 300px;
 }
 
 .content {
     grid-area: content;
-    padding: 32px;
+    padding: var(--layout-p);
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;

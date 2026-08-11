@@ -6,7 +6,7 @@ import Popover from '.';
 import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/deprecated/Button';
 
 const meta = {
-  title: 'Shared/Popups/Popover',
+  title: 'Shared/Deprecated/Popups/Popover',
   component: Popover,
   args: {
     trigger: (

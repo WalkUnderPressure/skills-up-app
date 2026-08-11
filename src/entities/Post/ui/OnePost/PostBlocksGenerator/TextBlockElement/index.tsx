@@ -4,7 +4,7 @@ import classNames from '~/shared/lib/classNames';
 import { PostTextBlock } from '../../../../model/types/Post';
 import cls from './TextBlockElement.module.scss';
 import { Text } from '~/shared/ui/deprecated/Text';
-import { VStack } from '~/shared/ui/deprecated/Stack';
+import { VStack } from '~/shared/ui/redesigned/Stack';
 
 type TextBlockElementProps = {
   block: PostTextBlock;

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import { ProfileValidationErrors } from '~/entities/Profile';
 import classNames from '~/shared/lib/classNames';
-import { HStack } from '~/shared/ui/deprecated/Stack';
+import { HStack } from '~/shared/ui/redesigned/Stack';
 import { Text } from '~/shared/ui/deprecated/Text';
 import { useProfileValidationErrors } from '../../model/selectors/getProfileValidationErrors';
 import { useProfileIsReadonly } from '../../model/selectors/getProfileIsReadonly';

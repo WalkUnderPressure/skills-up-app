@@ -15,7 +15,7 @@ import PostBlocksGenerator from '../PostBlocksGenerator';
 import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 import PostDetailsSkeleton from '../PostDetailsSkeleton';
 import useDateTransformer from '~/shared/lib/hooks/useDateTransformer';
-import { HStack, VStack } from '~/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '~/shared/ui/redesigned/Stack';
 import classNames from '~/shared/lib/classNames';
 import cls from './PostDetails.module.scss';
 

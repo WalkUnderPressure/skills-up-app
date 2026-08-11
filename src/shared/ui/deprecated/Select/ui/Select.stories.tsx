@@ -11,7 +11,7 @@ const SELECT_OPTIONS: Array<SelectOption> = [
 ];
 
 const meta = {
-  title: 'Shared/Select',
+  title: 'Shared/Deprecated/Select',
   component: Select,
   args: {
     options: SELECT_OPTIONS,

@@ -4,7 +4,7 @@ import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverridd
 import Skeleton, { SkeletonThemes } from './Skeleton';
 
 const meta = {
-  title: 'Shared/Skeleton',
+  title: 'Shared/Deprecated/Skeleton',
   component: Skeleton,
 } satisfies Meta<typeof Skeleton>;
 

@@ -2,8 +2,8 @@ import { PropsWithChildren } from 'react';
 
 import classNames from '~/shared/lib/classNames';
 import { Overlay } from '~/shared/ui/deprecated/Overlay';
-import { Portal } from '~/shared/ui/deprecated/Portal';
-import { VStack } from '~/shared/ui/deprecated/Stack';
+import { Portal } from '~/shared/ui/redesigned/Portal';
+import { VStack } from '~/shared/ui/redesigned/Stack';
 import useModal from '../lib/useModal';
 import cls from './Modal.module.scss';
 

@@ -9,7 +9,7 @@ import { Text } from '~/shared/ui/deprecated/Text';
 import ShortPostListItemSkeleton from './ShortPostListItemSkeleton/ShortPostListItemSkeleton';
 import { CommonPostListItemProps } from '../PostListItem';
 import PostImagePreview from '../PostImagePreview';
-import { HStack } from '~/shared/ui/deprecated/Stack';
+import { HStack } from '~/shared/ui/redesigned/Stack';
 import EyeIcon from '~/shared/assets/icons/eye.svg';
 import cls from './ShortPostListItem.module.scss';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';

@@ -8,7 +8,7 @@ import classNames, { Mods } from '~/shared/lib/classNames';
 import { useTheme } from '~/app/providers/ThemeProvider';
 import { Overlay } from '~/shared/ui/deprecated/Overlay';
 import { useModal } from '~/shared/ui/deprecated/Modal';
-import { Portal } from '~/shared/ui/deprecated/Portal';
+import { Portal } from '~/shared/ui/redesigned/Portal';
 import cls from './Drawer.module.scss';
 
 const WINDOW_HEIGHT = window.innerHeight;

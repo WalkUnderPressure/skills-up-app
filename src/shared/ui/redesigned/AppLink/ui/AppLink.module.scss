@@ -1,0 +1,22 @@
+.app-link {
+    text-decoration: none;
+    white-space: nowrap;
+    outline: none;
+    font: var(--redesigned-font-m);
+    font-size: 1.5rem;
+}
+
+.primary {
+    color: var(--redesigned-text);
+    font-weight: 600;
+}
+
+.secondary {
+    color: var(--redesigned-hint);
+    font-weight: 200;
+}
+
+.warning {
+    color: var(--redesigned-cancel);
+    font-weight: 900;
+}

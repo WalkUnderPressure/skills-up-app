@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 
 import classNames from '~/shared/lib/classNames';
-import { HStack } from '~/shared/ui/deprecated/Stack';
+import { HStack } from '~/shared/ui/redesigned/Stack';
 import StarIcon from '~/shared/assets/icons/star.svg';
 import cls from './StarRating.module.scss';
 import { StarRatingDataTestIds } from '~/shared/ui/deprecated/StarRating/constants';

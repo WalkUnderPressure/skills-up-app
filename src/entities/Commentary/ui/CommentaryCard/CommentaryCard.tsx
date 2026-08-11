@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import { getRouteProfile } from '~/shared/constants/appRoutes';
 import { Avatar, AvatarSize } from '~/shared/ui/deprecated/Avatar';
-import { HStack, VStack } from '~/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '~/shared/ui/redesigned/Stack';
 import classNames from '~/shared/lib/classNames';
 import { AppLink } from '~/shared/ui/deprecated/AppLink';
 import { Text } from '~/shared/ui/deprecated/Text';

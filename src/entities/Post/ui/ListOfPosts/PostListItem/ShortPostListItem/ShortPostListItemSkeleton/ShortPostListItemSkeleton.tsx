@@ -1,5 +1,5 @@
 import { Skeleton } from '~/shared/ui/deprecated/Skeleton';
-import { HStack } from '~/shared/ui/deprecated/Stack';
+import { HStack } from '~/shared/ui/redesigned/Stack';
 import { Card } from '~/shared/ui/deprecated/Card';
 
 import cls from './ShortPostListItemSkeleton.module.scss';

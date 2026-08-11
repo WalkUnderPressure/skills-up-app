@@ -6,7 +6,7 @@ import Avatar, { AvatarSize } from './Avatar';
 import RomeImg from '~/shared/assets/images/rome.jpg';
 
 const meta = {
-  title: 'Shared/Avatar',
+  title: 'Shared/Deprecated/Avatar',
   component: Avatar,
   args: {
     src: RomeImg,

@@ -45,47 +45,13 @@
 
     // !REDESIGNED
 
-    // backgrounds
-    --redesigned-bg-color: #eaf6fb;
-    --redesigned-inverted-bg-color: #1b1f2e;
-
-    // fonts
-    --redesigned-primary-color: #10131c;
-    --redesigned-secondary-color: #4a5266;
-    --redesigned-warning-color: #e6960f;
-    --redesigned-inverted-primary-color: #f5f7fa;
-    --redesigned-inverted-secondary-color: #9aa3b5;
-
-    // input
-    --redesigned-input-border: rgb(163 168 184);
-    --redesigned-input-border-focus: rgb(108 99 255);
-    --redesigned-input-border-error: rgb(196 45 45);
-    --redesigned-input-font-color: rgb(16 19 28);
-    --redesigned-input-label-color: rgb(64 84 194);
-    --redesigned-input-bg: rgb(255 255 255);
-
-    // text
-    --redesigned-error-color: rgb(214 48 48);
-
-    // theme
-    --redesigned-theme-switch-bg: hsl(247deg 90% 45%);
-
-    // skeleton
-    --redesigned-skeleton-bg: #6c93c4a3;
-    --redesigned-skeleton-color: #9aa8ffc7;
-    --redesigned-skeleton-shadow: #4f6fd6;
-
-    // listbox
-    --redesigned-listbox-bg: #c7dcf2;
-    --redesigned-listbox-focus: #fff;
-    --redesigned-listbox-selected: #8fb3e0;
-
-    // code
-    --redesigned-code-bg: #d9e8f7;
-    --redesigned-code-color: #16453a;
-    --redesigned-code-border: #94a0ab;
-
-    // scrollbar
-    --redesigned-scrollbar-bg: #1b1f2e;
-    --redesigned-scrollbar-thumb: #fff;
+    --redesigned-dark-bg: #b6dceb;
+    --redesigned-bg: #EAF7FC;
+    --redesigned-light-bg: #FFF;
+    --redesigned-text: #0c1821;
+    --redesigned-hint: #64707A;
+    --redesigned-cancel: #E5484D;
+    --redesigned-save: #2EA876;
+    --redesigned-icon: #3A4750;
+    --redesigned-accent: #a5a5b2;
 }

@@ -8,7 +8,7 @@ const DEFAULT_TEXT =
   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus mollitia sapiente adipisci nisi consectetur asperiores dignissimos? Modi consectetur, quam, sequi accusantium, repellat quidem sed dolorem sit similique ad veritatis excepturi?';
 
 const meta = {
-  title: 'Shared/Text',
+  title: 'Shared/Deprecated/Text',
   component: Text,
   args: {
     title: DEFAULT_TITLE,

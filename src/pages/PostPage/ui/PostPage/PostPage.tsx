@@ -7,7 +7,7 @@ import { PostRecommendationsList } from '~/features/PostRecommendationsList';
 import { PostRating } from '~/features/PostRating';
 import classNames from '~/shared/lib/classNames';
 import { PostDetails } from '~/entities/Post';
-import { VStack } from '~/shared/ui/deprecated/Stack';
+import { VStack } from '~/shared/ui/redesigned/Stack';
 import { Page } from '~/widgets/Page';
 import postPageReducer from '../../model/slices/postPageReducer';
 import { PostCommentaries } from '~/features/PostCommentaries';

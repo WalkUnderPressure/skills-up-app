@@ -11,11 +11,10 @@
     transition-timing-function: ease-in-out;
 }
 
-.sidebar-redesigned {
-    height: 100%;
-    padding: 16px;
-    border-radius: var(--radius-l);
-    background: var(--redesigned-inverted-bg-color);
+.switchers {
+    position: absolute;
+    bottom: var(--sidebar-padding);
+    padding: 0 24px;
 }
 
 .menu {
@@ -35,12 +34,6 @@
         transform: scaleX(-1);
         fill: var(--bg-color);
     }
-}
-
-.switchers {
-    position: absolute;
-    bottom: var(--sidebar-padding);
-    padding: 0 24px;
 }
 
 .collapsed {

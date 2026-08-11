@@ -5,7 +5,7 @@ import ListedIcon from '~/shared/assets/icons/listed.svg';
 import { Button, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import TiledIcon from '~/shared/assets/icons/tiled.svg';
 import classNames from '~/shared/lib/classNames';
-import { HStack } from '~/shared/ui/deprecated/Stack';
+import { HStack } from '~/shared/ui/redesigned/Stack';
 import cls from './BlogViewTypeSwitcher.module.scss';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 

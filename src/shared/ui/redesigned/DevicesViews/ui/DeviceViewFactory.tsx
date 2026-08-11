@@ -10,10 +10,6 @@ type DeviceViewFactoryProps = {
   devices: Array<DeviceType>;
 } & PropsWithChildren;
 
-/**
- * Use new UI elements from 'shared/ui/redesigned' folder
- * @deprecated
- */
 const DeviceViewFactory = (props: DeviceViewFactoryProps) => {
   const { children, devices: targetDevices = ['desktop'] } = props;
 

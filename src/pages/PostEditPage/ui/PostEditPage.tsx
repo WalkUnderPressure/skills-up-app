@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 
 import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 import classNames from '~/shared/lib/classNames';
-import { HStack } from '~/shared/ui/deprecated/Stack';
+import { HStack } from '~/shared/ui/redesigned/Stack';
 import { Page } from '~/widgets/Page';
 
 export type PostEditPageProps = PropsWithClassName;

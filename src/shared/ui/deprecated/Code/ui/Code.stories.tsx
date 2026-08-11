@@ -4,7 +4,7 @@ import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverridd
 import Code from './Code';
 
 const meta = {
-  title: 'Shared/Code',
+  title: 'Shared/Deprecated/Code',
   component: Code,
   args: {
     text:

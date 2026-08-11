@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import classNames from '~/shared/lib/classNames';
 import { AppImage } from '~/shared/ui/deprecated/AppImage';
-import { VStack } from '~/shared/ui/deprecated/Stack';
+import { VStack } from '~/shared/ui/redesigned/Stack';
 import { Text } from '~/shared/ui/deprecated/Text';
 import { PostImageBlock } from '../../../../model/types/Post';
 import cls from './ImageBlockElement.module.scss';

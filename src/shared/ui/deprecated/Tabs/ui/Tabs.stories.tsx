@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 import Tabs from './Tabs';
 
 const meta = {
-  title: 'Shared/Tabs',
+  title: 'Shared/Deprecated/Tabs',
   component: Tabs,
   args: {
     tabs: [

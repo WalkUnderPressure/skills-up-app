@@ -4,7 +4,7 @@ import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverridd
 import StarRating from '.';
 
 const meta = {
-  title: 'Shared/StarRating',
+  title: 'Shared/Deprecated/StarRating',
   component: StarRating,
 } satisfies Meta<typeof StarRating>;
 

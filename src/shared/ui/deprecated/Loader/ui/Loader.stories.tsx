@@ -4,7 +4,7 @@ import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverridd
 import Loader from './Loader';
 
 const meta = {
-  title: 'Shared/Loader',
+  title: 'Shared/Deprecated/Loader',
   component: Loader,
 } satisfies Meta<typeof Loader>;
 

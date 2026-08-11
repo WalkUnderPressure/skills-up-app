@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { SidebarDataTestIdProps } from './Sidebar.test-ids';
+import { SidebarDataTestIdProps } from '../../constants';
 
 import { ToggleFeatures } from '~/entities/FeatureFlags';
 import SidebarRedesigned from './SidebarRedesigned';

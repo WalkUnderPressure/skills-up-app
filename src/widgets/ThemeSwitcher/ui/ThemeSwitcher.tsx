@@ -5,6 +5,8 @@ import { Button, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import classNames from '~/shared/lib/classNames';
 
 import ThemeSwitch from '~/shared/assets/icons/theme-switch.svg';
+import ThemeIcon from '~/shared/assets/icons/theme.svg';
+import { useToggleFeatures } from '~/entities/FeatureFlags';
 
 type ThemeSwitcherProps = PropsWithClassName;
 
@@ -13,13 +15,19 @@ const ThemeSwitcher = memo((props: ThemeSwitcherProps) => {
 
   const { switchTheme } = useTheme();
 
+  const ThemeIconEl = useToggleFeatures({
+    feature: 'redesign',
+    on: () => <ThemeIcon width={32} height={32} fill="var(--redesigned-icon)" />,
+    off: () => <ThemeSwitch width={32} height={32} fill="var(--theme-switch-bg)" />,
+  });
+
   return (
     <Button
       theme={ButtonTheme.CLEAR}
       className={classNames('', {}, [className])}
       onClick={switchTheme}
     >
-      <ThemeSwitch width={32} height={32} fill="var(--theme-switch-bg)" />
+      {ThemeIconEl}
     </Button>
   );
 });

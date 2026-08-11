@@ -7,7 +7,7 @@ import { Select, SelectOption } from '~/shared/ui/deprecated/Select';
 import { SortOrder } from '~/shared/types/SortOrder';
 import classNames from '~/shared/lib/classNames';
 import cls from './PostSortSelector.module.scss';
-import { HStack } from '~/shared/ui/deprecated/Stack';
+import { HStack } from '~/shared/ui/redesigned/Stack';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
 
 type PostSortSelectorProps = {

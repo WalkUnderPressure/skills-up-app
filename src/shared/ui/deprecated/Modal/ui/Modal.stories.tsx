@@ -21,7 +21,7 @@ const ModalRender = (props: ModalProps) => {
 };
 
 const meta = {
-  title: 'Shared/Modal',
+  title: 'Shared/Deprecated/Modal',
   component: Modal,
   args: {
     children: <h3>{MODAL_TITLE}</h3>,

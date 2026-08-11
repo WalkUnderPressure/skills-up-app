@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '~/shared/lib/storybook/types';
 import Flex from '.';
 
 const meta = {
-  title: 'Shared/Flex',
+  title: 'Shared/Redesigned/Flex',
   component: Flex,
   args: {
     direction: 'row',

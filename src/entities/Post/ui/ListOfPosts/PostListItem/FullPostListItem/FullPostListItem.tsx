@@ -14,7 +14,7 @@ import TextBlockElement from '../../../OnePost/PostBlocksGenerator/TextBlockElem
 import { PostBlockType, PostTextBlock } from '../../../../model/types/Post';
 import { CommonPostListItemProps } from '../PostListItem';
 import PostImagePreview from '../PostImagePreview';
-import { HStack } from '~/shared/ui/deprecated/Stack';
+import { HStack } from '~/shared/ui/redesigned/Stack';
 
 import cls from './FullPostListItem.module.scss';
 import EyeIcon from '~/shared/assets/icons/eye.svg';

@@ -2,10 +2,10 @@ import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/deprecated/Button';
-import { DesktopView, MobileView } from '~/shared/ui/deprecated/DevicesViews';
+import { DesktopView, MobileView } from '~/shared/ui/redesigned/DevicesViews';
 import { Modal, useModalState } from '~/shared/ui/deprecated/Modal';
 import { StarRating } from '~/shared/ui/deprecated/StarRating';
-import { HStack, VStack } from '~/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '~/shared/ui/redesigned/Stack';
 import classNames from '~/shared/lib/classNames';
 import { Input } from '~/shared/ui/deprecated/Input';
 import { Card } from '~/shared/ui/deprecated/Card';

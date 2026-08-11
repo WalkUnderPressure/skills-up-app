@@ -4,7 +4,7 @@ import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverridd
 import Card from './Card';
 
 const meta = {
-  title: 'Shared/Card',
+  title: 'Shared/Deprecated/Card',
   component: Card,
 } satisfies Meta<typeof Card>;
 

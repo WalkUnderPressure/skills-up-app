@@ -7,7 +7,7 @@ import { ButtonTheme, ButtonSize, ButtonRounded } from '../types';
 import Button from './Button';
 
 const meta = {
-  title: 'Shared/Button',
+  title: 'Shared/Deprecated/Button',
   component: Button,
   args: {
     children: 'Read more',

@@ -10,7 +10,7 @@ import { AccountMenu } from '~/features/AccountMenu';
 import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 import { SignInBtnDataTestId } from '../constants';
 import { useModalState } from '~/shared/ui/deprecated/Modal';
-import { HStack } from '~/shared/ui/deprecated/Stack';
+import { HStack } from '~/shared/ui/redesigned/Stack';
 import classNames from '~/shared/lib/classNames';
 import cls from './Navbar.module.scss';
 

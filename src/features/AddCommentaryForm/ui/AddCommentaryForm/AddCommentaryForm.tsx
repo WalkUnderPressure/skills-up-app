@@ -16,7 +16,7 @@ import {
   useAddCommentaryText,
 } from '../../model/selectors/addCommentarySelectors';
 import cls from './AddCommentaryForm.module.scss';
-import { HStack } from '~/shared/ui/deprecated/Stack';
+import { HStack } from '~/shared/ui/redesigned/Stack';
 import { AddCommentaryFormDataTestIds } from '~/features/AddCommentaryForm/constants';
 
 const reducers: ReducersMap = {

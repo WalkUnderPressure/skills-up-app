@@ -27,7 +27,7 @@ const ITEMS: Array<DropdownItem> = [
 ];
 
 const meta = {
-  title: 'Shared/Popups/Dropdown',
+  title: 'Shared/Deprecated/Popups/Dropdown',
   component: Dropdown,
   args: {
     trigger: (

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Avatar, AvatarSize } from '~/shared/ui/deprecated/Avatar';
 import { CurrencySelect } from '~/entities/Currency';
-import { HStack, VStack } from '~/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '~/shared/ui/redesigned/Stack';
 import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 import { CountrySelect } from '~/entities/Country';
 import classNames from '~/shared/lib/classNames';

@@ -1,15 +1,26 @@
-import { memo } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 import SidebarItem from '~/widgets/Sidebar/ui/SidebarItem/SidebarItem';
-import { VStack } from '~/shared/ui/deprecated/Stack';
+import { HStack, VStack } from '~/shared/ui/redesigned/Stack';
 import classNames from '~/shared/lib/classNames';
 import { useSidebarMenuItems } from '../../model/selectors/getSidebarMenuItems';
-import cls from './Sidebar.module.scss';
+import cls from './SidebarRedesigned.module.scss';
+import { LangSwitcher } from '~/widgets/LangSwitcher';
+import { ThemeSwitcher } from '~/widgets/ThemeSwitcher';
+import { Button } from '~/shared/ui/redesigned/Button';
+import { SidebarDataTestIdProps } from '../../constants';
+import ArrowRightLine from '~/shared/assets/icons/arrow-right-line.svg';
 
-type SidebarRedesignedProps = PropsWithClassName;
+type SidebarRedesignedProps = SidebarDataTestIdProps & PropsWithClassName;
 
 const SidebarRedesigned = memo((props: SidebarRedesignedProps) => {
-  const { className } = props;
+  const { className, switcherDataTestId } = props;
+
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const switchCollapsed = useCallback(() => {
+    setIsCollapsed((prevCollapsed) => !prevCollapsed);
+  }, []);
 
   const sidebarItems = useSidebarMenuItems();
 
@@ -17,18 +28,21 @@ const SidebarRedesigned = memo((props: SidebarRedesignedProps) => {
     <VStack
       as="aside"
       justify="between"
-      className={classNames(cls['sidebar-redesigned'], {}, [className])}
+      className={classNames(
+        cls['sidebar'],
+        {
+          [cls.collapsed]: isCollapsed,
+        },
+        [className],
+      )}
     >
-      {/* <Button
-        theme={ButtonTheme.BG_INVERTED}
-        size={ButtonSize.XL}
-        isSquare={true}
+      <Button
         onClick={switchCollapsed}
         className={cls['toggle-btn']}
         data-testid={switcherDataTestId}
       >
         <ArrowRightLine width={24} height={24} className={cls['toggle-btn-icon']} />
-      </Button> */}
+      </Button>
 
       <VStack
         role="navigation"
@@ -40,15 +54,15 @@ const SidebarRedesigned = memo((props: SidebarRedesignedProps) => {
         {sidebarItems.map((menuItem) => {
           const { id } = menuItem;
 
-          return <SidebarItem key={id} item={menuItem} isCollapsed={false} />;
+          return <SidebarItem key={id} item={menuItem} isCollapsed={isCollapsed} />;
         })}
       </VStack>
 
-      {/* <HStack fullW justify="center" align="center" gap="16" className={cls.switchers}>
-        <LangSwitcher short={isCollapsed} />
+      <HStack fullW justify="center" align="center" gap="16" className={cls.switchers}>
+        <LangSwitcher short={true} />
 
         <ThemeSwitcher />
-      </HStack> */}
+      </HStack>
     </VStack>
   );
 });

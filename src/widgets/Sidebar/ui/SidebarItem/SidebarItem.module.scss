@@ -19,7 +19,7 @@
             align-items: center;
             width: var(--icon-w);
             min-width: var(--icon-w);
-            fill: var(--inverted-primary-color);        
+            fill: var(--inverted-primary-color);
         }
 
         &:hover {
@@ -27,6 +27,35 @@
 
             .menu-item-icon {
                 fill: var(--warning-color);
+            }
+        }
+
+        &.redesigned {
+            .menu-item-label {
+                transition: none;
+                color: var(--redesigned-text);
+            }
+
+            .menu-item-icon {
+                --icon-size: 32px;
+
+                svg {
+                    width: var(--icon-size);
+                    height: var(--icon-size);
+                }
+
+                fill: var(--redesigned-text);
+            }
+
+            &:hover {
+                .menu-item-label {
+                    color: var(--redesigned-accent);
+                }
+
+
+                .menu-item-icon {
+                    fill: var(--redesigned-accent);
+                }
             }
         }
     }
@@ -39,6 +68,13 @@
                 white-space: nowrap;
                 opacity: 0;
                 width: 0;
+            }
+
+            &.redesigned {
+                .menu-item-icon {
+                    width: 100%;
+                }
+
             }
         }
     }

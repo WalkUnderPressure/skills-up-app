@@ -1,0 +1,59 @@
+.sidebar {
+    --sidebar-padding: 16px;
+
+    position: relative;
+    height: 100%;
+    border-radius: var(--radius-l);
+    background: var(--redesigned-bg);
+    padding: var(--sidebar-padding);
+    transition-property: width;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+.switchers {
+    display: flex;
+    gap: 16px;
+}
+
+.menu {
+    color: var(--redesigned-accent);
+    list-style: none;
+}
+
+.toggle-btn {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    z-index: var(--z-mid);
+
+    &-icon {
+        transform: scaleX(-1);
+        fill: var(--redesigned-text);
+
+        &:hover {
+            fill: var(--redesigned-accent);
+        }
+    }
+}
+
+.collapsed {
+    width: var(--redesigned-sidebar-w-collapsed);
+    min-width: var(--redesigned-sidebar-w-collapsed);
+
+    select {
+        padding: 4px;
+    }
+
+    .switchers {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+    }
+
+    .toggle-btn-icon {
+        transform: scaleX(1);
+    }
+}

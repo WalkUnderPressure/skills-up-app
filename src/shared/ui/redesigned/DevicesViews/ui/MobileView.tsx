@@ -4,10 +4,6 @@ import DeviceViewFactory, { AdditionalDevicesProps } from './DeviceViewFactory';
 
 type MobileViewProps = AdditionalDevicesProps & PropsWithChildren;
 
-/**
- * Use new UI elements from 'shared/ui/redesigned' folder
- * @deprecated
- */
 const MobileView = (props: MobileViewProps) => {
   const { children, additional = [] } = props;
 
