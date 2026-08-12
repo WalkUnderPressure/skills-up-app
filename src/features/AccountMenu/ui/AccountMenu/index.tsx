@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { ToggleFeatures } from '~/entities/FeatureFlags';
 
 import { useIsUserAdmin, useUserAuthData, useUserId, useUserActions } from '~/entities/User';
 import {
@@ -9,8 +10,11 @@ import {
   getRoutePostCreate,
   getRouteProfile,
 } from '~/shared/constants/appRoutes';
-import { Avatar, AvatarSize } from '~/shared/ui/deprecated/Avatar';
-import { Dropdown } from '~/shared/ui/deprecated/Popups';
+import { Avatar as AvatarDeprecated, AvatarSize } from '~/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '~/shared/ui/deprecated/Popups';
+import { Avatar } from '~/shared/ui/redesigned/Avatar';
+import { Dropdown } from '~/shared/ui/redesigned/Popups';
+import { DropdownItem } from '~/shared/ui/redesigned/Popups';
 
 export type AccountMenuProps = PropsWithClassName;
 
@@ -42,37 +46,52 @@ const AccountMenu = memo((props: AccountMenuProps) => {
     return null;
   }
 
+  const items: Array<DropdownItem> = [
+    {
+      id: 'profile',
+      content: t('menu.profile', { defaultValue: 'Profile' }),
+      href: getRouteProfile(userId),
+    },
+    ...(isAdminPanelAvailable
+      ? [
+          {
+            id: 'admin-panel',
+            content: t('menu.admin-panel', { defaultValue: 'Admin panel' }),
+            href: getRouteAdminPanel(),
+          },
+        ]
+      : []),
+    {
+      id: 'post',
+      content: t('create_post', { defaultValue: 'Create post' }),
+      onClick: onClickCreatePost,
+    },
+    {
+      id: 'sign-out',
+      content: t('sign_out.action', { defaultValue: 'Sign out' }),
+      onClick: onClickSignOut,
+    },
+  ];
+
   return (
-    <Dropdown
-      direction="bottom-left"
-      trigger={<Avatar src={userData?.avatar ?? ''} size={AvatarSize.XS} />}
-      items={[
-        {
-          id: 'profile',
-          content: t('menu.profile', { defaultValue: 'Profile' }),
-          href: getRouteProfile(userId),
-        },
-        ...(isAdminPanelAvailable
-          ? [
-              {
-                id: 'admin-panel',
-                content: t('menu.admin-panel', { defaultValue: 'Admin panel' }),
-                href: getRouteAdminPanel(),
-              },
-            ]
-          : []),
-        {
-          id: 'post',
-          content: t('create_post', { defaultValue: 'Create post' }),
-          onClick: onClickCreatePost,
-        },
-        {
-          id: 'sign-out',
-          content: t('sign_out.action', { defaultValue: 'Sign out' }),
-          onClick: onClickSignOut,
-        },
-      ]}
-      className={className}
+    <ToggleFeatures
+      feature="redesign"
+      on={
+        <Dropdown
+          direction="bottom-left"
+          trigger={<Avatar src={userData?.avatar ?? ''} size="xs" />}
+          items={items}
+          className={className}
+        />
+      }
+      off={
+        <DropdownDeprecated
+          direction="bottom-left"
+          trigger={<AvatarDeprecated src={userData?.avatar ?? ''} size={AvatarSize.XS} />}
+          items={items}
+          className={className}
+        />
+      }
     />
   );
 });

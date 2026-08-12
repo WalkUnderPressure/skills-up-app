@@ -4,11 +4,12 @@ import { DesktopView, MobileView } from '~/shared/ui/redesigned/DevicesViews';
 import { NotificationsList } from '~/entities/Notification';
 import { Button, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import { useModalState } from '~/shared/ui/deprecated/Modal';
-import { Popover } from '~/shared/ui/deprecated/Popups';
+import { Popover as PopoverDeprecated } from '~/shared/ui/deprecated/Popups';
+import { Popover } from '~/shared/ui/redesigned/Popups';
 import { Drawer } from '~/shared/ui/deprecated/Drawer';
 import BellIcon from '~/shared/assets/icons/bell.svg';
 import cls from './NotificationCenter.module.scss';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
 
 const TriggerButton = forwardRef<HTMLButtonElement, { onClick?: () => void }>((props, ref) => {
   const { onClick } = props;
@@ -47,12 +48,29 @@ const NotificationCenter = memo((props: NotificationCenterProps) => {
       </MobileView>
 
       <DesktopView additional={['tablet']}>
-        <Popover trigger={<TriggerButton />} direction="bottom-left" className={className}>
-          <NotificationsList
-            className={cls['notification-popover']}
-            itemsClassName={cls.notifications}
-          />
-        </Popover>
+        <ToggleFeatures
+          feature="redesign"
+          on={
+            <Popover trigger={<TriggerButton />} direction="bottom-left" className={className}>
+              <NotificationsList
+                className={cls['notification-popover']}
+                itemsClassName={cls.notifications}
+              />
+            </Popover>
+          }
+          off={
+            <PopoverDeprecated
+              trigger={<TriggerButton />}
+              direction="bottom-left"
+              className={className}
+            >
+              <NotificationsList
+                className={cls['notification-popover']}
+                itemsClassName={cls.notifications}
+              />
+            </PopoverDeprecated>
+          }
+        />
       </DesktopView>
     </>
   );

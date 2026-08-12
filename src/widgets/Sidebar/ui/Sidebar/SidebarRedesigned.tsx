@@ -24,6 +24,9 @@ const SidebarRedesigned = memo((props: SidebarRedesignedProps) => {
 
   const sidebarItems = useSidebarMenuItems();
 
+  // todo
+  // test stack portal overlay icon button appimage applink popups skeleton card
+
   return (
     <VStack
       as="aside"

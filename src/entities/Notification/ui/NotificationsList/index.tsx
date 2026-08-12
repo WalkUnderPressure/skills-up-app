@@ -2,11 +2,13 @@ import { useTranslation } from 'react-i18next';
 
 import classNames from '~/shared/lib/classNames';
 import { VStack } from '~/shared/ui/redesigned/Stack';
-import { Text } from '~/shared/ui/deprecated/Text';
+import { Text as TestDeprecated } from '~/shared/ui/deprecated/Text';
+import { Text } from '~/shared/ui/redesigned/Text';
 import { useNotifications, NOTIFICATIONS_REFRESH_INTERVAL } from '../../api/notificationsApi';
 import NotificationSkeleton from '../NotificationSkeleton';
-import NotificationItem from '../NotificationItem';
 import cls from './NotificationsList.module.scss';
+import { ToggleFeatures } from '~/entities/FeatureFlags';
+import NotificationItem from '../NotificationItem';
 
 export type NotificationsListProps = {
   itemsClassName?: string;
@@ -23,7 +25,16 @@ const NotificationsList = (props: NotificationsListProps) => {
 
   return (
     <VStack gap="8" className={classNames(cls.list, {}, [className])}>
-      <Text text={t('notifications.title', { defaultValue: 'Notifications' })} />
+      <ToggleFeatures
+        feature="redesign"
+        on={
+          <Text
+            text={t('notifications.title', { defaultValue: 'Notifications' })}
+            className={cls.title}
+          />
+        }
+        off={<TestDeprecated text={t('notifications.title', { defaultValue: 'Notifications' })} />}
+      />
 
       <VStack gap="16" fullW className={itemsClassName}>
         {isLoading && (

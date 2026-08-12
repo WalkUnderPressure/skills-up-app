@@ -1,0 +1,13 @@
+.card {
+  max-width: var(--card-w);
+  background-color: var(--redesigned-bg);
+  border-radius: var(--radius-m);
+  padding: var(--card-p);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  * {
+    color: var(--redesigned-accent);
+  }
+}

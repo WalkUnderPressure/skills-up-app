@@ -1,0 +1,36 @@
+.btn {
+    background: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.menu {
+    min-width: 150px;
+    flex-direction: column;
+    display: flex;
+}
+
+.item {
+    display: flex;
+    padding: 10px 25px;
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--redesigned-text);
+    font: var(--redesigned-font-s);
+    border-radius: var(--radius-m);
+    cursor: pointer;
+}
+
+.focus {
+    background-color: var(--redesigned-bg);
+    color: var(--redesigned-accent);
+}
+
+.disabled {
+    opacity: 0.7;
+}

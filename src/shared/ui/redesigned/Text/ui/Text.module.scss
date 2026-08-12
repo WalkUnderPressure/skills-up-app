@@ -1,0 +1,34 @@
+.full-w {
+    width: 100%;
+}
+
+.title {
+    font: var(--redesigned-font-l);
+    font-weight: 600;
+}
+
+.text {
+    font: var(--redesigned-font-m);
+}
+
+.normal {
+    .title {
+        color: var(--redesigned-text);
+    }
+
+    .text {
+        color: var(--redesigned-text);
+    }
+}
+
+.warn {
+    .title, .text {
+        color: var(--redesigned-hint);
+    }
+}
+
+.error {
+    .title, .text {
+        color: var(--redesigned-cancel);
+    }
+}

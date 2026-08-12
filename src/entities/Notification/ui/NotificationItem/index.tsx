@@ -1,36 +1,22 @@
 import { memo } from 'react';
 
-import classNames from '~/shared/lib/classNames';
-import { AppLink } from '~/shared/ui/deprecated/AppLink';
-import { Card } from '~/shared/ui/deprecated/Card';
-import { Text } from '~/shared/ui/deprecated/Text';
 import { Notification } from '../../model/types/NotificationStateSchema';
-import cls from './NotificationItem.module.scss';
+import NotificationItemRedesigned from './NotificationItemRedesigned';
+import NotificationItemDeprecated from './NotificationItemDeprecated';
+import { ToggleFeatures } from '~/entities/FeatureFlags';
 
 type NotificationProps = {
   notification: Notification;
 } & PropsWithClassName;
 
 const NotificationItem = memo((props: NotificationProps) => {
-  const { className, notification } = props;
-
-  const { title, description, href } = notification;
-
-  const content = (
-    <Card className={classNames(cls['notification'], {}, [className])}>
-      <Text fullW title={title} text={description} asTitle="p" asText="p" className={cls.text} />
-    </Card>
+  return (
+    <ToggleFeatures
+      feature="redesign"
+      on={<NotificationItemRedesigned {...props} />}
+      off={<NotificationItemDeprecated {...props} />}
+    />
   );
-
-  if (href) {
-    return (
-      <AppLink to={href} target="_blank">
-        {content}
-      </AppLink>
-    );
-  }
-
-  return content;
 });
 
 export default NotificationItem;
