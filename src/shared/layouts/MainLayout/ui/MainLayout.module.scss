@@ -1,4 +1,4 @@
-.main-layout {
+.layout {
     --layout-p: 24px;
 
     min-height: 100dvh;
@@ -27,6 +27,8 @@
 }
 
 .header {
+    padding-top: var(--layout-p);
+    padding-right: calc(var(--layout-p) / 2);
     display: flex;
     flex-direction: column;
 }

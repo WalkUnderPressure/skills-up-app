@@ -7,7 +7,7 @@ import {
   Label as HListboxLabel,
 } from '@headlessui/react';
 
-import { Button, ButtonRounded } from '~/shared/ui/deprecated/Button';
+import { Button } from '~/shared/ui/redesigned/Button';
 import classNames from '~/shared/lib/classNames';
 import { mapDirectionToClass } from '../../styles/mapDirectionToClass';
 import { PopupDirection } from '../../types';
@@ -17,7 +17,7 @@ import popupCls from '../../styles/popup.module.scss';
 
 export type ListBoxItem<T = string> = {
   value: T;
-  content: ReactNode;
+  label: ReactNode;
   disabled?: boolean;
 };
 
@@ -54,8 +54,8 @@ const ListBox = <T extends string = string>(props: ListBoxProps<T>) => {
       {label && <HListboxLabel className={classNames(cls.label)}>{label}</HListboxLabel>}
 
       <HListboxButton disabled={isDisabled} as={Fragment}>
-        <Button rounded={ButtonRounded.M} disabled={isDisabled} className={cls['trigger-btn']}>
-          {valueToShow?.content ?? '...'}
+        <Button disabled={isDisabled} className={cls['trigger-btn']}>
+          {valueToShow?.label ?? '...'}
 
           <DoubleArrow />
         </Button>
@@ -77,7 +77,7 @@ const ListBox = <T extends string = string>(props: ListBoxProps<T>) => {
                   [cls.selected]: !focus && selected,
                 })}
               >
-                {item.content}
+                {item.label}
               </li>
             )}
           </HListboxOption>

@@ -12,6 +12,8 @@ const PostTagsMap = Object.freeze({
   IT: 'IT',
   SCIENCE: 'SCIENCE',
   ECONOMICS: 'ECONOMICS',
+  ART: 'ART',
+  TRAVEL: 'TRAVEL',
 });
 
 type PostTagsKey = (typeof PostTagsMap)[keyof typeof PostTagsMap];

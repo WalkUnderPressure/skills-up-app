@@ -7,6 +7,33 @@
     width: fit-content;
     padding: 4px;
     z-index: var(--z-one);
+
+    .icon {
+        fill: var(--inverted-primary-color);
+    }
+
+    .active {
+        fill: var(--warning-color);
+    }
+}
+
+.switcher-redesigned {
+    position: sticky;
+    top: 0;
+    background-color: var(--redesigned-bg);
+    border: 1px solid var(--redesigned-bg-shadow);
+    border-radius: var(--radius-l);
+    width: fit-content;
+    padding: 4px;
+    z-index: var(--z-one);
+
+    .icon {
+        fill: var(--redesigned-text);
+    }
+
+    .active {
+        fill: var(--redesigned-accent);
+    }
 }
 
 .icon {
@@ -21,8 +48,4 @@
         opacity: 0.8;
         scale: 1.01;
     }
-}
-
-.active {
-    fill: var(--warning-color);
 }

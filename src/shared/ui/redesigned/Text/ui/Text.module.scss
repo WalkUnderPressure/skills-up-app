@@ -12,11 +12,7 @@
 }
 
 .normal {
-    .title {
-        color: var(--redesigned-text);
-    }
-
-    .text {
+    .title, .text {
         color: var(--redesigned-text);
     }
 }

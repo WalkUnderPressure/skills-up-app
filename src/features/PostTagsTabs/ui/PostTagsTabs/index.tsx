@@ -1,11 +1,10 @@
-import { memo, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import capitalize from 'lodash.capitalize';
+import { memo } from 'react';
 
-import { TabItem, Tabs } from '~/shared/ui/deprecated/Tabs';
+import { Tabs } from '~/shared/ui/deprecated/Tabs';
 import classNames from '~/shared/lib/classNames';
-import { PostTagsMap, PostTagsKey } from '~/entities/Post';
+import { PostTagsKey } from '~/entities/Post';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
+import usePostTags from '~/features/PostTagsTabs/lib/usePostTags';
 
 type PostTagsTabsProps = {
   value: PostTagsKey;
@@ -15,24 +14,11 @@ type PostTagsTabsProps = {
 const PostTagsTabs = memo((props: PostTagsTabsProps) => {
   const { className, value, onChangeTab } = props;
 
-  const { t } = useTranslation('pages.blog');
-
-  const typeTabs = useMemo(() => {
-    const items: Array<TabItem<PostTagsKey>> = [];
-
-    Object.entries(PostTagsMap).forEach(([key, value]) => {
-      items.push({
-        content: t(`tags.${String(key).toLowerCase()}`, { defaultValue: capitalize(key) }),
-        value,
-      });
-    });
-
-    return items;
-  }, [t]);
+  const postTags = usePostTags();
 
   return (
     <Tabs<PostTagsKey>
-      tabs={typeTabs}
+      tabs={postTags}
       value={value}
       onTabClick={onChangeTab}
       className={classNames('', {}, [className])}

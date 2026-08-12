@@ -6,12 +6,9 @@ import DynamicReducerProvider, {
 import useInitialEffect from '~/shared/lib/hooks/useInitialEffect';
 import { blogPageReducer } from '../../model/slices/blogPageSlice';
 import { useInitBlogPageState } from '../../model/services/initBlogPageState/initBlogPageState';
-import BlogPageFilters from '../BlogPageFilters/BlogPageFilters';
-import BlogInfiniteList from '../BlogInfiniteList';
-import classNames from '~/shared/lib/classNames';
-import { Page } from '~/widgets/Page';
-import cls from './BlogPage.module.scss';
-import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
+import BlogPageContentRedesigned from './BlogPageContentRedesigned';
+import BlogPageContentDeprecated from './BlogPageContentDeprecated';
+import { ToggleFeatures } from '~/entities/FeatureFlags';
 
 const reducers: ReducersMap = {
   blogPage: blogPageReducer,
@@ -32,14 +29,11 @@ const BlogPage = (props: BlogPageProps) => {
 
   return (
     <DynamicReducerProvider reducers={reducers} removeAfterUnmount={false}>
-      <Page
-        className={classNames(cls['blog-page'], {}, [className])}
-        data-testid={BlogPageDataTestIds.Page}
-      >
-        <BlogPageFilters />
-
-        <BlogInfiniteList />
-      </Page>
+      <ToggleFeatures
+        feature="redesign"
+        on={<BlogPageContentRedesigned className={className} />}
+        off={<BlogPageContentDeprecated className={className} />}
+      />
     </DynamicReducerProvider>
   );
 };

@@ -1,1 +1,1 @@
-export type TextVariant = '' | 'normal' | 'warn' | 'error';
+export type TextVariant = 'normal' | 'warn' | 'error';

@@ -1,0 +1,31 @@
+.tabs {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.tab {
+    background-color: var(--redesigned-dark-bg);
+    border-radius: var(--radius-m);
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--redesigned-text);
+    border: 1px solid var(--redesigned-light-bg);
+    user-select: none;
+
+    &:hover {
+        transform: scale(1.01);
+    }
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.active {
+    background-color: var(--redesigned-accent);
+    color: var(--redesigned-text);
+}

@@ -1,4 +1,4 @@
-import { ChangeEvent, SelectHTMLAttributes, useCallback, useId } from 'react';
+import { ChangeEvent, ReactNode, SelectHTMLAttributes, useCallback, useId } from 'react';
 
 import classNames from '~/shared/lib/classNames';
 import cls from './Select.module.scss';
@@ -10,7 +10,7 @@ export enum SelectTheme {
 }
 
 export type SelectOption<T extends string = string> = {
-  label: string;
+  label: ReactNode;
   value: T;
 };
 

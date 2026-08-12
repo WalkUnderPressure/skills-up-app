@@ -1,0 +1,23 @@
+.layout {
+    --layout-gap: 16px;
+
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas: "leftbar content rightbar";
+    grid-template-columns: min-content 1fr 296px;
+    gap: var(--layout-gap);
+}
+
+.leftbar {
+    grid-area: leftbar;
+    max-width: 296px;
+}
+
+.content {
+    grid-area: content;
+}
+
+.rightbar {
+    grid-area: rightbar;
+}

@@ -17,7 +17,7 @@ type TextProps = {
 
 // TODO: Add different sizes for h1, h2, h3 etc.
 const Text = (props: TextProps) => {
-  const { className, title, text, variant = '', asTitle = 'h1', asText = 'p' } = props;
+  const { className, title, text, variant = 'normal', asTitle = 'h1', asText = 'p' } = props;
   const { titleDataTestId, textDataTestId, fullW } = props;
 
   const TitleEl = asTitle;

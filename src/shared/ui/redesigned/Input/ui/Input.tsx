@@ -1,0 +1,82 @@
+import { ChangeEvent, InputHTMLAttributes, memo, ReactNode, useCallback, useId } from 'react';
+
+import classNames from '~/shared/lib/classNames';
+import cls from './Input.module.scss';
+
+export const InputErrorDataTestId = 'InputErrorDataTestId';
+
+type HtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+
+type InputProps = {
+  value?: string;
+  onChange?: (value: string) => void;
+  errorMessage?: string;
+  label?: string;
+  leftAddon?: ReactNode;
+  rightAddon?: ReactNode;
+} & HtmlInputProps &
+  PropsWithClassName &
+  PropsWithDataTestId;
+
+const Input = memo((props: InputProps) => {
+  const {
+    className,
+    errorMessage,
+    label,
+    value = '',
+    onChange,
+    type = 'text',
+    'data-testid': dataTestId,
+    leftAddon,
+    rightAddon,
+    ...restProps
+  } = props;
+
+  const inputId = useId();
+  const errorDataTestId = dataTestId + InputErrorDataTestId;
+
+  const onChangeHandler = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const nextValue = event.target.value;
+
+      if (onChange) {
+        onChange(nextValue);
+      }
+    },
+    [onChange],
+  );
+
+  return (
+    <div className={classNames(cls['input-wrapper'])}>
+      {label && (
+        <label className={classNames(cls.label)} htmlFor={inputId}>
+          {label}
+        </label>
+      )}
+
+      <div className={classNames(cls['input-box'])}>
+        {Boolean(leftAddon) && leftAddon}
+
+        <input
+          id={inputId}
+          type={type}
+          value={value}
+          onChange={onChangeHandler}
+          {...restProps}
+          data-testid={dataTestId}
+          className={classNames(cls['input'], { [cls.error]: errorMessage }, [className])}
+        />
+
+        {Boolean(rightAddon) && rightAddon}
+      </div>
+
+      {errorMessage && (
+        <span data-testid={errorDataTestId} className={classNames(cls['error-message'])}>
+          {errorMessage}
+        </span>
+      )}
+    </div>
+  );
+});
+
+export default Input;

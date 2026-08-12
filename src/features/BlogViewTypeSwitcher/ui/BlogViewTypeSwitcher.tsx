@@ -8,6 +8,7 @@ import classNames from '~/shared/lib/classNames';
 import { HStack } from '~/shared/ui/redesigned/Stack';
 import cls from './BlogViewTypeSwitcher.module.scss';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
+import { useToggleFeatures } from '~/entities/FeatureFlags';
 
 const ViewTypesList: Record<PostViewKey, { name: PostViewKey; Icon: SvgIconType }> = {
   [PostViewMap.FULL]: {
@@ -35,12 +36,18 @@ const BlogViewTypeSwitcher = memo((props: BlogViewTypeSwitcherProps) => {
     [onChangeView],
   );
 
+  const switcherCls = useToggleFeatures({
+    feature: 'redesign',
+    on: () => cls['switcher-redesigned'],
+    off: () => cls['switcher'],
+  });
+
   return (
     <HStack
       gap="4"
       justify="center"
       align="center"
-      className={classNames(cls['switcher'], {}, [className])}
+      className={classNames(switcherCls, {}, [className])}
       data-testid={BlogPageDataTestIds.SearchAndFilters.ViewType}
     >
       {Object.values(ViewTypesList).map((viewInfo) => {
