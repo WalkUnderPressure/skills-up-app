@@ -6,8 +6,22 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  color: var(--redesigned-accent);
+}
 
-  * {
-    color: var(--redesigned-accent);
-  }
+.full-w {
+  width: 100%;
+  max-width: 100%;
+}
+
+.p-16 {
+  padding: var(--card-p);
+}
+
+.p-24 {
+  padding: 24px;
+}
+
+.p-32 {
+  padding: 32px;
 }

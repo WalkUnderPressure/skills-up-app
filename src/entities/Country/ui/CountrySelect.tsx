@@ -1,5 +1,11 @@
-import { ListBox, ListBoxItem, ListBoxProps } from '~/shared/ui/deprecated/Popups';
+import {
+  ListBox as ListBoxDeprecated,
+  ListBoxItem,
+  ListBoxProps,
+} from '~/shared/ui/deprecated/Popups';
+import { ListBox } from '~/shared/ui/redesigned/Popups';
 import { CountryMap, CountryMapKey } from '../model/types/countries';
+import { ToggleFeatures } from '~/entities/FeatureFlags';
 
 type CountrySelectProps = {
   value?: string;
@@ -11,7 +17,7 @@ type CountrySelectProps = {
 
 const COUNTRY_OPTIONS: Array<ListBoxItem<CountryMapKey>> = Object.entries(CountryMap).map(
   ([countryName, countryValue]) => ({
-    content: countryName,
+    label: countryName,
     value: countryValue,
   }),
 );
@@ -19,15 +25,21 @@ const COUNTRY_OPTIONS: Array<ListBoxItem<CountryMapKey>> = Object.entries(Countr
 const CountrySelect = (props: CountrySelectProps) => {
   const { value, defaultValue, label, className, onChange, ...restProps } = props;
 
+  const itemProps: ListBoxProps<CountryMapKey> = {
+    ...restProps,
+    className,
+    label,
+    onChange,
+    value,
+    defaultValue,
+    items: COUNTRY_OPTIONS,
+  };
+
   return (
-    <ListBox<CountryMapKey>
-      {...restProps}
-      className={className}
-      label={label}
-      onChange={onChange}
-      value={value}
-      defaultValue={defaultValue}
-      items={COUNTRY_OPTIONS}
+    <ToggleFeatures
+      feature="redesign"
+      on={<ListBox {...itemProps} />}
+      off={<ListBoxDeprecated {...itemProps} />}
     />
   );
 };

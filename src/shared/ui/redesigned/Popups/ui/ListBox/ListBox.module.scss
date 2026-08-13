@@ -8,8 +8,12 @@
 .label {
     padding-inline-start: var(--select-p);
     user-select: none;
-    color: var(--input-label-color);
+    color: var(--redesigned-accent);
     font-weight: 600;
+}
+
+.btn-wrapper {
+    position: relative;
 }
 
 .trigger-btn {
@@ -17,20 +21,22 @@
     width: 100%;
     border-width: var(--input-border-w);
     border-style: solid;
-    border-color: var(--input-border);
+    border-color: var(--redesigned-bg);
     border-radius: var(--radius-m);
-    background-color: var(--input-bg);
+    background-color: var(--redesigned-light-bg);
     padding: calc(var(--select-p) - var(--input-border-w));
     justify-content: space-between;
-    font: var(--font-m);
-    color: var(--input-font-color);
+    font: var(--redesigned-font-m);
+    color: var(--redesigned-text);
 
     &:focus-within {
-        border-color: var(--input-border-focus);
+        border-color: var(--redesigned-accent);
     }
 
     &:disabled {
-        opacity: 0.7;
+        opacity: 0.8;
+        border-color: var(--redesigned-hint);
+        cursor: not-allowed;
     }
 }
 
@@ -41,17 +47,19 @@
 .item {
     border-radius: var(--radius-m);
     padding: 8px 16px;
-    font: var(--font-m);
-    color: var(--input-font-color);
+    font: var(--redesigned-font-m);
+    color: var(--redesigned-text);
 }
 
 .focus {
     cursor: pointer;
-    background: var(--listbox-focus);
+    background-color: var(--redesigned-bg);
+    color: var(--redesigned-accent);
 }
 
 .selected {
-    background: var(--listbox-selected);
+    background-color: var(--redesigned-bg);
+    color: var(--redesigned-accent);
 }
 
 .disabled {

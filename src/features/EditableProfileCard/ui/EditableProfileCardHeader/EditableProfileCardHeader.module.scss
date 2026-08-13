@@ -24,3 +24,10 @@
         }
     }
 }
+
+.btn-icon-redesigned {
+    --icon-size: 24px;
+
+    width: var(--icon-size);
+    height: var(--icon-size);
+}

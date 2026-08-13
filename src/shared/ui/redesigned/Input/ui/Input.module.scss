@@ -35,6 +35,7 @@
     &:read-only {
         opacity: 0.8;
         border-color: var(--redesigned-hint);
+        cursor: not-allowed;
     }
 }
 

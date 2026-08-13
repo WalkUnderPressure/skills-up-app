@@ -28,7 +28,7 @@
 
 .header {
     padding-top: var(--layout-p);
-    padding-right: calc(var(--layout-p) / 2);
+    padding-right: var(--layout-p);
     display: flex;
     flex-direction: column;
 }

@@ -6,9 +6,8 @@
     outline: none;
     border: none;
     cursor: pointer;
-    padding: 16px;
+    padding: 8px 16px;
     border-radius: var(--radius-m);
-    height: var(--font-line-m);
     font: var(--redesigned-font-m);
 }
 
@@ -31,6 +30,14 @@
 }
 
 .fill {
-    background-color: var(--redesigned-bg);
+    background-color: var(--redesigned-light-bg);
     color: var(--redesigned-text);
+    fill: var(--redesigned-text);
+
+    &:hover {
+        &:not([disabled]) {
+            color: var(--redesigned-accent);
+            fill: var(--redesigned-accent);
+        }
+    }
 }

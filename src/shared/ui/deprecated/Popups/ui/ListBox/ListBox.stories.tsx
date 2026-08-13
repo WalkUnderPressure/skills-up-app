@@ -7,16 +7,16 @@ import ListBox, { ListBoxProps, ListBoxItem } from '.';
 const ITEMS: Array<ListBoxItem> = [
   {
     value: 'v_one',
-    content: 'one',
+    label: 'one',
   },
   {
     value: 'v_two',
-    content: 'two',
+    label: 'two',
     disabled: true,
   },
   {
     value: 'v_three',
-    content: 'three',
+    label: 'three',
   },
 ];
 

@@ -17,7 +17,7 @@ import popupCls from '../../styles/popup.module.scss';
 
 export type ListBoxItem<T = string> = {
   value: T;
-  content: ReactNode;
+  label: ReactNode;
   disabled?: boolean;
 };
 
@@ -59,7 +59,7 @@ const ListBox = <T extends string = string>(props: ListBoxProps<T>) => {
 
       <HListboxButton disabled={isDisabled} as={Fragment}>
         <Button rounded={ButtonRounded.M} disabled={isDisabled} className={cls['trigger-btn']}>
-          {valueToShow?.content ?? '...'}
+          {valueToShow?.label ?? '...'}
 
           <DoubleArrow />
         </Button>
@@ -81,7 +81,7 @@ const ListBox = <T extends string = string>(props: ListBoxProps<T>) => {
                   [cls.selected]: !focus && selected,
                 })}
               >
-                {item.content}
+                {item.label}
               </li>
             )}
           </HListboxOption>
