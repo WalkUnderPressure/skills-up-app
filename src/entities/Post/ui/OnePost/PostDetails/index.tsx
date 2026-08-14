@@ -21,7 +21,7 @@ import cls from './PostDetails.module.scss';
 
 import CalendarIcon from '~/shared/assets/icons/calendar.svg';
 import EyeIcon from '~/shared/assets/icons/eye.svg';
-import { AppImage } from '~/shared/ui/deprecated/AppImage';
+import { AppImage } from '~/shared/ui/redesigned/AppImage';
 
 const reducers: ReducersMap = {
   postDetails: postDetailsReducer,

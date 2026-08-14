@@ -8,6 +8,11 @@
     }
 }
 
+.card-redesigned {
+    width: 100%;
+    max-width: unset;
+}
+
 .text {
     max-height: calc(var(--card-w) / 2);
     overflow: hidden;

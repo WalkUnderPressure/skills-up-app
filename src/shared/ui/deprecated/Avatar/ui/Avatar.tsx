@@ -1,6 +1,6 @@
 import { Skeleton, SkeletonThemes } from '~/shared/ui/deprecated/Skeleton';
 import classNames from '~/shared/lib/classNames';
-import { AppImage } from '~/shared/ui/deprecated/AppImage';
+import { AppImage } from '~/shared/ui/redesigned/AppImage';
 import cls from './Avatar.module.scss';
 
 import AvatarFallback from '~/shared/assets/icons/avatar-fallback.svg';

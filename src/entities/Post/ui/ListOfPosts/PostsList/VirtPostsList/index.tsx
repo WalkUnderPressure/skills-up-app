@@ -1,14 +1,13 @@
 import { HTMLAttributeAnchorTarget, memo, useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 
-import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 import classNames from '~/shared/lib/classNames';
 
-import { Post, PostViewKey, PostViewMap } from '../../../model/types/Post';
-import PostListItem from '../PostListItem/PostListItem';
-import PostsSkeletons from './PostsSkeletons';
-import cls from './PostsList.module.scss';
+import { Post, PostViewKey, PostViewMap } from '../../../../model/types/Post';
+import PostListItem from '../../PostListItem/PostListItem';
+import PostsSkeletons from '../PostsSkeletons';
+import cls from '../PostsList.module.scss';
+import NoPostsBanner from './NoPostsBanner';
 
 type VPostsListProps = {
   posts?: Array<Post>;
@@ -25,8 +24,6 @@ export const VirtPostsList = memo((props: VPostsListProps) => {
   const { viewType = PostViewMap.SHORT, scrollIndex = 0 } = props;
   const { className, posts = [], isLoading, target } = props;
   const { onLoadNextPart, handleScrollIndexClick, 'data-testid': dataTestId } = props;
-
-  const { t } = useTranslation();
 
   const virtuosoGridRef = useRef<VirtuosoGridHandle>(null);
 
@@ -72,15 +69,7 @@ export const VirtPostsList = memo((props: VPostsListProps) => {
   });
 
   if (!isLoading && !posts.length) {
-    return (
-      <Text
-        title={t('empty', {
-          defaultValue: 'No publications with the specified parameters were found',
-        })}
-        theme={TextTheme.WARN}
-        className={classNames(cls.empty)}
-      />
-    );
+    return <NoPostsBanner />;
   }
 
   return (
