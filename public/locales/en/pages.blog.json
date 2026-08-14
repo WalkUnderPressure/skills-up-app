@@ -20,6 +20,7 @@
   "post": {
     "unrated": "Please rate this post!",
     "rated": "Thanks You have already rated this post!",
-    "feedback": "Write your feedback about the post here"
+    "feedback": "Write your feedback about the post here",
+    "add-commentary": "Add commentary"
   }
 }

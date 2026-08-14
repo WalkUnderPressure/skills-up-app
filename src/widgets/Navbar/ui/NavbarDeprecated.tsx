@@ -9,7 +9,7 @@ import { APP_NAME } from '~/shared/constants/appInfo';
 import { AccountMenu } from '~/features/AccountMenu';
 import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 import { SignInBtnDataTestId } from '../constants';
-import { useModalState } from '~/shared/ui/deprecated/Modal';
+import { useModalState } from '~/shared/ui/redesigned/Modal';
 import { HStack } from '~/shared/ui/redesigned/Stack';
 import classNames from '~/shared/lib/classNames';
 import cls from './Navbar.module.scss';

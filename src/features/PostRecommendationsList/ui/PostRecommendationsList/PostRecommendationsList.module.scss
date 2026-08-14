@@ -1,6 +1,21 @@
 .post-recommendations-list {
     display: flex;
     width: 100%;
+
+}
+
+.post-recommendations-list-redesigned {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.recommendations-redesigned {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    display: flex;
+    width: 100%;
+    padding: 0 0 8px;
 }
 
 .recommendations {

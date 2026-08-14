@@ -42,9 +42,8 @@
                 svg {
                     width: var(--icon-size);
                     height: var(--icon-size);
+                    fill: var(--redesigned-text);
                 }
-
-                fill: var(--redesigned-text);
             }
 
             &:hover {

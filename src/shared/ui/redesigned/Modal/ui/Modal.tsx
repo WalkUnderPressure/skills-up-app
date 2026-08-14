@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-import { Overlay } from '~/shared/ui/deprecated/Overlay';
+import { Overlay } from '~/shared/ui/redesigned/Overlay';
 import { Portal } from '~/shared/ui/redesigned/Portal';
 import { VStack } from '~/shared/ui/redesigned/Stack';
 import classNames from '~/shared/lib/classNames';
@@ -14,10 +14,6 @@ type ModalProps = {
 } & PropsWithChildren &
   PropsWithClassName;
 
-/**
- * Use new UI elements from 'shared/ui/redesigned' folder
- * @deprecated
- */
 const Modal = (props: ModalProps) => {
   const { children, className, isOpen = false, onClose, lazy = true } = props;
 

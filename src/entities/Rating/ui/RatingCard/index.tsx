@@ -1,17 +1,27 @@
 import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/deprecated/Button';
+import {
+  Button as ButtonDeprecated,
+  ButtonRounded,
+  ButtonTheme,
+} from '~/shared/ui/deprecated/Button';
 import { DesktopView, MobileView } from '~/shared/ui/redesigned/DevicesViews';
-import { Modal, useModalState } from '~/shared/ui/deprecated/Modal';
 import { StarRating } from '~/shared/ui/deprecated/StarRating';
 import { HStack, VStack } from '~/shared/ui/redesigned/Stack';
 import classNames from '~/shared/lib/classNames';
-import { Input } from '~/shared/ui/deprecated/Input';
-import { Card } from '~/shared/ui/deprecated/Card';
-import { Text } from '~/shared/ui/deprecated/Text';
+import { Card as CardDeprecated } from '~/shared/ui/deprecated/Card';
+import { Card as CardRedesigned } from '~/shared/ui/redesigned/Card';
+import { Text as TextDeprecated } from '~/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '~/shared/ui/redesigned/Text';
+import { Input as InputDeprecated } from '~/shared/ui/deprecated/Input';
+import { Input as InputRedesigned } from '~/shared/ui/redesigned/Input';
+import { Modal as ModalDeprecated } from '~/shared/ui/deprecated/Modal';
+import { Modal as ModalRedesigned, useModalState } from '~/shared/ui/redesigned/Modal';
 import { Drawer } from '~/shared/ui/deprecated/Drawer';
 import cls from './RatingCard.module.scss';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { Button } from '~/shared/ui/redesigned/Button';
 
 type RatingCardProps = {
   title: string;
@@ -35,6 +45,22 @@ const RatingCard = memo((props: RatingCardProps) => {
   const [feedback, setFeedback] = useState('');
 
   const isNeedShowFeedbackModal = Boolean(feedbackTitle);
+
+  const { Card, Text, Input, Modal } = useToggleFeatures({
+    feature: 'redesign',
+    on: () => ({
+      Card: CardRedesigned,
+      Text: TextRedesigned,
+      Input: InputRedesigned,
+      Modal: ModalRedesigned,
+    }),
+    off: () => ({
+      Card: CardDeprecated,
+      Text: TextDeprecated,
+      Input: InputDeprecated,
+      Modal: ModalDeprecated,
+    }),
+  });
 
   const onSelectStars = (newRating: number) => {
     setSelectedRating(newRating);
@@ -69,23 +95,41 @@ const RatingCard = memo((props: RatingCardProps) => {
       <Input name="feedback" autoFocus={true} value={feedback} onChange={setFeedback} />
 
       <HStack fullW gap="24" align="center" justify="end">
-        <Button
-          rounded={ButtonRounded.M}
-          theme={ButtonTheme.BG_INVERTED}
-          onClick={saveHandler}
-          data-testid={dataTestIds?.SubmitBtn}
-        >
-          {t('actions.send', { defaultValue: 'Send' })}
-        </Button>
+        <ToggleFeatures
+          feature="redesign"
+          on={
+            <>
+              <Button variant="fill" onClick={saveHandler} data-testid={dataTestIds?.SubmitBtn}>
+                {t('actions.send', { defaultValue: 'Send' })}
+              </Button>
 
-        <Button
-          rounded={ButtonRounded.M}
-          theme={ButtonTheme.OUTLINE}
-          onClick={cancelHandler}
-          data-testid={dataTestIds?.CancelBtn}
-        >
-          {t('actions.cancel', { defaultValue: 'Cancel' })}
-        </Button>
+              <Button variant="fill" onClick={cancelHandler} data-testid={dataTestIds?.CancelBtn}>
+                {t('actions.cancel', { defaultValue: 'Cancel' })}
+              </Button>
+            </>
+          }
+          off={
+            <>
+              <ButtonDeprecated
+                rounded={ButtonRounded.M}
+                theme={ButtonTheme.BG_INVERTED}
+                onClick={saveHandler}
+                data-testid={dataTestIds?.SubmitBtn}
+              >
+                {t('actions.send', { defaultValue: 'Send' })}
+              </ButtonDeprecated>
+
+              <ButtonDeprecated
+                rounded={ButtonRounded.M}
+                theme={ButtonTheme.OUTLINE}
+                onClick={cancelHandler}
+                data-testid={dataTestIds?.CancelBtn}
+              >
+                {t('actions.cancel', { defaultValue: 'Cancel' })}
+              </ButtonDeprecated>
+            </>
+          }
+        />
       </HStack>
     </>
   );

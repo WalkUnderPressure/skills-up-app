@@ -2,10 +2,12 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { VStack } from '~/shared/ui/redesigned/Stack';
-import { Text } from '~/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '~/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '~/shared/ui/redesigned/Text';
 import CommentaryCardSkeleton from '../CommentaryCardSkeleton/CommentaryCardSkeleton';
 import CommentaryCard from '../CommentaryCard/CommentaryCard';
 import { Commentary } from '../../model/types/commentary';
+import { useToggleFeatures } from '~/entities/FeatureFlags';
 
 const LOADING_COMMENTARY_ITEMS = Array.from({ length: 3 }, (x, i) => i);
 
@@ -19,6 +21,16 @@ const CommentaryList = memo((props: CommentaryListProps) => {
   const { className, title = '', commentaries = [], isLoading = false } = props;
 
   const { t } = useTranslation();
+
+  const { Text } = useToggleFeatures({
+    feature: 'redesign',
+    on: () => ({
+      Text: TextRedesigned,
+    }),
+    off: () => ({
+      Text: TextDeprecated,
+    }),
+  });
 
   return (
     <VStack fullW className={className}>

@@ -7,12 +7,13 @@ import DynamicReducerProvider, {
 import { postDetailsReducer } from '../../../model/slices/postDetailsSlice';
 import { useFetchPostById } from '../../../model/services/fetchPostById';
 import {
-  usePostIsLoading,
   usePostError,
   usePostDetails,
+  usePostIsLoading,
 } from '../../../model/selectors/postDetailsSelectors';
 import PostBlocksGenerator from '../PostBlocksGenerator';
-import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextTheme } from '~/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '~/shared/ui/redesigned/Text';
 import PostDetailsSkeleton from '../PostDetailsSkeleton';
 import useDateTransformer from '~/shared/lib/hooks/useDateTransformer';
 import { HStack, VStack } from '~/shared/ui/redesigned/Stack';
@@ -22,6 +23,7 @@ import cls from './PostDetails.module.scss';
 import CalendarIcon from '~/shared/assets/icons/calendar.svg';
 import EyeIcon from '~/shared/assets/icons/eye.svg';
 import { AppImage } from '~/shared/ui/redesigned/AppImage';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
 
 const reducers: ReducersMap = {
   postDetails: postDetailsReducer,
@@ -50,6 +52,18 @@ const PostDetails = memo((props: PostDetailsProps) => {
 
   const createdAt = useDateTransformer(Number(postDetails?.createdAt));
 
+  const { Text, infoIconCls } = useToggleFeatures({
+    feature: 'redesign',
+    on: () => ({
+      Text: TextRedesigned,
+      infoIconCls: cls['info-icon-redesigned'],
+    }),
+    off: () => ({
+      Text: TextDeprecated,
+      infoIconCls: '',
+    }),
+  });
+
   return (
     <DynamicReducerProvider reducers={reducers}>
       <VStack justify="center" align="center" fullW className={className}>
@@ -72,16 +86,17 @@ const PostDetails = memo((props: PostDetailsProps) => {
                   <Text title={postDetails?.title} text={postDetails?.subtitle} />
 
                   <HStack fullW align="center" gap="24">
-                    <HStack justify="start" align="center" gap="8">
-                      <EyeIcon fill="currentColor" />
+                    <HStack justify="start" align="center" gap="8" className={infoIconCls}>
+                      <EyeIcon width={24} height={24} fill="currentColor" />
                       <Text text={String(postDetails?.views)} />
                     </HStack>
 
-                    <HStack justify="start" align="center" gap="8">
-                      <CalendarIcon fill="currentColor" />
+                    <HStack justify="start" align="center" gap="8" className={infoIconCls}>
+                      <CalendarIcon width={24} height={24} fill="currentColor" />
                       <Text text={createdAt} />
                     </HStack>
-                    <div>{postDetails?.tags.map((tag) => <span key={tag}>{`#${tag}`}</span>)}</div>
+
+                    <Text text={postDetails?.tags.map((tag) => `#${tag}`).join(' ')} />
                   </HStack>
                 </VStack>
 
@@ -95,11 +110,26 @@ const PostDetails = memo((props: PostDetailsProps) => {
           </>
         ) : (
           <div className={classNames(cls['error-block'])}>
-            <Text
-              theme={TextTheme.ERROR}
-              title={t('post-not-exist', {
-                defaultValue: 'The post does not exist or could not be loaded! Try again later!',
-              })}
+            <ToggleFeatures
+              feature="redesign"
+              on={
+                <TextRedesigned
+                  variant="error"
+                  title={t('post-not-exist', {
+                    defaultValue:
+                      'The post does not exist or could not be loaded! Try again later!',
+                  })}
+                />
+              }
+              off={
+                <TextDeprecated
+                  theme={TextTheme.ERROR}
+                  title={t('post-not-exist', {
+                    defaultValue:
+                      'The post does not exist or could not be loaded! Try again later!',
+                  })}
+                />
+              }
             />
           </div>
         )}

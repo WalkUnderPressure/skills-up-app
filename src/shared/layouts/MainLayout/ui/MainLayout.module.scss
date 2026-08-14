@@ -1,8 +1,10 @@
 .layout {
-    --layout-p: 24px;
+    --m-layout-p: 24px;
 
-    min-height: 100dvh;
-    min-width: 100dvw;
+    height: 100dvh;
+    width: 100dvw;
+    max-height: 100dvh;
+    max-width: 100dvw;
     display: grid;
     grid-template-areas: "sidebar content rightbar";
     grid-template-columns: min-content 1fr 96px;
@@ -10,16 +12,19 @@
 
 .sidebar {
     grid-area: sidebar;
-    padding: var(--layout-p);
+    padding: var(--m-layout-p);
     max-width: 300px;
 }
 
 .content {
     grid-area: content;
-    padding: var(--layout-p);
+    padding: var(--m-layout-p);
     width: 100%;
+    overflow: hidden;
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .rightbar {
@@ -27,8 +32,8 @@
 }
 
 .header {
-    padding-top: var(--layout-p);
-    padding-right: var(--layout-p);
+    padding-top: var(--m-layout-p);
+    padding-right: var(--m-layout-p);
     display: flex;
     flex-direction: column;
 }

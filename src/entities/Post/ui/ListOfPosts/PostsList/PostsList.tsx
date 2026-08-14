@@ -6,7 +6,9 @@ import PostListItem from '../PostListItem/PostListItem';
 import classNames from '~/shared/lib/classNames';
 import cls from './PostsList.module.scss';
 import PostsSkeletons from './PostsSkeletons';
-import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextTheme } from '~/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '~/shared/ui/redesigned/Text';
+import { ToggleFeatures } from '~/entities/FeatureFlags';
 
 export type PostsListProps = {
   posts?: Array<Post>;
@@ -22,12 +24,26 @@ const PostsList = memo((props: PostsListProps) => {
 
   if (!isLoading && !posts?.length) {
     return (
-      <Text
-        title={t('empty', {
-          defaultValue: 'No publications with the specified parameters were found',
-        })}
-        theme={TextTheme.WARN}
-        className={classNames(cls.empty)}
+      <ToggleFeatures
+        feature="redesign"
+        on={
+          <TextRedesigned
+            title={t('empty', {
+              defaultValue: 'No publications with the specified parameters were found',
+            })}
+            variant="warn"
+            className={classNames(cls.empty)}
+          />
+        }
+        off={
+          <TextDeprecated
+            title={t('empty', {
+              defaultValue: 'No publications with the specified parameters were found',
+            })}
+            theme={TextTheme.WARN}
+            className={classNames(cls.empty)}
+          />
+        }
       />
     );
   }

@@ -3,7 +3,7 @@ import { forwardRef, memo } from 'react';
 import { DesktopView, MobileView } from '~/shared/ui/redesigned/DevicesViews';
 import { NotificationsList } from '~/entities/Notification';
 import { Button, ButtonTheme } from '~/shared/ui/deprecated/Button';
-import { useModalState } from '~/shared/ui/deprecated/Modal';
+import { useModalState } from '~/shared/ui/redesigned/Modal';
 import { Popover as PopoverDeprecated } from '~/shared/ui/deprecated/Popups';
 import { Popover } from '~/shared/ui/redesigned/Popups';
 import { Drawer } from '~/shared/ui/deprecated/Drawer';

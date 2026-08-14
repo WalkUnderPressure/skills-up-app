@@ -2,9 +2,11 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { usePostRating, useSetPostRating } from '../../api/postRatingApi';
-import { Skeleton } from '~/shared/ui/deprecated/Skeleton';
 import { RatingCard } from '~/entities/Rating';
 import { PostRatingDataTestIds } from '~/features/PostRating/constants';
+import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { Skeleton as SkeletonDeprecated } from '~/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '~/shared/ui/redesigned/Skeleton';
 
 type PostRatingProps = {
   postId?: string;
@@ -23,6 +25,16 @@ const PostRating = memo((props: PostRatingProps) => {
 
   const postRating = { ...(fetchedPostRating ?? {}), ...(updatedPostRating ?? {}) };
   const isPostRatingLoading = Boolean(isLoading);
+
+  const { Skeleton } = useToggleFeatures({
+    feature: 'redesign',
+    on: () => ({
+      Skeleton: SkeletonRedesigned,
+    }),
+    off: () => ({
+      Skeleton: SkeletonDeprecated,
+    }),
+  });
 
   const sendPostRating = useCallback(
     (rating: number, feedback?: string) => {

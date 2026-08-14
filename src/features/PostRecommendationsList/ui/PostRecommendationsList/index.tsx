@@ -4,10 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { usePostRecommendations } from '../../api/postRecommendationsApi';
 import { PostsList, PostViewMap } from '~/entities/Post';
 import { VStack } from '~/shared/ui/redesigned/Stack';
-import { Text } from '~/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '~/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '~/shared/ui/redesigned/Text';
 import classNames from '~/shared/lib/classNames';
 
 import cls from './PostRecommendationsList.module.scss';
+import { useToggleFeatures } from '~/entities/FeatureFlags';
 
 type PostRecommendationsListProps = PropsWithClassName;
 
@@ -18,20 +20,32 @@ const PostRecommendationsList = memo((props: PostRecommendationsListProps) => {
 
   const { isLoading: isRecommendationsLoading, data: recommendations } = usePostRecommendations({});
 
-  return (
-    <div className={classNames(cls['post-recommendations-list'], {}, [className])}>
-      <VStack fullW>
-        <Text title={t('recommendations.title', { defaultValue: 'Recommendations' })} />
+  const { Text, listCls, recommendationsCls } = useToggleFeatures({
+    feature: 'redesign',
+    on: () => ({
+      Text: TextRedesigned,
+      listCls: cls['post-recommendations-list-redesigned'],
+      recommendationsCls: cls['recommendations-redesigned'],
+    }),
+    off: () => ({
+      Text: TextDeprecated,
+      listCls: cls['post-recommendations-list'],
+      recommendationsCls: cls['recommendations'],
+    }),
+  });
 
-        <PostsList
-          posts={recommendations}
-          isLoading={isRecommendationsLoading}
-          viewType={PostViewMap.SHORT}
-          className={cls.recommendations}
-          target="_blank"
-        />
-      </VStack>
-    </div>
+  return (
+    <VStack fullW className={classNames(listCls, {}, [className])}>
+      <Text title={t('recommendations.title', { defaultValue: 'Recommendations' })} />
+
+      <PostsList
+        posts={recommendations}
+        isLoading={isRecommendationsLoading}
+        viewType={PostViewMap.SHORT}
+        className={recommendationsCls}
+        target="_blank"
+      />
+    </VStack>
   );
 });
 

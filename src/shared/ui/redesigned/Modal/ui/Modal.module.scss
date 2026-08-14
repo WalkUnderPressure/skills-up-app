@@ -1,0 +1,31 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-hidden);
+    pointer-events: none;
+    opacity: 0;
+    transition: var(--transition-default);
+}
+
+.content {
+    width: var(--modal-w);
+    min-height: var(--modal-min-h);
+    padding: 24px;
+    background-color: var(--redesigned-bg);
+    color: var(--redesigned-text);
+    font: var(--redesigned-font-m);
+    font-weight: 800;
+    border-radius: var(--radius-m);
+    transition: var(--transition-default);
+    transform: scale(0.1);
+}
+
+.open {
+    opacity: 1;
+    pointer-events: unset;
+    z-index: var(--z-modal);
+
+    .content {
+        transform: scale(1);
+    }
+}

@@ -2,3 +2,14 @@
     padding: 42px;
     position: relative;
 }
+
+.post-page-redesigned {
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px;
+    overflow: hidden auto;
+    flex: 1;
+    max-height: calc(100dvh - var(--m-layout-p) * 2);
+
+    // border: 2px solid blue;
+}

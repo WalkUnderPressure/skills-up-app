@@ -4,9 +4,15 @@ import { useTranslation } from 'react-i18next';
 import DynamicReducerProvider, {
   ReducersMap,
 } from '~/shared/lib/components/DynamicReducerProvider';
-import { Button, ButtonRounded, ButtonTheme } from '~/shared/ui/deprecated/Button';
+import {
+  Button as ButtonDeprecated,
+  ButtonRounded,
+  ButtonTheme,
+} from '~/shared/ui/deprecated/Button';
+import { Button } from '~/shared/ui/redesigned/Button';
 import classNames from '~/shared/lib/classNames';
-import { Input } from '~/shared/ui/deprecated/Input';
+import { Input as InputDeprecated } from '~/shared/ui/deprecated/Input';
+import { Input as InputRedesigned } from '~/shared/ui/redesigned/Input';
 import {
   useAddCommentaryActions,
   addCommentaryReducer,
@@ -18,6 +24,7 @@ import {
 import cls from './AddCommentaryForm.module.scss';
 import { HStack } from '~/shared/ui/redesigned/Stack';
 import { AddCommentaryFormDataTestIds } from '~/features/AddCommentaryForm/constants';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
 
 const reducers: ReducersMap = {
   addCommentaryForm: addCommentaryReducer,
@@ -36,6 +43,18 @@ const AddCommentaryForm = memo((props: AddCommentaryFormProps) => {
   const text = useAddCommentaryText();
 
   const { updateText } = useAddCommentaryActions();
+
+  const { Input, formCls } = useToggleFeatures({
+    feature: 'redesign',
+    on: () => ({
+      Input: InputRedesigned,
+      formCls: cls['add-commentary-form-redesigned'],
+    }),
+    off: () => ({
+      Input: InputDeprecated,
+      formCls: cls['add-commentary-form'],
+    }),
+  });
 
   const onChangeCommentaryText = useCallback(
     (newText: string) => {
@@ -56,7 +75,7 @@ const AddCommentaryForm = memo((props: AddCommentaryFormProps) => {
         justify="between"
         gap="24"
         fullW
-        className={classNames(cls['add-commentary-form'], {}, [className])}
+        className={classNames(formCls, {}, [className])}
         data-testid={AddCommentaryFormDataTestIds.Form}
       >
         <Input
@@ -64,17 +83,35 @@ const AddCommentaryForm = memo((props: AddCommentaryFormProps) => {
           onChange={onChangeCommentaryText}
           value={text}
           disabled={isLoading}
+          placeholder={t('post.add-commentary', {
+            defaultValue: 'Add commentary',
+            ns: 'pages.blog',
+          })}
           data-testid={AddCommentaryFormDataTestIds.Input}
         />
 
-        <Button
-          rounded={ButtonRounded.M}
-          theme={ButtonTheme.BG}
-          onClick={onSend}
-          data-testid={AddCommentaryFormDataTestIds.Button}
-        >
-          {t('form.send', { defaultValue: 'Send' })}
-        </Button>
+        <ToggleFeatures
+          feature="redesign"
+          on={
+            <Button
+              variant="fill"
+              onClick={onSend}
+              data-testid={AddCommentaryFormDataTestIds.Button}
+            >
+              {t('form.send', { defaultValue: 'Send' })}
+            </Button>
+          }
+          off={
+            <ButtonDeprecated
+              rounded={ButtonRounded.M}
+              theme={ButtonTheme.BG}
+              onClick={onSend}
+              data-testid={AddCommentaryFormDataTestIds.Button}
+            >
+              {t('form.send', { defaultValue: 'Send' })}
+            </ButtonDeprecated>
+          }
+        />
       </HStack>
     </DynamicReducerProvider>
   );

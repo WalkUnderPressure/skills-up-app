@@ -4,8 +4,19 @@
     margin-bottom: -52px;
     z-index: var(--z-mid);
     margin-inline-start: auto;
-  
+
     * {
       color: var(--inverted-primary-color);
     }
+}
+
+.back-btn-redesigned {
+  display: flex;
+  position: sticky;
+  width: fit-content;
+  top: 0;
+  right: 0;
+  z-index: var(--z-mid);
+  margin-inline-start: auto;
+  color: var(--redesigned-icon);
 }
