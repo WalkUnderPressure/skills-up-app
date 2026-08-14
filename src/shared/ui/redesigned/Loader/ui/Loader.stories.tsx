@@ -1,0 +1,16 @@
+import { Meta, StoryObj } from '~/shared/lib/storybook/types';
+
+import withOverriddenThemes from '~/shared/config/storybook/helpers/withOverriddenThemes';
+import Loader from './Loader';
+
+const meta = {
+  title: 'Shared/Deprecated/Loader',
+  component: Loader,
+} satisfies Meta<typeof Loader>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Light = {} satisfies Story;
+
+export const Dark = withOverriddenThemes({})() satisfies Story;
