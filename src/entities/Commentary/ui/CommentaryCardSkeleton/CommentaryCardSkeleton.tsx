@@ -4,7 +4,7 @@ import classNames from '~/shared/lib/classNames';
 import { HStack, VStack } from '~/shared/ui/redesigned/Stack';
 
 import cls from './CommentaryCardSkeleton.module.scss';
-import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
 
 const AVATAR_SIZE = 32;
 

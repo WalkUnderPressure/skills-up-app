@@ -9,7 +9,7 @@ import { Popover } from '~/shared/ui/redesigned/Popups';
 import { Drawer } from '~/shared/ui/deprecated/Drawer';
 import BellIcon from '~/shared/assets/icons/bell.svg';
 import cls from './NotificationCenter.module.scss';
-import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
 
 const TriggerButton = forwardRef<HTMLButtonElement, { onClick?: () => void }>((props, ref) => {
   const { onClick } = props;

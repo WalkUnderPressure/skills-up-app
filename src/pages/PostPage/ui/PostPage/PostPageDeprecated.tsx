@@ -7,7 +7,7 @@ import { Page } from '~/widgets/Page';
 import { PostCommentaries } from '~/features/PostCommentaries';
 import PostPageHeader from '../PostPageHeader';
 import cls from './PostPage.module.scss';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 import { PostPageCommonProps } from './types';
 
 const PostPageDeprecated = (props: PostPageCommonProps) => {

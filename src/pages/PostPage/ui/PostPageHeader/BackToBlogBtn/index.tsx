@@ -12,7 +12,7 @@ import ArrowBack from '~/shared/assets/icons/back-arrow.svg';
 
 import { getRouteBlog } from '~/shared/constants/appRoutes';
 import cls from './BackToBlogBtn.module.scss';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 import { Text } from '~/shared/ui/redesigned/Text';
 import { HStack } from '~/shared/ui/redesigned/Stack';
 import { Button } from '~/shared/ui/redesigned/Button';

@@ -8,7 +8,7 @@ import { blogPageReducer } from '../../model/slices/blogPageSlice';
 import { useInitBlogPageState } from '../../model/services/initBlogPageState/initBlogPageState';
 import BlogPageContentRedesigned from './BlogPageContentRedesigned';
 import BlogPageContentDeprecated from './BlogPageContentDeprecated';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 
 const reducers: ReducersMap = {
   blogPage: blogPageReducer,

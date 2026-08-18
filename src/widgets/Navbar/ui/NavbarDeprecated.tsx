@@ -4,7 +4,7 @@ import { Button, ButtonSize, ButtonTheme, ButtonRounded } from '~/shared/ui/depr
 import { SignInByUsernameModal } from '~/features/SignInByUsername';
 import { NotificationCenter } from '~/features/NotificationCenter';
 import useIsAuthorized from '~/shared/lib/hooks/useIsAuthorized';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 import { APP_NAME } from '~/shared/constants/appInfo';
 import { AccountMenu } from '~/features/AccountMenu';
 import { Text, TextTheme } from '~/shared/ui/deprecated/Text';

@@ -1,5 +1,5 @@
 import { Skeleton as SkeletonRedesign, SkeletonThemes } from '~/shared/ui/deprecated/Skeleton';
-import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
 import { Skeleton } from '~/shared/ui/redesigned/Skeleton';
 import { AppImage } from '~/shared/ui/redesigned/AppImage';
 import classNames from '~/shared/lib/classNames';

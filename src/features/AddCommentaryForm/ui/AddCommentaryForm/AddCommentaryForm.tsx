@@ -24,7 +24,7 @@ import {
 import cls from './AddCommentaryForm.module.scss';
 import { HStack } from '~/shared/ui/redesigned/Stack';
 import { AddCommentaryFormDataTestIds } from '~/features/AddCommentaryForm/constants';
-import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
 
 const reducers: ReducersMap = {
   addCommentaryForm: addCommentaryReducer,

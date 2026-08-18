@@ -1,7 +1,7 @@
 import { PostRating } from '~/features/PostRating';
 import classNames from '~/shared/lib/classNames';
 import { Page } from '~/widgets/Page';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 import { PostPageCommonProps } from './types';
 import cls from './PostPage.module.scss';
 import PostPageHeader from '~/pages/PostPage/ui/PostPageHeader';

@@ -1,6 +1,6 @@
 import { Skeleton as SkeletonDeprecated, SkeletonThemes } from '~/shared/ui/deprecated/Skeleton';
 import { Skeleton as SkeletonRedesigned } from '~/shared/ui/redesigned/Skeleton';
-import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
 import { Card as CardDeprecated } from '~/shared/ui/deprecated/Card';
 import { Card as CardRedesigned } from '~/shared/ui/deprecated/Card';
 import { HStack } from '~/shared/ui/redesigned/Stack';

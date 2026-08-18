@@ -1,4 +1,4 @@
-import { FeatureFlags } from '~/entities/FeatureFlags';
+import { FeatureFlags } from './FeatureFlagsSchema';
 import IInitialized from '~/shared/types/IInitialized';
 
 // TODO: Need add system like here: https://github.com/WebDevSimplified/permission-system/tree/main

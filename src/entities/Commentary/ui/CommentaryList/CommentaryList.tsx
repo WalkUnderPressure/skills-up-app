@@ -7,7 +7,7 @@ import { Text as TextRedesigned } from '~/shared/ui/redesigned/Text';
 import CommentaryCardSkeleton from '../CommentaryCardSkeleton/CommentaryCardSkeleton';
 import CommentaryCard from '../CommentaryCard/CommentaryCard';
 import { Commentary } from '../../model/types/commentary';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 
 const LOADING_COMMENTARY_ITEMS = Array.from({ length: 3 }, (x, i) => i);
 

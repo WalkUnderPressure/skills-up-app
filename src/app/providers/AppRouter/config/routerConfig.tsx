@@ -10,6 +10,7 @@ import {
   getRoutePostCreate,
   getRoutePostEdit,
   getRouteProfile,
+  getRouteSettings,
 } from '~/shared/constants/appRoutes';
 import { AdminPanelPage } from '~/pages/AdminPanelPage';
 import { ForbiddenPage } from '~/pages/ForbiddenPage';
@@ -21,6 +22,7 @@ import { HomePage } from '~/pages/HomePage';
 import { BlogPage } from '~/pages/BlogPage';
 import { PostPage } from '~/pages/PostPage';
 import { AppRouteProps } from '../types/router';
+import { SettingsPage } from '~/pages/SettingsPage';
 
 export const routerConfig: Record<AppRoutes, AppRouteProps> = {
   [AppRoutes.HOME]: {
@@ -34,6 +36,11 @@ export const routerConfig: Record<AppRoutes, AppRouteProps> = {
   [AppRoutes.PROFILE]: {
     path: getRouteProfile(':id'),
     element: <ProfilePage />,
+    authOnly: true,
+  },
+  [AppRoutes.SETTINGS]: {
+    path: getRouteSettings(),
+    element: <SettingsPage />,
     authOnly: true,
   },
   [AppRoutes.BLOG]: {

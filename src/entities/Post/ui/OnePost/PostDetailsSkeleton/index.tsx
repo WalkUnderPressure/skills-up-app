@@ -3,7 +3,7 @@ import { Skeleton as SkeletonRedesigned } from '~/shared/ui/redesigned/Skeleton'
 import { VStack } from '~/shared/ui/redesigned/Stack';
 import cls from './PostDetailsSkeleton.module.scss';
 import classNames from '~/shared/lib/classNames';
-import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
 
 const BANNER_SIZE = 160;
 

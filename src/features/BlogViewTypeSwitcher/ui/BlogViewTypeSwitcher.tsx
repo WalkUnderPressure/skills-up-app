@@ -8,7 +8,7 @@ import classNames from '~/shared/lib/classNames';
 import { HStack } from '~/shared/ui/redesigned/Stack';
 import cls from './BlogViewTypeSwitcher.module.scss';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 
 const ViewTypesList: Record<PostViewKey, { name: PostViewKey; Icon: SvgIconType }> = {
   [PostViewMap.FULL]: {

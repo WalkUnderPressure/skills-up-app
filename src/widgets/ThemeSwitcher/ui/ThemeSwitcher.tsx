@@ -6,7 +6,7 @@ import classNames from '~/shared/lib/classNames';
 
 import ThemeSwitch from '~/shared/assets/icons/theme-switch.svg';
 import ThemeIcon from '~/shared/assets/icons/theme.svg';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 
 type ThemeSwitcherProps = PropsWithClassName;
 

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import LangSwitcherDeprecated from './LangSwitcherDeprecated';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 import cls from './LangSwitcher.module.scss';
 
 type LangSwitcherProps = {

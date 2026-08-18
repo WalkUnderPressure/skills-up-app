@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { usePostRating, useSetPostRating } from '../../api/postRatingApi';
 import { RatingCard } from '~/entities/Rating';
 import { PostRatingDataTestIds } from '~/features/PostRating/constants';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 import { Skeleton as SkeletonDeprecated } from '~/shared/ui/deprecated/Skeleton';
 import { Skeleton as SkeletonRedesigned } from '~/shared/ui/redesigned/Skeleton';
 

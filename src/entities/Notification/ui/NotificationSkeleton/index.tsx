@@ -1,4 +1,4 @@
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 import { Skeleton as SkeletonDeprecated } from '~/shared/ui/deprecated/Skeleton';
 import { Skeleton } from '~/shared/ui/redesigned/Skeleton';
 

@@ -5,7 +5,7 @@ import {
 } from '~/shared/ui/deprecated/Popups';
 import { ListBox } from '~/shared/ui/redesigned/Popups';
 import { CountryMap, CountryMapKey } from '../model/types/countries';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 
 type CountrySelectProps = {
   value?: string;

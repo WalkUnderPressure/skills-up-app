@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import BlogPageFiltersDeprecated from './BlogPageFiltersDeprecated';
 import BlogPageFiltersRedesigned from './BlogPageFiltersRedesigned';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 
 type BlogPageFiltersProps = PropsWithClassName;
 

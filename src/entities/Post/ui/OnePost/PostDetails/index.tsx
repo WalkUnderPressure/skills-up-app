@@ -23,7 +23,7 @@ import cls from './PostDetails.module.scss';
 import CalendarIcon from '~/shared/assets/icons/calendar.svg';
 import EyeIcon from '~/shared/assets/icons/eye.svg';
 import { AppImage } from '~/shared/ui/redesigned/AppImage';
-import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
 
 const reducers: ReducersMap = {
   postDetails: postDetailsReducer,

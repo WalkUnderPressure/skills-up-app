@@ -45,6 +45,12 @@ declare type Nullable<T> = T | null | undefined;
 
 declare type EmptyObject = Record<string, never>;
 
+declare type StrictExtract<T, U extends T> = U;
+
+declare type StrictOmit<T, K extends keyof T> = Omit<T, K>;
+
+declare type StrictExclude<T, U extends T> = Exclude<T, U>;
+
 // App
 declare type ErrorData<T> = {
   isFailed?: boolean;

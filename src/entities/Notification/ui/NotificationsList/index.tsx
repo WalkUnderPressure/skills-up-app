@@ -7,7 +7,7 @@ import { Text } from '~/shared/ui/redesigned/Text';
 import { useNotifications, NOTIFICATIONS_REFRESH_INTERVAL } from '../../api/notificationsApi';
 import NotificationSkeleton from '../NotificationSkeleton';
 import cls from './NotificationsList.module.scss';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 import NotificationItem from '../NotificationItem';
 
 export type NotificationsListProps = {

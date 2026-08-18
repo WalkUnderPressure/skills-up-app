@@ -12,7 +12,7 @@ import { Text as TextRedesigned } from '~/shared/ui/redesigned/Text';
 import { Commentary } from '../../model/types/commentary';
 import cls from './CommentaryCard.module.scss';
 import { CommentaryCardDataTestIds } from '~/entities/Commentary/constants';
-import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
 
 type CommentaryCardProps = {
   commentary?: Commentary;

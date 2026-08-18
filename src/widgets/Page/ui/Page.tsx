@@ -7,7 +7,7 @@ import { useGetScrollByPath } from '~/features/ScrollKeeper';
 import useThrottle from '~/shared/lib/hooks/useThrottle';
 import classNames from '~/shared/lib/classNames';
 import cls from './Page.module.scss';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 
 const SCROLL_SAVE_THROTTLE_DELAY = 300;
 

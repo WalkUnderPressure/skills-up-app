@@ -6,7 +6,7 @@ import cls from './TextBlockElement.module.scss';
 import { Text as TextDeprecated } from '~/shared/ui/deprecated/Text';
 import { Text as TextRedesigned } from '~/shared/ui/redesigned/Text';
 import { VStack } from '~/shared/ui/redesigned/Stack';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 
 type TextBlockElementProps = {
   block: PostTextBlock;

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { Text as TextDeprecated, TextTheme } from '~/shared/ui/deprecated/Text';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 import { Text } from '~/shared/ui/redesigned/Text';
 import classNames from '~/shared/lib/classNames';
 import cls from '../PostsList.module.scss';

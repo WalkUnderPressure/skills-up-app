@@ -1,67 +1,68 @@
 {
-    "languages": {
-        "full": {
-            "en": "English",
-            "uk": "Ukrainian"
-        },
-        "short": {
-            "en": "EN",
-            "uk": "UK"
-        }
+  "languages": {
+    "full": {
+      "en": "English",
+      "uk": "Ukrainian"
     },
-    "sign_in": {
-        "action": "Sign in",
-        "form_title": "Sign in form",
-        "failed": "Can't sign-in with provided credentials!"
-    },
-    "sign_out": {
-        "action": "Sign out"
-    },
-    "menu": {
-        "home": "Home",
-        "about": "About",
-        "profile": "Profile",
-        "blog": "Blog",
-        "admin-panel": "Admin panel"
-    },
-    "create_post": "Create post",
-    "loading": "Loading",
-    "form": {
-        "send": "Send",
-        "edit": "Edit",
-        "save": "Save",
-        "reset": "Reset",
-        "errors": {
-            "required": "This field is required!"
-        }
-    },
-    "sort": {
-        "field": "Sort field",
-        "by": "Sort by",
-        "order": {
-            "asc": "ascending",
-            "desc": "descending"
-        }
-    },
-    "page_not_found": "Sorry! Page not found!",
-    "page_forbidden": "You cannot access this page",
-    "error_boundary": {
-        "title": "Sorry, unexpected error occurred! Try to reload page.",
-        "action-btn": "Reload page",
-        "throw_error": "Throw error!"
-    },
-    "commentaries": {
-        "title": "Commentaries",
-        "empty": "There are no comments here yet."
-    },
-    "recommendations": {
-        "title": "Recommendations"
-    },
-    "notifications": {
-        "title": "Notifications"
-    },
-    "actions": {
-        "send": "Send",
-        "cancel": "Cancel"
+    "short": {
+      "en": "EN",
+      "uk": "UK"
     }
+  },
+  "sign_in": {
+    "action": "Sign in",
+    "form_title": "Sign in form",
+    "failed": "Can't sign-in with provided credentials!"
+  },
+  "sign_out": {
+    "action": "Sign out"
+  },
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "profile": "Profile",
+    "settings": "Settings",
+    "blog": "Blog",
+    "admin-panel": "Admin panel"
+  },
+  "create_post": "Create post",
+  "loading": "Loading",
+  "form": {
+    "send": "Send",
+    "edit": "Edit",
+    "save": "Save",
+    "reset": "Reset",
+    "errors": {
+      "required": "This field is required!"
+    }
+  },
+  "sort": {
+    "field": "Sort field",
+    "by": "Sort by",
+    "order": {
+      "asc": "ascending",
+      "desc": "descending"
+    }
+  },
+  "page_not_found": "Sorry! Page not found!",
+  "page_forbidden": "You cannot access this page",
+  "error_boundary": {
+    "title": "Sorry, unexpected error occurred! Try to reload page.",
+    "action-btn": "Reload page",
+    "throw_error": "Throw error!"
+  },
+  "commentaries": {
+    "title": "Commentaries",
+    "empty": "There are no comments here yet."
+  },
+  "recommendations": {
+    "title": "Recommendations"
+  },
+  "notifications": {
+    "title": "Notifications"
+  },
+  "actions": {
+    "send": "Send",
+    "cancel": "Cancel"
+  }
 }

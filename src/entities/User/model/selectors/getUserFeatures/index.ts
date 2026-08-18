@@ -1,4 +1,4 @@
-import { DEFAULT_FEATURE_FLAGS } from '../../../constants';
+import { DEFAULT_FEATURE_FLAGS } from '../../../constants/feature-flags';
 import { buildAppSelector } from '~/shared/lib/store';
 
 export const [useFeatureFlags, getFeatureFlags] = buildAppSelector(

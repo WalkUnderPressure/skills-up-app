@@ -8,7 +8,7 @@ import cls from './PostsList.module.scss';
 import PostsSkeletons from './PostsSkeletons';
 import { Text as TextDeprecated, TextTheme } from '~/shared/ui/deprecated/Text';
 import { Text as TextRedesigned } from '~/shared/ui/redesigned/Text';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 
 export type PostsListProps = {
   posts?: Array<Post>;

@@ -8,7 +8,7 @@ import classNames from '~/shared/lib/classNames';
 import cls from './SidebarDeprecated.module.scss';
 
 import { Button, ButtonSize, ButtonTheme } from '~/shared/ui/deprecated/Button';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 import ArrowRightLine from '~/shared/assets/icons/arrow-right-line.svg';
 import { LangSwitcher } from '~/widgets/LangSwitcher';
 import { ThemeSwitcher } from '~/widgets/ThemeSwitcher';

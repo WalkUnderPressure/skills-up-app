@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { scrollKeeperReducer } from '~/features/ScrollKeeper';
-import { userReducer } from '~/entities/User';
+// IMPORTANT: Import in this way prevent 'Circular dependency'
+import { userReducer } from '~/entities/User/model/slices/userSlice';
 import rtkApi from '~/shared/api/rtkApi';
 import $api from '~/shared/api/api';
 import {

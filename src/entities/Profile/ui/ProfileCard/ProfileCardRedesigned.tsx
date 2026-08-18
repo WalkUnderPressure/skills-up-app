@@ -37,8 +37,8 @@ const ProfileCardSkeletons = (props: ProfileCardSkeletonsProps) => {
       <div className={classNames(cls.inputs, {}, [cls['inputs-full']])}>
         {Array(INPUTS_COUNT)
           .fill(null)
-          .map(() => (
-            <div style={{ height: '84px', display: 'flex' }}>
+          .map((_input, index) => (
+            <div key={index} style={{ height: '84px', display: 'flex' }}>
               <Skeleton height={52} width="100%" variant="rect" />
             </div>
           ))}

@@ -5,7 +5,7 @@ import DynamicReducerProvider, {
 } from '~/shared/lib/components/DynamicReducerProvider';
 import { PostPageCommonProps } from '~/pages/PostPage/ui/PostPage/types';
 import postPageReducer from '../../model/slices/postPageReducer';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 import PostPageRedesigned from './PostPageRedesigned';
 import PostPageDeprecated from './PostPageDeprecated';
 

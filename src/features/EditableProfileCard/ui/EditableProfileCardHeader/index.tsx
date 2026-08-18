@@ -1,6 +1,6 @@
 import ProfileCardHeaderRedesigned from './ProfileCardHeaderRedesigned';
 import ProfileCardHeaderDeprecated from './ProfileCardHeaderDeprecated';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 
 type EditableProfileCardHeaderProps = PropsWithClassName;
 

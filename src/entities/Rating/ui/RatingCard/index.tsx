@@ -20,7 +20,7 @@ import { Modal as ModalDeprecated } from '~/shared/ui/deprecated/Modal';
 import { Modal as ModalRedesigned, useModalState } from '~/shared/ui/redesigned/Modal';
 import { Drawer } from '~/shared/ui/deprecated/Drawer';
 import cls from './RatingCard.module.scss';
-import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
 import { Button } from '~/shared/ui/redesigned/Button';
 
 type RatingCardProps = {

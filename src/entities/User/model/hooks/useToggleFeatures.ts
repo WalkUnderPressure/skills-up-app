@@ -1,5 +1,5 @@
-import { useFeatureFlags } from '~/entities/FeatureFlags/model/selectors/getUserFeatures';
-import { FeatureFlags } from '../types/FeatureFlagsSchema';
+import { useFeatureFlags } from '../selectors/getUserFeatures';
+import { FeatureFlags } from '../../../User/model/types/FeatureFlagsSchema';
 
 interface ToggleFeaturesParams<T> {
   feature: keyof FeatureFlags;

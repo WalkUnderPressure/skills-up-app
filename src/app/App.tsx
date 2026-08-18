@@ -6,7 +6,7 @@ import './styles/index.scss';
 import '~/shared/config/i18n';
 import AppDeprecated from './components/AppDeprecated';
 import AppRedesigned from './components/AppRedesigned';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 
 const App = () => {
   const { initAuthData } = useUserActions();

@@ -1,4 +1,4 @@
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 import { Loader as LoaderDeprecated } from '~/shared/ui/deprecated/Loader';
 import { Loader } from '~/shared/ui/redesigned/Loader';
 import { HStack } from '~/shared/ui/redesigned/Stack';

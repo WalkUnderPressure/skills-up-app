@@ -8,7 +8,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    lng: 'en',
+    // lng removed — let LanguageDetector decide
     supportedLngs: ['en', 'uk'],
     fallbackLng: 'en',
     load: 'currentOnly',
@@ -20,6 +20,12 @@ i18n
 
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
+    },
+
+    detection: {
+      order: ['localStorage', 'navigator', 'htmlTag'],
+      caches: ['localStorage'],
+      lookupLocalStorage: 'i18nextLng',
     },
   } as InitOptions);
 

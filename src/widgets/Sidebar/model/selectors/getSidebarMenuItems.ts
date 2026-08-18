@@ -6,11 +6,13 @@ import {
   getRouteBlog,
   getRouteHome,
   getRouteProfile,
+  getRouteSettings,
 } from '~/shared/constants/appRoutes';
 import { getUserAuthData } from '~/entities/User';
 import { SidebarItemType } from '../types/SidebarItemType';
 
 import ProfilePageIcon from '~/shared/assets/icons/profile.svg';
+import SettingsPageIcon from '~/shared/assets/icons/settings.svg';
 import BlogPageIcon from '~/shared/assets/icons/article.svg';
 import AboutPageIcon from '~/shared/assets/icons/about.svg';
 import HomePageIcon from '~/shared/assets/icons/home.svg';
@@ -47,6 +49,14 @@ export const [useSidebarMenuItems, getSidebarMenuItems] = buildAppSelector(
           title: 'Profile',
           titleKey: 'menu.profile',
           icon: ProfilePageIcon,
+        });
+
+        menuItems.push({
+          id: AppRoutes.SETTINGS,
+          to: getRouteSettings(),
+          title: 'Settings',
+          titleKey: 'menu.settings',
+          icon: SettingsPageIcon,
         });
       }
 

@@ -1,6 +1,6 @@
 import ProfileCardRedesigned from './ProfileCardRedesigned';
 import ProfileCardDeprecated from './ProfileCardDeprecated';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 import { ProfileProps } from './types';
 
 const ProfileCard = (props: ProfileProps) => {

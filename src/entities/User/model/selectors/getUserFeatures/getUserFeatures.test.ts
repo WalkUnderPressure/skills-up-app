@@ -1,6 +1,6 @@
 import { FeatureFlags } from '../../types/FeatureFlagsSchema';
 import { StoreStateSchema } from '~/app/providers/StoreProvider';
-import { DEFAULT_FEATURE_FLAGS } from '../../../constants';
+import { DEFAULT_FEATURE_FLAGS } from '../../../constants/feature-flags';
 import { getFeatureFlags } from '.';
 
 describe('getUserFeatures', () => {

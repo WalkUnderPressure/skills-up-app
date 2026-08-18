@@ -6,7 +6,7 @@ import { HStack } from '~/shared/ui/redesigned/Stack';
 import classNames from '~/shared/lib/classNames';
 import { SidebarItemType } from '../../model/types/SidebarItemType';
 import cls from './SidebarItem.module.scss';
-import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
 import { AppLink } from '~/shared/ui/redesigned/AppLink';
 
 type SidebarItemProps = {

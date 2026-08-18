@@ -9,7 +9,7 @@ import { Text as TextRedesigned } from '~/shared/ui/redesigned/Text';
 import classNames from '~/shared/lib/classNames';
 
 import cls from './PostRecommendationsList.module.scss';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 
 type PostRecommendationsListProps = PropsWithClassName;
 

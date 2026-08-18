@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Notification } from '../../model/types/NotificationStateSchema';
 import NotificationItemRedesigned from './NotificationItemRedesigned';
 import NotificationItemDeprecated from './NotificationItemDeprecated';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 
 type NotificationProps = {
   notification: Notification;

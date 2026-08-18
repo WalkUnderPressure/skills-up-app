@@ -5,7 +5,7 @@ import {
 } from '~/shared/ui/deprecated/Popups';
 import { ListBox } from '~/shared/ui/redesigned/Popups';
 import { CurrencyMap, CurrencyMapKey } from '../model/types/currencies';
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 
 type CurrencySelectProps = {
   value?: CurrencyMapKey;

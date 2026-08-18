@@ -16,7 +16,7 @@ import { HStack } from '~/shared/ui/redesigned/Stack';
 import EyeIcon from '~/shared/assets/icons/eye.svg';
 import cls from './ShortPostListItem.module.scss';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
-import { useToggleFeatures } from '~/entities/FeatureFlags';
+import { useToggleFeatures } from '~/entities/User';
 
 type PostShortListItemProps = CommonPostListItemProps;
 

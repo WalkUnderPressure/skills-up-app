@@ -25,7 +25,7 @@ import { Card } from '~/shared/ui/redesigned/Card';
 type ProfileCardHeaderRedesignedProps = PropsWithClassName;
 
 const ProfileCardHeaderRedesigned = (_props: ProfileCardHeaderRedesignedProps) => {
-  const { t } = useTranslation('pages.profile');
+  const { t } = useTranslation(['common', 'pages.profile']);
   const isCanEdit = useIsCanEdit();
 
   const validationErrors: ProfileValidationErrors = useProfileValidationErrors() || {};
@@ -52,7 +52,7 @@ const ProfileCardHeaderRedesigned = (_props: ProfileCardHeaderRedesignedProps) =
   return (
     <Card fullW={true}>
       <HStack fullW justify="between" align="center" gap="24">
-        <Text title={t('profile', { defaultValue: 'User profile' })} />
+        <Text title={t('profile', { defaultValue: 'User profile', ns: 'pages.profile' })} />
 
         {isCanEdit && (
           <>
@@ -64,7 +64,7 @@ const ProfileCardHeaderRedesigned = (_props: ProfileCardHeaderRedesignedProps) =
                     onClick={onEdit}
                     data-testid={EditableProfileDataTestIds.editBtnDataTestId}
                   >
-                    {t('form.edit', { defaultValue: 'Edit' })}
+                    {t('form.edit', { defaultValue: 'Edit', ns: 'common' })}
                     <EditIcon className={classNames(cls['btn-icon-redesigned'])} />
                   </Button>
                 ) : (
@@ -74,7 +74,7 @@ const ProfileCardHeaderRedesigned = (_props: ProfileCardHeaderRedesignedProps) =
                       onClick={onReset}
                       data-testid={EditableProfileDataTestIds.resetBtnDataTestId}
                     >
-                      {t('form.reset', { defaultValue: 'Reset' })}
+                      {t('form.reset', { defaultValue: 'Reset', ns: 'common' })}
 
                       <ResetIcon width="100px" className={classNames(cls['btn-icon-redesigned'])} />
                     </Button>
@@ -85,7 +85,7 @@ const ProfileCardHeaderRedesigned = (_props: ProfileCardHeaderRedesignedProps) =
                       disabled={!isValid}
                       data-testid={EditableProfileDataTestIds.saveBtnDataTestId}
                     >
-                      {t('form.save', { defaultValue: 'Save' })}
+                      {t('form.save', { defaultValue: 'Save', ns: 'common' })}
 
                       <SaveIcon className={classNames(cls['btn-icon-redesigned'])} />
                     </Button>

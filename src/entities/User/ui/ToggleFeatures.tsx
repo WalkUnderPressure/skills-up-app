@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { useFeatureFlags } from '~/entities/FeatureFlags/model/selectors/getUserFeatures';
+import { useFeatureFlags } from '../model/selectors/getUserFeatures';
 import { FeatureFlags } from '../model/types/FeatureFlagsSchema';
 
 interface ToggleFeaturesParams {

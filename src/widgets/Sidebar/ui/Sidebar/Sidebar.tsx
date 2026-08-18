@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import { SidebarDataTestIdProps } from '../../constants';
 
-import { ToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures } from '~/entities/User';
 import SidebarRedesigned from './SidebarRedesigned';
 import SidebarDeprecated from './SidebarDeprecated';
 

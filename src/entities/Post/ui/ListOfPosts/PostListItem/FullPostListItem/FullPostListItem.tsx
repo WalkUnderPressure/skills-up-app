@@ -28,7 +28,7 @@ import { HStack } from '~/shared/ui/redesigned/Stack';
 import cls from './FullPostListItem.module.scss';
 import EyeIcon from '~/shared/assets/icons/eye.svg';
 import { BlogPageDataTestIds } from '~/pages/BlogPage/constants';
-import { ToggleFeatures, useToggleFeatures } from '~/entities/FeatureFlags';
+import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
 
 type PostFullListItemProps = CommonPostListItemProps;
 

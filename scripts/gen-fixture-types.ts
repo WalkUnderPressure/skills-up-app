@@ -84,7 +84,7 @@ declare namespace Cypress {
   fs.writeFileSync(outputFile, content);
   autofixGeneratedFile(outputFile);
 
-  console.log(`[${new Date().toLocaleTimeString()}] Updated and formatted ${CYPRESS_TYPES_PATH}`);
+  console.info(`[${new Date().toLocaleTimeString()}] Updated and formatted ${CYPRESS_TYPES_PATH}`);
 }
 
 generateTypes();
@@ -92,7 +92,7 @@ generateTypes();
 const isWatchMode = process.argv.includes('--watch') || process.argv.includes('-w');
 
 if (isWatchMode) {
-  console.log(`Watching ${CYPRESS_FIXTURES_PATH} directory for updates...`);
+  console.info(`Watching ${CYPRESS_FIXTURES_PATH} directory for updates...`);
 
   let debounceTimer: NodeJS.Timeout | null = null;
 
