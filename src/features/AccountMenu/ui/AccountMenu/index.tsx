@@ -73,13 +73,15 @@ const AccountMenu = memo((props: AccountMenuProps) => {
     },
   ];
 
+  const userAvatarSrc = userData?.avatar ?? '';
+
   return (
     <ToggleFeatures
       feature="redesign"
       on={
         <Dropdown
           direction="bottom-left"
-          trigger={<Avatar src={userData?.avatar ?? ''} size="xs" />}
+          trigger={<Avatar src={userAvatarSrc} size="xs" />}
           items={items}
           className={className}
         />
@@ -87,7 +89,7 @@ const AccountMenu = memo((props: AccountMenuProps) => {
       off={
         <DropdownDeprecated
           direction="bottom-left"
-          trigger={<AvatarDeprecated src={userData?.avatar ?? ''} size={AvatarSize.XS} />}
+          trigger={<AvatarDeprecated src={userAvatarSrc} size={AvatarSize.XS} />}
           items={items}
           className={className}
         />

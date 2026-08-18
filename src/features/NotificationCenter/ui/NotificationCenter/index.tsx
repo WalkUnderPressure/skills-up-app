@@ -6,7 +6,8 @@ import { Button, ButtonTheme } from '~/shared/ui/deprecated/Button';
 import { useModalState } from '~/shared/ui/redesigned/Modal';
 import { Popover as PopoverDeprecated } from '~/shared/ui/deprecated/Popups';
 import { Popover } from '~/shared/ui/redesigned/Popups';
-import { Drawer } from '~/shared/ui/deprecated/Drawer';
+import { Drawer as DrawerDeprecated } from '~/shared/ui/deprecated/Drawer';
+import { Drawer } from '~/shared/ui/redesigned/Drawer';
 import BellIcon from '~/shared/assets/icons/bell.svg';
 import cls from './NotificationCenter.module.scss';
 import { ToggleFeatures, useToggleFeatures } from '~/entities/User';
@@ -39,12 +40,25 @@ const NotificationCenter = memo((props: NotificationCenterProps) => {
       <MobileView>
         <TriggerButton onClick={openModal} />
 
-        <Drawer isOpen={isOpen} onClose={closeModal}>
-          <NotificationsList
-            className={cls['notification-drawer']}
-            itemsClassName={cls.notifications}
-          />
-        </Drawer>
+        <ToggleFeatures
+          feature="redesign"
+          on={
+            <Drawer isOpen={isOpen} onClose={closeModal}>
+              <NotificationsList
+                className={cls['notification-drawer']}
+                itemsClassName={cls.notifications}
+              />
+            </Drawer>
+          }
+          off={
+            <DrawerDeprecated isOpen={isOpen} onClose={closeModal}>
+              <NotificationsList
+                className={cls['notification-drawer']}
+                itemsClassName={cls.notifications}
+              />
+            </DrawerDeprecated>
+          }
+        />
       </MobileView>
 
       <DesktopView additional={['tablet']}>

@@ -6,10 +6,19 @@ import { SignInByUsernameErrorCode } from '~/features/SignInByUsername';
 import DynamicReducerProvider, {
   ReducersMap,
 } from '~/shared/lib/components/DynamicReducerProvider';
-import { Button, ButtonTheme, ButtonRounded } from '~/shared/ui/deprecated/Button';
-import { Text, TextTheme } from '~/shared/ui/deprecated/Text';
 import classNames from '~/shared/lib/classNames';
-import { Input } from '~/shared/ui/deprecated/Input';
+
+import { Input as InputDeprecated } from '~/shared/ui/deprecated/Input';
+import { Input as InputRedesigned } from '~/shared/ui/redesigned/Input';
+import { Text as TextDeprecated, TextTheme } from '~/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '~/shared/ui/redesigned/Text';
+import {
+  Button as ButtonDeprecated,
+  ButtonTheme,
+  ButtonRounded,
+} from '~/shared/ui/deprecated/Button';
+import { Button as ButtonRedesigned } from '~/shared/ui/redesigned/Button';
+
 import {
   useSignInFormIsLoading,
   useSignInFormErrorCode,
@@ -20,7 +29,7 @@ import {
 import { signInReducer, useSignInActions } from '../../model/slices/signInSlice';
 import { useSignInByUsername } from '../../model/services/signInByUsername';
 import { getRouteProfile } from '~/shared/constants/appRoutes';
-import { User } from '~/entities/User';
+import { ToggleFeatures, User, useToggleFeatures } from '~/entities/User';
 import cls from './SignInForm.module.scss';
 
 const reducers: ReducersMap = {
@@ -91,6 +100,16 @@ const SignInForm = memo((props: SignInFormProps) => {
     }
   }, [errorCode, t]);
 
+  const { Input } = useToggleFeatures({
+    feature: 'redesign',
+    on: () => ({
+      Input: InputRedesigned,
+    }),
+    off: () => ({
+      Input: InputDeprecated,
+    }),
+  });
+
   return (
     <DynamicReducerProvider reducers={reducers}>
       <form onSubmit={onSubmitHandler} className={classNames(cls.form, {}, [className])}>
@@ -114,11 +133,31 @@ const SignInForm = memo((props: SignInFormProps) => {
           type="password"
         />
 
-        {Boolean(isFailed && errorCode) && <Text theme={TextTheme.ERROR} text={errorMessage} />}
+        {Boolean(isFailed && errorCode) && (
+          <ToggleFeatures
+            feature="redesign"
+            on={<TextRedesigned variant="error" text={errorMessage} />}
+            off={<TextDeprecated theme={TextTheme.ERROR} text={errorMessage} />}
+          />
+        )}
 
-        <Button rounded={ButtonRounded.M} theme={ButtonTheme.BG_INVERTED} disabled={isLoading}>
-          {t('sign_in.action', { defaultValue: 'Sign in' })}
-        </Button>
+        <ToggleFeatures
+          feature="redesign"
+          on={
+            <ButtonRedesigned variant="fill" disabled={isLoading}>
+              {t('sign_in.action', { defaultValue: 'Sign in' })}
+            </ButtonRedesigned>
+          }
+          off={
+            <ButtonDeprecated
+              rounded={ButtonRounded.M}
+              theme={ButtonTheme.BG_INVERTED}
+              disabled={isLoading}
+            >
+              {t('sign_in.action', { defaultValue: 'Sign in' })}
+            </ButtonDeprecated>
+          }
+        />
       </form>
     </DynamicReducerProvider>
   );

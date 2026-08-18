@@ -56,7 +56,7 @@ const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
   return (
     <DynamicReducerProvider reducers={reducers}>
-      <VStack gap="32" className={classNames(cls.content, {}, [className])}>
+      <VStack gap="24" className={classNames(cls.content, {}, [className])}>
         <EditableProfileCardHeader />
 
         <ProfileCard

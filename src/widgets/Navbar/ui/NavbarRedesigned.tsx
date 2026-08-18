@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import { Button, ButtonSize, ButtonTheme, ButtonRounded } from '~/shared/ui/deprecated/Button';
 import { SignInByUsernameModal } from '~/features/SignInByUsername';
 import { NotificationCenter } from '~/features/NotificationCenter';
 import useIsAuthorized from '~/shared/lib/hooks/useIsAuthorized';
+import { Button } from '~/shared/ui/redesigned/Button';
 import { useToggleFeatures } from '~/entities/User';
 import { AccountMenu } from '~/features/AccountMenu';
 import { SignInBtnDataTestId } from '../constants';
@@ -51,9 +51,8 @@ const NavbarRedesigned = (props: NavbarRedesignedProps) => {
       ) : (
         <>
           <Button
-            rounded={ButtonRounded.M}
-            theme={ButtonTheme.OUTLINE}
-            size={ButtonSize.L}
+            variant="outline"
+            className={classNames(cls['btn-redesigned'])}
             onClick={openSignInModal}
             data-testid={SignInBtnDataTestId}
           >

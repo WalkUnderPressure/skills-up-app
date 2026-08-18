@@ -6,7 +6,7 @@ import {
 } from '~/shared/lib/components/AnimationLibsProvider';
 import classNames, { Mods } from '~/shared/lib/classNames';
 import { useTheme } from '~/app/providers/ThemeProvider';
-import { Overlay } from '~/shared/ui/deprecated/Overlay';
+import { Overlay } from '~/shared/ui/redesigned/Overlay';
 import { useModal } from '~/shared/ui/redesigned/Modal';
 import { Portal } from '~/shared/ui/redesigned/Portal';
 import cls from './Drawer.module.scss';
@@ -113,8 +113,4 @@ const DrawerSaveUseAnimationLibs = memo((props: DrawerProps) => {
   return <Drawer {...props} />;
 });
 
-/**
- * Use new UI elements from 'shared/ui/redesigned' folder
- * @deprecated
- */
 export default withAnimationLibsProvider(DrawerSaveUseAnimationLibs);

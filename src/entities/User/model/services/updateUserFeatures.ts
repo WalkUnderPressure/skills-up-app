@@ -23,7 +23,8 @@ export const [updateUserFeatures, useUpdateUserFeatures] = buildAppAsyncThunk<
   } = thunkAPI;
 
   const state = getState();
-  const userId = state?.user.authData?.id || '';
+  const authData = state?.user.authData;
+  const userId = authData?.id || '';
 
   try {
     let userData: Nullable<User> = null;
@@ -41,7 +42,12 @@ export const [updateUserFeatures, useUpdateUserFeatures] = buildAppAsyncThunk<
 
       userData = response.data;
 
-      dispatch(userActions.setAuthData(userData));
+      dispatch(
+        userActions.setAuthData({
+          ...authData,
+          ...userData,
+        }),
+      );
     }
 
     if (!userData) {
